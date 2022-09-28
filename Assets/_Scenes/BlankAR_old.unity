@@ -336,18 +336,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5960345366612774318}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &536957988 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5960345367149599114, guid: b4dd51d2d8792fb46b0a9546a0234d2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5960345366612774318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19930361cd8b71e4aad012ab74503e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &656880745
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,17 +967,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8ce3e600a4425aa3b5ebb0cf70ad68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testGift: {fileID: 0}
-  placementIndicator: {fileID: 1616616726}
-  arSession: {fileID: 656880747}
-  settingSO: {fileID: 11400000, guid: b83a716757760fa4284f112e23cc2366, type: 2}
-  mainSceneHud: {fileID: 536957988}
+  assetsSo: {fileID: 0}
+  portalController: {fileID: 0}
+  giftsController: {fileID: 0}
+  mainScene: {fileID: 0}
   gpsService: {fileID: 1659859606}
-  spawner: {fileID: 1659859607}
-  maxGameObjectsCount: 10
-  maxDistanceToReseiveReward: 10
-  arCursor: {fileID: 1659859605}
-  raycastManager: {fileID: 1659859603}
+  maxDistanceToReceiveReward: 10
 --- !u!1001 &5960345366612774318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1091,7 +1074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040590508, guid: b4dd51d2d8792fb46b0a9546a0234d2a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 192587846399058393, guid: b4dd51d2d8792fb46b0a9546a0234d2a,
         type: 3}
@@ -1363,10 +1346,15 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7849512399276792393, guid: b4dd51d2d8792fb46b0a9546a0234d2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9055922255791955369, guid: b4dd51d2d8792fb46b0a9546a0234d2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9055922255791955369, guid: b4dd51d2d8792fb46b0a9546a0234d2a,
         type: 3}

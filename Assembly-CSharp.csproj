@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2021_3_1;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;VUFORIA_ANDROID_SETTINGS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_1;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;VUFORIA_ANDROID_SETTINGS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -42,40 +42,160 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/QuickOutline/Scripts/Outline.cs" />
+     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/TargetStatusExtension.cs" />
+     <Compile Include="Assets/Modules/Walkabout/States/StateGrowSnowball/StateGrowSnowball.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/Scripts/BuildAShipManager.cs" />
+     <Compile Include="Assets/Modules/Shared/SpriteSequencePlayer/SpriteSequencePlayer.cs" />
+     <Compile Include="Assets/Modules/Homeland/Scripts/ExitToWorldMap.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/Scripts/BuildAShipResourceRenderer.cs" />
+     <Compile Include="Assets/Modules/Walkabout/VFX/Snowman/WalkaboutSnowmanEffects.cs" />
+     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/GroundPlaneUI.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/CheckboxButton/CheckboxButton.cs" />
+     <Compile Include="Assets/Modules/Shared/AboutInfo/TMPHyperlink.cs" />
      <Compile Include="Assets/ExampleAssets/PlacementIndicator.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/AppButton/ButtonScaler.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/DemoUtil.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/Gauge/Gauge.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/IARController.cs" />
      <Compile Include="Assets/Scripts/Prototype/Assets/AssetsSO.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/CameraView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Utils/Utils.cs" />
-     <Compile Include="Assets/Scripts/Items/InteractableObject.cs" />
-     <Compile Include="Assets/ExampleAssets/Scripts/ARFeatheredPlaneMeshVisualizer.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/TargetSelectView.cs" />
-     <Compile Include="Assets/Scripts/Items/Gift.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/ARController.cs" />
+     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/MidAirUI.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/SurfaceReticle.cs" />
+     <Compile Include="Assets/Modules/Shared/ErrorManager/ErrorManager.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/DebugMenu/DebugMenuGUI.cs" />
+     <Compile Include="Assets/Modules/Homeland/Scripts/HomelandManager.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/Scripts/Snowring.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/VuforiaAR/VuforiaARController.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/Scripts/BuildAShipActor.cs" />
+     <Compile Include="Assets/Modules/Debug/BuildAShipDebugManager.cs" />
+     <Compile Include="Assets/Modules/Photo/Scripts/PhotoStack.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/AppEvent/AppEvent.cs" />
+     <Compile Include="Assets/Modules/Shared/ARPlane/ARPlaneHelper.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/Billboard.cs" />
+     <Compile Include="Assets/Modules/Shared/VFX/FeaturePoints/FeaturePointHelper.cs" />
+     <Compile Include="Assets/Modules/Homeland/States/StateSelectLevel/StateSelectLevel.cs" />
+     <Compile Include="Assets/Modules/PersistantData/PersistentDataUtility.cs" />
+     <Compile Include="Assets/Modules/Walkabout/States/StateBuildSnowman/StateBuildSnowman.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Animation/InterpolationUtil.cs" />
+     <Compile Include="Assets/Modules/Walkabout/VFX/Footstep/Scripts/Decal.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/ARController.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/States/StatePlacement/StatePlacement.cs" />
+     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutManager.cs" />
+     <Compile Include="Assets/Modules/Shared/States/StateCountdown/StateCountdown.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/SnowballSplat.cs" />
      <Compile Include="Assets/ARPG Effects/Scripts/ARPGFXRotation.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainSceneView.cs" />
+     <Compile Include="Assets/Modules/Photo/Scripts/PhotoManager.cs" />
+     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutActor.cs" />
+     <Compile Include="Assets/Modules/Shared/LevelSwitcher/LevelSwitcher.cs" />
      <Compile Include="Assets/Scripts/Prototype/ProjectContext.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Floor/MeshFloorFallback.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/States/StateCollectDone/StateCollectDone.cs" />
+     <Compile Include="Assets/Modules/Homeland/Scripts/Airship.cs" />
      <Compile Include="Assets/Scripts/Prototype/World/GiftsController.cs" />
      <Compile Include="Assets/Scripts/Playground/Builder.cs" />
-     <Compile Include="Assets/ExampleAssets/Scripts/AnchorCreator.cs" />
-     <Compile Include="Assets/ARPG Effects/Scripts/ARPGFXLightFlicker.cs" />
+     <Compile Include="Assets/Modules/Shared/AudioManager/AudioKeys.cs" />
+     <Compile Include="Assets/Modules/Shared/AboutInfo/AboutInfoManager.cs" />
+     <Compile Include="Assets/Modules/Homeland/Scripts/HomelandEvents.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/Scripts/BuildAShipEvents.cs" />
+     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/ProductPlacement.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/UI/RectTransformEventBridge.cs" />
+     <Compile Include="Assets/Modules/Splash/Sripts/SplashManager.cs" />
+     <Compile Include="Assets/Modules/Shared/States/StateBase.cs" />
+     <Compile Include="Assets/Modules/Shared/SceneLookup/SceneLookup.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/States/StateScanning/StateScanning.cs" />
+     <Compile Include="Assets/Modules/Debug/SnowballTossDebugManager.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/States/StateTossing/StateTossing.cs" />
      <Compile Include="Assets/Scripts/Prototype/Assets/GiftModel.cs" />
      <Compile Include="Assets/Scripts/Items/GiftsPortalView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/PortalController.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/WorldBoxView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Services/GpsService.cs" />
-     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/TouchHandler.cs" />
      <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/DevicePoseUI.cs" />
-     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/ProductPlacement.cs" />
-     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/TargetStatusExtension.cs" />
-     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/MidAirUI.cs" />
+     <Compile Include="Assets/Modules/Homeland/States/StateYetiIntro/StateYetiIntro.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/States/StateScanning/StateScanning.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Logging/UnityLogStackTraceEnabler.cs" />
+     <Compile Include="Assets/Modules/Homeland/HomelandProps/HomelandProps.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Floor/PlaneFloorFallback.cs" />
+     <Compile Include="Assets/Scripts/Prototype/World/PortalController.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/States/StatePortalPlacement/StatePortalPlacement.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/SafeAreaFitter.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/Scripts/SnowballTossEvents.cs" />
+     <Compile Include="Assets/Modules/Shared/VFX/MeshClipper/Clipper.cs" />
+     <Compile Include="Assets/Scripts/Prototype/World/WorldBoxView.cs" />
+     <Compile Include="Assets/Modules/Shared/SaveUtil/SaveUtil.cs" />
+     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutSnowman.cs" />
+     <Compile Include="Assets/Modules/Shared/Lighting/LightEstimationHelper.cs" />
+     <Compile Include="Assets/Modules/Debug/WalkaboutDebugManager.cs" />
+     <Compile Include="Assets/Modules/Loading/States/StateLegalDocs/StateLegalDoc.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/DebugMenu/DebugMenuButton.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/ReturnToHomelandButton/ReturnToHomelandButton.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/DemoEvents.cs" />
+     <Compile Include="Assets/Modules/Walkabout/States/StateGameOver/StateGameOver.cs" />
+     <Compile Include="Assets/Modules/Platform/PlatformValidator.cs" />
+     <Compile Include="Assets/Modules/Art/Homeland/VFX/Clouds/HomelandCloudMover.cs" />
+     <Compile Include="Assets/Modules/Homeland/States/StateWelcome/StateWelcome.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Networking/Networking.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/SnowballMaker.cs" />
+     <Compile Include="Assets/Modules/Shared/ARPlane/ARPlane.cs" />
+     <Compile Include="Assets/Modules/Walkabout/VFX/Footstep/Scripts/DecalStamper.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/EnvResources/EnvResource.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/CameraView.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Pooler/Pooler.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/Scripts/BuildAShipResourceTile.cs" />
+     <Compile Include="Assets/Modules/Shared/VFX/TransparentDepthHelper/TransparentDepthHelper.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Utils/Utils.cs" />
+     <Compile Include="Assets/Scripts/Items/InteractableObject.cs" />
+     <Compile Include="Assets/Modules/Shared/AudioManager/AudioManager.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/ARDKController.cs" />
      <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/DevicePoseManager.cs" />
-     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/GroundPlaneUI.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/IARController.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/VuforiaAR/VuforiaARController.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Animation/DynamicLook.cs" />
+     <Compile Include="Assets/Modules/Shared/States/StateWarning/StateWarning.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/States/StateGameOver/StateGameOver.cs" />
+     <Compile Include="Assets/Modules/Shared/Consts/Level.cs" />
+     <Compile Include="Assets/Modules/Shared/AudioManager/AudioClipList.cs" />
+     <Compile Include="Assets/Modules/Walkabout/Scripts/GameboardHelper.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Animation/PathAnimation.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/ARDKTargetSelectView.cs" />
+     <Compile Include="Assets/ExampleAssets/Scripts/ARFeatheredPlaneMeshVisualizer.cs" />
+     <Compile Include="Assets/ExampleAssets/GroundPlane/Scripts/TouchHandler.cs" />
+     <Compile Include="Assets/Modules/Shared/States/StateInstructions/StateInstructions.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/TargetSelectView.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/VuforiaAR/VuforiaTargetSelectView.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleTester.cs" />
+     <Compile Include="Assets/Scripts/Items/Gift.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/Scripts/SnowringThruRing.cs" />
+     <Compile Include="Assets/Modules/Shared/Rendering/RenderPipelineHelper.cs" />
+     <Compile Include="Assets/Modules/FrostFlower/Scripts/FrostFlowerHero.cs" />
+     <Compile Include="Assets/Modules/Homeland/Badges/BadgeManager.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/States/StateCollect/StateCollect.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/Snowball.cs" />
+     <Compile Include="Assets/Modules/Homeland/States/StateBadgeNotify/StateBadgeNotify.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/MainSceneView.cs" />
+     <Compile Include="Assets/Modules/Shared/UI/ButtonWithCooldown/ButtonWithCooldown.cs" />
+     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutEvents.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/GameTimeAndScore.cs" />
+     <Compile Include="Assets/Modules/Shared/Scripts/SnowballBurst.cs" />
+     <Compile Include="Assets/Modules/Homeland/States/StateAirship/StateAirship.cs" />
+     <Compile Include="Assets/Modules/FrostFlower/Scripts/FrostFlowerContent.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/States/StateGameOver/StateGameOver.cs" />
+     <Compile Include="Assets/Modules/SnowballToss/Scripts/SnowballTossManager.cs" />
+     <Compile Include="Assets/Modules/Shared/AudioManager/AudioLoop.cs" />
+     <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleUtil.cs" />
+     <Compile Include="Assets/Modules/Homeland/Scripts/HomelandWaypoint.cs" />
+     <Compile Include="Assets/Modules/Walkabout/States/StatePlacement/StatePlacement.cs" />
+     <Compile Include="Assets/Modules/Art/VPS/WorldStandingPointIndicator/Scripts/WorldStandingPointIndicator.cs" />
+     <Compile Include="Assets/ExampleAssets/Scripts/AnchorCreator.cs" />
+     <Compile Include="Assets/ARPG Effects/Scripts/ARPGFXLightFlicker.cs" />
+     <Compile Include="Assets/Modules/FrostFlower/Scripts/FrostFlowerManager.cs" />
+     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutSnowfall.cs" />
+     <Compile Include="Assets/Modules/Walkabout/States/StateScanning/StateScanning.cs" />
+     <Compile Include="Assets/Modules/Shared/VFX/FeaturePoints/FeaturePointParticle.cs" />
+     <Compile Include="Assets/Modules/Homeland/Scripts/HomelandActor.cs" />
+     <Compile Include="Assets/Modules/BuildAShip/States/StateYetiRequest/StateYetiRequest.cs" />
+     <Compile Include="Assets/Modules/Shared/Fader/Fader.cs" />
+     <Compile Include="Assets/Modules/Photo/Scripts/Photo.cs" />
+     <Compile Include="Assets/Modules/Loading/States/StateLoading/StateLoading.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Services/GpsService.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <None Include="Assets/Resources/Mapbox/MapboxConfiguration.txt" />
      <None Include="Assets/StreamingAssets/Vuforia/Vuforia_Marslander_RZR_Toy_Advanced.xml" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
@@ -339,8 +459,8 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+     <Reference Include="zxing.unity">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/ARDK/External/Plugins/zxing.unity.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.StandardEvents">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
@@ -348,14 +468,32 @@
      <Reference Include="Unity.Analytics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Burst.Unsafe">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.Unsafe.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
      <Reference Include="Vuforia.Unity.Wrapper">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Wrapper.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Burst.Cecil.Pdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+     </Reference>
      <Reference Include="Vuforia.Unity.Engine">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Engine.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Cecil.Rocks">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
@@ -969,6 +1107,9 @@
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.Purchasing">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
      </Reference>
@@ -978,14 +1119,17 @@
      <Reference Include="Unity.InternalAPIEngineBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.007.dll</HintPath>
      </Reference>
+     <Reference Include="VuforiaEditorScripts">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.Purchasing.SecurityStub">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Advertisements">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.ARCore.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
+     <Reference Include="Unity.Searcher.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARKit.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
@@ -998,6 +1142,9 @@
      </Reference>
      <Reference Include="Unity.Rider.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Analytics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Analytics.dll</HintPath>
@@ -1020,6 +1167,9 @@
      <Reference Include="Unity.XR.MockHMD">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.ShaderGraph.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.Purchasing.Codeless">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
      </Reference>
@@ -1028,6 +1178,9 @@
      </Reference>
      <Reference Include="Unity.XR.ARAnalytics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARAnalytics.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARSubsystems.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
@@ -1040,9 +1193,6 @@
      </Reference>
      <Reference Include="UnityEngine.Monetization">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.ARCore">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARSubsystems">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
@@ -1068,11 +1218,14 @@
      <Reference Include="Unity.InternalAPIEditorBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.007.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Analytics.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
@@ -1080,14 +1233,23 @@
      <Reference Include="Unity.Timeline">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Services.Analytics.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Analytics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Core.Runtime">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Subsystem.Registration">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
@@ -1110,8 +1272,14 @@
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.Purchasing.SecurityCore">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.XR.LegacyInputHelpers">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
@@ -1124,6 +1292,9 @@
      </Reference>
      <Reference Include="Unity.XR.CoreUtils">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Purchasing.Stores">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
@@ -1140,17 +1311,21 @@
      <Reference Include="UnityEngine.Advertisements.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.ARFoundation">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
-     </Reference>
-     <Reference Include="VuforiaEditorScripts">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
+     <Reference Include="Unity.RenderPipelines.Core.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="VuforiaScripts">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.XR.ARFoundation">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{191d8523-e599-6c39-5819-4b3dc9182d8b}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="IngameDebugConsole.Editor.csproj">
       <Project>{8bf52602-5f51-ac59-6e11-af72f4b5e0e9}</Project>
       <Name>IngameDebugConsole.Editor</Name>
@@ -1162,6 +1337,18 @@
     <ProjectReference Include="CommonScripts.csproj">
       <Project>{7cf4749b-8dc8-bf1b-19ef-7f5c369ea0de}</Project>
       <Name>CommonScripts</Name>
+    </ProjectReference>
+    <ProjectReference Include="ARDK-Editor.csproj">
+      <Project>{72a7a07c-5dc9-4038-3949-10a4b897fbbb}</Project>
+      <Name>ARDK-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="ARDK-Examples.csproj">
+      <Project>{64d29f55-3447-c444-940b-901c5b002e18}</Project>
+      <Name>ARDK-Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="ARDK.csproj">
+      <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
+      <Name>ARDK</Name>
     </ProjectReference>
     <ProjectReference Include="CommonEditor.csproj">
       <Project>{fcfc01f6-3568-5f6a-ea22-2121d38e3e0c}</Project>

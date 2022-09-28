@@ -27,7 +27,7 @@ namespace Prototype
 
         private void Start()
         {
-            _arController = FindObjectOfType<VuforiaARController>();
+            _arController = FindObjectOfType<ARDKController>();
             _cameraView = _arController.GetCamera();
             mainScene.ConfigureAction(new MainSceneHUDViewInfo
             {
