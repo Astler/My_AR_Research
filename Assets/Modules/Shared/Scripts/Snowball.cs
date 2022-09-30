@@ -1,8 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 ﻿using UnityEngine;
 using System;
-
-using Random = UnityEngine.Random;
+ using Modules.Shared.SceneLookup;
+ using Random = UnityEngine.Random;
 
 namespace Niantic.ARVoyage
 {

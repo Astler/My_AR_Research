@@ -74,25 +74,4 @@ public class Builder : MonoBehaviour
     {
         Instantiate(boxes[_selectedBox], position, rotation);
     }
-
-    private void Update()
-    {
-        if (_selectedWorldBlock)
-        {
-            _selectedWorldBlock.SetIsSelected(false);
-        }
-
-        var ray = Camera.main.ViewportPointToRay(new Vector2(.5f, .5f));
-
-        if (Physics.Raycast(ray, out RaycastHit hit, 200f, mask))
-        {
-            var worldBlock = hit.collider.gameObject.GetComponent<WorldBoxView>();
-
-            if (worldBlock)
-            {
-                _selectedWorldBlock = worldBlock;
-                worldBlock.SetIsSelected(true);
-            }
-        }
-    }
 }

@@ -7,7 +7,7 @@ namespace Prototype.World
     {
         [SerializeField] private GiftsController giftsController;
         [SerializeField] private int totalGiftsInPortal;
-        [SerializeField] private float portalHeight = 3f;
+        [SerializeField] private float placementHeight = 3f;
 
         [Space, Header("Resources"), SerializeField]
         private GiftsPortalView portalPrefab;
@@ -21,9 +21,21 @@ namespace Prototype.World
             _spawnedPortal = Instantiate(portalPrefab, _transform);
         }
 
-        public void OpenPortalInPosition(Vector3 portalPosition)
+        public void OpenPortalInPosition(Vector3 portalPosition, Vector3 ceilPosition)
         {
-            Vector3 updatedPosition = portalPosition + Vector3.up * portalHeight;
+            float height = placementHeight;
+
+            if (ceilPosition != Vector3.zero)
+            {
+                float distanceToCeil = Vector3.Distance(portalPosition, ceilPosition);
+
+                if (placementHeight > distanceToCeil)
+                {
+                    height = distanceToCeil - 0.5f;
+                }
+            }
+
+            Vector3 updatedPosition = portalPosition + Vector3.up * height;
 
             _spawnedPortal.SetPosition(updatedPosition);
 

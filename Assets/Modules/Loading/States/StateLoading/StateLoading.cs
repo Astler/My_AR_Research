@@ -4,7 +4,7 @@ using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Extensions;
 using Niantic.ARDK.Utilities;
 using System.Collections;
-
+using Modules.Shared.SceneLookup;
 using TMPro;
 
 using UnityEngine;

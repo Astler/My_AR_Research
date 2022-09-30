@@ -327,12 +327,6 @@
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
-     <Reference Include="Vuforia.Unity.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Editor/Vuforia.Unity.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Vuforia.Unity.Wrapper">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Wrapper.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
      </Reference>
@@ -341,9 +335,6 @@
      </Reference>
      <Reference Include="unityplastic">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Vuforia.Unity.Engine">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Engine.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Prototype.AR
 {
@@ -17,8 +18,11 @@ namespace Prototype.AR
 
         public Vector3 GetPointerPosition() => targetSelectView.GetPointerPosition();
 
+        public Vector3 GetCeilPosition() => targetSelectView.GetCeilPosition();
+
         public void Reset()
         {
+            SceneManager.LoadScene("SelectedScene");
         }
     }
 }

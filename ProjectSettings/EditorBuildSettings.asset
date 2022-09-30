@@ -6,17 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/SnowballToss.unity
+    path: Assets/_Scenes/SelectedScene.unity
     guid: d5d8cc0d1c8974b858745941de2b4123
-  - enabled: 1
-    path: Assets/ARDKExamples/PlaneAnchors/PlaneAnchors.unity
-    guid: bfba5cea385a241f3af07584baef9462
-  - enabled: 1
-    path: Assets/_Scenes/BuildScene_alt.unity
-    guid: 107f5829c97624f8d9e415a4946653e3
-  - enabled: 1
-    path: Assets/_Scenes/3-GroundPlane.unity
-    guid: bb0581d54f59940a2932e9d2ccd368c6
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 455ead877bcd8ff47a62e2e686e4e343,
       type: 2}
@@ -25,6 +16,8 @@ EditorBuildSettings:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: db15e89d6362445708aac9363b2d1849,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 58f40b12bbc864f3c96c6505a9a1e1e3,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f79febf14bcce47c499645f546e870ec,
       type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 3b33869a261f78f4098c6b355a8d1296,
       type: 2}

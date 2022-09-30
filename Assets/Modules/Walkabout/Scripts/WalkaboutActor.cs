@@ -1,6 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 using System.Collections;
 using System.Collections.Generic;
+using Modules.Shared.SceneLookup;
 using UnityEngine;
 
 using Niantic.ARDK.Extensions.Gameboard;

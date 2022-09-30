@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using Modules.Shared.SceneLookup;
 using Niantic.ARDK.Extensions.Gameboard;
 
 namespace Niantic.ARVoyage.Walkabout

@@ -1,5 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 using System.Collections;
+using Modules.Shared.SceneLookup;
 using UnityEngine;
 
 
@@ -15,12 +16,12 @@ namespace Niantic.ARVoyage
         // Inspector references to relevant objects
         [Header("State Machine")]
         [SerializeField] protected bool isStartState = true;
-        [SerializeField] protected GameObject nextState;
-        [SerializeField] protected GameObject warningState;
+        [SerializeField] protected StateBase nextState;
+        [SerializeField] protected StateBase warningState;
         protected bool running;
         protected float timeStartedState;
-        protected GameObject thisState;
-        protected GameObject exitState;
+        protected StateBase thisState;
+        protected StateBase exitState;
 
         [Header("GUI")]
         [SerializeField] private GameObject gui;
@@ -41,7 +42,7 @@ namespace Niantic.ARVoyage
 
         protected virtual void OnEnable()
         {
-            thisState = this.gameObject;
+            thisState = this;
             exitState = null;
             Debug.Log("Starting " + thisState);
             timeStartedState = Time.time;
@@ -85,14 +86,14 @@ namespace Niantic.ARVoyage
             exitState = (warningState == null || StateWarning.occurred) ? nextState : warningState;
         }
 
-        protected void Exit(GameObject nextState)
+        protected void Exit(StateBase nextState)
         {
             running = false;
 
             StartCoroutine(ExitRoutine(nextState));
         }
 
-        protected virtual IEnumerator ExitRoutine(GameObject nextState)
+        protected virtual IEnumerator ExitRoutine(StateBase nextState)
         {
             // Fade out GUI
             yield return StartCoroutine(DemoUtil.FadeOutGUI(gui, fader));

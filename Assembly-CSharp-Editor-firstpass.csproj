@@ -321,12 +321,6 @@
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
-     <Reference Include="Vuforia.Unity.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Editor/Vuforia.Unity.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Vuforia.Unity.Wrapper">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Wrapper.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
      </Reference>
@@ -335,9 +329,6 @@
      </Reference>
      <Reference Include="unityplastic">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Vuforia.Unity.Engine">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Engine.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
@@ -981,9 +972,6 @@
      <Reference Include="Unity.InternalAPIEngineBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.007.dll</HintPath>
      </Reference>
-     <Reference Include="VuforiaEditorScripts">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Purchasing.SecurityStub">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
      </Reference>
@@ -992,6 +980,9 @@
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARCore.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARKit.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
@@ -1011,14 +1002,14 @@
      <Reference Include="Analytics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Analytics.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.SpatialTracking">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Simulation.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Simulation.Editor.dll</HintPath>
@@ -1029,14 +1020,14 @@
      <Reference Include="Unity.XR.MockHMD">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Purchasing.Codeless">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.DataPrivacy">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.ShaderGraph.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARAnalytics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARAnalytics.Editor.dll</HintPath>
@@ -1055,6 +1046,9 @@
      </Reference>
      <Reference Include="UnityEngine.Monetization">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARCore">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARSubsystems">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
@@ -1176,9 +1170,6 @@
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="VuforiaScripts">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.ARFoundation">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
      </Reference>
@@ -1196,25 +1187,13 @@
       <Project>{26b08317-265e-fb83-0baf-00a57b6de0a8}</Project>
       <Name>IngameDebugConsole.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="CommonScripts.csproj">
-      <Project>{7cf4749b-8dc8-bf1b-19ef-7f5c369ea0de}</Project>
-      <Name>CommonScripts</Name>
-    </ProjectReference>
     <ProjectReference Include="ARDK-Editor.csproj">
       <Project>{72a7a07c-5dc9-4038-3949-10a4b897fbbb}</Project>
       <Name>ARDK-Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="ARDK-Examples.csproj">
-      <Project>{64d29f55-3447-c444-940b-901c5b002e18}</Project>
-      <Name>ARDK-Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
       <Name>ARDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="CommonEditor.csproj">
-      <Project>{fcfc01f6-3568-5f6a-ea22-2121d38e3e0c}</Project>
-      <Name>CommonEditor</Name>
     </ProjectReference>
     <ProjectReference Include="VuforiaVersionCheckerScripts.csproj">
       <Project>{b78a7895-63c9-6040-31b5-d980b5614bf8}</Project>

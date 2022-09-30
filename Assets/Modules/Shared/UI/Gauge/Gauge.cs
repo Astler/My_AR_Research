@@ -1,7 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-﻿using UnityEngine;
+ using UnityEngine;
 using UnityEngine.UI;
 using System;
+ using Modules.Shared.SceneLookup;
 
 namespace Niantic.ARVoyage
 {

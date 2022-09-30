@@ -1,6 +1,6 @@
 ﻿using Items;
 using Prototype.AR;
-using Prototype.AR.VuforiaAR;
+using Prototype.AR.FoundationAR;
 using Prototype.Assets;
 using Prototype.Screens;
 using Prototype.Services;
@@ -28,6 +28,7 @@ namespace Prototype
         private void Start()
         {
             _arController = FindObjectOfType<ARDKController>();
+            // _arController = FindObjectOfType<ARFoundationController>();
             _cameraView = _arController.GetCamera();
             mainScene.ConfigureAction(new MainSceneHUDViewInfo
             {
@@ -102,7 +103,7 @@ namespace Prototype
         }
 
         private void SpawnPortalWithRewards() =>
-            portalController.OpenPortalInPosition(_arController.GetPointerPosition());
+            portalController.OpenPortalInPosition(_arController.GetPointerPosition(), _arController.GetCeilPosition());
 
         private void Restart()
         {

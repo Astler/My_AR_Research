@@ -3,7 +3,6 @@ using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.Input.Legacy;
 using UnityEngine;
 
 namespace Prototype.AR
@@ -12,13 +11,17 @@ namespace Prototype.AR
     {
         public ARHitTestResultType HitTestType = ARHitTestResultType.ExistingPlane;
         [SerializeField] private Transform targetPlacement;
+        [SerializeField] private LayerMask ceilCheckLayer;
+        [SerializeField] private MeshCeilTrackerView ceilView;
 
         private Vector2 _screenCenter;
         private Vector3 _position;
+        private Vector3 _ceilPosition;
         private IARSession _session;
         private IARController _arController;
 
         public Vector3 GetPointerPosition() => _position;
+        public Vector3 GetCeilPosition() => _ceilPosition;
 
         private void Start()
         {
@@ -44,6 +47,13 @@ namespace Prototype.AR
         {
             GetARPositionByScreenPosition(_screenCenter);
             targetPlacement.position = _position;
+            //
+            // bool hasHit = Physics.Raycast(transform.position, Vector3.up, out RaycastHit hit, 100, ceilCheckLayer);
+            // Debug.DrawRay(transform.position, Vector3.up * 100, Color.red);
+            //
+            // _ceilPosition = hasHit ? hit.point : Vector3.zero;
+            //
+            // Debug.Log($"hits ceil {hasHit} {hit.point}");
         }
 
         public Vector3 GetARPositionByScreenPosition(Vector2 screenPosition)
@@ -65,10 +75,18 @@ namespace Prototype.AR
             if (count <= 0)
                 return Vector3.zero;
 
-            // Get the closest result
-            var result = results[0];
+            IARHitTestResult result = results[0];
 
             _position = result.WorldTransform.ToPosition();
+
+            //ceil check
+
+            bool hasHit = Physics.Raycast(_position + Vector3.up, Vector3.up, out RaycastHit hit, 100,
+                ceilCheckLayer);
+
+            Debug.Log($"{hasHit}");
+
+            _ceilPosition = hasHit ? hit.point : Vector3.zero;
 
             return _position;
         }

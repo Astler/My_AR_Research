@@ -1,5 +1,4 @@
 using UnityEngine;
-using Vuforia;
 
 namespace Prototype.AR
 {
@@ -25,14 +24,7 @@ namespace Prototype.AR
 
         private void Awake()
         {
-            Camera foundCamera = null;
-
-            if (VuforiaBehaviour.Instance != null)
-            {
-                foundCamera = VuforiaBehaviour.Instance.GetComponent<Camera>();
-            }
-
-            _camera = foundCamera ? foundCamera : Camera.main;
+            _camera = Camera.main;
         }
 
         public Transform GetTransform() => _camera.transform;

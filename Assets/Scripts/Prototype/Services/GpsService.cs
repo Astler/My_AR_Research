@@ -23,17 +23,13 @@ namespace Prototype.Services
         private IEnumerator StartGpsService()
         {
 #if UNITY_ANDROID
-            if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission
-                    .FineLocation))
-            {
-                UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.FineLocation);
-            }
-
             // First, check if user has location service enabled
             if (!Input.location.isEnabledByUser)
             {
                 Debug.LogFormat("Android and Location not enabled");
                 OnError?.Invoke("Android and Location not enabled");
+                yield return null;
+                TryToStartGpsService();
                 yield break;
             }
 
@@ -56,6 +52,8 @@ namespace Prototype.Services
             {
                 Debug.Log("Timed out");
                 OnError?.Invoke("Timed out");
+                yield return null;
+                TryToStartGpsService();
                 yield break;
             }
 
@@ -63,6 +61,8 @@ namespace Prototype.Services
             {
                 Debug.Log("Unable to determine device location");
                 OnError?.Invoke("Unable to determine device location");
+                yield return null;
+                TryToStartGpsService();
                 yield break;
             }
 
