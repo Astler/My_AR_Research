@@ -6,11 +6,8 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-
 using AOT;
-
 using Google.Protobuf;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Protobuf;
@@ -94,7 +91,7 @@ namespace Niantic.ARDK.Telemetry
 
     // fields required for safe startup
     private static object _lock;
-    private static bool _isIntialised = false; 
+    private static bool _isIntialised; 
     public static readonly _TelemetryService Instance;
     
     static _TelemetryService()
@@ -174,7 +171,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           InitializationEvent = initializationEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -195,7 +192,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           ArSessionEvent = sessionEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -216,7 +213,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           EnableContextualAwarenessEvent = enabledContextualAwarenessEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -237,7 +234,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           MultiplayerColocalizationEvent = multiplayerColocalizationEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -258,7 +255,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           MultiplayerConnectionEvent = multiplayerConnectionEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -279,7 +276,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           MultiplayerColocalizationInitializationEvent = multiplayerColocalizationInitializationEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -300,7 +297,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
         {
           LightshipServiceEvent = lightshipServiceEvent,
           TimestampMs = GetCurrentUtcTimestamp(),

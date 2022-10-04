@@ -1,8 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-﻿using System.Collections;
-using System.Collections.Generic;
+
+using System.Collections;
 using UnityEngine;
-using System;
 
 namespace Niantic.ARVoyage
 {
@@ -20,7 +19,7 @@ namespace Niantic.ARVoyage
         public BubbleScaleAnimationType animationType;
 
         public float scaleUpTarget = 1f;
-        public float scaleDownTarget = 0f;
+        public float scaleDownTarget;
 
         private bool scaleUp;
 

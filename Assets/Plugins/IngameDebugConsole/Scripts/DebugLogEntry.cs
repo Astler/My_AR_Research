@@ -1,11 +1,12 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 
 // Container for a simple debug entry
 namespace IngameDebugConsole
 {
-	public class DebugLogEntry : System.IEquatable<DebugLogEntry>
+	public class DebugLogEntry : IEquatable<DebugLogEntry>
 	{
 		private const int HASH_NOT_CALCULATED = -623218;
 
@@ -35,7 +36,7 @@ namespace IngameDebugConsole
 		// Check if two entries have the same origin
 		public bool Equals( DebugLogEntry other )
 		{
-			return this.logString == other.logString && this.stackTrace == other.stackTrace;
+			return logString == other.logString && stackTrace == other.stackTrace;
 		}
 
 		// Checks if logString or stackTrace contains the search term
@@ -94,7 +95,7 @@ namespace IngameDebugConsole
 
 	public struct DebugLogEntryTimestamp
 	{
-		public readonly System.DateTime dateTime;
+		public readonly DateTime dateTime;
 #if !IDG_OMIT_ELAPSED_TIME
 		public readonly float elapsedSeconds;
 #endif
@@ -103,7 +104,7 @@ namespace IngameDebugConsole
 #endif
 
 #if !IDG_OMIT_ELAPSED_TIME && !IDG_OMIT_FRAMECOUNT
-		public DebugLogEntryTimestamp( System.DateTime dateTime, float elapsedSeconds, int frameCount )
+		public DebugLogEntryTimestamp( DateTime dateTime, float elapsedSeconds, int frameCount )
 #elif !IDG_OMIT_ELAPSED_TIME
 		public DebugLogEntryTimestamp( System.DateTime dateTime, float elapsedSeconds )
 #elif !IDG_OMIT_FRAMECOUNT

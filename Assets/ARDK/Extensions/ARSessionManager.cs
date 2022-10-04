@@ -1,14 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions
@@ -54,11 +52,11 @@ namespace Niantic.ARDK.Extensions
 
     [SerializeField]
     [Tooltip("A boolean specifying whether or not camera images are analyzed to estimate scene lighting.")]
-    private bool _isLightEstimationEnabled = false;
+    private bool _isLightEstimationEnabled;
 
     [SerializeField]
     [Tooltip("A value specifying whether the camera should use autofocus or not when running.")]
-    private bool _isAutoFocusEnabled = false;
+    private bool _isAutoFocusEnabled;
 
     [SerializeField]
     [Tooltip("An iOS-only value specifying how the session maps the real-world device motion into a coordinate system.")]
@@ -226,7 +224,7 @@ namespace Niantic.ARDK.Extensions
       ARLog._DebugFormat("Created {0} ARSession: {1}.", false, ARSession.RuntimeEnvironment, ARSession.StageIdentifier);
 
       // Just in case the dev disposes the ARSession themselves instead of through this manager
-      ARSession.Deinitialized += (_) => ARSession = null;
+      ARSession.Deinitialized += _ => ARSession = null;
     }
 
     /// Runs an already created session with the provided options.

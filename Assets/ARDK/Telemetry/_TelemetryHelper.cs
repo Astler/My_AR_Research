@@ -1,7 +1,6 @@
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Protobuf;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Telemetry
@@ -18,7 +17,7 @@ namespace Niantic.ARDK.Telemetry
     private static void LogEventForInitialization(AnyARSessionInitializedArgs args)
     {
       _session = args.Session;
-      _TelemetryService.RecordEvent(new ARSessionEvent()
+      _TelemetryService.RecordEvent(new ARSessionEvent
       {
         SessionState = ARSessionEvent.Types.State.Created,
         BatteryLevel = SystemInfo.batteryLevel,
@@ -31,7 +30,7 @@ namespace Niantic.ARDK.Telemetry
     private static void LogEventOnFailedSession(ARSessionFailedArgs args)
     {
       _TelemetryService.RecordEvent(
-        new ARSessionEvent()
+        new ARSessionEvent
         {
           SessionState = ARSessionEvent.Types.State.Disposed,
           BatteryLevel = SystemInfo.batteryLevel,
@@ -42,7 +41,7 @@ namespace Niantic.ARDK.Telemetry
     
     private static void LogEventOnSessionClose(ARSessionDeinitializedArgs args)
     {
-      _TelemetryService.RecordEvent(new ARSessionEvent()
+      _TelemetryService.RecordEvent(new ARSessionEvent
       {
         SessionState = ARSessionEvent.Types.State.Disposed,
         BatteryLevel = SystemInfo.batteryLevel,

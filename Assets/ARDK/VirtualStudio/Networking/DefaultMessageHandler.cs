@@ -1,8 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Networking

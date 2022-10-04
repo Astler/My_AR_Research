@@ -2,12 +2,11 @@
 
 using System;
 using System.Threading.Tasks;
-
-using Niantic.ARDK.Utilities.Extensions;
-using Niantic.ARDK.VirtualStudio.VpsCoverage;
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
+using Niantic.ARDK.VirtualStudio.VpsCoverage;
 
 namespace Niantic.ARDK.VPSCoverage
 {

@@ -2,10 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.Networking;
-using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.VirtualStudio.Networking.Mock;
 
 namespace Niantic.ARDK.VirtualStudio.Networking

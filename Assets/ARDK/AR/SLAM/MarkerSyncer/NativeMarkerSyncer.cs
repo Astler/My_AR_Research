@@ -2,12 +2,10 @@
 
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.SLAM
@@ -101,7 +99,7 @@ namespace Niantic.ARDK.AR.SLAM
 
       var mwt = markerWorldTransform;
       var objectExtrinsicsArray =
-        new float[]
+        new[]
         {
           mwt.m00, mwt.m01, mwt.m02, mwt.m03,
           mwt.m10, mwt.m11, mwt.m12, mwt.m13,

@@ -3,15 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.AR.Networking.Mock;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Networking
 {
@@ -106,7 +102,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Networking
       }
 
       var stageIdentifier = mockARNetworking.ARSession.StageIdentifier;
-      mockARNetworking.Deinitialized += (_) => _stageIdentifierToSession.Remove(stageIdentifier);
+      mockARNetworking.Deinitialized += _ => _stageIdentifierToSession.Remove(stageIdentifier);
       _stageIdentifierToSession.Add(stageIdentifier, mockARNetworking);
     }
   }

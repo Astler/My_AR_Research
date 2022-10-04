@@ -5,11 +5,9 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VPSCoverage;
 using Niantic.ARDK.VPSCoverage.GeoserviceMessages;
-
 using UnityEngine;
 using UnityEngine.Networking;
 

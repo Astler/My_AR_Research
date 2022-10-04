@@ -1,12 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-using System.IO;
-
-using Niantic.ARDK.Utilities.Extensions;
-using Niantic.ARDK.Utilities.BinarySerialization.Contexts;
-using Niantic.ARDK.Utilities.Collections;
-
 namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers
 {
   internal sealed class _UntypedToTypedSerializerAdapter<T>:

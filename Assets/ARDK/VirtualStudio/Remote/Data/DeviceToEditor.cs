@@ -1,18 +1,15 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.Camera;
-using Niantic.ARDK.AR.Awareness.Depth;
-using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Frame;
 using Niantic.ARDK.AR.Mesh;
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
-
-
+using Niantic.ARDK.AR.Networking;
+using Niantic.ARDK.AR.SLAM;
 using UnityEngine;
+
 
 // TODO: comment
 
@@ -72,13 +69,13 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   [Serializable]
   internal sealed class ARSessionMapsAddedMessage
   {
-    public ARDK.AR.SLAM._SerializableARMap[] Maps;
+    public _SerializableARMap[] Maps;
   }
 
   [Serializable]
   internal sealed class ARSessionMapsUpdatedMessage
   {
-    public ARDK.AR.SLAM._SerializableARMap[] Maps;
+    public _SerializableARMap[] Maps;
   }
   
   [Serializable]

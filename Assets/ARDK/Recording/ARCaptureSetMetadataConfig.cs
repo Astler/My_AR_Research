@@ -1,9 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-using System.IO;
 using System.Runtime.InteropServices;
-using UnityEngine;
 
 namespace Niantic.ARDK.Recording {
   /// <summary>

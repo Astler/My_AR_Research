@@ -2,10 +2,8 @@
 
 using System;
 using System.Collections.Generic;
-
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities.Extensions;
-
 using UnityEngine.Networking.PlayerConnection;
 
 namespace Niantic.ARDK.VirtualStudio.Remote
@@ -93,7 +91,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
         var callbackList = _callbackLookup.GetOrInsert(tag, () => args => {});
         callbackList
         (
-          new MessageEventArgs()
+          new MessageEventArgs
           {
             data = data, playerId = tag.GetHashCode(),
           }

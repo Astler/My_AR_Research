@@ -1,14 +1,9 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 
-using Niantic.ARDK.AR;
-using Niantic.ARDK.Utilities.Logging;
+using System;
+using System.ComponentModel;
 using Niantic.ARDK.VirtualStudio;
-using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.VirtualStudio.LocationService;
-using Niantic.ARDK.VirtualStudio.Remote;
 
 namespace Niantic.ARDK.LocationService
 {

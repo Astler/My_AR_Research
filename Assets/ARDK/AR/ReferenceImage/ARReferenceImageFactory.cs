@@ -1,15 +1,14 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+using System.IO;
 using System.Runtime.InteropServices;
-
 using AOT;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Niantic.ARDK.AR.ReferenceImage
 {
@@ -60,7 +59,7 @@ namespace Niantic.ARDK.AR.ReferenceImage
             rawBytes,
             (UInt64)width,
             (UInt64)height,
-            (UInt64)8 /* hard coded 8 bits per component */,
+            8 /* hard coded 8 bits per component */,
             (UInt64)(8 * componentsPerPixel),
             (UInt64)(width * componentsPerPixel),
             (UInt32)byteOrderInfo,
@@ -78,10 +77,8 @@ namespace Niantic.ARDK.AR.ReferenceImage
         return _NativeARReferenceImage._FromNativeHandle(result);
       }
 #pragma warning disable 0162
-      else
-      {
-        return new _SerializableARReferenceImage(name, Vector2.zero);
-      }
+
+      return new _SerializableARReferenceImage(name, Vector2.zero);
 #pragma warning restore 0162
     }
 
@@ -132,10 +129,8 @@ namespace Niantic.ARDK.AR.ReferenceImage
         return _NativeARReferenceImage._FromNativeHandle(result);
       }
 #pragma warning disable 0162
-      else
-      {
-        return new _SerializableARReferenceImage(name, Vector2.zero);
-      }
+
+      return new _SerializableARReferenceImage(name, Vector2.zero);
 #pragma warning restore 0162
     }
 
@@ -239,7 +234,7 @@ namespace Niantic.ARDK.AR.ReferenceImage
           rawBytes,
           (UInt64)width,
           (UInt64)height,
-          (UInt64)8 /* hard coded 8 bits per component */,
+          8 /* hard coded 8 bits per component */,
           (UInt64)(8 * componentsPerPixel),
           (UInt64)(width * componentsPerPixel),
           (UInt32)byteOrderInfo,
@@ -382,7 +377,7 @@ namespace Niantic.ARDK.AR.ReferenceImage
       //   the 'jar' prefix. In other cases (ie temporaryCachePath), System.IO.File can be used.
       if (filePath.Contains("://"))
       {
-        var www = UnityEngine.Networking.UnityWebRequest.Get(filePath);
+        var www = UnityWebRequest.Get(filePath);
         var request = www.SendWebRequest();
 
         while (!request.isDone)
@@ -394,7 +389,7 @@ namespace Niantic.ARDK.AR.ReferenceImage
       }
       else
       {
-        rawBytes = System.IO.File.ReadAllBytes(filePath);
+        rawBytes = File.ReadAllBytes(filePath);
       }
 
       return rawBytes;

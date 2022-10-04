@@ -3,10 +3,8 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.Collections;
 
 namespace Niantic.ARDK.AR.LightEstimate
 {

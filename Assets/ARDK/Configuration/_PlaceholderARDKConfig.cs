@@ -1,11 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
 
+using System;
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Configuration

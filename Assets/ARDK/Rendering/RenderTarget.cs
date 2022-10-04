@@ -1,12 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
-
-using UnityEditor;
-
 using UnityEngine;
 using UnityEngine.Rendering;
-
-using MathUtils = Niantic.ARDK.Utilities.MathUtils;
 
 namespace Niantic.ARDK.Rendering
 {

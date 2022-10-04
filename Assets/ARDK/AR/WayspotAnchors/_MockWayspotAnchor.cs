@@ -1,9 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Text;
-
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.WayspotAnchors
@@ -139,7 +138,7 @@ namespace Niantic.ARDK.AR.WayspotAnchors
       {
         string id = ID.ToString();
         var rotation = LastKnownRotation.eulerAngles;
-        var mockWayspotAnchorData = new _MockWayspotAnchorData()
+        var mockWayspotAnchorData = new _MockWayspotAnchorData
         {
           _ID = id,
           _XPosition = LastKnownPosition.x,

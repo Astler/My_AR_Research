@@ -2,11 +2,10 @@
 
 using System;
 using System.Collections.Generic;
-
-using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Networking.HLAPI.Data;
 using Niantic.ARDK.Networking.HLAPI.Routing;
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.Networking.HLAPI
@@ -138,7 +137,7 @@ namespace Niantic.ARDK.Networking.HLAPI
     {
       if (_handlerDict.ContainsKey(groupId.ToString()))
       {
-        string message = "Already registered a handler with identifier: " + groupId.ToString();
+        string message = "Already registered a handler with identifier: " + groupId;
         throw new Exception(message);
       }
 

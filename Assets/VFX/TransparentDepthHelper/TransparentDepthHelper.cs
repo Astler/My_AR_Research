@@ -1,11 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System.Collections;
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Niantic.ARVoyage
 {
-    [System.Serializable]
+    [Serializable]
     public class MaterialPair
     {
         public Material transparentMaterial;
@@ -19,7 +20,7 @@ namespace Niantic.ARVoyage
     /// </summary>
     public class TransparentDepthHelper : MonoBehaviour
     {
-        public List<MaterialPair> materialPairs = default;
+        public List<MaterialPair> materialPairs;
         private const int DefaultLayer = 0;
         private const int TransparentLayer = 15;
 

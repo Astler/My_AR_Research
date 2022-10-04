@@ -1,6 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
 
+using System;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Rendering;
@@ -8,7 +8,6 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions
@@ -23,10 +22,10 @@ namespace Niantic.ARDK.Extensions
 
     [SerializeField]
     [_Autofill]
-    private Camera _camera = null;
+    private Camera _camera;
 
     [SerializeField]
-    private RenderTexture _targetTexture = null;
+    private RenderTexture _targetTexture;
 
     [SerializeField]
     [HideInInspector]
@@ -60,7 +59,7 @@ namespace Niantic.ARDK.Extensions
     private bool _isGPUTextureDirty = true;
     private bool _isCPUTextureDirty = true;
     private bool _isFrameDirty = true;
-    private bool _releaseTargetTexture = false;
+    private bool _releaseTargetTexture;
 
     public Camera Camera
     {

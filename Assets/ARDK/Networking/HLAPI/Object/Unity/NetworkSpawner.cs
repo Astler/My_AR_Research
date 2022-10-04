@@ -4,17 +4,13 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Networking.HLAPI.Authority;
 using Niantic.ARDK.Networking.HLAPI.Data;
 using Niantic.ARDK.Networking.HLAPI.Routing;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
-
 using Random = System.Random;
 
 namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
@@ -115,7 +111,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
       _spawnMessageStreams[multipeerNetworking.StageIdentifier] = streamReplicator;
 
       streamReplicator.MessageReceived +=
-        (args) => SpawnMessageStreamOnMessageReceive(args.Message, args.Sender, streamReplicator);
+        args => SpawnMessageStreamOnMessageReceive(args.Message, args.Sender, streamReplicator);
 
       var destructorMessageStream =
         new MessageStreamReplicator<NetworkId>
@@ -131,7 +127,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
       destructorMessageStream.MessageReceived += DestroyMessageStreamOnMessageReceived;
 
       multipeerNetworking.PeerAdded +=
-        (peerAddedArgs) =>
+        peerAddedArgs =>
         {
           foreach (var repUnityObject in _spawnedObjects.Values)
           {
@@ -145,7 +141,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
               var targets = new HashSet<IPeer>(new[] {peerAddedArgs.Peer });
 
               var message =
-                new SpawnMessage()
+                new SpawnMessage
                 {
                   Location = repUnityObject.transform.position,
                   Rotation = repUnityObject.transform.rotation,
@@ -166,7 +162,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
         };
 
       multipeerNetworking.Deinitialized +=
-        (ignoredArgs) =>
+        ignoredArgs =>
         {
           _spawnMessageStreams.TryRemove(multipeerNetworking.StageIdentifier, out _);
           _destructorMessageStreams.TryRemove(multipeerNetworking.StageIdentifier, out _);
@@ -174,7 +170,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
 
       //If a peer leaves, locally destroy all objects belonging to that peer if they can be destroyed
       multipeerNetworking.PeerRemoved +=
-        (removedArgs) =>
+        removedArgs =>
         {
           var peer = removedArgs.Peer;
 
@@ -485,7 +481,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
         targetPeers = networking.OtherPeers.ToList();
 
       var message =
-        new SpawnMessage()
+        new SpawnMessage
         {
           PrefabId = networkedUnityObject.PrefabId,
           NewId = networkedUnityObject.Id,

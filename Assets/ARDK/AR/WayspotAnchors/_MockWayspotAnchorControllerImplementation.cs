@@ -1,13 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.WayspotAnchors

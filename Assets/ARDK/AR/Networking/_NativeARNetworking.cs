@@ -3,11 +3,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-
-using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.AR.Configuration;
+using AOT;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
-using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking;
@@ -16,10 +13,7 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.Marker;
-
 using UnityEngine;
-
-using AOT;
 
 namespace Niantic.ARDK.AR.Networking
 {
@@ -517,7 +511,7 @@ namespace Niantic.ARDK.AR.Networking
 #endregion
 
 #region PoseFromPeer
-    private bool _didReceivePoseFromPeerInitialized = false;
+    private bool _didReceivePoseFromPeerInitialized;
 
     private void SubscribeToDidReceivePoseFromPeer()
     {
@@ -608,7 +602,7 @@ namespace Niantic.ARDK.AR.Networking
 #endregion
 
 #region StateFromPeer
-    private bool _didReceiveStateFromPeerInitialized = false;
+    private bool _didReceiveStateFromPeerInitialized;
 
     private void SubscribeToDidReceiveStateFromPeer()
     {

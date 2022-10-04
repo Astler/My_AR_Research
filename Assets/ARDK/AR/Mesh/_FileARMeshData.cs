@@ -5,17 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-
 using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.AR.Mesh
 {
   internal sealed class _FileARMeshData: _IARMeshData
   {
-    private static readonly byte[] _magicWord = new byte[]
-    {
+    private static readonly byte[] _magicWord = {
       // 6     D     B     L     O     C     K     M     E     S     H    _    _    _    _    _
       0x36, 0x44, 0x42, 0x4C, 0x4F, 0x43, 0x4B, 0x4D, 0x45, 0x53, 0x48, 0x0, 0x0, 0x0, 0x0, 0x0
     };
@@ -30,8 +26,8 @@ namespace Niantic.ARDK.AR.Mesh
 
     private readonly string _path;
     private int _version;
-    private bool _read = false;
-    private bool _valid = false;
+    private bool _read;
+    private bool _valid;
     private int _blockBufferSize;
     private int _vertexBufferSize;
     private int _faceBufferSize;

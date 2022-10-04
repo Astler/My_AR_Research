@@ -1,12 +1,11 @@
 ﻿// Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.VirtualStudio.AR;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Utilities

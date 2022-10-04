@@ -1,7 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-
 namespace Niantic.ARDK.Utilities.Marker
 {
   public struct ARFrameMarkerScannerGotResultArgs:

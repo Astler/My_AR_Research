@@ -5,10 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-
 using AOT;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
@@ -699,7 +696,7 @@ namespace Niantic.ARDK.Networking
     public event ArdkEventHandler<DeinitializedArgs> Deinitialized;
 
     /// <inheritdoc />
-    public event ArdkEventHandler<DataReceivedFromArmArgs> DataReceivedFromArm = (args) => {};
+    public event ArdkEventHandler<DataReceivedFromArmArgs> DataReceivedFromArm = args => {};
 
     /// <inheritdoc />
     public event ArdkEventHandler<SessionStatusReceivedFromArmArgs> SessionStatusReceivedFromArm
@@ -953,10 +950,10 @@ namespace Niantic.ARDK.Networking
 
 #region InternalCallbacks
     private event ArdkEventHandler<SessionStatusReceivedFromArmArgs> _sessionStatusReceivedFromArm =
-      (args) => {};
+      args => {};
 
     private event ArdkEventHandler<SessionResultReceivedFromArmArgs> _sessionResultReceivedFromArm =
-      (args) => {};
+      args => {};
 
     [MonoPInvokeCallback(typeof(_NARMultipeerNetworking_Did_Connect_Callback))]
     private static void _didConnectNative

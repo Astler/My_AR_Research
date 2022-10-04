@@ -1,10 +1,9 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
 
 namespace Niantic.ARDK.Networking
 {
   // Possible networking error codes when authenticating or connecting to ARBEs
-  public enum NetworkingErrorCode : Int32
+  public enum NetworkingErrorCode
   {
     Unknown = 0,
     // 1-100 - Handshake errors

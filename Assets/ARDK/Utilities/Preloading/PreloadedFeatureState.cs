@@ -9,5 +9,5 @@ namespace Niantic.ARDK.Utilities.Preloading
     Downloading,
     Finished,
     Failed
-  };
+  }
 }

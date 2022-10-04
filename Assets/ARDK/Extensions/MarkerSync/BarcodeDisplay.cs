@@ -16,15 +16,15 @@ namespace Niantic.ARDK.Extensions.MarkerSync
     [FormerlySerializedAs("_image")]
     [SerializeField]
     [Tooltip("The image component to render the generated barcode to. It should be square.")]
-    private RawImage _barcodeImage = null;
+    private RawImage _barcodeImage;
 
     [SerializeField]
     [Tooltip("[Optional] The image component for displaying a border around the generated barcode. It should be square and larger than the BarcodeImage component.")]
-    private RawImage _borderImage = null;
+    private RawImage _borderImage;
 
     [SerializeField]
     [Tooltip("[Optional] The image component for hiding the view behind the barcode")]
-    private RawImage _backgroundImage = null;
+    private RawImage _backgroundImage;
 
     [SerializeField]
     private BarcodeFormat _format = BarcodeFormat.QR_CODE;

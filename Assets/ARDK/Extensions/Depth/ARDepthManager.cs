@@ -1,7 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Depth;
@@ -12,7 +12,6 @@ using Niantic.ARDK.Rendering;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;

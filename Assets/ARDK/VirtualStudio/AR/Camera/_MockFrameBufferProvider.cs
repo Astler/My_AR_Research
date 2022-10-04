@@ -1,30 +1,22 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.AR.Camera;
-using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Awareness.Depth;
 using Niantic.ARDK.AR.Awareness.Semantics;
+using Niantic.ARDK.AR.Camera;
+using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Frame;
 using Niantic.ARDK.AR.Image;
-using Niantic.ARDK.Rendering;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
-
 using UnityEngine;
 using UnityEngine.Rendering;
-
 using MathUtils = Niantic.ARDK.Utilities.MathUtils;
-
 #if ARDK_HAS_URP
-using UnityEngine.Experimental.Rendering;
-using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
 
 using Niantic.ARDK.Rendering.SRP;
@@ -36,7 +28,6 @@ using UnityEditor;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
 {
-  using Camera = UnityEngine.Camera;
   internal sealed class _MockFrameBufferProvider:
     IDisposable
   {
@@ -48,7 +39,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
     private readonly Transform _camerasRoot;
 
     // Image buffer
-    private Camera _imageCamera;
+    private UnityEngine.Camera _imageCamera;
     private CameraIntrinsics _imageIntrinsics;
     private RenderTexture _imageRT;
     private RenderTexture _imageFlippedRT;
@@ -59,7 +50,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
     private bool _generateDepth;
     private readonly float _timeBetweenDepthUpdates;
     private float _timeSinceLastDepthUpdate;
-    private Camera _depthCamera;
+    private UnityEngine.Camera _depthCamera;
     private CameraIntrinsics _depthIntrinsics;
     private RenderTexture _depthRT;
     private RenderTexture _depthOnlyRT;
@@ -70,7 +61,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
     private bool _generateSemantics;
     private readonly float _timeBetweenSemanticsUpdates;
     private float _timeSinceLastSemanticsUpdate;
-    private Camera _semanticsCamera;
+    private UnityEngine.Camera _semanticsCamera;
     private CameraIntrinsics _semanticsIntrinsics;
     private Shader _semanticsShader;
     private RenderTexture _semanticsRT;
@@ -319,12 +310,12 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
 #endif
     }
 
-    private Camera CreateCameraBase(string name)
+    private UnityEngine.Camera CreateCameraBase(string name)
     {
       var cameraObject = new GameObject(name);
       cameraObject.transform.SetParent(_camerasRoot);
 
-      var camera = cameraObject.AddComponent<Camera>();
+      var camera = cameraObject.AddComponent<UnityEngine.Camera>();
       camera.depth = int.MinValue;
 
 #if UNITY_EDITOR
@@ -340,7 +331,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
       return camera;
     }
 
-    private Camera CreateAwarenessCamera(string name)
+    private UnityEngine.Camera CreateAwarenessCamera(string name)
     {
       var camera = CreateCameraBase(name);
 
@@ -377,7 +368,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
       }
     }
 
-    private static Matrix4x4 GetMockViewMatrix(Camera serializedCamera)
+    private static Matrix4x4 GetMockViewMatrix(UnityEngine.Camera serializedCamera)
     {
       var rotation = MathUtils.CalculateViewRotation
       (
@@ -480,8 +471,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
       var depthData = new NativeArray<float>
       (
         _ModelWidth * _ModelHeight,
-        Allocator.Persistent,
-        NativeArrayOptions.ClearMemory
+        Allocator.Persistent
       );
 
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
@@ -555,7 +545,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
     }
 
 #if UNITY_EDITOR
-    internal static void RemoveMockFromCullingMask(Camera cam)
+    internal static void RemoveMockFromCullingMask(UnityEngine.Camera cam)
     {
       // get the input layer name's index, which should range from 0 to Unity's max # of layers minus 1
       int layerIndex = LayerMask.NameToLayer(MOCK_LAYER_NAME);

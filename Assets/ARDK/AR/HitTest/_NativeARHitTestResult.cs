@@ -2,11 +2,9 @@
 
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.HitTest

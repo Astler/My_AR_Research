@@ -2,15 +2,10 @@
 
 using System;
 using System.Collections.Concurrent;
-using System.IO;
-
 using Niantic.ARDK.Networking;
-using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.BinarySerialization;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 using UnityEngine.Networking.PlayerConnection;
 
 namespace Niantic.ARDK.VirtualStudio.Remote

@@ -1,7 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.Networking.ARSim.Spawning.GameObjectSpawning;
 using Niantic.ARDK.Networking.ARSim.Spawning.ServerSpawningEventArgs;
 using Niantic.ARDK.Utilities;

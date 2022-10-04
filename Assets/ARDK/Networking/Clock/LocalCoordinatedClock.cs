@@ -1,9 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Niantic.ARDK.Networking.Clock
 {

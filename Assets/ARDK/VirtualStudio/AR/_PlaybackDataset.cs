@@ -1,21 +1,17 @@
 // Copyright 2021 Niantic, Inc. All Rights Reserved.
 
-using System.Runtime.InteropServices;
-using Niantic.ARDK.Internals;
 using System;
 using System.IO;
 using System.Linq;
-
-using Niantic.ARDK.AR;
+using System.Runtime.InteropServices;
+using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR
 {
   internal class _PlaybackDataset
   {
-    private int _frameCount = 0;
+    private int _frameCount;
 
     public _PlaybackDataset(string path)
     {

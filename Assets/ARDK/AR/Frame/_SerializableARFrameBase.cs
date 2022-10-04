@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Depth;
@@ -17,7 +16,6 @@ using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Frame

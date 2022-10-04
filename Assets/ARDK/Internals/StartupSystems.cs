@@ -11,19 +11,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.AR.Protobuf;
-using Niantic.ARDK.Configuration.Authentication;
-
 using Niantic.ARDK.Configuration;
+using Niantic.ARDK.Configuration.Authentication;
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Telemetry;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -99,7 +95,7 @@ namespace Niantic.ARDK.Internals
       SetAuthenticationParameters();
       SetDeviceMetadata();
       
-      _TelemetryService.RecordEvent(new InitializationEvent()
+      _TelemetryService.RecordEvent(new InitializationEvent
       {
         InstallMode = GetInstallMode(),
       });
@@ -211,13 +207,13 @@ namespace Niantic.ARDK.Internals
       return IntPtr.Zero;
     }
 
-    private static readonly Dictionary<string, string> _rosettaFiles = new Dictionary<string, string>()
+    private static readonly Dictionary<string, string> _rosettaFiles = new Dictionary<string, string>
     {
       {"mcs", "/ARDK/mcs.rsp"},
       {"csc", "/ARDK/csc.rsp"},
     };
     
-    private static bool _rosettaCompatibilityCheckPerformed = false;
+    private static bool _rosettaCompatibilityCheckPerformed;
     private static void EnforceRosettaBasedCompatibility()
     {
       if (_rosettaCompatibilityCheckPerformed)

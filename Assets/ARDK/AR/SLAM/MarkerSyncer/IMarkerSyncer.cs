@@ -1,9 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
-using Niantic.ARDK.AR.Camera;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.SLAM

@@ -3,14 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Depth;
 using Niantic.ARDK.AR.Awareness.Semantics;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.AR.SLAM;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR

@@ -4,6 +4,8 @@ namespace Prototype.AR
 {
     public class CameraView : MonoBehaviour
     {
+        [SerializeField] private Transform facePosition;
+        
         private Camera _camera;
 
         public Vector3 CameraForwardVector => _camera.transform.forward;
@@ -28,5 +30,7 @@ namespace Prototype.AR
         }
 
         public Transform GetTransform() => _camera.transform;
+
+        public Vector3 GetFacePosition() => facePosition.position;
     }
 }

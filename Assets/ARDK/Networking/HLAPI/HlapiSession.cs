@@ -5,16 +5,14 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
-using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Networking.HLAPI.Data;
 using Niantic.ARDK.Networking.HLAPI.Routing;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.Collections;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -537,7 +535,7 @@ namespace Niantic.ARDK.Networking.HLAPI
           throw new InvalidOperationException("Duplicated StageIdentifier.");
 
         networking.Deinitialized +=
-          (ignored) => _managedSessionLookup.TryRemove(stageIdentifier, out _);
+          ignored => _managedSessionLookup.TryRemove(stageIdentifier, out _);
       }
 
       return session;

@@ -2,11 +2,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Niantic.ARDK.AR.ReferenceImage;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
-
 
 namespace Niantic.ARDK.AR.Configuration
 {

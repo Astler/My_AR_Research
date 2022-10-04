@@ -1,11 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-using System.Security.Cryptography;
-
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions
@@ -56,10 +52,10 @@ namespace Niantic.ARDK.Extensions
     ///   component is instantiated in script.
     [SerializeField]
     [Tooltip("If true, this component's lifecycle will be tied to Unity's lifecycle methods.")]
-    private bool _manageUsingUnityLifecycle = false;
+    private bool _manageUsingUnityLifecycle;
 
     private _ThreadCheckedObject _threadChecker;
-    private bool _initialized = false;
+    private bool _initialized;
     private bool _deinitialized;
 
     /// Value is true if this component has been initialized.
@@ -81,7 +77,7 @@ namespace Niantic.ARDK.Extensions
       get { return !Initialized && (!_deinitialized || (_deinitialized && _CanReinitialize)); }
     }
 
-    private bool _areFeaturesEnabled = false;
+    private bool _areFeaturesEnabled;
 
     /// Value is true if this component is enabled. A subclass may gate certain behaviours based
     /// on this value.

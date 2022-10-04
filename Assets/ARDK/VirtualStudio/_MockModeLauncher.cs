@@ -1,14 +1,10 @@
-using System;
-
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
 using Niantic.ARDK.VirtualStudio.Networking.Mock;
-
 using UnityEditor;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio

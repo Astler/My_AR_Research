@@ -1,14 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using UnityEngine;
+using Niantic.ARDK.Utilities.Logging;
 using UnityEngine.Rendering;
-
 #if ARDK_HAS_URP
 using Niantic.ARDK.Rendering.SRP;
 #endif
-
-using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.AR.Awareness.Depth.Effects
 {

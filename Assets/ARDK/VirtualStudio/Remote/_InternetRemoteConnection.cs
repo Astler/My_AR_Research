@@ -5,9 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
-
 using AOT;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities;

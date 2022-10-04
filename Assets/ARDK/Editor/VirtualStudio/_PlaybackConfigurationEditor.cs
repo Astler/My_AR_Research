@@ -1,13 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.AR;
-
 using UnityEditor;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Editor

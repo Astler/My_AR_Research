@@ -1,9 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Niantic.ARDK.Networking.Clock
 {
   /// <summary>
@@ -20,7 +16,7 @@ namespace Niantic.ARDK.Networking.Clock
 
     /// The timestamp is now synchronized with the server
     Stable
-  };
+  }
 
   /// <summary>
   /// A coordinated clock that synchronizes with a server sided clock so that all peers within

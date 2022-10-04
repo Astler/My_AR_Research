@@ -2,13 +2,11 @@
 
 using System;
 using System.IO;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.VersionUtilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.Meshing
@@ -45,7 +43,7 @@ namespace Niantic.ARDK.Extensions.Meshing
     private string _meshesPath;
     private string _sessionMeshesPath;
     private IARSession _session;
-    private int _meshNumber = 0;
+    private int _meshNumber;
     private MockMeshInfo _mockMeshInfo;
 
     private void Start()

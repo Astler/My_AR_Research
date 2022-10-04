@@ -4,7 +4,6 @@ using Niantic.ARDK.Extensions;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace ARDK.Extensions

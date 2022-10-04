@@ -2,8 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-
 using Niantic.ARDK.Networking.HLAPI.Authority;
 using Niantic.ARDK.Utilities.Collections;
 

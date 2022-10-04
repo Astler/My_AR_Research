@@ -13,8 +13,7 @@ namespace Niantic.ARDK.Extensions.Gameboard
       {
         if (Waypoints == null)
           return 0;
-        else
-          return Waypoints.Count;
+        return Waypoints.Count;
       }
     }
 

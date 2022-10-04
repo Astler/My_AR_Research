@@ -2,14 +2,13 @@
 
 using System;
 using System.Collections.Generic;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Awareness;
-using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.Awareness.Human;
+using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Frame;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.LocationService;
@@ -18,7 +17,6 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.Remote;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR

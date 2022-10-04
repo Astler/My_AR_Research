@@ -1,7 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.IO;
-
 using Niantic.ARDK.Utilities.BinarySerialization;
 
 namespace Niantic.ARDK.Utilities.Extensions

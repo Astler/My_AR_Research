@@ -313,14 +313,14 @@ namespace Niantic.ARDK.AR.Protobuf {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(InitializationEvent, other.InitializationEvent)) return false;
-      if (!object.Equals(ArSessionEvent, other.ArSessionEvent)) return false;
-      if (!object.Equals(LightshipServiceEvent, other.LightshipServiceEvent)) return false;
-      if (!object.Equals(MultiplayerConnectionEvent, other.MultiplayerConnectionEvent)) return false;
-      if (!object.Equals(EnableContextualAwarenessEvent, other.EnableContextualAwarenessEvent)) return false;
-      if (!object.Equals(MultiplayerColocalizationEvent, other.MultiplayerColocalizationEvent)) return false;
-      if (!object.Equals(MultiplayerColocalizationInitializationEvent, other.MultiplayerColocalizationInitializationEvent)) return false;
-      if (!object.Equals(CommonMetadata, other.CommonMetadata)) return false;
+      if (!Equals(InitializationEvent, other.InitializationEvent)) return false;
+      if (!Equals(ArSessionEvent, other.ArSessionEvent)) return false;
+      if (!Equals(LightshipServiceEvent, other.LightshipServiceEvent)) return false;
+      if (!Equals(MultiplayerConnectionEvent, other.MultiplayerConnectionEvent)) return false;
+      if (!Equals(EnableContextualAwarenessEvent, other.EnableContextualAwarenessEvent)) return false;
+      if (!Equals(MultiplayerColocalizationEvent, other.MultiplayerColocalizationEvent)) return false;
+      if (!Equals(MultiplayerColocalizationInitializationEvent, other.MultiplayerColocalizationInitializationEvent)) return false;
+      if (!Equals(CommonMetadata, other.CommonMetadata)) return false;
       if (DeveloperKey != other.DeveloperKey) return false;
       if (TimestampMs != other.TimestampMs) return false;
       if (ArSessionId != other.ArSessionId) return false;

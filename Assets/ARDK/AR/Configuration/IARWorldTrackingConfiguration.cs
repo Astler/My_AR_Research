@@ -2,11 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-
-using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.ReferenceImage;
-using Niantic.ARDK.AR.SLAM;
-using Niantic.ARDK.Utilities.Collections;
 
 namespace Niantic.ARDK.AR.Configuration
 {

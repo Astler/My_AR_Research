@@ -1,17 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.AR.Camera;
-using Niantic.ARDK.AR.Frame;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Utilities.QR;
-
 using UnityEngine;
-
 #if !UNITY_WEBGL
 using System.Threading;
 #endif
@@ -58,8 +53,8 @@ namespace Niantic.ARDK.Utilities.Marker
     private IParserResult _result;
 
     // Background thread
-    private bool _parserPixelAvailable = false;
-    private float _mainThreadLastDecode = 0;
+    private bool _parserPixelAvailable;
+    private float _mainThreadLastDecode;
     private bool _decodeInterrupted = true;
 #if !UNITY_WEBGL
     private Thread _codeScannerThread;

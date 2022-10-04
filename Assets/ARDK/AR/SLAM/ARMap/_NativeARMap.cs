@@ -2,10 +2,8 @@
 
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.SLAM
@@ -43,7 +41,7 @@ namespace Niantic.ARDK.AR.SLAM
       }
 
       Func<_CppAddressAndScale, _NativeARMap> creator =
-        (_) => new _NativeARMap(nativeHandle, worldScale);
+        _ => new _NativeARMap(nativeHandle, worldScale);
 
       result = _allMaps.GetOrAdd(handleAndScale, creator);
 

@@ -1,10 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.Networking;
-using Niantic.ARDK.Utilities.Extensions;
-
 using UnityEngine.Networking.PlayerConnection;
 
 namespace Niantic.ARDK.VirtualStudio.Remote

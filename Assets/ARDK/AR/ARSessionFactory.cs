@@ -3,12 +3,11 @@
 using System;
 using System.Collections.Concurrent;
 using System.ComponentModel;
-
 using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.VirtualStudio;
-using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
+using Niantic.ARDK.VirtualStudio;
+using Niantic.ARDK.VirtualStudio.AR;
 
 namespace Niantic.ARDK.AR
 {
@@ -106,7 +105,6 @@ namespace Niantic.ARDK.AR
 #if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
       new RuntimeEnvironment[] { RuntimeEnvironment.LiveDevice, RuntimeEnvironment.Remote, RuntimeEnvironment.Mock };
 #else
-      new RuntimeEnvironment[]
       {
         RuntimeEnvironment.Remote, RuntimeEnvironment.Playback, RuntimeEnvironment.Mock
       };
@@ -184,7 +182,7 @@ namespace Niantic.ARDK.AR
         }
 
         session.Deinitialized +=
-          (_) =>
+          _ =>
           {
             lock (_activeSessionLock)
               if (_activeSession == session)
@@ -198,7 +196,7 @@ namespace Niantic.ARDK.AR
         if (!_nonLocalSessions.TryAdd(session, true))
           throw new InvalidOperationException("Duplicated session.");
 
-        session.Deinitialized += (ignored) => _nonLocalSessions.TryRemove(session, out _);
+        session.Deinitialized += ignored => _nonLocalSessions.TryRemove(session, out _);
       }
     }
 

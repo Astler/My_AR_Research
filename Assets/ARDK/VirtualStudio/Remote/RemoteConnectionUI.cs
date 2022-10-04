@@ -1,19 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System.Collections;
-using System.Text;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.Remote;
-using Niantic.ARDK.VirtualStudio.Remote.Data;
-
 using UnityEngine;
 using UnityEngine.UI;
-
-using Random = System.Random;
 
 namespace Niantic.ARDK.VirtualStudio.Remote
 {
@@ -24,20 +16,20 @@ namespace Niantic.ARDK.VirtualStudio.Remote
   {
     [Header("Connection Starting UI")]
     [SerializeField]
-    private GameObject _postSelectionUI = null;
+    private GameObject _postSelectionUI;
 
     [Header("Connected UI")]
     [SerializeField]
-    private Text _connectionStatusText = null;
+    private Text _connectionStatusText;
 
     [SerializeField]
-    private Text _arSessionStatusText = null;
+    private Text _arSessionStatusText;
 
     [SerializeField]
-    private Text _networkingStatusText = null;
+    private Text _networkingStatusText;
 
     [SerializeField]
-    private Text _arNetworkingStatusText = null;
+    private Text _arNetworkingStatusText;
 
     private IARSession _activeARSession;
 

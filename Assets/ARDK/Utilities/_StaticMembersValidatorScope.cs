@@ -2,12 +2,6 @@
 
 using System;
 
-using Niantic.ARDK.AR;
-using Niantic.ARDK.VirtualStudio;
-using Niantic.ARDK.VirtualStudio.Networking;
-using Niantic.ARDK.Networking.HLAPI.Object.Unity;
-using Niantic.ARDK.VirtualStudio.Remote;
-
 namespace Niantic.ARDK.Utilities
 {
   internal sealed class _StaticMembersValidatorScope:

@@ -1,9 +1,4 @@
-using System.Text.RegularExpressions;
-
-using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.Remote;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio
 {

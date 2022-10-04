@@ -3,22 +3,20 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Awareness;
-using Niantic.ARDK.AR.Configuration;
-using Niantic.ARDK.AR.Awareness.Depth;
 using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.Awareness.Human;
+using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Frame;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.AR.SLAM;
-using Niantic.ARDK.Extensions.Meshing;
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Telemetry;
 using Niantic.ARDK.Utilities;
@@ -26,9 +24,7 @@ using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.AR.Camera.Input;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
-
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Niantic.ARDK.VirtualStudio.AR
 {
@@ -62,7 +58,7 @@ namespace Niantic.ARDK.VirtualStudio.AR
     private _MockFrameBufferProvider _frameProvider;
 
 #if DEBUG
-    private System.Diagnostics.StackTrace _stackTrace = new System.Diagnostics.StackTrace(true);
+    private StackTrace _stackTrace = new StackTrace(true);
 #endif
 
     public ARSessionChangesCollector ARSessionChangesCollector { get; }
@@ -175,20 +171,15 @@ namespace Niantic.ARDK.VirtualStudio.AR
     {
       ARSessionChangesCollector._CollectChanges(configuration, ref options);
 
-      try
+      var configForTelemetry = (IARWorldTrackingConfiguration)configuration;
+      _TelemetryService.RecordEvent(new EnabledContextualAwarenessEvent
       {
-        var configForTelemetry = (IARWorldTrackingConfiguration)configuration;
-        _TelemetryService.RecordEvent(new EnabledContextualAwarenessEvent()
-        {
-          Depth = configForTelemetry.IsDepthEnabled,
-          Meshing = configForTelemetry.IsMeshingEnabled,
-          Semantics = configForTelemetry.IsSemanticSegmentationEnabled
-        });
-      }
-      finally
-      { }
-      
-      
+        Depth = configForTelemetry.IsDepthEnabled,
+        Meshing = configForTelemetry.IsMeshingEnabled,
+        Semantics = configForTelemetry.IsSemanticSegmentationEnabled
+      });
+
+
       if (!_ARConfigurationValidator.RunAllChecks(this, configuration))
         return;
 
@@ -661,7 +652,7 @@ namespace Niantic.ARDK.VirtualStudio.AR
       get { return RuntimeEnvironment.Mock; }
     }
 
-    internal bool _HasSetupLocationService = false;
+    internal bool _HasSetupLocationService;
     void IARSession.SetupLocationService(ILocationService locationService)
     {
       _HasSetupLocationService = true;

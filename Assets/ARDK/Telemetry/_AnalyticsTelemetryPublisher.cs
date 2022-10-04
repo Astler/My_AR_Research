@@ -1,5 +1,4 @@
 using System;
-
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.Platform.Analytics.Telemetry;

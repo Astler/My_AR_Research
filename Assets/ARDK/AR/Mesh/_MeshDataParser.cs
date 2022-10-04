@@ -3,16 +3,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.InteropServices;
-
-using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.Extensions.Meshing;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Mesh

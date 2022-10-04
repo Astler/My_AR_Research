@@ -1,14 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
-using Niantic.ARDK.AR;
-using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.Networking;
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
-using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.Remote;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
 
 namespace Niantic.ARDK.VirtualStudio.Remote
@@ -134,7 +127,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
       }
 
       _handler = deviceArNetworkingHandler;
-      deviceArNetworkingHandler.InnerARNetworking.Deinitialized += (_) =>
+      deviceArNetworkingHandler.InnerARNetworking.Deinitialized += _ =>
       {
         _handler.Dispose();
         _handler = null;

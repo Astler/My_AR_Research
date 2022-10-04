@@ -3,8 +3,6 @@
 using System;
 using System.Runtime.InteropServices;
 
-using Niantic.ARDK.Internals;
-
 namespace Niantic.ARDK.VirtualStudio.Remote
 {
   /// <summary>

@@ -1,10 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
@@ -18,7 +16,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
     /// The NetworkedUnityObject attached to the same GameObject as this component.
     [_Autofill]
     [SerializeField]
-    private NetworkedUnityObject _owner = null;
+    private NetworkedUnityObject _owner;
 
     /// The NetworkedUnityObject attached to the same GameObject as this script
     public NetworkedUnityObject Owner

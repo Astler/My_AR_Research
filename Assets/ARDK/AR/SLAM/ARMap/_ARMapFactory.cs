@@ -1,8 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
 using Niantic.ARDK.Utilities.Collections;
 
 namespace Niantic.ARDK.AR.SLAM

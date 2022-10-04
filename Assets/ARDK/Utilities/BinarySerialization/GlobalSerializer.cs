@@ -2,25 +2,21 @@
 
 using System;
 using System.Collections.Concurrent;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Reflection;
-
 using Niantic.ARDK.AR.Anchors;
-using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Awareness.Depth;
 using Niantic.ARDK.AR.Awareness.Semantics;
+using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Image;
 using Niantic.ARDK.AR.SLAM;
+using Niantic.ARDK.Networking.HLAPI;
 using Niantic.ARDK.Networking.HLAPI.Authority;
 using Niantic.ARDK.Networking.HLAPI.Object.Unity;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
 using Niantic.ARDK.Utilities.Logging;
-
-using Unity.Collections;
-
-using SpawnMessage = Niantic.ARDK.Networking.HLAPI.Object.Unity.NetworkSpawner.SpawnMessage;
 
 namespace Niantic.ARDK.Utilities.BinarySerialization
 {
@@ -108,18 +104,18 @@ namespace Niantic.ARDK.Utilities.BinarySerialization
       );
 
       // TODO: Write specific serializer for performance.
-      var spawnMessageSerializer = SimpleSerializableSerializer<SpawnMessage>.Instance;
+      var spawnMessageSerializer = SimpleSerializableSerializer<NetworkSpawner.SpawnMessage>.Instance;
       RegisterItemSerializer(spawnMessageSerializer);
 
 
       var networkIdAndDataSerializer =
-        SimpleSerializableSerializer<ARDK.Networking.HLAPI.HlapiSession._NetworkIdAndData>.Instance;
+        SimpleSerializableSerializer<HlapiSession._NetworkIdAndData>.Instance;
 
       RegisterItemSerializer(networkIdAndDataSerializer);
 
 
       var networkGroupDataSerializer =
-        SimpleSerializableSerializer<ARDK.Networking.HLAPI.NetworkGroup._NetworkGroupData>.Instance;
+        SimpleSerializableSerializer<NetworkGroup._NetworkGroupData>.Instance;
 
       RegisterItemSerializer(networkGroupDataSerializer);
 

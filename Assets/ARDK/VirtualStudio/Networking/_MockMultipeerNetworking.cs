@@ -3,16 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Networking.Mock
 {

@@ -1,17 +1,15 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using Modules.Shared.SceneLookup;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARVoyage;
 using UnityEngine;
 
-namespace Modules.Shared.Lighting
+namespace Prototype.AR
 {
     /// <summary>
     /// Helper class to change scene lighting based on ARDK light estimation.
     /// </summary>
-    public class LightEstimationHelper : MonoBehaviour, ISceneDependency
+    public class LightEstimationHelper : MonoBehaviour
     {
         [SerializeField] Light directionalLight;
         private float baseIntensity;

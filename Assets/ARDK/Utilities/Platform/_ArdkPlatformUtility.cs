@@ -1,6 +1,5 @@
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.Utilities

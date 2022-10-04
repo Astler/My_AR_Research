@@ -3,14 +3,11 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
-
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking;
-using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.VersionUtilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Configuration

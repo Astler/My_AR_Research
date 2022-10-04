@@ -2,10 +2,8 @@
 
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Camera
@@ -51,7 +49,7 @@ namespace Niantic.ARDK.AR.Camera
       }
 
       Func<_CppAddressAndScale, _NativeARCamera> creator =
-        (_) => new _NativeARCamera(nativeHandle, worldScale);
+        _ => new _NativeARCamera(nativeHandle, worldScale);
 
       result = _allCameras.GetOrAdd(handleAndScale, creator);
 

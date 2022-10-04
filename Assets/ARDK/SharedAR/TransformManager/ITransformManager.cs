@@ -1,12 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-using System.Collections.ObjectModel;
-using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
-using Niantic.ARDK.Utilities;
-
-using Matrix4x4 = UnityEngine.Matrix4x4;
-
 #if SHARED_AR_V2
 
 namespace Niantic.Experimental.ARDK.SharedAR.Transform

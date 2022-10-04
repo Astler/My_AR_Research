@@ -1,12 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
 
+using System;
 using Niantic.ARDK.AR.Awareness.Depth.Effects;
 using Niantic.ARDK.Rendering;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 using UnityEngine.Rendering;
+using Object = UnityEngine.Object;
 
 namespace Niantic.ARDK.AR.Depth.Effects
 {
@@ -161,9 +161,9 @@ namespace Niantic.ARDK.AR.Depth.Effects
       _commandBuffer?.Dispose();
 
       // Release other resources
-      UnityEngine.Object.Destroy(_material);
-      UnityEngine.Object.Destroy(_portraitMesh);
-      UnityEngine.Object.Destroy(_landscapeMesh);
+      Object.Destroy(_material);
+      Object.Destroy(_portraitMesh);
+      Object.Destroy(_landscapeMesh);
     }
 
     private static UnityEngine.Mesh CreateMesh(int width, int height)

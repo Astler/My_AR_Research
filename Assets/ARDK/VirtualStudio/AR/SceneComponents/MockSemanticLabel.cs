@@ -1,12 +1,9 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
-using System.ComponentModel;
 
+using System;
 using Niantic.ARDK.AR.Awareness.Semantics;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
 {

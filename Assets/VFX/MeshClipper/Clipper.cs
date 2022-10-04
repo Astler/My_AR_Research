@@ -1,6 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using UnityEngine;
-using Niantic.ARDK.Extensions.Gameboard;
 
 namespace Niantic.ARVoyage.Walkabout
 {
@@ -9,9 +9,9 @@ namespace Niantic.ARVoyage.Walkabout
     /// </summary>
     public class Clipper : MonoBehaviour
     {
-        [SerializeField] float waterLevel = 0;
-        [SerializeField] float surfaceOffset = 0;
-        [SerializeField] float surfaceElevation = 0;
+        [SerializeField] float waterLevel;
+        [SerializeField] float surfaceOffset;
+        [SerializeField] float surfaceElevation;
 
         /*
         void Awake()

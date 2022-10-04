@@ -3,9 +3,6 @@
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
-
-using Unity.Collections;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness

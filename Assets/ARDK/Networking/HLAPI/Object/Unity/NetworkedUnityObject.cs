@@ -3,15 +3,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Niantic.ARDK.External;
 using Niantic.ARDK.Networking.HLAPI.Authority;
 using Niantic.ARDK.Networking.HLAPI.Routing;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
+using Random = System.Random;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -68,7 +67,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
     /// The default NetworkedBehaviour for this object
     /// </summary>
     [SerializeField]
-    private NetworkedBehaviour _defaultBehaviour = null;
+    private NetworkedBehaviour _defaultBehaviour;
 
     /// <summary>
     /// All NetworkedBehaviours attached to this object, will be populated automatically
@@ -100,7 +99,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
     
     private INetworkGroup _group;
     
-    private static System.Random _random = new System.Random();
+    private static Random _random = new Random();
 
 
     private IHlapiSession Session

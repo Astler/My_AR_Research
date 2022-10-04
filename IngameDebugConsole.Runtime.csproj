@@ -303,6 +303,9 @@
      <Reference Include="UnityEditor.Android.Extensions">
      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="DOTweenEditor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+     </Reference>
      <Reference Include="log4netPlastic">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
      </Reference>
@@ -326,6 +329,9 @@
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>

@@ -2,7 +2,6 @@
 
 using System;
 using System.Threading.Tasks;
-
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Configuration.Internal;
@@ -11,12 +10,9 @@ using Niantic.ARDK.Telemetry;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VPSCoverage.GeoserviceMessages;
-
 using UnityEngine;
-
 using LocationInfo = Niantic.ARDK.LocationService.LocationInfo;
 using LocationServiceStatus = UnityEngine.LocationServiceStatus;
-
 
 namespace Niantic.ARDK.VPSCoverage
 {
@@ -154,7 +150,7 @@ namespace Niantic.ARDK.VPSCoverage
 
         _TelemetryService.RecordEvent
         (
-          new LightshipServiceEvent()
+          new LightshipServiceEvent
           {
             IsRequest = true, ApiMethodName = methodName,
           }
@@ -192,7 +188,7 @@ namespace Niantic.ARDK.VPSCoverage
         if (httpStatus >= 200 && httpStatus < 300)
           isSuccess = true;
         
-        _TelemetryService.RecordEvent(new LightshipServiceEvent()
+        _TelemetryService.RecordEvent(new LightshipServiceEvent
         {
           IsRequest = false,
           ApiMethodName = methodName,

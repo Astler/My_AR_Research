@@ -4,11 +4,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
 using Niantic.ARDK.Utilities.Logging;
-
 #if UNITY_ANDROID
-using UnityEngine;
 using UnityEngine.Android;
 #endif
 
@@ -76,7 +73,7 @@ namespace Niantic.ARDK.Utilities.Permissions
     public static Task<PermissionStatus> RequestPermissionAsync(string permissionName)
     {
       var t = new TaskCompletionSource<PermissionStatus>();
-      RequestPermission(permissionName, (status) => t.TrySetResult(status));
+      RequestPermission(permissionName, status => t.TrySetResult(status));
 
       return t.Task;
     }

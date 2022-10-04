@@ -16,7 +16,7 @@ namespace Prototype.AR
         private MeshRenderer meshRenderer;
         private BoxCollider boxCollider;
 
-        private Vector3 floorPosition = new Vector3(0, Mathf.Infinity, 0);
+        private Vector3 floorPosition = new(0, Mathf.Infinity, 0);
 
         [SerializeField] private bool floorVisible = true;
         public bool FloorVisible

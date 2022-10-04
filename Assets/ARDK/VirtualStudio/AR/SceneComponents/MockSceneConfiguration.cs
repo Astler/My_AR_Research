@@ -1,19 +1,9 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-
-using Niantic.ARDK.AR;
-using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.Remote;
-
 using UnityEngine;
-
 #if UNITY_EDITOR
-using Niantic.ARDK.Utilities.Extensions;
-
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
 
 #endif
 

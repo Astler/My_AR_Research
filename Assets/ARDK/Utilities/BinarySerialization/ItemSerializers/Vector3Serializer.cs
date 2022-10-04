@@ -1,6 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
 using UnityEngine;
 
 namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers {

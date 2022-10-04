@@ -1,33 +1,34 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
- using UnityEngine;
-using System.Collections.Generic;
- using Modules.Shared.SceneLookup;
 
-namespace Niantic.ARVoyage
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Modules.Shared.ARPlane
 {
     /// <summary>
     /// Helper for accessing and utilizing the current collection of ARPlanes in the session
     /// </summary>
-    public class ARPlaneHelper : MonoBehaviour, ISceneDependency
+    public class ARPlaneHelper : MonoBehaviour
     {
-        public static AppEvent<ARPlaneHelper> PlanesChanged = new AppEvent<ARPlaneHelper>();
+        public static Action<ARPlaneHelper> PlanesChanged;
 
         [Tooltip("Should ARPlanes be shown in the scene?")]
-        [SerializeField] private bool showPlanes = false;
+        [SerializeField] private bool showPlanes;
 
         [Tooltip("Should ARPlanes gameObjects be active in the scene?")]
         [SerializeField] private bool planeObjectsActive = true;
 
-        private HashSet<ARPlane> planes = new HashSet<ARPlane>();
+        private HashSet<Niantic.ARVoyage.ARPlane> planes = new();
 
         public int NumPlanes => planes.Count;
 
         /// <summary>
         /// Get a copy of the the current planes
         /// </summary>
-        public List<ARPlane> GetPlanes()
+        public List<Niantic.ARVoyage.ARPlane> GetPlanes()
         {
-            return new List<ARPlane>(planes);
+            return new List<Niantic.ARVoyage.ARPlane>(planes);
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace Niantic.ARVoyage
             {
                 this.showPlanes = showPlanes;
 
-                foreach (ARPlane plane in planes)
+                foreach (Niantic.ARVoyage.ARPlane plane in planes)
                 {
                     plane.Show(showPlanes);
                 }
@@ -55,7 +56,7 @@ namespace Niantic.ARVoyage
             {
                 this.planeObjectsActive = planeObjectsActive;
 
-                foreach (ARPlane plane in planes)
+                foreach (Niantic.ARVoyage.ARPlane plane in planes)
                 {
                     plane.gameObject.SetActive(planeObjectsActive);
                 }
@@ -65,11 +66,11 @@ namespace Niantic.ARVoyage
         private void Awake()
         {
             // Listen to plane created and destroy events for the lifetime of this helper
-            ARPlane.PlaneCreated.AddListener(OnPlaneCreated);
-            ARPlane.PlaneDestroyed.AddListener(OnPlaneDestroyed);
+            Niantic.ARVoyage.ARPlane.PlaneCreated += OnPlaneCreated;
+            Niantic.ARVoyage.ARPlane.PlaneDestroyed += OnPlaneDestroyed;
         }
 
-        private void OnPlaneCreated(ARPlane plane)
+        private void OnPlaneCreated(Niantic.ARVoyage.ARPlane plane)
         {
             // Track the plane
             planes.Add(plane);
@@ -82,7 +83,7 @@ namespace Niantic.ARVoyage
             PlanesChanged.Invoke(this);
         }
 
-        private void OnPlaneDestroyed(ARPlane plane)
+        private void OnPlaneDestroyed(Niantic.ARVoyage.ARPlane plane)
         {
             Debug.Log("OnPlaneDestroyed: " + plane.name);
             planes.Remove(plane);
@@ -92,8 +93,8 @@ namespace Niantic.ARVoyage
 
         private void OnDestroy()
         {
-            ARPlane.PlaneCreated.RemoveListener(OnPlaneCreated);
-            ARPlane.PlaneDestroyed.RemoveListener(OnPlaneDestroyed);
+            Niantic.ARVoyage.ARPlane.PlaneCreated -= OnPlaneCreated;
+            Niantic.ARVoyage.ARPlane.PlaneDestroyed -= OnPlaneDestroyed;
         }
 
         // Comment in to test

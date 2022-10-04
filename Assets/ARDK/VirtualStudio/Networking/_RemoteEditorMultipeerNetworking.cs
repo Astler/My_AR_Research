@@ -3,18 +3,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Niantic.ARDK.AR;
-using Niantic.ARDK.Utilities.Extensions;
+using System.Text;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.Remote;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
-
 using UnityEngine.Networking.PlayerConnection;
 
 namespace Niantic.ARDK.VirtualStudio.Remote
@@ -199,7 +196,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
       _RemoteConnection.Send
       (
         NetworkingJoinMessage.ID.Combine(StageIdentifier),
-        new NetworkingJoinMessage() { Metadata = metadata }.SerializeToArray(),
+        new NetworkingJoinMessage { Metadata = metadata }.SerializeToArray(),
         TransportType.ReliableOrdered
       );
     }
@@ -306,7 +303,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
       var message =
         new NetworkingStorePersistentKeyValueMessage
         {
-          Key = System.Text.Encoding.UTF8.GetBytes(key),
+          Key = Encoding.UTF8.GetBytes(key),
           Value = value
         };
 
@@ -405,7 +402,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
     private void HandleUpdatedPersistentKeyValueMessage(MessageEventArgs e)
     {
       var message = e.data.DeserializeFromArray<NetworkingPersistentKeyValueUpdatedMessage>();
-      var key = System.Text.Encoding.UTF8.GetString(message.Key);
+      var key = Encoding.UTF8.GetString(message.Key);
       var value = message.Value;
 
       var handler = PersistentKeyValueUpdated;

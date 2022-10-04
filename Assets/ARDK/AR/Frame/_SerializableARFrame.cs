@@ -4,28 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Numerics;
-
 using Niantic.ARDK.AR.Anchors;
-using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.AR.Awareness.Depth;
 using Niantic.ARDK.AR.Awareness.Semantics;
+using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.AR.Image;
 using Niantic.ARDK.AR.LightEstimate;
 using Niantic.ARDK.AR.PointCloud;
 using Niantic.ARDK.AR.SLAM;
-using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
-
-using Matrix4x4 = UnityEngine.Matrix4x4;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
 namespace Niantic.ARDK.AR.Frame
 {

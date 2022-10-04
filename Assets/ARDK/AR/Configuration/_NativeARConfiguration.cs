@@ -2,11 +2,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
-
 using AOT;
-
 using Niantic.ARDK.AR.VideoFormat;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;

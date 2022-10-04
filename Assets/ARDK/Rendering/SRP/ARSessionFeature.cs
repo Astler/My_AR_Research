@@ -2,12 +2,9 @@
 
 #if ARDK_HAS_URP
 using System;
-
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-
-using Niantic.ARDK.Rendering.SRP;
 
 namespace Niantic.ARDK.Rendering.SRP
 {

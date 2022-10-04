@@ -1,10 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -228,7 +226,7 @@ namespace Niantic.ARDK.Extensions
       }
     }
 
-    private bool _havePromptedTheUserToInstallARCore = false;
+    private bool _havePromptedTheUserToInstallARCore;
 
     private void OnApplicationPause(bool pauseStatus)
     {

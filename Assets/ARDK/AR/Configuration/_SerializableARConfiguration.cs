@@ -2,13 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
-using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.Utilities.Collections;
-using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.AR.Configuration
 {

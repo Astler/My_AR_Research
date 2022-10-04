@@ -1,5 +1,7 @@
 ﻿// #define RESET_REMOVED_ELEMENTS
 
+using System;
+
 namespace IngameDebugConsole
 {
 	public class CircularBuffer<T>
@@ -55,7 +57,7 @@ namespace IngameDebugConsole
 				int prevSize = arr.Length;
 				int newSize = prevSize > 0 ? prevSize * 2 : 2; // Size must be doubled (at least), or the shift operation below must consider IndexOutOfRange situations
 
-				System.Array.Resize( ref arr, newSize );
+				Array.Resize( ref arr, newSize );
 
 				if( startIndex > 0 )
 				{

@@ -30,7 +30,7 @@ namespace Niantic.ARDK.Utilities
     /// </summary>
     public bool Equals(T a, T b)
     {
-      return object.ReferenceEquals(a, b);
+      return ReferenceEquals(a, b);
     }
 
     /// <summary>

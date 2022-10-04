@@ -1,6 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using Modules.Shared.SceneLookup;
+using Prototype;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -10,12 +10,12 @@ namespace Niantic.ARVoyage
     /// <summary>
     /// Helper for various rendering functionality, including setting render scale
     /// </summary>
-    public class RenderPipelineHelper : MonoBehaviour, ISceneDependency
+    public class RenderPipelineHelper : MonoBehaviour
     {
         [SerializeField] float shadowDistance = 4;
         private float originalShadowDistance;
 
-        [SerializeField] bool scaleRender = false;
+        [SerializeField] bool scaleRender;
         [SerializeField] int referenceResolution = 1920;
         private float originalRenderScale;
 
@@ -60,7 +60,7 @@ namespace Niantic.ARVoyage
         {
             if (scaleRender)
             {
-                float scale = Mathf.Clamp01((float)referenceResolution / (float)Camera.main.pixelHeight);
+                float scale = Mathf.Clamp01(referenceResolution / (float)Camera.main.pixelHeight);
                 pipelineAsset.renderScale = scale;
             }
             else

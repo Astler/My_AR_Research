@@ -229,7 +229,7 @@ namespace Niantic.ARDK.Utilities
         return false;
 
       SafeGCHandle<T> other = (SafeGCHandle<T>)obj;
-      return this.Equals(other);
+      return Equals(other);
     }
 
     /// Checks if the provided handle equals this one. This means both have the same ID.

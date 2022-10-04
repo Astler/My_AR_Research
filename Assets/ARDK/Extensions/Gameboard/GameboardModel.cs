@@ -3,9 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
-
 using Random = UnityEngine.Random;
 
 namespace Niantic.ARDK.Extensions.Gameboard
@@ -16,7 +14,7 @@ namespace Niantic.ARDK.Extensions.Gameboard
 
     // Internal container for all surfaces.
     public List<Surface> Surfaces { get; }
-    private int _nextSurfaceId = 0;
+    private int _nextSurfaceId;
     private bool _visualise;
 
     public readonly ModelSettings Settings;

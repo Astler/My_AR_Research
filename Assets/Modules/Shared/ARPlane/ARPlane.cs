@@ -1,23 +1,20 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-﻿using UnityEngine;
+
+using System;
+using UnityEngine;
 
 namespace Niantic.ARVoyage
 {
-    /// <summary>
-    /// Functionality for ARPlanes recognized by ARDK's ARPlaneManager
-    /// These planes are collected and accessible via the ARPlaneHelper
-    /// </summary>
     public class ARPlane : MonoBehaviour
     {
-        public static AppEvent<ARPlane> PlaneCreated = new AppEvent<ARPlane>();
-        public static AppEvent<ARPlane> PlaneDestroyed = new AppEvent<ARPlane>();
+        public static Action<ARPlane> PlaneCreated;
+        public static Action<ARPlane> PlaneDestroyed;
 
         [SerializeField] Renderer _renderer;
 
         private void Start()
         {
-            // Wait until Start to invoke this so ARPlaneHelper will be ready to receive it
-            PlaneCreated.Invoke(this);
+            PlaneCreated?.Invoke(this);
         }
 
         public void Show(bool show)
@@ -27,7 +24,7 @@ namespace Niantic.ARVoyage
 
         private void OnDestroy()
         {
-            PlaneDestroyed.Invoke(this);
+            PlaneDestroyed?.Invoke(this);
         }
     }
 }

@@ -1,8 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 
-using System;
 #if UNITY_ANDROID
+using System;
 using Niantic.ARDK.Utilities.Permissions;
 using UnityEngine.Android;
 

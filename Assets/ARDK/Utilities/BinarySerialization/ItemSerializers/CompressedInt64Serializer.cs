@@ -3,8 +3,6 @@
 using System;
 using System.IO;
 
-using Niantic.ARDK.Utilities.Extensions;
-
 namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers
 {
   public sealed class CompressedInt64Serializer:

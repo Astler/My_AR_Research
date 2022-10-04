@@ -1,16 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.Utilities;
-
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness
@@ -21,12 +16,12 @@ namespace Niantic.ARDK.AR.Awareness
     IDisposable
   where T: struct
   {
-    protected readonly float _worldScale = 0;
+    protected readonly float _worldScale;
     protected IntPtr _nativeHandle;
 
     private long _consumedUnmanagedMemory;
-    private Matrix4x4? _cacheViewMatrix = null;
-    private CameraIntrinsics? _cachedIntrinsics = null;
+    private Matrix4x4? _cacheViewMatrix;
+    private CameraIntrinsics? _cachedIntrinsics;
 
     private NativeArray<T> _data;
 #if UNITY_EDITOR

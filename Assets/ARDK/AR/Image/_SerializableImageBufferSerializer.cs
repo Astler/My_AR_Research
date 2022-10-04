@@ -3,8 +3,6 @@
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
 
-using UnityEngine;
-
 namespace Niantic.ARDK.AR.Image
 {
   internal sealed class _SerializableImageBufferSerializer:

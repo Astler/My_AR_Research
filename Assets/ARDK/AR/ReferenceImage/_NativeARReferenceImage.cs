@@ -3,10 +3,8 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.ReferenceImage
@@ -40,7 +38,7 @@ namespace Niantic.ARDK.AR.ReferenceImage
       }
 
       var result =
-        _allImages.GetOrAdd(cppAddress, (_) => new _NativeARReferenceImage(nativeHandle));
+        _allImages.GetOrAdd(cppAddress, _ => new _NativeARReferenceImage(nativeHandle));
 
       if (result._NativeHandle != nativeHandle)
       {

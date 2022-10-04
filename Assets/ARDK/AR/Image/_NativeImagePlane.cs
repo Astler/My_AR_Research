@@ -2,13 +2,10 @@
 
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
-
 
 namespace Niantic.ARDK.AR.Image
 {

@@ -1,8 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
- using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 using System;
+using UnityEngine;
 
 namespace Niantic.ARVoyage
 {
@@ -17,7 +16,7 @@ namespace Niantic.ARVoyage
     /// </summary>
     public static class BubbleScaleUtil
     {
-        private static readonly InterpolationOperationKey BubbleScaleOperationKey = new InterpolationOperationKey(typeof(BubbleScaleUtil).Name + "Key");
+        private static readonly InterpolationOperationKey BubbleScaleOperationKey = new(typeof(BubbleScaleUtil).Name + "Key");
 
         /// <summary>Bubble-scale up over time, starting from current scale. If the target's current scale is already greater than or equal to the targetScale, this will complete immediately without processing waits.</summary>
         /// <param name="target">The gameObject to scale up.</param>
@@ -42,7 +41,7 @@ namespace Niantic.ARVoyage
             Action onComplete = null,
             bool activateTargetOnStart = true)
         {
-            if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+            if (!target)
             {
                 Debug.LogWarning("Ignoring call to ScaleUp with null or destroyed target");
                 return null;
@@ -91,7 +90,7 @@ namespace Niantic.ARVoyage
                     }
                     onStart?.Invoke();
                 },
-                onUpdate: (float durationProgress) =>
+                onUpdate: durationProgress =>
                 {
                     // The scale of the clip is relative to a 0-1 scale, that will already have been applied to the GameObject.
                     float clipScale = target.transform.localScale.x;
@@ -126,7 +125,7 @@ namespace Niantic.ARVoyage
             Action onComplete = null,
             bool deactivateTargetOnComplete = false)
         {
-            if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+            if (!target)
             {
                 Debug.LogWarning("Ignoring call to ScaleDown with null or destroyed target");
                 return null;
@@ -168,7 +167,7 @@ namespace Niantic.ARVoyage
                 operationKey: BubbleScaleOperationKey,
                 animationClip: GetAnimationClipForType(animationType),
                 playForwards: false, duration, preWait, postWait, onStart,
-                onUpdate: (float durationProgress) =>
+                onUpdate: durationProgress =>
                 {
                     // The scale of the clip is relative to a 0-1 scale, that will already have been applied to the GameObject.
                     float clipScale = target.transform.localScale.x;

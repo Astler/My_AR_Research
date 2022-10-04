@@ -1,7 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions {
@@ -9,13 +7,13 @@ namespace Niantic.ARDK.Extensions {
   public class PlanefindingGrid : MonoBehaviour {
 
     [SerializeField]
-    private Renderer _renderer = null;
+    private Renderer _renderer;
 
     [SerializeField]
-    private MaterialPropertyBlock propBlock = null;
+    private MaterialPropertyBlock propBlock;
 
     [SerializeField]
-    private float textureScale = 0.0f;
+    private float textureScale;
 
     private void Awake() {
       propBlock = new MaterialPropertyBlock();

@@ -1,10 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.Collections.Generic;
-using Modules.Shared.SceneLookup;
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARVoyage;
+using Prototype;
 using UnityEngine;
 
 namespace Modules.Shared.VFX.FeaturePoints
@@ -12,7 +12,7 @@ namespace Modules.Shared.VFX.FeaturePoints
     /// <summary>
     /// Animate particles for 3D feature points.
     /// </summary>
-    public class FeaturePointHelper : MonoBehaviour, ISceneDependency
+    public class FeaturePointHelper : MonoBehaviour
     {
         // AR config.
         [SerializeField] private Camera arCamera;
@@ -25,15 +25,15 @@ namespace Modules.Shared.VFX.FeaturePoints
         [SerializeField] Transform mockTransform;
 
         // Collections.
-        private HashSet<Vector3> featurePoints = new HashSet<Vector3>();
-        private List<FeaturePointParticle> particlesPooled = new List<FeaturePointParticle>();
-        private List<FeaturePointParticle> particlesActive = new List<FeaturePointParticle>();
+        private HashSet<Vector3> featurePoints = new();
+        private List<FeaturePointParticle> particlesPooled = new();
+        private List<FeaturePointParticle> particlesActive = new();
 
         private int maxParticles = 1024;
         private int maxFeaturePoints = 4096;
 
         // Animation.
-        private AnimationCurve scaleCurve = new AnimationCurve();
+        private AnimationCurve scaleCurve = new();
 
         public bool Tracking { get; set; } = false;
         public bool Spawning { get; set; } = false;
@@ -73,7 +73,7 @@ namespace Modules.Shared.VFX.FeaturePoints
         {
 
 #if UNITY_EDITOR
-            List<Vector3> mockPoints = new List<Vector3>();
+            List<Vector3> mockPoints = new();
             for (int i = 0; i < 300; i++)
             {
                 mockPoints.Add(Random.onUnitSphere + mockTransform.position);
@@ -82,7 +82,7 @@ namespace Modules.Shared.VFX.FeaturePoints
 #endif
 
             // Cull points that are no longer visible
-            featurePoints.RemoveWhere((point) =>
+            featurePoints.RemoveWhere(point =>
             {
                 return !CheckBounds(point);
             });

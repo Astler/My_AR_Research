@@ -2,13 +2,11 @@
 
 using System.Collections;
 using System.Collections.Generic;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
@@ -186,7 +184,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
         _activeSessionHelpers.Add(session, helper);
 
       session.Deinitialized +=
-        (_) =>
+        _ =>
         {
           // When the session dies, we only need to remove it from our session list, no need
           // to "dispose" the helper, as no more events will come from the session.

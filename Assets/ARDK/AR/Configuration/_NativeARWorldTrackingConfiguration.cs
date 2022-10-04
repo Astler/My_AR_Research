@@ -5,12 +5,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices;
-
 using AOT;
-
-using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.ReferenceImage;
-using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.AR.VideoFormat;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;

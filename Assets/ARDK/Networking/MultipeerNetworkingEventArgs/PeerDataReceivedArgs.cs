@@ -2,7 +2,6 @@
 
 using System;
 using System.IO;
-
 using Niantic.ARDK.Utilities;
 
 namespace Niantic.ARDK.Networking.MultipeerNetworkingEventArgs

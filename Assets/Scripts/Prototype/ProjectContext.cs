@@ -1,6 +1,5 @@
 ﻿using Items;
 using Prototype.AR;
-using Prototype.AR.FoundationAR;
 using Prototype.Assets;
 using Prototype.Screens;
 using Prototype.Services;
@@ -15,6 +14,7 @@ namespace Prototype
 
         [Space, SerializeField] private PortalController portalController;
         [SerializeField] private GiftsController giftsController;
+        [SerializeField] private CoinsController coinsController;
 
         [SerializeField] private MainSceneView mainScene;
 
@@ -82,7 +82,7 @@ namespace Prototype
                 Debug.Log("Unity Hit");
                 foreach (RaycastHit hit in hits)
                 {
-                    if (hit.collider.gameObject.TryGetComponent(out Gift gift))
+                    if (hit.collider.gameObject.TryGetComponent(out GiftView gift))
                     {
                         giftsController.Collect(gift);
                         return;
@@ -121,5 +121,9 @@ namespace Prototype
         public AssetsSO GetAssets() => assetsSo;
 
         public Vector3 GetCameraForwardDirection() => _cameraView.CameraForwardVector;
+
+        public CoinsController GetCoinsController() => coinsController;
+
+        public Vector3 GetPlayerFacePosition() => _cameraView.GetFacePosition();
     }
 }

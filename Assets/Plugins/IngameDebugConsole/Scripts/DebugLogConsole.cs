@@ -3,14 +3,14 @@
 #define USE_BOLD_COMMAND_SIGNATURES
 #endif
 
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
 using System.Text;
-using Object = UnityEngine.Object;
+using UnityEngine;
 #if UNITY_EDITOR && UNITY_2021_1_OR_NEWER
 using SystemInfo = UnityEngine.Device.SystemInfo; // To support Device Simulator on Unity 2021.1+
 #endif
@@ -59,7 +59,7 @@ namespace IngameDebugConsole
 		private static readonly List<ConsoleMethodInfo> matchingMethods = new List<ConsoleMethodInfo>( 4 );
 
 		// All the parse functions
-		private static readonly Dictionary<Type, ParseFunction> parseFunctions = new Dictionary<Type, ParseFunction>()
+		private static readonly Dictionary<Type, ParseFunction> parseFunctions = new Dictionary<Type, ParseFunction>
 		{
 			{ typeof( string ), ParseString },
 			{ typeof( bool ), ParseBool },
@@ -94,7 +94,7 @@ namespace IngameDebugConsole
 		};
 
 		// All the readable names of accepted types
-		private static readonly Dictionary<Type, string> typeReadableNames = new Dictionary<Type, string>()
+		private static readonly Dictionary<Type, string> typeReadableNames = new Dictionary<Type, string>
 		{
 			{ typeof( string ), "String" },
 			{ typeof( bool ), "Boolean" },
@@ -116,7 +116,7 @@ namespace IngameDebugConsole
 		private static readonly List<string> commandArguments = new List<string>( 8 );
 
 		// Command parameter delimeter groups
-		private static readonly string[] inputDelimiters = new string[] { "\"\"", "''", "{}", "()", "[]" };
+		private static readonly string[] inputDelimiters = { "\"\"", "''", "{}", "()", "[]" };
 
 		// CompareInfo used for case-insensitive command name comparison
 		internal static readonly CompareInfo caseInsensitiveComparer = new CultureInfo( "en-US" ).CompareInfo;
@@ -130,8 +130,7 @@ namespace IngameDebugConsole
 #if UNITY_EDITOR || !NETFX_CORE
 			// Find all [ConsoleMethod] functions
 			// Don't search built-in assemblies for console methods since they can't have any
-			string[] ignoredAssemblies = new string[]
-			{
+			string[] ignoredAssemblies = {
 				"Unity",
 				"System",
 				"Mono.",
@@ -198,11 +197,11 @@ namespace IngameDebugConsole
 					}
 				}
 				catch( NotSupportedException ) { }
-				catch( System.IO.FileNotFoundException ) { }
+				catch( FileNotFoundException ) { }
 				catch( ReflectionTypeLoadException ) { }
 				catch( Exception e )
 				{
-					Debug.LogError( "Couldn't search assembly for [ConsoleMethod] attributes: " + assemblyName + "\n" + e.ToString() );
+					Debug.LogError( "Couldn't search assembly for [ConsoleMethod] attributes: " + assemblyName + "\n" + e );
 				}
 			}
 		}
@@ -347,7 +346,8 @@ namespace IngameDebugConsole
 				Debug.LogError( "Parameter type can't be null!" );
 				return;
 			}
-			else if( parseFunction == null )
+
+			if( parseFunction == null )
 			{
 				Debug.LogError( "Parameter parseFunction can't be null!" );
 				return;
@@ -498,8 +498,6 @@ namespace IngameDebugConsole
 								commandIndex = i;
 								commandLastIndex--;
 								methods.RemoveAt( i-- );
-
-								continue;
 							}
 						}
 					}
@@ -595,10 +593,9 @@ namespace IngameDebugConsole
 			{
 				if( caseInsensitiveComparer.Compare( methods[i].command, previousSuggestion, CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace ) == 0 )
 					continue;
-				else if( caseInsensitiveComparer.IsPrefix( methods[i].command, commandStart, CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace ) )
+				if( caseInsensitiveComparer.IsPrefix( methods[i].command, commandStart, CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace ) )
 					return methods[i].command;
-				else
-					break;
+				break;
 			}
 
 			// Couldn't find a command that follows previousSuggestion and satisfies commandStart, loop back to the beginning of the autocomplete suggestions
@@ -718,7 +715,7 @@ namespace IngameDebugConsole
 					catch( Exception e )
 					{
 						success = false;
-						errorMessage = "ERROR: " + e.ToString();
+						errorMessage = "ERROR: " + e;
 					}
 				}
 
@@ -738,7 +735,7 @@ namespace IngameDebugConsole
 					if( result == null || result.Equals( null ) )
 						Debug.Log( "Returned: null" );
 					else
-						Debug.Log( "Returned: " + result.ToString() );
+						Debug.Log( "Returned: " + result );
 				}
 			}
 		}
@@ -907,7 +904,7 @@ namespace IngameDebugConsole
 				char c = command[i];
 				if( c == endChar && --depth <= 0 )
 					return i;
-				else if( c == startChar )
+				if( c == startChar )
 					depth++;
 			}
 
@@ -935,7 +932,7 @@ namespace IngameDebugConsole
 				int comparison = caseInsensitiveComparer.Compare( command, methods[mid].command, CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace );
 				if( comparison == 0 )
 					return mid;
-				else if( comparison < 0 )
+				if( comparison < 0 )
 					max = mid - 1;
 				else
 					min = mid + 1;
@@ -977,8 +974,7 @@ namespace IngameDebugConsole
 				Type elementType = type.IsArray ? type.GetElementType() : type.GetGenericArguments()[0];
 				if( typeReadableNames.TryGetValue( elementType, out result ) )
 					return result + "[]";
-				else
-					return elementType.Name + "[]";
+				return elementType.Name + "[]";
 			}
 
 			return type.Name;
@@ -989,17 +985,14 @@ namespace IngameDebugConsole
 			ParseFunction parseFunction;
 			if( parseFunctions.TryGetValue( argumentType, out parseFunction ) )
 				return parseFunction( input, out output );
-			else if( typeof( Component ).IsAssignableFrom( argumentType ) )
+			if( typeof( Component ).IsAssignableFrom( argumentType ) )
 				return ParseComponent( input, argumentType, out output );
-			else if( argumentType.IsEnum )
+			if( argumentType.IsEnum )
 				return ParseEnum( input, argumentType, out output );
-			else if( IsSupportedArrayType( argumentType ) )
+			if( IsSupportedArrayType( argumentType ) )
 				return ParseArray( input, argumentType, out output );
-			else
-			{
-				output = null;
-				return false;
-			}
+			output = null;
+			return false;
 		}
 
 		public static bool ParseString( string input, out object output )
@@ -1283,7 +1276,7 @@ namespace IngameDebugConsole
 			List<string> valuesToParse = new List<string>( 2 );
 			FetchArgumentsFromCommand( input, valuesToParse );
 
-			IList result = (IList) Activator.CreateInstance( arrayType, new object[1] { valuesToParse.Count } );
+			IList result = (IList) Activator.CreateInstance( arrayType, valuesToParse.Count);
 			output = result;
 
 			if( arrayType.IsArray )

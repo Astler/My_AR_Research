@@ -1,11 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
-using Niantic.ARDK.Networking;
 using Niantic.ARDK.AR.Configuration;
+using Niantic.ARDK.Networking;
 
 // TODO: comment
 
@@ -83,10 +82,10 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   {
     public static readonly Guid ID = new Guid("52c251b0-afb9-4e4d-ac31-b75cabec02f2");
 
-    public uint Tag = 0U;
-    public byte[] Data = null;
-    public Guid[] Peers = null;
-    public byte TransportType = 0;
+    public uint Tag;
+    public byte[] Data;
+    public Guid[] Peers;
+    public byte TransportType;
     public bool SendToSelf = true;
   }
 
@@ -95,7 +94,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   {
     public static readonly Guid ID = new Guid("dc0b20d4-08b1-4d6b-9039-1a37f0b062fd");
 
-    public byte[] Metadata = null;
+    public byte[] Metadata;
   }
 
   [Serializable]
@@ -103,7 +102,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   {
     public static readonly Guid ID = new Guid("dc0b20d4-08b1-4d6b-9039-1a37f0b062fe");
 
-    public byte[] Metadata = null;
+    public byte[] Metadata;
   }
 
   [Serializable]
@@ -117,8 +116,8 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   {
     public static readonly Guid ID = new Guid("5fb6ceb9-57aa-4057-ad2f-4a3ebc5a5836");
 
-    public byte[] Key = null;
-    public byte[] Value = null;
+    public byte[] Key;
+    public byte[] Value;
   }
 
   [Serializable]
@@ -126,8 +125,8 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   {
     public static readonly Guid ID = new Guid("52c251b0-afb9-4e4d-ac31-b75cabec02f3");
 
-    public uint Tag = 0U;
-    public byte[] Data = null;
+    public uint Tag;
+    public byte[] Data;
   }
 
   #endregion
@@ -138,7 +137,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote.Data
   {
     public Guid StageIdentifier = Guid.Empty;
     public ServerConfiguration ServerConfiguration = ServerConfiguration.ARBE;
-    public bool ConstructFromExistingNetworking = false;
+    public bool ConstructFromExistingNetworking;
   }
 
   [Serializable]

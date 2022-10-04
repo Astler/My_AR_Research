@@ -1,13 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-using System.Linq;
 using System.IO;
-
-using Niantic.ARDK.Utilities.Extensions;
-using Niantic.ARDK.Networking.HLAPI.Data;
+using System.Linq;
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
+using Niantic.ARDK.Utilities.Extensions;
 
 namespace Niantic.ARDK.Utilities.Marker
 {

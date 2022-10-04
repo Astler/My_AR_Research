@@ -7,8 +7,6 @@
 using Niantic.ARDK.AR;
 using Niantic.ARDK.VirtualStudio;
 
-using UnityEngine;
-
 namespace Niantic.ARDK.Utilities
 {
   internal static class _NativeAccess

@@ -1,12 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using UnityEngine;
-
-using UnityEditor;
-using UnityEditor.Callbacks;
-
-using System.IO;
-using System.Collections;
 #if UNITY_IOS && UNITY_EDITOR_OSX
 using UnityEditor.iOS.Xcode;
 

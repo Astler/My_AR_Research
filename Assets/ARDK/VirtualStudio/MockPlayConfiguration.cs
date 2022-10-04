@@ -2,13 +2,10 @@
 
 using System;
 using System.Collections.Generic;
-
 using Niantic.ARDK.AR.Configuration;
-using Niantic.ARDK.External;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio

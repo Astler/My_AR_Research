@@ -1,7 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 
@@ -20,7 +19,7 @@ namespace Niantic.ARDK.AR.Configuration
       // This means the user prompt cannot be refused (though the user can still avoid downloading
       // arcore by closing and reopening the app).
       Required = 1,
-    };
+    }
 
     public enum InstallMessageType
     {
@@ -33,7 +32,7 @@ namespace Niantic.ARDK.AR.Configuration
       // This tells the user nothing about why ARCore is being requested, assuming you've already
       // informed them.
       UserAlreadyInformed = 2,
-    };
+    }
 
 
     public enum InstallResult

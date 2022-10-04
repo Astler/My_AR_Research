@@ -7,11 +7,9 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Anchors
@@ -43,19 +41,17 @@ namespace Niantic.ARDK.AR.Anchors
         return _FromNativeHandle(nativeHandle);
       }
 #pragma warning disable 0162
-      else
-      {
-        var identifier = Guid.NewGuid();
 
-        ARLog._DebugFormat
-        (
-          "Creating new _SerializableARBasicAnchor with identifier: {0}",
-          false,
-          identifier
-        );
+      var identifier = Guid.NewGuid();
 
-        return new _SerializableARBasicAnchor(transform, identifier);
-      }
+      ARLog._DebugFormat
+      (
+        "Creating new _SerializableARBasicAnchor with identifier: {0}",
+        false,
+        identifier
+      );
+
+      return new _SerializableARBasicAnchor(transform, identifier);
 #pragma warning restore 0162
     }
 
@@ -80,7 +76,7 @@ namespace Niantic.ARDK.AR.Anchors
         return result;
       }
 
-      result = _allAnchors.GetOrAdd(cppAddress, (_) => _CreateFromHandle(nativeHandle));
+      result = _allAnchors.GetOrAdd(cppAddress, _ => _CreateFromHandle(nativeHandle));
 
       // If an existing anchor is found (that is, got added just after our TryGetValue but
       // before GetOrAdd) we need to release the nativeHandle as it is a duplicate to the same

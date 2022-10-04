@@ -41,13 +41,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Plugins/NativeGallery/Android/NGMediaReceiveCallbackAndroid.cs" />
-     <Compile Include="Assets/Plugins/NativeGallery/iOS/NGMediaReceiveCallbackiOS.cs" />
-     <Compile Include="Assets/Plugins/NativeGallery/iOS/NGMediaSaveCallbackiOS.cs" />
-     <Compile Include="Assets/Plugins/NativeGallery/NativeGallery.cs" />
-     <Compile Include="Assets/Plugins/NativeGallery/Android/NGCallbackHelper.cs" />
-     <Compile Include="Assets/Plugins/NativeGallery/Android/NGPermissionCallbackAndroid.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" />
+     <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" />
      <None Include="Assets/Plugins/Android/AndroidManifest.xml" />
+     <None Include="Assets/Plugins/Demigiant/DOTween/readme.txt" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -296,6 +299,9 @@
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -1041,11 +1047,11 @@
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
@@ -1154,10 +1160,6 @@
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
       <Name>ARDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="VuforiaVersionCheckerScripts.csproj">
-      <Project>{b78a7895-63c9-6040-31b5-d980b5614bf8}</Project>
-      <Name>VuforiaVersionCheckerScripts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

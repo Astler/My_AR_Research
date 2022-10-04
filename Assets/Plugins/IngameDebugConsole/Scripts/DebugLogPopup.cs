@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Collections;
+using UnityEngine.UI;
 #if UNITY_EDITOR && UNITY_2021_1_OR_NEWER
 using Screen = UnityEngine.Device.Screen; // To support Device Simulator on Unity 2021.1+
 #endif
@@ -42,15 +42,15 @@ namespace IngameDebugConsole
 #pragma warning restore 0649
 
 		// Number of new debug entries since the log window has been closed
-		private int newInfoCount = 0, newWarningCount = 0, newErrorCount = 0;
+		private int newInfoCount, newWarningCount, newErrorCount;
 
 		private Color normalColor;
 
-		private bool isPopupBeingDragged = false;
+		private bool isPopupBeingDragged;
 		private Vector2 normalizedPosition;
 
 		// Coroutines for simple code-based animations
-		private IEnumerator moveToPosCoroutine = null;
+		private IEnumerator moveToPosCoroutine;
 
 		private void Awake()
 		{

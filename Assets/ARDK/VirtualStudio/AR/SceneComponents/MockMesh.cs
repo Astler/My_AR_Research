@@ -1,11 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
@@ -20,7 +17,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
   {
     /// _meshPath is the path to a single mesh file (mesh_*.bin) in the project.
     [SerializeField]
-    private string _meshPath = null;
+    private string _meshPath;
 
     internal override void BeDiscovered(_IMockARSession arSession, bool isLocal)
     {

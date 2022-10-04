@@ -1,5 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-﻿using System.Collections;
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,14 +9,14 @@ namespace Niantic.ARVoyage
     /// <summary>
     /// Used for NPC path locomotion on a Gameboard.
     /// </summary>
-    [System.Serializable]
+    [Serializable]
     public class PathAnimation
     {
         [SerializeField] AnimationCurve xCurve;
         [SerializeField] AnimationCurve yCurve;
         [SerializeField] AnimationCurve zCurve;
 
-        public float TotalDuration { get; private set; } = 0;
+        public float TotalDuration { get; private set; }
 
         public Vector3 Evaluate(float time)
         {

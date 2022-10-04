@@ -26,7 +26,7 @@ namespace Niantic.ARDK.Utilities.Extensions
       var prefabs = new List<Prefab>();
 
       if (searchInFolders.Length == 0)
-        searchInFolders = new string[] { "Assets" };
+        searchInFolders = new[] { "Assets" };
 
       var guids = AssetDatabase.FindAssets("t:prefab", searchInFolders);
 
@@ -56,7 +56,7 @@ namespace Niantic.ARDK.Utilities.Extensions
       var assets = new List<T>();
 
       if (searchInFolders.Length == 0)
-        searchInFolders = new string[] { "Assets" };
+        searchInFolders = new[] { "Assets" };
 
       var guids = AssetDatabase.FindAssets("t:" + typeof(T), searchInFolders);
 

@@ -2,13 +2,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.Collections;
 
 namespace Niantic.ARDK.Networking
 {

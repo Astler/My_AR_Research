@@ -1,9 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
-using Niantic.ARDK.AR;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio
@@ -12,11 +9,11 @@ namespace Niantic.ARDK.VirtualStudio
   public sealed class MockArdkPlayerProfile
   {
     [SerializeField] private string _playerName;
-    [SerializeField] private bool _isActive = false;
+    [SerializeField] private bool _isActive;
 
-    [SerializeField] private bool _usingAR = false;
-    [SerializeField] private bool _usingNetwork = false;
-    [SerializeField] private bool _usingARNetworking = false;
+    [SerializeField] private bool _usingAR;
+    [SerializeField] private bool _usingNetwork;
+    [SerializeField] private bool _usingARNetworking;
 
     public string PlayerName
     {

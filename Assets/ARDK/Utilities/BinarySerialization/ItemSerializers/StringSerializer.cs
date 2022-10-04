@@ -2,9 +2,8 @@
 
 using System;
 using System.Text;
-
-using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.BinarySerialization.Contexts;
+using Niantic.ARDK.Utilities.Extensions;
 
 namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers
 {

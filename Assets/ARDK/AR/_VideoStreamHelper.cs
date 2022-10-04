@@ -2,14 +2,11 @@
 
 using System;
 using System.Runtime.InteropServices;
-
 using Niantic.ARDK.AR.Image;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
-
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR
@@ -43,8 +40,8 @@ namespace Niantic.ARDK.AR
       (
         (UInt64)plane0.PixelWidth,
         (UInt64)plane0.PixelHeight,
-        NativeArrayUnsafeUtility.GetUnsafePtr(plane0.Data),
-        NativeArrayUnsafeUtility.GetUnsafePtr(planes[1].Data),
+        plane0.Data.GetUnsafePtr(),
+        planes[1].Data.GetUnsafePtr(),
         &buffer,
         &size,
         (UInt64)compressionQuality,
@@ -132,8 +129,8 @@ namespace Niantic.ARDK.AR
       (
         (UInt64)plane0.PixelWidth,
         (UInt64)plane0.PixelHeight,
-        NativeArrayUnsafeUtility.GetUnsafePtr(plane0.Data),
-        NativeArrayUnsafeUtility.GetUnsafePtr(planes[1].Data),
+        plane0.Data.GetUnsafePtr(),
+        planes[1].Data.GetUnsafePtr(),
         (UInt64)_EncodingImageResolution.width,
         (UInt64)_EncodingImageResolution.height,
         &buffer,
@@ -169,7 +166,7 @@ namespace Niantic.ARDK.AR
       (
         (UInt64)width,
         (UInt64)height,
-        (float*)NativeArrayUnsafeUtility.GetUnsafePtr(depthBuf),
+        (float*)depthBuf.GetUnsafePtr(),
         &buffer,
         &size,
         useJpegCompression,
@@ -194,29 +191,24 @@ namespace Niantic.ARDK.AR
       float* buffer;
       UInt64 size;
 
-      unsafe
+      fixed (byte* byteBuf = &compressedDepthBuf[0])
       {
-        fixed (byte* byteBuf = &compressedDepthBuf[0])
-        {
-          ROR_Decode_FloatBuffer
-          (
-            (void*)byteBuf,
-            (UInt64)compressedDepthBuf.Length,
-            &buffer,
-            &size,
-            useJpegCompression
-          );
-        }
+        ROR_Decode_FloatBuffer
+        (
+          byteBuf,
+          (UInt64)compressedDepthBuf.Length,
+          &buffer,
+          &size,
+          useJpegCompression
+        );
       }
 
       var uncompressed = new NativeArray<float>((int)size, Allocator.Persistent);
-      unsafe
+      for (var i=0; i<(int)size; i++)
       {
-        for (var i=0; i<(int)size; i++)
-        {
-          uncompressed[i] = buffer[i];
-        }
+        uncompressed[i] = buffer[i];
       }
+
       return uncompressed;
     }
 

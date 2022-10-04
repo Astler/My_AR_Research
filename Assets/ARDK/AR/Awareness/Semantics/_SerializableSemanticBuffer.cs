@@ -1,15 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Linq;
 using System.Runtime.InteropServices;
-
-using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.Utilities.Logging;
-
 using Unity.Collections;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness.Semantics

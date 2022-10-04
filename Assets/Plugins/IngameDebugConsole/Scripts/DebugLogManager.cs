@@ -1,13 +1,15 @@
-﻿using System.Collections;
+﻿#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
+using UnityEngine.InputSystem;
+#endif
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-using UnityEngine.InputSystem;
-#endif
+using UnityEngine.UI;
 #if UNITY_EDITOR && UNITY_2021_1_OR_NEWER
 using Screen = UnityEngine.Device.Screen; // To support Device Simulator on Unity 2021.1+
 #endif
@@ -54,7 +56,7 @@ namespace IngameDebugConsole
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, console window can be resized horizontally, as well" )]
-		private bool enableHorizontalResizing = false;
+		private bool enableHorizontalResizing;
 
 		[SerializeField]
 		[HideInInspector]
@@ -79,12 +81,12 @@ namespace IngameDebugConsole
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, console window will initially be invisible" )]
-		private bool startMinimized = false;
+		private bool startMinimized;
 
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, pressing the Toggle Key will show/hide (i.e. toggle) the console window at runtime" )]
-		private bool toggleWithKey = false;
+		private bool toggleWithKey;
 
 #if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
 		[SerializeField]
@@ -109,7 +111,7 @@ namespace IngameDebugConsole
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, the console window will continue receiving logs in the background even if its GameObject is inactive. But the console window's GameObject needs to be activated at least once because its Awake function must be triggered for this to work" )]
-		private bool receiveLogsWhileInactive = false;
+		private bool receiveLogsWhileInactive;
 
 		[SerializeField]
 		[HideInInspector]
@@ -118,12 +120,12 @@ namespace IngameDebugConsole
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, the arrival times of logs will be recorded and displayed when a log is expanded" )]
-		private bool captureLogTimestamps = false;
+		private bool captureLogTimestamps;
 
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, timestamps will be displayed for logs even if they aren't expanded" )]
-		internal bool alwaysDisplayTimestamps = false;
+		internal bool alwaysDisplayTimestamps;
 
 		[SerializeField]
 		[HideInInspector]
@@ -148,7 +150,7 @@ namespace IngameDebugConsole
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, on Android platform, logcat entries of the application will also be logged to the console with the prefix \"LOGCAT: \". This may come in handy especially if you want to access the native logs of your Android plugins (like Admob)" )]
-		private bool receiveLogcatLogsInAndroid = false;
+		private bool receiveLogcatLogsInAndroid;
 
 #pragma warning disable 0414
 #if UNITY_2018_3_OR_NEWER // On older Unity versions, disabling CS0169 is problematic: "Cannot restore warning 'CS0169' because it was disabled globally"
@@ -171,7 +173,7 @@ namespace IngameDebugConsole
 		[SerializeField]
 		[HideInInspector]
 		[Tooltip( "If enabled, on Android and iOS devices with notch screens, the console window's popup won't be obscured by the screen cutouts" )]
-		internal bool popupAvoidsScreenCutout = false;
+		internal bool popupAvoidsScreenCutout;
 
 		[SerializeField]
 		[Tooltip( "If a log is longer than this limit, it will be truncated. This helps avoid reaching Unity's 65000 vertex limit for UI canvases" )]
@@ -303,14 +305,14 @@ namespace IngameDebugConsole
 		private float logWindowPreviousWidth;
 
 		// Number of entries filtered by their types
-		private int infoEntryCount = 0, warningEntryCount = 0, errorEntryCount = 0;
+		private int infoEntryCount, warningEntryCount, errorEntryCount;
 		private bool entryCountTextsDirty;
 
 		// Number of new entries received this frame
-		private int newInfoEntryCount = 0, newWarningEntryCount = 0, newErrorEntryCount = 0;
+		private int newInfoEntryCount, newWarningEntryCount, newErrorEntryCount;
 
 		// Filters to apply to the list of debug entries to show
-		private bool isCollapseOn = false;
+		private bool isCollapseOn;
 		private DebugLogFilter logFilter = DebugLogFilter.All;
 
 		// Search filter
@@ -341,7 +343,7 @@ namespace IngameDebugConsole
 		private int indexOfLogEntryToSelectAndFocus = -1;
 
 		// Whether or not logs list view should be updated this frame
-		private bool shouldUpdateRecycledListView = false;
+		private bool shouldUpdateRecycledListView;
 
 		// Logs that should be registered in Update-loop
 		private DynamicCircularBuffer<QueuedDebugLogEntry> queuedLogEntries;
@@ -351,7 +353,7 @@ namespace IngameDebugConsole
 
 		// Command suggestions that match the currently entered command
 		private List<Text> commandSuggestionInstances;
-		private int visibleCommandSuggestionInstances = 0;
+		private int visibleCommandSuggestionInstances;
 		private List<ConsoleMethodInfo> matchingCommandSuggestions;
 		private List<int> commandCaretIndexIncrements;
 		private string commandInputFieldPrevCommand;
@@ -377,7 +379,7 @@ namespace IngameDebugConsole
 		internal StringBuilder sharedStringBuilder;
 
 		// Offset of DateTime.Now from DateTime.UtcNow
-		private System.TimeSpan localTimeUtcOffset;
+		private TimeSpan localTimeUtcOffset;
 
 		// Last recorded values of Time.realtimeSinceStartup and Time.frameCount on the main thread (because these Time properties can't be accessed from other threads)
 #if !IDG_OMIT_ELAPSED_TIME
@@ -393,7 +395,7 @@ namespace IngameDebugConsole
 		private PointerEventData nullPointerEventData;
 
 		// Callbacks for log window show/hide events
-		public System.Action OnLogWindowShown, OnLogWindowHidden;
+		public Action OnLogWindowShown, OnLogWindowHidden;
 
 #if UNITY_EDITOR
 		private bool isQuittingApplication;
@@ -436,7 +438,7 @@ namespace IngameDebugConsole
 			logItemsScrollRectOriginalSize = logItemsScrollRectTR.sizeDelta;
 
 			// Associate sprites with log types
-			logSpriteRepresentations = new Dictionary<LogType, Sprite>()
+			logSpriteRepresentations = new Dictionary<LogType, Sprite>
 			{
 				{ LogType.Log, infoLog },
 				{ LogType.Warning, warningLog },
@@ -511,7 +513,7 @@ namespace IngameDebugConsole
 			filterErrorButton.GetComponent<Button>().onClick.AddListener( FilterErrorButtonPressed );
 			snapToBottomButton.GetComponent<Button>().onClick.AddListener( () => SetSnapToBottom( true ) );
 
-			localTimeUtcOffset = System.DateTime.Now - System.DateTime.UtcNow;
+			localTimeUtcOffset = DateTime.Now - DateTime.UtcNow;
 			dummyLogEntryTimestamp = new DebugLogEntryTimestamp();
 			nullPointerEventData = new PointerEventData( null );
 
@@ -627,7 +629,7 @@ namespace IngameDebugConsole
 		{
 			queuedLogLimit = Mathf.Max( 0, queuedLogLimit );
 
-			if( UnityEditor.EditorApplication.isPlaying )
+			if( EditorApplication.isPlaying )
 			{
 				resizeButton.sprite = enableHorizontalResizing ? resizeIconAllDirections : resizeIconVerticalOnly;
 
@@ -947,7 +949,8 @@ namespace IngameDebugConsole
 
 				return '\0';
 			}
-			else if( addedChar == '\n' ) // Command is submitted
+
+			if( addedChar == '\n' ) // Command is submitted
 			{
 				// Clear the command field
 				if( clearCommandAfterExecution )
@@ -1034,7 +1037,7 @@ namespace IngameDebugConsole
 			if( queuedLogEntriesTimestamps != null )
 			{
 				// It is 10 times faster to cache local time's offset from UtcNow and add it to UtcNow to get local time at any time
-				System.DateTime dateTime = System.DateTime.UtcNow + localTimeUtcOffset;
+				DateTime dateTime = DateTime.UtcNow + localTimeUtcOffset;
 #if !IDG_OMIT_ELAPSED_TIME && !IDG_OMIT_FRAMECOUNT
 				queuedLogEntryTimestamp = new DebugLogEntryTimestamp( dateTime, lastElapsedSeconds, lastFrameCount );
 #elif !IDG_OMIT_ELAPSED_TIME
@@ -1366,7 +1369,7 @@ namespace IngameDebugConsole
 					if( i >= visibleCommandSuggestionInstances )
 					{
 						if( i >= suggestionInstancesCount )
-							commandSuggestionInstances.Add( (Text) Instantiate( commandSuggestionPrefab, commandSuggestionsContainer, false ) );
+							commandSuggestionInstances.Add( Instantiate( commandSuggestionPrefab, commandSuggestionsContainer, false ) );
 						else
 							commandSuggestionInstances[i].gameObject.SetActive( true );
 
@@ -1639,7 +1642,7 @@ namespace IngameDebugConsole
 
 			int count = uncollapsedLogEntriesIndices.Count;
 			int length = 0;
-			int newLineLength = System.Environment.NewLine.Length;
+			int newLineLength = Environment.NewLine.Length;
 			for( int i = 0; i < count; i++ )
 			{
 				DebugLogEntry entry = collapsedLogEntries[uncollapsedLogEntriesIndices[i]];
@@ -1670,7 +1673,7 @@ namespace IngameDebugConsole
 
 		private void SaveLogsToFile()
 		{
-			SaveLogsToFile( Path.Combine( Application.persistentDataPath, System.DateTime.Now.ToString( "dd-MM-yyyy--HH-mm-ss" ) + ".txt" ) );
+			SaveLogsToFile( Path.Combine( Application.persistentDataPath, DateTime.Now.ToString( "dd-MM-yyyy--HH-mm-ss" ) + ".txt" ) );
 		}
 
 		private void SaveLogsToFile( string filePath )
@@ -1744,7 +1747,7 @@ namespace IngameDebugConsole
 			}
 			else
 			{
-				newLogItem = (DebugLogItem) Instantiate( logItemPrefab, logItemsContainer, false );
+				newLogItem = Instantiate( logItemPrefab, logItemsContainer, false );
 				newLogItem.Initialize( recycledListView );
 			}
 

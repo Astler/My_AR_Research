@@ -1,9 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-﻿using System;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace Niantic.ARVoyage
 {
@@ -19,7 +21,7 @@ namespace Niantic.ARVoyage
 
         public InterpolationOperationKey(string name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public override string ToString()
@@ -41,9 +43,9 @@ namespace Niantic.ARVoyage
         /// <param name="onUpdate">Action called every frame with the current progress. Will always reach 1 if the routine completes.</param>
         /// <param name="onComplete">Action called immediately after progress completion.</param>
         public static Coroutine EasedInterpolation(
-            object target,
+            Object target,
             object operationKey,
-            System.Func<float, float> easingFunc,
+            Func<float, float> easingFunc,
             float duration = 1,
             float preWait = 0,
             float postWait = 0,
@@ -53,7 +55,7 @@ namespace Niantic.ARVoyage
         {
             // Call LinearInterpolation, applying the easing function to the interpolation
             return LinearInterpolation(target, operationKey, duration, preWait, postWait, onStart,
-                onUpdate: (progressPercent) =>
+                onUpdate: progressPercent =>
                 {
                     float easedProgressPercent = progressPercent;
                     if (easingFunc != null)
@@ -76,7 +78,7 @@ namespace Niantic.ARVoyage
         /// <param name="onUpdate">Action called every frame with the current progress. Will always reach 1 if the routine completes.</param>
         /// <param name="onComplete">Action called immediately after progress completion.</param>
         public static Coroutine LinearInterpolation(
-            object target,
+            Object target,
             object operationKey,
             float duration = 1,
             float preWait = 0,
@@ -90,7 +92,7 @@ namespace Niantic.ARVoyage
             // This call is null-safe
             StopRunningInterpolation(target, operationKey);
 
-            if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+            if (!target)
             {
                 Debug.LogWarning("Ignoring call to LinearInterpolation with null or destroyed target for operation " + operationKey);
                 return null;
@@ -142,7 +144,7 @@ namespace Niantic.ARVoyage
                 preWait,
                 postWait,
                 onStart,
-                onUpdate: (float progressPercent) =>
+                onUpdate: progressPercent =>
                 {
                     float animationPercent = playForwards ? progressPercent : 1 - progressPercent;
                     animationClip.SampleAnimation(target, animationPercent * animationClip.length);
@@ -189,7 +191,7 @@ namespace Niantic.ARVoyage
         // a new interpolation using the same operationKey is started for the target.
         // The structure of the dictionary is target -> Dictionary<operationKey, Coroutine>
         // object is used for maximum flexibility
-        private static Dictionary<object, Dictionary<object, Coroutine>> runningInterpolations = new Dictionary<object, Dictionary<object, Coroutine>>();
+        private static Dictionary<object, Dictionary<object, Coroutine>> runningInterpolations = new();
 
         static InterpolationUtil()
         {
@@ -249,9 +251,9 @@ namespace Niantic.ARVoyage
             return null;
         }
 
-        private static IEnumerator LinearInterpolationRoutine(object target, object operationKey, float duration, float preWait, float postWait, Action onStart, Action<float> onUpdate, Action onComplete)
+        private static IEnumerator LinearInterpolationRoutine(Object target, object operationKey, float duration, float preWait, float postWait, Action onStart, Action<float> onUpdate, Action onComplete)
         {
-            if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+            if (!target)
             {
                 Debug.LogWarning("Bailing on LinearInterpolationRoutine with null or destroyed target for operation " + operationKey);
                 RemoveRunningInterpolation(target, operationKey);
@@ -272,7 +274,7 @@ namespace Niantic.ARVoyage
             // If this is a 0-duration interpolation, ensure onUpdate is invoked
             if (duration <= 0)
             {
-                if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+                if (!target)
                 {
                     Debug.LogWarning("Bailing on LinearInterpolationRoutine with null or destroyed target for operation " + operationKey);
                     RemoveRunningInterpolation(target, operationKey);
@@ -288,7 +290,7 @@ namespace Niantic.ARVoyage
 
                 while (Time.time < endTime)
                 {
-                    if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+                    if (!target)
                     {
                         Debug.LogWarning("Bailing on LinearInterpolationRoutine with null or destroyed target for operation " + operationKey);
                         RemoveRunningInterpolation(target, operationKey);
@@ -300,7 +302,7 @@ namespace Niantic.ARVoyage
                 }
             }
 
-            if (DemoUtil.IsNullOrIsDestroyedUnityObject(target))
+            if (!target)
             {
                 Debug.LogWarning("Bailing on LinearInterpolationRoutine with null or destroyed target for operation " + operationKey);
                 RemoveRunningInterpolation(target, operationKey);

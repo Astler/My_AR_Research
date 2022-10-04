@@ -13,7 +13,7 @@ namespace Prototype.World
         [SerializeField] private int maxGifts = 40;
         [SerializeField] private ProjectContext context;
 
-        private readonly List<Gift> _spawnedGifts = new();
+        private readonly List<GiftView> _spawnedGifts = new();
 
         public void SpawnGifts(int totalGiftsInPortal, Vector3 portalPosition, Action onComplete)
         {
@@ -33,7 +33,7 @@ namespace Prototype.World
             onComplete?.Invoke();
         }
 
-        public Gift SpawnNewGift(Vector3 position, Quaternion rotation)
+        public GiftView SpawnNewGift(Vector3 position, Quaternion rotation)
         {
             if (_spawnedGifts.Count >= maxGifts)
             {
@@ -41,17 +41,29 @@ namespace Prototype.World
                 _spawnedGifts.RemoveAt(0);
             }
 
-            Gift gift = Instantiate(context.GetAssets().giftModels.GetRandomElement().giftPrefab, position,
+            GiftView giftView = Instantiate(context.GetAssets().giftModels.GetRandomElement().giftViewPrefab, position,
                 rotation);
 
-            _spawnedGifts.Add(gift);
+            giftView.Interacted += OnGiftInteracted;
+            
+            _spawnedGifts.Add(giftView);
 
-            return gift;
+            return giftView;
+        }
+
+        private void OnGiftInteracted(GiftView giftView)
+        {
+            CoinsController coinsController = context.GetCoinsController();
+
+            for (int i = 0; i < Random.Range(20, 50); i++)
+            {
+                coinsController.SpawnCoinsAtPosition(giftView.GetPosition());
+            }
         }
 
         public void DeleteAllGifts()
         {
-            foreach (Gift spawnedGift in _spawnedGifts)
+            foreach (GiftView spawnedGift in _spawnedGifts)
             {
                 Destroy(spawnedGift.gameObject);
             }
@@ -59,11 +71,13 @@ namespace Prototype.World
             _spawnedGifts.Clear();
         }
 
-        public void Collect(Gift gift)
+        public void Collect(GiftView giftView)
         {
-            gift.Interact();
-            Destroy(gift.gameObject);
-            _spawnedGifts.Remove(gift);
+            giftView.Interact();
+
+            Destroy(giftView.gameObject);
+            
+            _spawnedGifts.Remove(giftView);
             Debug.Log("Collected gift");
         }
     }

@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Text;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using System.Text;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 using System.Text.RegularExpressions;
@@ -190,7 +190,7 @@ namespace IngameDebugConsole
 				if( isExpanded )
 				{
 					logEntryTimestamp.Value.AppendFullTimestamp( sb );
-					sb.Append( ": " ).Append( logEntry.ToString() );
+					sb.Append( ": " ).Append( logEntry );
 				}
 				else
 				{
@@ -246,16 +246,13 @@ namespace IngameDebugConsole
 		{
 			if( !logEntryTimestamp.HasValue )
 				return logEntry.ToString();
-			else
-			{
-				StringBuilder sb = listView.manager.sharedStringBuilder;
-				sb.Length = 0;
+			StringBuilder sb = listView.manager.sharedStringBuilder;
+			sb.Length = 0;
 
-				logEntryTimestamp.Value.AppendFullTimestamp( sb );
-				sb.Append( ": " ).Append( logEntry.ToString() );
+			logEntryTimestamp.Value.AppendFullTimestamp( sb );
+			sb.Append( ": " ).Append( logEntry );
 
-				return sb.ToString();
-			}
+			return sb.ToString();
 		}
 
 		public float CalculateExpandedHeight( DebugLogEntry logEntry, DebugLogEntryTimestamp? logEntryTimestamp )

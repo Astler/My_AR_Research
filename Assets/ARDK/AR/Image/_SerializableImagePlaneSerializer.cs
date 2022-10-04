@@ -3,10 +3,6 @@
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
 
-using Unity.Collections;
-
-using UnityEngine;
-
 namespace Niantic.ARDK.AR.Image
 {
   internal sealed class _SerializableImagePlaneSerializer:

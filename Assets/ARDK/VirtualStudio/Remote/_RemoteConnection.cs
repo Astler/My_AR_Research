@@ -2,25 +2,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Niantic.ARDK.Networking;
-using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.Remote;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
-#if UNITY_EDITOR
-using UnityEditor.Networking.PlayerConnection;
-using UnityEditor;
-#endif
-
 using UnityEngine;
 using UnityEngine.Networking.PlayerConnection;
-using UnityEngine.Serialization;
-
-using Object = UnityEngine.Object;
+#if UNITY_EDITOR
+#endif
 
 namespace Niantic.ARDK.VirtualStudio.Remote
 {
@@ -283,7 +273,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
       else
       {
         var message =
-          new BufferedMessage()
+          new BufferedMessage
           {
             Tag = id,
             TransportType = transportType,

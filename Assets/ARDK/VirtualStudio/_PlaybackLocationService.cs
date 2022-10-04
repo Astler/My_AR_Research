@@ -1,16 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
-
 using AOT;
-
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Utilities;
-
-using UnityEngine;
-
-using LocationInfo = Niantic.ARDK.LocationService.LocationInfo;
-using LocationServiceStatus = Niantic.ARDK.LocationService.LocationServiceStatus;
 
 namespace Niantic.ARDK.VirtualStudio.LocationService
 {

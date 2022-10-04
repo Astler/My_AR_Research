@@ -2,14 +2,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR
 {
@@ -78,7 +74,7 @@ namespace Niantic.ARDK.VirtualStudio.AR
       _stageIdentifierToSession.Add(stageIdentifier, arSession);
 
       arSession.Deinitialized +=
-        (_) => _stageIdentifierToSession.Remove(stageIdentifier);
+        _ => _stageIdentifierToSession.Remove(stageIdentifier);
     }
   }
 }

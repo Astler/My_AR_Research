@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
 
 namespace Niantic.ARDK.Utilities.BinarySerialization.Contexts

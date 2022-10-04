@@ -6,6 +6,6 @@ namespace Prototype.Assets
     [Serializable]
     public class GiftModel
     {
-        public Gift giftPrefab;
+        public GiftView giftViewPrefab;
     }
 }

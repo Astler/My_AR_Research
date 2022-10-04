@@ -2,15 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.External;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions

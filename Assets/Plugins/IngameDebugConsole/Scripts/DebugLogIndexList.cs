@@ -1,4 +1,6 @@
-﻿namespace IngameDebugConsole
+﻿using System;
+
+namespace IngameDebugConsole
 {
 	public class DebugLogIndexList<T>
 	{
@@ -21,7 +23,7 @@
 		public void Add( T value )
 		{
 			if( size == indices.Length )
-				System.Array.Resize( ref indices, size * 2 );
+				Array.Resize( ref indices, size * 2 );
 
 			indices[size++] = value;
 		}
@@ -33,7 +35,7 @@
 
 		public int IndexOf( T value )
 		{
-			return System.Array.IndexOf( indices, value );
+			return Array.IndexOf( indices, value );
 		}
 	}
 }

@@ -1,10 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.LocationService;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VPSCoverage.GeoserviceMessages

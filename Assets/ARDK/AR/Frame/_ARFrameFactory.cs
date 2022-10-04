@@ -1,7 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.Linq;
-
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Depth;
@@ -12,8 +11,6 @@ using Niantic.ARDK.AR.LightEstimate;
 using Niantic.ARDK.AR.PointCloud;
 using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Utilities.Collections;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.AR.Frame
 {

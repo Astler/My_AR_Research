@@ -1,16 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
-
-using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.ReferenceImage;
-using Niantic.ARDK.Extensions;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Niantic.ARDK.Extensions
 {

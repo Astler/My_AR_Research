@@ -13,15 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARDK-Editor", "ARDK-Editor.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngameDebugConsole.Editor", "IngameDebugConsole.Editor.csproj", "{8bf52602-5f51-ac59-6e11-af72f4b5e0e9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{e51cdd73-e189-0a76-641f-4330b7efd04c}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuforiaVersionCheckerScripts", "VuforiaVersionCheckerScripts.csproj", "{b78a7895-63c9-6040-31b5-d980b5614bf8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetBrains.Frontend.2021.2", "JetBrains.Frontend.2021.2.csproj", "{dd4d82f8-17bf-a450-0071-5bd4c82d360b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{f5c2067f-7e4a-1388-794c-15bb68f4869c}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonScripts", "CommonScripts.csproj", "{7cf4749b-8dc8-bf1b-19ef-7f5c369ea0de}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetBrains.Frontend.2019.4", "JetBrains.Frontend.2019.4.csproj", "{5f4a0df3-1fab-9d4b-5abc-cf8a998295f2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonEditor", "CommonEditor.csproj", "{fcfc01f6-3568-5f6a-ea22-2121d38e3e0c}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetBrains.Frontend.2020.2", "JetBrains.Frontend.2020.2.csproj", "{01820354-19a6-2029-1e3e-0e67dd2f5496}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,16 +38,14 @@ Global
 		{72a7a07c-5dc9-4038-3949-10a4b897fbbb}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8bf52602-5f51-ac59-6e11-af72f4b5e0e9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8bf52602-5f51-ac59-6e11-af72f4b5e0e9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{e51cdd73-e189-0a76-641f-4330b7efd04c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{e51cdd73-e189-0a76-641f-4330b7efd04c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{b78a7895-63c9-6040-31b5-d980b5614bf8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{b78a7895-63c9-6040-31b5-d980b5614bf8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{dd4d82f8-17bf-a450-0071-5bd4c82d360b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{dd4d82f8-17bf-a450-0071-5bd4c82d360b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f5c2067f-7e4a-1388-794c-15bb68f4869c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{f5c2067f-7e4a-1388-794c-15bb68f4869c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7cf4749b-8dc8-bf1b-19ef-7f5c369ea0de}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7cf4749b-8dc8-bf1b-19ef-7f5c369ea0de}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{fcfc01f6-3568-5f6a-ea22-2121d38e3e0c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{fcfc01f6-3568-5f6a-ea22-2121d38e3e0c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5f4a0df3-1fab-9d4b-5abc-cf8a998295f2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5f4a0df3-1fab-9d4b-5abc-cf8a998295f2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01820354-19a6-2029-1e3e-0e67dd2f5496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01820354-19a6-2029-1e3e-0e67dd2f5496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

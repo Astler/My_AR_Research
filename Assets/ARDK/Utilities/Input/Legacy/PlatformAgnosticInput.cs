@@ -1,7 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 #if ENABLE_LEGACY_INPUT_MANAGER
 using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 

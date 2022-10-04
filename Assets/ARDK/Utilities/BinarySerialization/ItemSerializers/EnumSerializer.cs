@@ -14,7 +14,7 @@ namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers
       new ConcurrentDictionary<Type, IItemSerializer>();
 
     private static readonly Func<Type, IItemSerializer> _createUntypedSerializerFunc =
-      (enumType) =>
+      enumType =>
       {
         if (!enumType.IsEnum)
           throw new ArgumentException(enumType.FullName + " is not an enum type.", nameof(enumType));

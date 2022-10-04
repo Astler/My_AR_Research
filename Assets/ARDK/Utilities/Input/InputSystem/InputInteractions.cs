@@ -16,13 +16,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using Object = UnityEngine.Object;
 
 namespace Niantic.ARDK.Utilities.Input.InputSystem
 {
-    public partial class @InputInteractions : IInputActionCollection2, IDisposable
+    public class InputInteractions : IInputActionCollection2, IDisposable
     {
         public InputActionAsset asset { get; }
-        public @InputInteractions()
+        public InputInteractions()
         {
             asset = InputActionAsset.FromJson(@"{
     ""name"": ""InputInteractions"",
@@ -161,7 +162,7 @@ namespace Niantic.ARDK.Utilities.Input.InputSystem
 
         public void Dispose()
         {
-            UnityEngine.Object.Destroy(asset);
+            Object.Destroy(asset);
         }
 
         public InputBinding? bindingMask
@@ -222,12 +223,12 @@ namespace Niantic.ARDK.Utilities.Input.InputSystem
         private readonly InputAction m_Player_TouchPosition;
         public struct PlayerActions
         {
-            private @InputInteractions m_Wrapper;
-            public PlayerActions(@InputInteractions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Point => m_Wrapper.m_Player_Point;
-            public InputAction @LeftClick => m_Wrapper.m_Player_LeftClick;
-            public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
-            public InputAction @TouchPosition => m_Wrapper.m_Player_TouchPosition;
+            private InputInteractions m_Wrapper;
+            public PlayerActions(InputInteractions wrapper) { m_Wrapper = wrapper; }
+            public InputAction Point => m_Wrapper.m_Player_Point;
+            public InputAction LeftClick => m_Wrapper.m_Player_LeftClick;
+            public InputAction RightClick => m_Wrapper.m_Player_RightClick;
+            public InputAction TouchPosition => m_Wrapper.m_Player_TouchPosition;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -237,38 +238,38 @@ namespace Niantic.ARDK.Utilities.Input.InputSystem
             {
                 if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
                 {
-                    @Point.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
-                    @Point.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
-                    @Point.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
-                    @LeftClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
-                    @LeftClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
-                    @LeftClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
-                    @RightClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightClick;
-                    @RightClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightClick;
-                    @RightClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightClick;
-                    @TouchPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
-                    @TouchPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
-                    @TouchPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    Point.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                    Point.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                    Point.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPoint;
+                    LeftClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
+                    LeftClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
+                    LeftClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLeftClick;
+                    RightClick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightClick;
+                    RightClick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightClick;
+                    RightClick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRightClick;
+                    TouchPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    TouchPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
+                    TouchPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTouchPosition;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Point.started += instance.OnPoint;
-                    @Point.performed += instance.OnPoint;
-                    @Point.canceled += instance.OnPoint;
-                    @LeftClick.started += instance.OnLeftClick;
-                    @LeftClick.performed += instance.OnLeftClick;
-                    @LeftClick.canceled += instance.OnLeftClick;
-                    @RightClick.started += instance.OnRightClick;
-                    @RightClick.performed += instance.OnRightClick;
-                    @RightClick.canceled += instance.OnRightClick;
-                    @TouchPosition.started += instance.OnTouchPosition;
-                    @TouchPosition.performed += instance.OnTouchPosition;
-                    @TouchPosition.canceled += instance.OnTouchPosition;
+                    Point.started += instance.OnPoint;
+                    Point.performed += instance.OnPoint;
+                    Point.canceled += instance.OnPoint;
+                    LeftClick.started += instance.OnLeftClick;
+                    LeftClick.performed += instance.OnLeftClick;
+                    LeftClick.canceled += instance.OnLeftClick;
+                    RightClick.started += instance.OnRightClick;
+                    RightClick.performed += instance.OnRightClick;
+                    RightClick.canceled += instance.OnRightClick;
+                    TouchPosition.started += instance.OnTouchPosition;
+                    TouchPosition.performed += instance.OnTouchPosition;
+                    TouchPosition.canceled += instance.OnTouchPosition;
                 }
             }
         }
-        public PlayerActions @Player => new PlayerActions(this);
+        public PlayerActions Player => new PlayerActions(this);
         public interface IPlayerActions
         {
             void OnPoint(InputAction.CallbackContext context);

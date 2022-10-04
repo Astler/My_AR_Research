@@ -1,12 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
-using Niantic.ARDK.VirtualStudio.AR;
 using UnityEngine;
-
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif

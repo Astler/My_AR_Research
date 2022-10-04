@@ -1,14 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-
-using UnityEngine;
 using Niantic.ARDK.Utilities.Permissions;
-
+using UnityEngine;
 #if UNITY_ANDROID
 using System.Threading.Tasks;
 
-using UnityEngine.Android;
 #endif
 
 namespace Niantic.ARDK.Extensions.Permissions
@@ -28,7 +24,7 @@ namespace Niantic.ARDK.Extensions.Permissions
     // squelch "unused variable" warnings here.
 #pragma warning disable CS0414
     [SerializeField]
-    private ARDKPermission[] _permissions = null;
+    private ARDKPermission[] _permissions;
 
 #pragma warning restore CS0414
 

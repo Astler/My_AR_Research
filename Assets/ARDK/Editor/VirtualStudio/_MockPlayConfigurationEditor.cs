@@ -1,18 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
 using System.Text;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
-using Niantic.ARDK.Networking;
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
-using Niantic.ARDK.VirtualStudio.Networking.Mock;
-
 using UnityEditor;
 using UnityEngine;
 
@@ -249,7 +244,7 @@ namespace Niantic.ARDK.VirtualStudio.Editor
         EditorGUI.BeginDisabledGroup(Application.isPlaying);
         using (var col1 = new GUILayout.VerticalScope())
         {
-          var style = new GUILayoutOption[]
+          var style = new[]
           {
             GUILayout.Width(150)
           };

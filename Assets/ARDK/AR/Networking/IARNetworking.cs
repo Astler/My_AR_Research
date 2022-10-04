@@ -2,12 +2,10 @@
 
 using System;
 using System.Collections.Generic;
-
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Marker;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Networking

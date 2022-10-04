@@ -2,10 +2,8 @@
 
 using System;
 using System.Linq;
-
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.VPSCoverage.GeoserviceMessages;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.VPSCoverage

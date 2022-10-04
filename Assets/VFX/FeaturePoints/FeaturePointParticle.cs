@@ -1,6 +1,5 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 namespace Niantic.ARVoyage
@@ -10,6 +9,6 @@ namespace Niantic.ARVoyage
     /// </summary>
     public class FeaturePointParticle : MonoBehaviour
     {
-        public float startTime = 0;
+        public float startTime;
     }
 }

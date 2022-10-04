@@ -41,111 +41,67 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Modules/Walkabout/States/StateGrowSnowball/StateGrowSnowball.cs" />
-     <Compile Include="Assets/Modules/Shared/SpriteSequencePlayer/SpriteSequencePlayer.cs" />
-     <Compile Include="Assets/Modules/Walkabout/VFX/Snowman/WalkaboutSnowmanEffects.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/CheckboxButton/CheckboxButton.cs" />
-     <Compile Include="Assets/Modules/Shared/AboutInfo/TMPHyperlink.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/AppButton/ButtonScaler.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/DemoUtil.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/Gauge/Gauge.cs" />
+     <Compile Include="Assets/Scripts/UI/CheckboxButton/CheckboxButton.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/IARController.cs" />
      <Compile Include="Assets/Scripts/Prototype/Assets/AssetsSO.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/SurfaceReticle.cs" />
-     <Compile Include="Assets/Modules/Shared/ErrorManager/ErrorManager.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/DebugMenu/DebugMenuGUI.cs" />
-     <Compile Include="Assets/Modules/Shared/Utilities/AppEvent/AppEvent.cs" />
+     <Compile Include="Assets/Scripts/ErrorManager/ErrorManager.cs" />
+     <Compile Include="Assets/Scripts/UI/DebugMenu/DebugMenuGUI.cs" />
      <Compile Include="Assets/Modules/Shared/ARPlane/ARPlaneHelper.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/Billboard.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/FeaturePointHelper.cs" />
-     <Compile Include="Assets/Modules/PersistantData/PersistentDataUtility.cs" />
-     <Compile Include="Assets/Modules/Walkabout/States/StateBuildSnowman/StateBuildSnowman.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/InterpolationUtil.cs" />
-     <Compile Include="Assets/Modules/Walkabout/VFX/Footstep/Scripts/Decal.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/ARFoundationController.cs" />
-     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutManager.cs" />
-     <Compile Include="Assets/Modules/Shared/States/StateCountdown/StateCountdown.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/SnowballSplat.cs" />
-     <Compile Include="Assets/ARPG Effects/Scripts/ARPGFXRotation.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/ScreenView.cs" />
+     <Compile Include="Assets/Scripts/ARPGFXRotation.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/MeshCeilTrackerView.cs" />
-     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutActor.cs" />
-     <Compile Include="Assets/Modules/Shared/LevelSwitcher/LevelSwitcher.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/BackdropView.cs" />
      <Compile Include="Assets/Scripts/Prototype/ProjectContext.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/MeshFloorFallback.cs" />
      <Compile Include="Assets/Scripts/Prototype/World/GiftsController.cs" />
-     <Compile Include="Assets/Scripts/Playground/Builder.cs" />
-     <Compile Include="Assets/Modules/Shared/AudioManager/AudioKeys.cs" />
-     <Compile Include="Assets/Modules/Shared/AboutInfo/AboutInfoManager.cs" />
-     <Compile Include="Assets/Modules/Shared/Utilities/UI/RectTransformEventBridge.cs" />
+     <Compile Include="Assets/Scripts/AudioManager/AudioKeys.cs" />
+     <Compile Include="Assets/Scripts/RectTransformEventBridge.cs" />
      <Compile Include="Assets/Scripts/Prototype/StateBase.cs" />
-     <Compile Include="Assets/Scripts/Prototype/SceneLookup.cs" />
+     <Compile Include="Assets/Scripts/Prototype/SceneFinder.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/SnowballTossDebugManager.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/States/StateTossing/StateTossing.cs" />
      <Compile Include="Assets/Scripts/Prototype/Assets/GiftModel.cs" />
      <Compile Include="Assets/Scripts/Items/GiftsPortalView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/States/StateScanning/StateScanning.cs" />
-     <Compile Include="Assets/Modules/Shared/Utilities/Logging/UnityLogStackTraceEnabler.cs" />
-     <Compile Include="Assets/Modules/Shared/Utilities/Floor/PlaneFloorFallback.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/States/StateScanning/ScanningScreen.cs" />
+     <Compile Include="Assets/Scripts/Logging/UnityLogStackTraceEnabler.cs" />
+     <Compile Include="Assets/Scripts/Floor/PlaneFloorFallback.cs" />
      <Compile Include="Assets/Scripts/Prototype/World/PortalController.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/States/StatePortalPlacement/StatePortalPlacement.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/SafeAreaFitter.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/SnowballTossEvents.cs" />
+     <Compile Include="Assets/Scripts/Prototype/AR/States/StatePortalPlacement/PortalPlacementScreen.cs" />
      <Compile Include="Assets/VFX/MeshClipper/Clipper.cs" />
      <Compile Include="Assets/Scripts/Prototype/World/WorldBoxView.cs" />
-     <Compile Include="Assets/Modules/Shared/SaveUtil/SaveUtil.cs" />
-     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutSnowman.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/LightEstimationHelper.cs" />
-     <Compile Include="Assets/Modules/Loading/States/StateLegalDocs/StateLegalDoc.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/DebugMenu/DebugMenuButton.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/ReturnToHomelandButton/ReturnToHomelandButton.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/DemoEvents.cs" />
-     <Compile Include="Assets/Modules/Walkabout/States/StateGameOver/StateGameOver.cs" />
-     <Compile Include="Assets/Modules/Platform/PlatformValidator.cs" />
-     <Compile Include="Assets/Modules/Shared/Utilities/Networking/Networking.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/SnowballMaker.cs" />
+     <Compile Include="Assets/Scripts/UI/DebugMenu/DebugMenuButton.cs" />
+     <Compile Include="Assets/Scripts/Platform/PlatformValidator.cs" />
      <Compile Include="Assets/Modules/Shared/ARPlane/ARPlane.cs" />
-     <Compile Include="Assets/Modules/Walkabout/VFX/Footstep/Scripts/DecalStamper.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/CameraView.cs" />
-     <Compile Include="Assets/Modules/Shared/Utilities/Pooler/Pooler.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Utils/Pool.cs" />
      <Compile Include="Assets/VFX/TransparentDepthHelper/TransparentDepthHelper.cs" />
      <Compile Include="Assets/Scripts/Prototype/Utils/Utils.cs" />
      <Compile Include="Assets/Scripts/Items/InteractableObject.cs" />
-     <Compile Include="Assets/Modules/Shared/AudioManager/AudioManager.cs" />
+     <Compile Include="Assets/Scripts/AudioManager/AudioManager.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/ARDKController.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/DynamicLook.cs" />
-     <Compile Include="Assets/Modules/Shared/States/StateWarning/StateWarning.cs" />
-     <Compile Include="Assets/Modules/Shared/Consts/Level.cs" />
-     <Compile Include="Assets/Modules/Shared/AudioManager/AudioClipList.cs" />
-     <Compile Include="Assets/Modules/Walkabout/Scripts/GameboardHelper.cs" />
+     <Compile Include="Assets/Scripts/StateWarning/StateWarning.cs" />
+     <Compile Include="Assets/Scripts/AudioManager/AudioClipList.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/PathAnimation.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/ARDKTargetSelectView.cs" />
-     <Compile Include="Assets/Modules/Shared/States/StateInstructions/StateInstructions.cs" />
+     <Compile Include="Assets/Scripts/StateInstructions/InstructionsScreen.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/TargetSelectView.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleTester.cs" />
-     <Compile Include="Assets/Scripts/Items/Gift.cs" />
+     <Compile Include="Assets/Scripts/Items/GiftView.cs" />
      <Compile Include="Assets/Modules/Shared/Rendering/RenderPipelineHelper.cs" />
-     <Compile Include="Assets/Modules/FrostFlower/Scripts/FrostFlowerHero.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/Snowball.cs" />
      <Compile Include="Assets/Scripts/Prototype/Screens/MainSceneView.cs" />
-     <Compile Include="Assets/Modules/Shared/UI/ButtonWithCooldown/ButtonWithCooldown.cs" />
-     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutEvents.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/GameTimeAndScore.cs" />
-     <Compile Include="Assets/Modules/Shared/Scripts/SnowballBurst.cs" />
-     <Compile Include="Assets/Modules/FrostFlower/Scripts/FrostFlowerContent.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/States/StateGameOver/StateGameOver.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/SnowballTossManager.cs" />
-     <Compile Include="Assets/Modules/Shared/AudioManager/AudioLoop.cs" />
+     <Compile Include="Assets/Scripts/AudioManager/AudioLoop.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleUtil.cs" />
-     <Compile Include="Assets/Modules/Walkabout/States/StatePlacement/StatePlacement.cs" />
-     <Compile Include="Assets/Modules/Art/VPS/WorldStandingPointIndicator/Scripts/WorldStandingPointIndicator.cs" />
-     <Compile Include="Assets/ARPG Effects/Scripts/ARPGFXLightFlicker.cs" />
-     <Compile Include="Assets/Modules/FrostFlower/Scripts/FrostFlowerManager.cs" />
-     <Compile Include="Assets/Modules/Walkabout/Scripts/WalkaboutSnowfall.cs" />
-     <Compile Include="Assets/Modules/Walkabout/States/StateScanning/StateScanning.cs" />
+     <Compile Include="Assets/Scripts/ARPGFXLightFlicker.cs" />
      <Compile Include="Assets/VFX/FeaturePoints/FeaturePointParticle.cs" />
-     <Compile Include="Assets/Modules/Shared/Fader/Fader.cs" />
-     <Compile Include="Assets/Modules/Loading/States/StateLoading/StateLoading.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/Fader.cs" />
      <Compile Include="Assets/Scripts/Prototype/Services/GpsService.cs" />
+     <Compile Include="Assets/Scripts/Prototype/World/CoinsController.cs" />
+     <Compile Include="Assets/Scripts/Prototype/World/Coins/CoinView.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
@@ -417,6 +373,9 @@
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -1162,11 +1121,11 @@
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
@@ -1279,10 +1238,6 @@
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
       <Name>ARDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="VuforiaVersionCheckerScripts.csproj">
-      <Project>{b78a7895-63c9-6040-31b5-d980b5614bf8}</Project>
-      <Name>VuforiaVersionCheckerScripts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

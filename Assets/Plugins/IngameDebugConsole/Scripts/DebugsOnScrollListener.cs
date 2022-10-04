@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 // Listens to scroll events on the scroll rect that debug items are stored
 // and decides whether snap to bottom should be true or not

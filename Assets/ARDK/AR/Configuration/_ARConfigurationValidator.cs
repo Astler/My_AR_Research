@@ -1,13 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using System;
-
-using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Configuration;
-using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.Utilities.Logging;
-
-using UnityEngine;
 
 namespace Niantic.ARDK.AR.Configuration
 {

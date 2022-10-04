@@ -1,16 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.Configuration;
-using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -27,7 +21,7 @@ namespace Niantic.ARDK.Extensions.Depth
     private Matrix4x4[] _pointCloudMatrices;
 
     [SerializeField]
-    private GameObject _pointObject = null;
+    private GameObject _pointObject;
 
     [SerializeField]
     private float _pointObjectScale = 0.01f;
@@ -92,7 +86,7 @@ namespace Niantic.ARDK.Extensions.Depth
       {
         drawLength = Math.Min(MAX_SIMULTANEOUS_DRAW, numPointsToDraw - i);
 
-        System.Array.Copy(_pointCloudMatrices, i, matrixBuffer, 0, drawLength);
+        Array.Copy(_pointCloudMatrices, i, matrixBuffer, 0, drawLength);
         Graphics.DrawMeshInstanced
         (
           _pointMesh,

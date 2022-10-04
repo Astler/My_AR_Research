@@ -3,10 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Networking.HLAPI.Data;
 using Niantic.ARDK.Utilities.Collections;
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.Networking.HLAPI.Authority

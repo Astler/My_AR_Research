@@ -1,6 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-using System;
 
+using System;
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness

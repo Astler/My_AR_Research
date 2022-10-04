@@ -1,13 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.WayspotAnchors
@@ -141,7 +140,7 @@ namespace Niantic.ARDK.AR.WayspotAnchors
           return null;
 
         case RuntimeEnvironment.Remote:
-          throw new NotImplementedException($"Remote runtime environment not yet supported.");
+          throw new NotImplementedException("Remote runtime environment not yet supported.");
 
         case RuntimeEnvironment.Playback:
         case RuntimeEnvironment.LiveDevice:

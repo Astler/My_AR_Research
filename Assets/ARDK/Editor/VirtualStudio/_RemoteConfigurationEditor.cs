@@ -1,11 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Text.RegularExpressions;
-
-using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.Remote;
-
 using UnityEditor;
 using UnityEngine;
 

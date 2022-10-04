@@ -4,9 +4,7 @@ using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
-
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.Meshing
@@ -35,7 +33,7 @@ namespace Niantic.ARDK.Extensions.Meshing
 
     [SerializeField]
     [Tooltip("Radius in meters of the meshed surface around the player. 0 means 'Infinity'")]
-    private float _meshingRadius = 0;
+    private float _meshingRadius;
 
     [Header("Mesh Generation Settings")]
     [SerializeField]
@@ -68,7 +66,7 @@ namespace Niantic.ARDK.Extensions.Meshing
       "When true, mesh blocks are rendered using InvisibleMaterial instead of the prefab's " +
       "default material."
     )]
-    private bool _useInvisibleMaterial = false;
+    private bool _useInvisibleMaterial;
 
     [SerializeField]
     [Tooltip(
@@ -210,7 +208,7 @@ namespace Niantic.ARDK.Extensions.Meshing
     private float _prevTargetBlockSize;
     private float _prevMeshingRadius;
 
-    private bool _clearMeshOnRerun = false;
+    private bool _clearMeshOnRerun;
 
     private MeshObjectsGenerator _generator;
     private const string MeshingRadiusError =
@@ -226,7 +224,6 @@ namespace Niantic.ARDK.Extensions.Meshing
       if (!_meshPrefab)
       {
         ARLog._Warn("No mesh prefab set on the ARMeshManager. No mesh blocks will be generated.");
-        return;
       }
     }
 

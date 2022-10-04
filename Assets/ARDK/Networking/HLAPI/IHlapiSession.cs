@@ -1,7 +1,6 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
 using Niantic.ARDK.Networking.HLAPI.Routing;
 
 namespace Niantic.ARDK.Networking.HLAPI
