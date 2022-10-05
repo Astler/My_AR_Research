@@ -12,6 +12,7 @@ namespace Prototype.Screens
         [SerializeField] private Button spawnPortalButton;
         [SerializeField] private TextMeshProUGUI locationText;
         [SerializeField] private TextMeshProUGUI distanceText;
+        [SerializeField] private PlayerBalanceBarView balanceBarView;
 
         private Action _clearButtonOnClick;
         private Action _restartButtonOnClick;
@@ -25,6 +26,8 @@ namespace Prototype.Screens
             spawnPortalButton.onClick.AddListener(() => { _spawnPortalButton?.Invoke(); });
         }
 
+        public void SetCoins(int coins) => balanceBarView.SetCoins(coins);
+        
         public void ConfigureAction(MainSceneHUDViewInfo viewInfo)
         {
             _clearButtonOnClick = viewInfo.ClearButtonOnClick;

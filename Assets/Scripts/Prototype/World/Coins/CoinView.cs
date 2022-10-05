@@ -7,10 +7,12 @@ namespace Prototype.World.Coins
 {
     public class CoinView : MonoBehaviour
     {
+        [SerializeField] private Vector2 lifetimeRange = new(5, 10);
         private Transform _transform;
         private Rigidbody _rigidbody;
 
-        public Rigidbody Rigidbody => _rigidbody ? _rigidbody : GetComponentInChildren<Rigidbody>();
+        public Rigidbody Rigidbody => _rigidbody ? _rigidbody : _rigidbody = GetComponentInChildren<Rigidbody>();
+        public Transform Transform => _transform ? _transform : _transform = GetComponent<Transform>();
 
         public event Action<CoinView> LifetimeOut;
 
@@ -29,7 +31,7 @@ namespace Prototype.World.Coins
 
         private IEnumerator LifetimeTimer()
         {
-            yield return new WaitForSeconds(Random.Range(1f, 5f));
+            yield return new WaitForSeconds(Random.Range(lifetimeRange.x, lifetimeRange.y));
             LifetimeOut?.Invoke(this);
         }
 

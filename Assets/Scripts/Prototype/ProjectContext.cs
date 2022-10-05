@@ -1,6 +1,8 @@
-﻿using Items;
+﻿using System;
+using Items;
 using Prototype.AR;
 using Prototype.Assets;
+using Prototype.Data;
 using Prototype.Screens;
 using Prototype.Services;
 using Prototype.World;
@@ -21,15 +23,22 @@ namespace Prototype
         [Space, SerializeField] private GpsService gpsService;
         [SerializeField] private float maxDistanceToReceiveReward = 10;
 
+        private IPlayerData _playerData;
         private CameraView _cameraView;
         private IARController _arController;
         private bool _isRewardReceived;
 
+        private void Awake()
+        {
+            _playerData = new PlayerData();
+        }
+
         private void Start()
         {
             _arController = FindObjectOfType<ARDKController>();
-            // _arController = FindObjectOfType<ARFoundationController>();
+
             _cameraView = _arController.GetCamera();
+
             mainScene.ConfigureAction(new MainSceneHUDViewInfo
             {
                 ClearButtonOnClick = Clear,
@@ -38,7 +47,22 @@ namespace Prototype
                 OnScreenClick = OnScreenClicked
             });
 
+            coinsController.CollectedCoin += OnCollectedCoin;
+
+            mainScene.SetCoins(_playerData.GetCoins());
+            
             InitializeGpsService();
+        }
+
+        private void OnDestroy()
+        {
+            coinsController.CollectedCoin -= OnCollectedCoin;
+        }
+
+        private void OnCollectedCoin()
+        {
+            _playerData.AddCoin();
+            mainScene.SetCoins(_playerData.GetCoins());
         }
 
         private void InitializeGpsService()

@@ -86,8 +86,10 @@
      <Compile Include="Assets/Scripts/StateWarning/StateWarning.cs" />
      <Compile Include="Assets/Scripts/AudioManager/AudioClipList.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/PathAnimation.cs" />
+     <Compile Include="Assets/Scripts/Prototype/World/CoinsController.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/ARDKTargetSelectView.cs" />
      <Compile Include="Assets/Scripts/StateInstructions/InstructionsScreen.cs" />
+     <Compile Include="Assets/Scripts/Prototype/World/Coins/CoinView.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/TargetSelectView.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleTester.cs" />
      <Compile Include="Assets/Scripts/Items/GiftView.cs" />
@@ -100,8 +102,12 @@
      <Compile Include="Assets/VFX/FeaturePoints/FeaturePointParticle.cs" />
      <Compile Include="Assets/Scripts/Prototype/Screens/Fader.cs" />
      <Compile Include="Assets/Scripts/Prototype/Services/GpsService.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/CoinsController.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/Coins/CoinView.cs" />
+     <Compile Include="Assets/Scripts/UI/SpriteSequencePlayer.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PlayerBalanceBarView.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Data/PlayerData.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Data/PlayerPrefsHelper.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Data/IPlayerData.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/RotatingCoinView.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

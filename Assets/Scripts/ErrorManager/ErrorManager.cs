@@ -75,6 +75,15 @@ namespace Niantic.ARVoyage
             fader = SceneFinder.Instance.TryGet<Fader>();
 
             ARSessionFactory.SessionInitialized += OnSessionInitialized;
+
+            backgroundedCancelButton.onClick.AddListener(OnCancelClicked);
+        }
+
+        private void OnCancelClicked()
+        {
+            Fader fader = SceneFinder.Instance.TryGet<Fader>();
+            fader.FadeInFromColor(Color.black);
+            backgroundedGUI.SetActive(false);
         }
 
         private void OnSessionInitialized(AnyARSessionInitializedArgs args)
@@ -86,6 +95,7 @@ namespace Niantic.ARVoyage
 
         private void OnDestroy()
         {
+            backgroundedCancelButton.onClick.RemoveListener(OnCancelClicked);
             Application.logMessageReceived -= OnLogMessageReceived_ShowScriptException;
             ARSessionFactory.SessionInitialized -= OnSessionInitialized;
         }
@@ -134,9 +144,10 @@ namespace Niantic.ARVoyage
 
         public void DisplayBackgroundedGUI()
         {
-            Debug.Log("DisplayBackgroundedGUI");
             fullscreenBackdrop.gameObject.SetActive(true);
-            // StartCoroutine(DemoUtil.FadeInGUI(backgroundedGUI, fader));
+            Fader fader = SceneFinder.Instance.TryGet<Fader>();
+            fader.FadeOutToColor(Color.black);
+            backgroundedGUI.SetActive(true);
         }
 
         private void HideBackgroundedGUI()

@@ -149,7 +149,6 @@ GameObject:
   - component: {fileID: 5157562349760080573}
   - component: {fileID: 5157562349760080572}
   - component: {fileID: 2961881510941887639}
-  - component: {fileID: 5157562349760080562}
   - component: {fileID: 8319849631629963721}
   m_Layer: 0
   m_Name: ErrorManager
@@ -241,22 +240,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5157562349760080562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5157562349760080561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182ac4814f3744c94b71d44efb5c790b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeAreaParentTransform: {fileID: 5157562350431130501}
-  layoutScaleTransform: {fileID: 0}
-  fullScreenWidth: 0
-  enforceSafeAreaOffset: 0
 --- !u!114 &8319849631629963721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,11 +255,11 @@ MonoBehaviour:
   fullscreenBackdrop: {fileID: 3209025952210816058}
   errorGUI: {fileID: 1218560234575255067}
   errorText: {fileID: 8565172324964201896}
-  errorRestartButton: {fileID: 4501977027945575076}
+  errorRestartButton: {fileID: 0}
   monitorForARBackgrounded: 1
   backgroundedGUI: {fileID: 873826620977348466}
-  backgroundedRestartButton: {fileID: 2500477440943332301}
-  backgroundedCancelButton: {fileID: 5417157098172495506}
+  backgroundedRestartButton: {fileID: 0}
+  backgroundedCancelButton: {fileID: 0}
   errorBanner: {fileID: 2931581177965920380}
   errorBannerText: {fileID: 1033036371230293502}
   scriptExceptionText: {fileID: 5062154325644579688}
@@ -479,6 +462,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3396348258145998471, guid: 283e549a9c4b347e4b51f299ca89727c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 283e549a9c4b347e4b51f299ca89727c, type: 3}
 --- !u!1 &3209025952210816058 stripped
@@ -673,36 +661,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1652278101301631886}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2500477440943332301 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3773287313261690947, guid: 6114ea013b4e74f04bfe03996ceb0c0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1652278101301631886}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5339014571557355879 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6699649094785309417, guid: 6114ea013b4e74f04bfe03996ceb0c0c,
     type: 3}
   m_PrefabInstance: {fileID: 1652278101301631886}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5417157098172495506 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6756395049425251612, guid: 6114ea013b4e74f04bfe03996ceb0c0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1652278101301631886}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4108915523676559944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,18 +827,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4108915523676559944}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4501977027945575076 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 540415081322539244, guid: 4e80f373a9ca54878a9007cf3d653623,
-    type: 3}
-  m_PrefabInstance: {fileID: 4108915523676559944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6259647008511600654 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8060166989265498694, guid: 4e80f373a9ca54878a9007cf3d653623,
