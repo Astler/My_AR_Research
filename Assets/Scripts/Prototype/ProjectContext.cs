@@ -1,10 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Items;
 using Prototype.AR;
 using Prototype.Assets;
 using Prototype.Data;
 using Prototype.Screens;
-using Prototype.Services;
 using Prototype.World;
 using UnityEngine;
 
@@ -12,16 +12,14 @@ namespace Prototype
 {
     public class ProjectContext : MonoBehaviour
     {
-        [SerializeField] private AssetsSO assetsSo;
+        [SerializeField] private AssetsScriptableObject assetsScriptableObject;
 
         [Space, SerializeField] private PortalController portalController;
         [SerializeField] private GiftsController giftsController;
         [SerializeField] private CoinsController coinsController;
+        [SerializeField] private LocationController locationController;
 
         [SerializeField] private MainSceneView mainScene;
-
-        [Space, SerializeField] private GpsService gpsService;
-        [SerializeField] private float maxDistanceToReceiveReward = 10;
 
         private IPlayerData _playerData;
         private CameraView _cameraView;
@@ -50,8 +48,6 @@ namespace Prototype
             coinsController.CollectedCoin += OnCollectedCoin;
 
             mainScene.SetCoins(_playerData.GetCoins());
-            
-            InitializeGpsService();
         }
 
         private void OnDestroy()
@@ -64,39 +60,7 @@ namespace Prototype
             _playerData.AddCoin();
             mainScene.SetCoins(_playerData.GetCoins());
         }
-
-        private void InitializeGpsService()
-        {
-            gpsService.OnError += Debug.LogError;
-
-            gpsService.OnLocationTrackingStateChanged += isEnabled =>
-            {
-                if (isEnabled)
-                {
-                    gpsService.OnLocationInfoChanged += UpdateLocationInfo;
-                }
-                else
-                {
-                    gpsService.OnLocationInfoChanged -= UpdateLocationInfo;
-                }
-            };
-
-            gpsService.TryToStartGpsService();
-        }
-
-        private void UpdateLocationInfo(LocationInfo info)
-        {
-            mainScene.ConfigureLocationText(info);
-            float distanceToTarget = gpsService.GetDistanceToTarget();
-            mainScene.ConfigureDistanceToTargetText(distanceToTarget);
-
-            if (_isRewardReceived || distanceToTarget > maxDistanceToReceiveReward) return;
-
-            _isRewardReceived = true;
-
-            SpawnPortalWithRewards();
-        }
-
+        
         private void OnScreenClicked(Vector2 clickPosition)
         {
             RaycastHit[] hits = _cameraView.GetHitsByMousePosition(clickPosition);
@@ -126,8 +90,12 @@ namespace Prototype
             Debug.Log("No hits. Clicked nowhere!!");
         }
 
-        private void SpawnPortalWithRewards() =>
+        private void SpawnPortalWithRewards()
+        {
+            if (locationController.SelectedPortalZone.Value == null) return;
+            
             portalController.OpenPortalInPosition(_arController.GetPointerPosition(), _arController.GetCeilPosition());
+        }
 
         private void Restart()
         {
@@ -142,12 +110,16 @@ namespace Prototype
             giftsController.DeleteAllGifts();
         }
 
-        public AssetsSO GetAssets() => assetsSo;
+        public AssetsScriptableObject GetAssets() => assetsScriptableObject;
 
         public Vector3 GetCameraForwardDirection() => _cameraView.CameraForwardVector;
 
         public CoinsController GetCoinsController() => coinsController;
 
         public Vector3 GetPlayerFacePosition() => _cameraView.GetFacePosition();
+
+        public List<PortalZoneModel> GetPortalPoints() => assetsScriptableObject.portalZones.ToList();
+
+        public LocationController GetLocationController() => locationController;
     }
 }

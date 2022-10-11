@@ -182,7 +182,7 @@ namespace UI
                 {
                     CurrentFrame = currentFrame;
                     sequenceImage.sprite = sprites[currentFrame];
-                    currentFrameChanged.Invoke(CurrentFrame);
+                    currentFrameChanged?.Invoke(CurrentFrame);
                 }
             }
             // If image is null because this component hasn't yet reached awake, queue the frame set

@@ -12,11 +12,10 @@ namespace Niantic.ARVoyage
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void EnableUnityLogStackTraces()
         {
-            UnityARLogHandler ARDKLogHandlerInstance = UnityARLogHandler.Instance;
+            UnityARLogHandler ardkLogHandlerInstance = UnityARLogHandler.Instance;
             Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.ScriptOnly);
             Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.ScriptOnly);
             Application.SetStackTraceLogType(LogType.Error, StackTraceLogType.ScriptOnly);
-            Debug.Log("Enabled Unity log stack traces");
         }
     }
 }

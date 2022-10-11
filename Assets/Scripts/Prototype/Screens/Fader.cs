@@ -15,21 +15,11 @@ namespace Prototype.Screens
         public static Action<float> FadingSceneIn;
         public static Action<float> FadingSceneOut;
 
-        private CanvasGroup _sceneFadeCanvasGroup;
         private Image _backgroundImage;
 
         private void Awake()
         {
             _backgroundImage = GetComponent<Image>();
-            _sceneFadeCanvasGroup = GetComponentInChildren<CanvasGroup>();
-
-            if (_sceneFadeCanvasGroup == null)
-            {
-                Debug.LogError(name + " didnt't find CanvasGroup in children.");
-                return;
-            }
-
-            _sceneFadeCanvasGroup.alpha = 0f;
             _backgroundImage.DOFade(0f, 0f);
         }
 

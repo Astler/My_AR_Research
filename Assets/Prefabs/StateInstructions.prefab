@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartScreen: 1
-  nextScreen: {fileID: 0}
   okButton: {fileID: 8851989349019041686}
 --- !u!225 &6888456403379764226
 CanvasGroup:
