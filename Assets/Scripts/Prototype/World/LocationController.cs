@@ -156,5 +156,7 @@ namespace Prototype.World
 
             locationInfoView.ShowAllZones(zonesInfo);
         }
+
+        public static Vector2 GetPlayerPosition() => new(Input.location.lastData.longitude, Input.location.lastData.latitude);
     }
 }

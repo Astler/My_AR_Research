@@ -3,9 +3,11 @@ using System.Linq;
 using Items;
 using Prototype.AR;
 using Prototype.Assets;
+using Prototype.Core;
 using Prototype.Data;
-using Prototype.Screens;
+using Prototype.Screens.MainScreen;
 using Prototype.World;
+using UniRx;
 using UnityEngine;
 
 namespace Prototype
@@ -18,13 +20,16 @@ namespace Prototype
         [SerializeField] private GiftsController giftsController;
         [SerializeField] private CoinsController coinsController;
         [SerializeField] private LocationController locationController;
-
-        [SerializeField] private MainSceneView mainScene;
+        [SerializeField] private ScreensInstaller screensInstaller;
 
         private IPlayerData _playerData;
         private CameraView _cameraView;
         private IARController _arController;
         private bool _isRewardReceived;
+        private ReactiveProperty<bool> _mapOpened = new();
+        private ReactiveProperty<int> _coins = new();
+        public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
+        public IReadOnlyReactiveProperty<int> Coins => _coins;
 
         private void Awake()
         {
@@ -35,19 +40,27 @@ namespace Prototype
         {
             _arController = FindObjectOfType<ARDKController>();
 
+            if (_arController == null) return;
+
             _cameraView = _arController.GetCamera();
 
-            mainScene.ConfigureAction(new MainSceneHUDViewInfo
+            screensInstaller.MainScreenPresenter.ConfigureAction(new MainSceneHUDViewInfo
             {
                 ClearButtonOnClick = Clear,
                 RestartButtonOnClick = Restart,
                 SpawnPortalButtonOnClick = SpawnPortalWithRewards,
-                OnScreenClick = OnScreenClicked
+                OnScreenClick = OnScreenClicked,
+                OnOpenMapClick = OnMapClicked
             });
 
             coinsController.CollectedCoin += OnCollectedCoin;
 
-            mainScene.SetCoins(_playerData.GetCoins());
+            _coins.Value = _playerData.GetCoins();
+        }
+
+        private void OnMapClicked()
+        {
+            _mapOpened.Value = !_mapOpened.Value;
         }
 
         private void OnDestroy()
@@ -58,11 +71,13 @@ namespace Prototype
         private void OnCollectedCoin()
         {
             _playerData.AddCoin();
-            mainScene.SetCoins(_playerData.GetCoins());
+            _coins.Value = _playerData.GetCoins();
         }
-        
+
         private void OnScreenClicked(Vector2 clickPosition)
         {
+            if (_mapOpened.Value) return;
+
             RaycastHit[] hits = _cameraView.GetHitsByMousePosition(clickPosition);
 
             if (hits.Length > 0)
@@ -93,7 +108,7 @@ namespace Prototype
         private void SpawnPortalWithRewards()
         {
             if (locationController.SelectedPortalZone.Value == null) return;
-            
+
             portalController.OpenPortalInPosition(_arController.GetPointerPosition(), _arController.GetCeilPosition());
         }
 

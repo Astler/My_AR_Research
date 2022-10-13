@@ -3,6 +3,7 @@
 using System.Collections;
 using Prototype;
 using Prototype.Screens;
+using Prototype.Screens.Scene;
 using UnityEngine;
 
 namespace Niantic.ARVoyage

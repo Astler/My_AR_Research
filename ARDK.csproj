@@ -223,8 +223,8 @@
      <Compile Include="Assets/ARDK/AR/Mesh/MeshBlocksUpdatedArgs.cs" />
      <Compile Include="Assets/ARDK/AR/Mesh/_SerializableARMeshData.cs" />
      <Compile Include="Assets/ARDK/Utilities/Platform/_ArdkPlatformUtility.cs" />
-     <Compile Include="Assets/ARDK/Rendering/FrameRenderer/_RemoteFrameRenderer.cs" />
      <Compile Include="Assets/ARDK/AR/_IARSession.cs" />
+     <Compile Include="Assets/ARDK/Rendering/FrameRenderer/_RemoteFrameRenderer.cs" />
      <Compile Include="Assets/ARDK/Utilities/Input/Legacy/PlatformAgnosticInput.cs" />
      <Compile Include="Assets/ARDK/VpsCoverage/Results/CoverageAreasResult.cs" />
      <Compile Include="Assets/ARDK/VpsCoverage/CoverageClient/ICoverageClient.cs" />

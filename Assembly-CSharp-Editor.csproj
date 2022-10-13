@@ -41,7 +41,58 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Modules/Shared/SaveUtil/Editor/EditorSaveUtilMenu.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsArcGISTiledElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Buildings/OnlineMapsBuildingBaseEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsBingMapsElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsAboutWindow.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsCustomURLWizard.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBase3DEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsPanoConnectorEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsUpdater.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsElevationManagerBaseEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsWelcome.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsUIImageControlEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsUIRawImageControlEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/LocationService/OnlineMapsLocationServiceEditorBase.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsUContextActions.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBaseUIEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsSinglePartElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsPrefs.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarkerBasePropertyDrawer.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsAdjustToScreenEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsNGUITextureControlEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsEditorUtils.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManager3DEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsImporter.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBase2DEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsTilesetControlEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/EditorLayout/OnlineMapsFormattedEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBaseDynamicMeshEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsRangePropertyDrawer.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsCameraOrbitEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBaseEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsPackageManager.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsEasyTouchConnectorEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsTextureControlEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsWizard.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManagerBaseEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsTiledElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Buildings/OnlineMapsBuildingsEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/LocationService/OnlineMapsLocationServiceEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsRWTConnectorEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsBingMapsTiledElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarker3DPropertyDrawer.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsLimitsEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarkerPropertyDrawer.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsCacheEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsTouchScriptConnectorEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsFingersTouchGesturesConnectorEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsArcGISElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsMapboxElevationManagerEditor.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsBuildingMaterialPropertyDrawer.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsSpriteRendererControlEditor.cs" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -297,6 +348,9 @@
      <Reference Include="UnityEditor.Android.Extensions">
      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="DOTweenEditor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+     </Reference>
      <Reference Include="log4netPlastic">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
      </Reference>
@@ -320,6 +374,9 @@
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
+     </Reference>
+     <Reference Include="DOTween">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -1077,11 +1134,11 @@
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
@@ -1175,6 +1232,10 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{191d8523-e599-6c39-5819-4b3dc9182d8b}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{9e40b48b-6f94-8a6f-5296-65ef2fab652b}</Project>
       <Name>Assembly-CSharp</Name>
@@ -1194,6 +1255,10 @@
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
       <Name>ARDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{c2f55cb9-f462-8a84-06ad-28f8b3dca527}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

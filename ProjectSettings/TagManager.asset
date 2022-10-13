@@ -22,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - RealworldMap
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map Points
+    uniqueID: 3172214021
     locked: 0

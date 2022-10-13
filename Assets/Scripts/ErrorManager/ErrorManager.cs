@@ -4,6 +4,7 @@ using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Prototype;
 using Prototype.Screens;
+using Prototype.Screens.Scene;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Prototype.Screens.Scene;
 using UnityEngine;
 
 namespace Prototype.Screens

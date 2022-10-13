@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Prototype.Assets
 {
@@ -10,5 +11,7 @@ namespace Prototype.Assets
         public double latitude;
         public float radius = 20f;
         public bool isActive = true;
+
+        public Vector2 GetPosition() => new((float)longitude, (float)latitude);
     }
 }

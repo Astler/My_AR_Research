@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Prototype;
 using Prototype.Screens;
+using Prototype.Screens.Scene;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
