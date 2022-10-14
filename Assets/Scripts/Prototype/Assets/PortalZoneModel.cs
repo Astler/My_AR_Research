@@ -1,4 +1,5 @@
 ﻿using System;
+using Prototype.Data;
 using UnityEngine;
 
 namespace Prototype.Assets
@@ -13,5 +14,11 @@ namespace Prototype.Assets
         public bool isActive = true;
 
         public Vector2 GetPosition() => new((float)longitude, (float)latitude);
+
+        public PortalViewInfo ToViewInfo() => new PortalViewInfo
+        {
+            Name = name,
+            Coordinates = GetPosition()
+        };
     }
 }

@@ -18,12 +18,14 @@ namespace Prototype.World
         [SerializeField] private LocationInfoView locationInfoView;
 
         private readonly ReactiveProperty<PortalZoneModel> _selectedPortalZone = new();
+        private readonly ReactiveProperty<PortalZoneModel> _nearestPortalZone = new();
 
         private ProjectContext _context;
         private Coroutine _zonesLocator;
         private LocationDetectResult _locationDetectResult;
 
         public IReadOnlyReactiveProperty<PortalZoneModel> SelectedPortalZone => _selectedPortalZone;
+        public IReadOnlyReactiveProperty<PortalZoneModel> NearestPortalZone => _nearestPortalZone;
 
         private void Awake()
         {
@@ -33,7 +35,7 @@ namespace Prototype.World
             {
                 if (model == null)
                 {
-                    locationInfoView.SetActiveZoneName("<color=red>There is no active zone!</color>");
+                    locationInfoView.SetActiveZoneName("<color=red>You are not in the portal area!</color>");
                     return;
                 }
 
@@ -107,11 +109,11 @@ namespace Prototype.World
 
         private void CheckPortalZones()
         {
-            if (Application.isEditor)
-            {
-                _selectedPortalZone.Value = _context.GetAssets().portalZones.GetRandomElement();
-                return;
-            }
+            // if (Application.isEditor)
+            // {
+            //     _selectedPortalZone.Value = _context.GetAssets().portalZones.GetRandomElement();
+            //     return;
+            // }
 
             List<PortalZoneModel> points = _context.GetPortalPoints();
 
@@ -127,16 +129,10 @@ namespace Prototype.World
                     Input.location.lastData.longitude,
                     portalZoneModel.latitude,
                     portalZoneModel.longitude);
-
-                bool isInZone = distance < portalZoneModel.radius / 1000;
-
-                zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + "<color=" + (isInZone ? "green" : "red") + ">" +
-                             portalZoneModel.name + " " + distance + "</color>";
-
                 distances.Add(portalZoneModel, distance);
             }
 
-            IEnumerable<KeyValuePair<PortalZoneModel, double>> detectAvailableZones =
+            List<KeyValuePair<PortalZoneModel, double>> detectAvailableZones =
                 distances.Where(it => it.Value < it.Key.radius / 1000).ToList();
 
             if (detectAvailableZones.Any())
@@ -145,18 +141,32 @@ namespace Prototype.World
                     detectAvailableZones.OrderBy(it => it.Value).FirstOrDefault();
 
                 _selectedPortalZone.Value = closestPoint.Key;
+                _nearestPortalZone.Value = closestPoint.Key;
 
-                // locationInfoView.HideAllZonesList();
-                locationInfoView.ShowAllZones(zonesInfo);
+                locationInfoView.HideAllZonesList();
 
                 return;
             }
 
             _selectedPortalZone.Value = null;
 
-            locationInfoView.ShowAllZones(zonesInfo);
+            List<KeyValuePair<PortalZoneModel, double>> nearZones =
+                distances.OrderBy(it => it.Value).ToList();
+
+            _nearestPortalZone.Value = nearZones.FirstOrDefault().Key;
+            
+            for (int i = 0; i < (nearZones.Count > 5 ? 5 : nearZones.Count); i++)
+            {
+                KeyValuePair<PortalZoneModel, double> zoneData = nearZones[i];
+
+                zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.name + " " +
+                             zoneData.Key.GetPosition().ToHumanReadableDistanceFromPlayer();
+            }
+
+            locationInfoView.ShowAllZones($"Nearest zones:\n{zonesInfo}");
         }
 
-        public static Vector2 GetPlayerPosition() => new(Input.location.lastData.longitude, Input.location.lastData.latitude);
+        public static Vector2 GetPlayerPosition() =>
+            new(Input.location.lastData.longitude, Input.location.lastData.latitude);
     }
 }

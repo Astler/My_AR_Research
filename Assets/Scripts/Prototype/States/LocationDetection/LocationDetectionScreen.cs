@@ -26,7 +26,7 @@ namespace Prototype.States.LocationDetection
             _transitionActive = false;
             BackdropView.SetActive(false);
 
-            _connectionListener = _context.GetLocationController().SelectedPortalZone.Subscribe(
+            _connectionListener = _context.GetLocationController().NearestPortalZone.Subscribe(
                 delegate(PortalZoneModel model)
                 {
                     if (model == null || _transitionActive) return;

@@ -5,6 +5,7 @@ using Prototype.AR;
 using Prototype.Assets;
 using Prototype.Core;
 using Prototype.Data;
+using Prototype.Location;
 using Prototype.Screens.MainScreen;
 using Prototype.World;
 using UniRx;
@@ -22,10 +23,10 @@ namespace Prototype
         [SerializeField] private LocationController locationController;
         [SerializeField] private ScreensInstaller screensInstaller;
 
+        private List<PortalZoneModel> _customZones = new();
         private IPlayerData _playerData;
         private CameraView _cameraView;
         private IARController _arController;
-        private bool _isRewardReceived;
         private ReactiveProperty<bool> _mapOpened = new();
         private ReactiveProperty<int> _coins = new();
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
@@ -34,6 +35,9 @@ namespace Prototype
         private void Awake()
         {
             _playerData = new PlayerData();
+            _customZones = PlayerPrefsHelper.CustomZonesData.Length == 0
+                ? new List<PortalZoneModel>()
+                : JsonUtility.FromJson<List<PortalZoneModel>>(PlayerPrefsHelper.CustomZonesData);
         }
 
         private void Start()
@@ -114,7 +118,6 @@ namespace Prototype
 
         private void Restart()
         {
-            _isRewardReceived = false;
             Clear();
             _arController.Reset();
         }
@@ -136,5 +139,31 @@ namespace Prototype
         public List<PortalZoneModel> GetPortalPoints() => assetsScriptableObject.portalZones.ToList();
 
         public LocationController GetLocationController() => locationController;
+
+        public ScreensInstaller GetScreensInstaller() => screensInstaller;
+
+        public List<PortalViewInfo> GetAllPortals()
+        {
+            List<PortalViewInfo> portalsList = new();
+
+            IEnumerable<PortalZoneModel> allZones = _customZones.Concat(GetAssets().portalZones);
+
+            foreach (PortalZoneModel portalZoneModel in allZones.Where(it => it.isActive))
+            {
+                PortalViewInfo viewInfo = portalZoneModel.ToViewInfo();
+
+                viewInfo.Distance = viewInfo.Coordinates.ToHumanReadableDistanceFromPlayer();
+
+                portalsList.Add(viewInfo);
+            }
+            
+            return portalsList;
+        }
+
+        public void AddCustomZone(PortalZoneModel newZone)
+        {
+            _customZones.Add(newZone);
+            PlayerPrefsHelper.CustomZonesData = JsonUtility.ToJson(_customZones);
+        }
     }
 }

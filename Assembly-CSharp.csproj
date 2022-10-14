@@ -109,6 +109,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsTouchScriptConnector.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarkerBillboard.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGooglePlacesAutocompleteResult.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/MainScreenPresenter.cs" />
      <Compile Include="Assets/Scripts/Prototype/Location/LocationInfoView.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/InterpolationUtil.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/ARFoundationController.cs" />
@@ -158,6 +159,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBaseUI.cs" />
      <Compile Include="Assets/Scripts/Prototype/SceneFinder.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/BingMapsElevationsExample.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Core/ScreensInstaller.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/SnowballTossDebugManager.cs" />
      <Compile Include="Assets/Scripts/Prototype/Assets/GiftModel.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CheckAllTilesLoadedExample.cs" />
@@ -169,7 +171,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D/OnlineMapsUIImageControl.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CheckIntenetConnectionExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/DriveUsingKeyboard.cs" />
-     <Compile Include="Assets/Scripts/MapTest.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/MapUserInterfaceView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsGeoRect.cs" />
      <Compile Include="Assets/Scripts/Floor/PlaneFloorFallback.cs" />
      <Compile Include="Assets/Scripts/Prototype/World/PortalController.cs" />
@@ -282,6 +284,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsRasterTile.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsVector2d.cs" />
      <Compile Include="Assets/Scripts/Prototype/Location/LocationUtils.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Core/MapController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGoogleGeocodingResult.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarkerManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GetCenterPointOfMarkersExample.cs" />
@@ -368,9 +371,10 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MapBaseboards.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/OnlineMaps.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/MainScreenPresenter.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Core/ScreensInstaller.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Core/MapController.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenView.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenPresenter.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalCardView.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Data/PortalViewInfo.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElementZTestAlways.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />

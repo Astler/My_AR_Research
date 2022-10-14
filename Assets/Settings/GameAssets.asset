@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: GameAssets
   m_EditorClassIdentifier: 
   portalZones:
-  - name: Nikopol
+  - name: City Portal
     longitude: 34.391990661621094
     latitude: 47.568328857421875
     radius: 20
     isActive: 1
-  - name: Vlad
+  - name: Dev Portal
     longitude: 35.07780838012695
     latitude: 48.508941650390625
     radius: 20
     isActive: 1
-  - name: MS
+  - name: Test Portal
     longitude: 35.0491729
     latitude: 48.4559393
     radius: 20
     isActive: 1
-  - name: Danil Point
+  - name: MS Portal
     longitude: 35.0503276
     latitude: 48.4557197
     radius: 20

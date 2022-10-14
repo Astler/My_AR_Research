@@ -1,4 +1,6 @@
 using System;
+using Prototype.Assets;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,8 @@ namespace Prototype.Screens.MainScreen
         void SetIsMapActive(bool isMapActive);
         void ConfigureAction(MainSceneHUDViewInfo mainSceneHUDViewInfo);
         void SetCoins(int coins);
+        IMapUserInterface GetMapUserInterface();
+        void SetCanPlacePortal(bool canPlace);
     }
 
     public class MainSceneView : MonoBehaviour, IMainScreenView
@@ -18,6 +22,9 @@ namespace Prototype.Screens.MainScreen
         [SerializeField] private Button restartButton;
         [SerializeField] private Button spawnPortalButton;
         [SerializeField] private PlayerBalanceBarView balanceBarView;
+        [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
+        [SerializeField] private GameObject allZonesParent;
+        [SerializeField] private GameObject portalPlacementParent;
 
         private Action _openMapClicked;
         private Action _clearButtonOnClick;
@@ -34,6 +41,12 @@ namespace Prototype.Screens.MainScreen
         }
 
         public void SetCoins(int coins) => balanceBarView.SetCoins(coins);
+        public IMapUserInterface GetMapUserInterface() => mapUserInterfaceView;
+        
+        public void SetCanPlacePortal(bool canPlace)
+        {
+            portalPlacementParent.SetActive(canPlace);
+        }
 
         public void ConfigureAction(MainSceneHUDViewInfo viewInfo)
         {
@@ -68,6 +81,8 @@ namespace Prototype.Screens.MainScreen
             clearButton.gameObject.SetActive(!isMapActive);
             restartButton.gameObject.SetActive(!isMapActive);
             spawnPortalButton.gameObject.SetActive(!isMapActive);
+            allZonesParent.gameObject.SetActive(!isMapActive);
+            mapUserInterfaceView.gameObject.SetActive(isMapActive);
         }
     }
 

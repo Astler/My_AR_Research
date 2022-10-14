@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Prototype.Assets;
+using Prototype.Data;
 using Prototype.World;
 using UniRx;
 using UnityEngine;
@@ -15,9 +15,7 @@ namespace Prototype.Core
 
         [SerializeField] private OnlineMapsMarker3DManager onlineMapsMarker3DManager;
 
-        private List<OnlineMapsMarker3D> _mapPoints = new();
-
-        // [SerializeField] private MapUserInterfaceView mapObject;
+        private readonly List<OnlineMapsMarker3D> _mapPoints = new();
 
         private ProjectContext _context;
 
@@ -44,12 +42,12 @@ namespace Prototype.Core
                 onlineMapsMarker3DManager.items.Clear();
 
                 if (!active) return;
-                
+
                 _mapPoints.Add(onlineMapsMarker3DManager.Create(playerPosition.x, playerPosition.y, playerPrefab));
 
-                foreach (PortalZoneModel portalZoneModel in _context.GetAssets().portalZones)
+                foreach (PortalViewInfo viewInfo in _context.GetAllPortals())
                 {
-                    _mapPoints.Add(onlineMapsMarker3DManager.Create(portalZoneModel.longitude, portalZoneModel.latitude,
+                    _mapPoints.Add(onlineMapsMarker3DManager.Create(viewInfo.Coordinates.x, viewInfo.Coordinates.y,
                         portalPrefab));
                 }
             }).AddTo(this);

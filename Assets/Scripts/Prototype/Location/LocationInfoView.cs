@@ -1,5 +1,3 @@
-using System;
-using Prototype.Assets;
 using TMPro;
 using UnityEngine;
 

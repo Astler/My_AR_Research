@@ -1,5 +1,7 @@
 using System;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Prototype.Screens.Scene;
 using UnityEngine;
 
@@ -17,7 +19,7 @@ namespace Prototype.Screens
     [RequireComponent(typeof(CanvasGroup))]
     public abstract class ScreenView : MonoBehaviour, IGameStep
     {
-        private const float AnimationDuration = 1f;
+        private const float AnimationDuration = 0.25f;
 
         [SerializeField] protected bool isStartScreen;
 
@@ -39,6 +41,7 @@ namespace Prototype.Screens
         private BackdropView _backdropView;
         private CanvasGroup _canvasGroup;
         private RectTransform _rectTransform;
+        private Tween _transition;
 
         public void StartStep()
         {
@@ -70,15 +73,22 @@ namespace Prototype.Screens
                 return;
             }
 
+            _transition?.Complete();
+            _transition?.Kill();
+
             if (active)
             {
-                ScreenTransform.DOScale(1f, AnimationDuration);
-                FadeInContent();
+                ScreenTransform.localScale = Vector3.zero;
+                
+                gameObject.SetActive(true);
+                _transition = DOTween.Sequence(ScreenTransform.DOScale(1f, AnimationDuration))
+                    .Join(ScreenCanvasGroup.DOFade(1f, AnimationDuration));
             }
             else
             {
-                ScreenTransform.DOScale(0f, AnimationDuration);
-                FadeOutContent();
+                _transition = DOTween.Sequence(ScreenTransform.DOScale(0f, AnimationDuration))
+                    .Join(ScreenCanvasGroup.DOFade(0f, AnimationDuration))
+                    .OnComplete(() => gameObject.SetActive(false));
             }
         }
 
@@ -107,18 +117,6 @@ namespace Prototype.Screens
             }
 
             OnStart();
-        }
-
-        private void FadeOutContent()
-        {
-            ScreenCanvasGroup.DOFade(0f, AnimationDuration)
-                .OnComplete(() => gameObject.SetActive(false));
-        }
-
-        private void FadeInContent()
-        {
-            gameObject.SetActive(true);
-            ScreenCanvasGroup.DOFade(1f, AnimationDuration);
         }
     }
 }
