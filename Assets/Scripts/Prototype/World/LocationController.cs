@@ -19,6 +19,7 @@ namespace Prototype.World
 
         private readonly ReactiveProperty<PortalZoneModel> _selectedPortalZone = new();
         private readonly ReactiveProperty<PortalZoneModel> _nearestPortalZone = new();
+        private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
 
         private ProjectContext _context;
         private Coroutine _zonesLocator;
@@ -26,6 +27,8 @@ namespace Prototype.World
 
         public IReadOnlyReactiveProperty<PortalZoneModel> SelectedPortalZone => _selectedPortalZone;
         public IReadOnlyReactiveProperty<PortalZoneModel> NearestPortalZone => _nearestPortalZone;
+        public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
+
 
         private void Awake()
         {
@@ -154,7 +157,7 @@ namespace Prototype.World
                 distances.OrderBy(it => it.Value).ToList();
 
             _nearestPortalZone.Value = nearZones.FirstOrDefault().Key;
-            
+
             for (int i = 0; i < (nearZones.Count > 5 ? 5 : nearZones.Count); i++)
             {
                 KeyValuePair<PortalZoneModel, double> zoneData = nearZones[i];
@@ -168,5 +171,11 @@ namespace Prototype.World
 
         public static Vector2 GetPlayerPosition() =>
             new(Input.location.lastData.longitude, Input.location.lastData.latitude);
+
+        private void FixedUpdate()
+        {
+            _playerLocationChanged.Value = new Vector2(locationService.GetCurrentLocation().longitude,
+                locationService.GetCurrentLocation().latitude);
+        }
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Prototype.Data;
 using Prototype.World;
 using UniRx;
@@ -15,7 +14,7 @@ namespace Prototype.Core
 
         [SerializeField] private OnlineMapsMarker3DManager onlineMapsMarker3DManager;
 
-        private readonly List<OnlineMapsMarker3D> _mapPoints = new();
+        private OnlineMapsMarker3D _playerPointer;
 
         private ProjectContext _context;
 
@@ -26,6 +25,8 @@ namespace Prototype.Core
 
         private void Start()
         {
+            _context.GetLocationController().PlayerLocationChanged.Subscribe(CreatePlayerPointer).AddTo(this);
+
             _context.MapOpened.Subscribe(delegate(bool active)
             {
                 Vector2 playerPosition = LocationController.GetPlayerPosition();
@@ -34,7 +35,7 @@ namespace Prototype.Core
                 mapObject.SetActive(active);
                 mapControlInterface.SetActive(active);
 
-                foreach (OnlineMapsMarker3D onlineMapsMarker3D in _mapPoints)
+                foreach (OnlineMapsMarker3D onlineMapsMarker3D in onlineMapsMarker3DManager.items)
                 {
                     Destroy(onlineMapsMarker3D.instance);
                 }
@@ -43,14 +44,26 @@ namespace Prototype.Core
 
                 if (!active) return;
 
-                _mapPoints.Add(onlineMapsMarker3DManager.Create(playerPosition.x, playerPosition.y, playerPrefab));
+                CreatePlayerPointer(playerPosition);
 
                 foreach (PortalViewInfo viewInfo in _context.GetAllPortals())
                 {
-                    _mapPoints.Add(onlineMapsMarker3DManager.Create(viewInfo.Coordinates.x, viewInfo.Coordinates.y,
-                        portalPrefab));
+                    onlineMapsMarker3DManager.Create(viewInfo.Coordinates.x, viewInfo.Coordinates.y,
+                        portalPrefab);
                 }
             }).AddTo(this);
+        }
+
+        private void CreatePlayerPointer(Vector2 playerPosition)
+        {
+            if (_playerPointer != null)
+            {
+                Destroy(_playerPointer.instance);
+                onlineMapsMarker3DManager.items.Remove(_playerPointer);
+                _playerPointer = null;
+            }
+
+            _playerPointer = onlineMapsMarker3DManager.Create(playerPosition.x, playerPosition.y, playerPrefab);
         }
     }
 }
