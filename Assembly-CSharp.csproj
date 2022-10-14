@@ -124,9 +124,11 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsBingMapsElevationManager.cs" />
      <Compile Include="Assets/Scripts/ARPGFXRotation.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/MeshCeilTrackerView.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Data/PortalViewInfo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Projections/OnlineMapsProjection.cs" />
      <Compile Include="Assets/Scripts/Prototype/Screens/Scene/BackdropView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsTiledElevationManager.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsElevationManagerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationServiceBase.cs" />
      <Compile Include="Assets/Scripts/Prototype/ProjectContext.cs" />
@@ -137,6 +139,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBase.cs" />
      <Compile Include="Assets/Scripts/Prototype/AR/MeshFloorFallback.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsPanoConnector.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalCardView.cs" />
      <Compile Include="Assets/Scripts/Prototype/World/GiftsController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarker3DManager.cs" />
      <Compile Include="Assets/Scripts/AudioManager/AudioKeys.cs" />
@@ -196,6 +199,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/HorizonWithoutElevation.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ShowMarkerLabelsByZoomExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarkerManagerBase.cs" />
+     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenPresenter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleRoads.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MoveMarkerOnRouteExample.cs" />
      <Compile Include="Assets/Scripts/UI/DebugMenu/DebugMenuButton.cs" />
@@ -371,10 +375,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MapBaseboards.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/OnlineMaps.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenPresenter.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalCardView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Data/PortalViewInfo.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElementZTestAlways.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />

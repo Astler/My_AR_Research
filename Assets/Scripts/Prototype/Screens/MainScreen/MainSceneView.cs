@@ -25,6 +25,7 @@ namespace Prototype.Screens.MainScreen
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
         [SerializeField] private GameObject allZonesParent;
         [SerializeField] private GameObject portalPlacementParent;
+        [SerializeField] private CanvasGroup stepsUserInterfaceCanvasGroup;
 
         private Action _openMapClicked;
         private Action _clearButtonOnClick;
@@ -83,6 +84,7 @@ namespace Prototype.Screens.MainScreen
             spawnPortalButton.gameObject.SetActive(!isMapActive);
             allZonesParent.gameObject.SetActive(!isMapActive);
             mapUserInterfaceView.gameObject.SetActive(isMapActive);
+            stepsUserInterfaceCanvasGroup.alpha = isMapActive ? 0 : 1;
         }
     }
 

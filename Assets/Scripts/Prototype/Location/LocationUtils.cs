@@ -21,16 +21,16 @@ namespace Prototype.Location
                 if (distance < 1f)
                 {
                     distance *= 1000;
-                    result = distance + " cm";
+                    result = distance.ToString("F") + " cm";
                 }
                 else
                 {
-                    result = distance + " m";
+                    result = distance.ToString("F") + " m";
                 }
             }
             else
             {
-                result = distance + " km";
+                result = distance.ToString("F") + " km";
             }
 
             return result;

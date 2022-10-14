@@ -724,6 +724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 393223422}
   - component: {fileID: 393223423}
+  - component: {fileID: 393223424}
   m_Layer: 5
   m_Name: States
   m_TagString: Untagged
@@ -771,6 +772,18 @@ MonoBehaviour:
   locationSearchScreen: {fileID: 1767710147}
   meshScannerScreen: {fileID: 1987706720}
   portalPlacementScreen: {fileID: 981690607}
+--- !u!225 &393223424
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393223421}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &408601693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5230,6 +5243,7 @@ MonoBehaviour:
   mapUserInterfaceView: {fileID: 1683164418075238564}
   allZonesParent: {fileID: 1060779654}
   portalPlacementParent: {fileID: 981690606}
+  stepsUserInterfaceCanvasGroup: {fileID: 393223424}
 --- !u!1001 &1767710145
 PrefabInstance:
   m_ObjectHideFlags: 0
