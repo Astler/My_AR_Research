@@ -1,17 +1,21 @@
 // Copyright 2021 Niantic, Inc. All Rights Reserved.
 
+using System.Runtime.InteropServices;
+using Niantic.ARDK.Internals;
 using System;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Niantic.ARDK.Internals;
+
+using Niantic.ARDK.AR;
 using Niantic.ARDK.Utilities.Logging;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR
 {
   internal class _PlaybackDataset
   {
-    private int _frameCount;
+    private int _frameCount = 0;
 
     public _PlaybackDataset(string path)
     {
@@ -20,10 +24,12 @@ namespace Niantic.ARDK.VirtualStudio.AR
 
       if (IsValidLocalPath(path))
         _NARPlaybackDataset_Init(path, true);
-      else if (IsValidCloudPath(path))
-        _NARPlaybackDataset_Init(path, false);
       else
+#if ARDK_IQP
+        _NARPlaybackDataset_Init(path, false);
+#else
         ARLog._Error("Invalid dataset path.");
+#endif
 
       _frameCount = _NARPlaybackDataset_GetFrameCount();
     }
@@ -41,11 +47,6 @@ namespace Niantic.ARDK.VirtualStudio.AR
       }
     }
 
-    private static bool IsValidCloudPath(string path)
-    {
-      return path.EndsWith(".tgz");
-    }
-
     public void SwitchDataset(string path)
     {
       if (string.IsNullOrEmpty(path))
@@ -56,10 +57,13 @@ namespace Niantic.ARDK.VirtualStudio.AR
 
       if (IsValidLocalPath(path))
         _NARPlaybackDataset_Switch(path, true);
-      else if (IsValidCloudPath(path))
-        _NARPlaybackDataset_Switch(path, false);
+#if ARDK_IQP
+      else
+        _NARPlaybackDataset_Init(path, false);
+#else
       else
         ARLog._Error("Invalid dataset path.");
+#endif
     }
 
     public int GetDatasetSize()

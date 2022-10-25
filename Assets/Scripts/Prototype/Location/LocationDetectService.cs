@@ -41,7 +41,8 @@ namespace Prototype.Location
                 yield break;
             }
 
-            Input.location.Start(10, 1);
+            Input.compass.enabled = true;
+            Input.location.Start(0.1f, 0.1f);
 
             int waitTime = 20;
 

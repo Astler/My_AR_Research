@@ -2,6 +2,8 @@
 
 using System;
 using System.Globalization;
+
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace Niantic.ARDK.VPSCoverage.GeoserviceMessages

@@ -3,12 +3,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using Niantic.ARDK.AR;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Networking.Mock
 {
@@ -356,6 +360,11 @@ namespace Niantic.ARDK.VirtualStudio.Networking.Mock
     public string ToString(int count)
     {
       return string.Format("_MockMultipeerNetworking (ID: {0})", StageIdentifier);
+    }
+
+    internal int _GetLatestArbeRttMeasurement()
+    {
+      return 0;
     }
 
     public event ArdkEventHandler<ConnectionFailedArgs> ConnectionFailed;

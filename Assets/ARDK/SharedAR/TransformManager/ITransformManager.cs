@@ -1,10 +1,19 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-#if SHARED_AR_V2
+using System;
+using System.Collections.ObjectModel;
+using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
+using Niantic.ARDK.Utilities;
 
+using Matrix4x4 = UnityEngine.Matrix4x4;
 namespace Niantic.Experimental.ARDK.SharedAR.Transform
 {
-  public struct TransformUpdatedArgs : IArdkEventArgs {
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public struct TransformUpdatedArgs :
+    IArdkEventArgs 
+  {
     public string key;
     public Matrix4x4 pose;
     public TransformUpdatedArgs(string _key, Matrix4x4 _pose): this() {
@@ -12,10 +21,22 @@ namespace Niantic.Experimental.ARDK.SharedAR.Transform
       pose = _pose;
     }
   }
-  public struct TransformRemovedArgs : IArdkEventArgs{
-    public TransformRemovedArgs(Matrix4x4 _pose): this() {
+  
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public struct TransformRemovedArgs : 
+    IArdkEventArgs
+  {
+    public TransformRemovedArgs(Matrix4x4 _pose): 
+      this() 
+    {
     }
   }
+  
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public interface ITransformManager :
     IDisposable
   {
@@ -87,5 +108,3 @@ namespace Niantic.Experimental.ARDK.SharedAR.Transform
     event ArdkEventHandler<TransformUpdatedArgs> TransformDeleted;
   }
 }
-
-#endif // SHARED_AR_V2

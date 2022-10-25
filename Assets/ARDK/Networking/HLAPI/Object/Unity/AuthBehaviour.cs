@@ -2,9 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.Networking.HLAPI.Authority;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 /// @namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
@@ -45,7 +47,7 @@ namespace Niantic.ARDK.Networking.HLAPI.Object.Unity
       initializer = () =>
       {
         Owner.Networking.Connected += 
-          args =>
+          (args) =>
           {
             var gameObjectName = gameObject.name;
             ARLog._DebugFormat

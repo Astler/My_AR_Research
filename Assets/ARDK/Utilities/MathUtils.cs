@@ -1,11 +1,12 @@
 ﻿// Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.VirtualStudio.AR;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Utilities
@@ -558,7 +559,15 @@ namespace Niantic.ARDK.Utilities
             ? ScreenOrientation.LandscapeLeft
             : ScreenOrientation.Portrait;
   #else
-        return _MockCameraConfiguration.CorrectedScreenWidth > _MockCameraConfiguration.CorrectedScreenHeight
+      var width = _MockCameraConfiguration.CorrectedScreenWidth > 0
+        ? _MockCameraConfiguration.CorrectedScreenWidth
+        : Screen.width;
+
+      var height = _MockCameraConfiguration.CorrectedScreenHeight > 0
+        ? _MockCameraConfiguration.CorrectedScreenHeight
+        : Screen.height;
+      
+        return width > height
           ? ScreenOrientation.LandscapeLeft
           : ScreenOrientation.Portrait;
   #endif

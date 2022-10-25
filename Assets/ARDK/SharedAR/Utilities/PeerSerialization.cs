@@ -1,35 +1,23 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-#if SHARED_AR_V2
-
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 
-using Niantic.ARDK.AR;
-using Niantic.Experimental.ARDK.SharedAR;
-using Niantic.ARDK.AR.Networking;
-using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
-using Niantic.ARDK.LocationService;
-using Niantic.ARDK.Networking;
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
-using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
-using Niantic.ARDK.Utilities.Extensions;
-using Niantic.ARDK.Utilities.Logging;
 
 using UnityEngine;
 
-namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
-
+namespace Niantic.Experimental.ARDK.SharedAR {
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public static class PeerSerialization {
     public static IPeerID PeerFromKey(string key)
     {
       // PeerID string is in second half of key
       var peerId = key.Split('_')[1];
-      return PeerIDv0.GetPeerID(peerId);
+      return PeerIDv0.GetPeerID(new Guid(peerId));
     }
 
     public static string KeyFromPeer(string prefix, IPeerID peer)
@@ -57,8 +45,10 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
 
     public static Matrix4x4 PoseFromBytes(MemoryStream stream)
     {
-      using(var deserializer = new BinaryDeserializer(stream))
+      using (var deserializer = new BinaryDeserializer(stream))
+      {
         return Matrix4x4Serializer.Instance.Deserialize(deserializer);
+      }
     }
 
     public static byte[] BytesFromPose(Matrix4x4 pose)
@@ -74,4 +64,3 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
     }
   }
 }
-#endif // SHARED_AR_V2

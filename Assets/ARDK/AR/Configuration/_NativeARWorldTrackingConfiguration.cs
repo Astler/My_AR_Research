@@ -5,13 +5,19 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.InteropServices;
+
 using AOT;
+
+using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.ReferenceImage;
+using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.AR.VideoFormat;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.AR.Configuration
 {
@@ -311,7 +317,13 @@ namespace Niantic.ARDK.AR.Configuration
       }
     }
 
-    public float MeshingRadius
+    [Obsolete("This property is obsolete. Use MeshDecimationThreshold instead.", false)]
+    public float MeshingRadius { 
+      get => MeshDecimationThreshold;
+      set { MeshDecimationThreshold = value; }
+    }
+
+    public float MeshDecimationThreshold
     {
       get
       {
@@ -334,6 +346,52 @@ namespace Niantic.ARDK.AR.Configuration
       }
     }
 
+    public float MeshingRangeMax
+    {
+      get
+      {
+        return _NARConfiguration_GetViewDepthMax(NativeHandle);
+      }
+      set
+      {
+        if (value <= 0)
+        {
+          ARLog._Error
+          (
+            "The maximum meshing range must be larger then zero."
+          );
+
+          return;
+        }
+
+        if (_NativeAccess.IsNativeAccessValid())
+          _NARConfiguration_SetViewDepthMax(NativeHandle, value);
+      }
+    }
+
+    public float VoxelSize
+    {
+      get
+      {
+        return _NARConfiguration_GetVoxelSize(NativeHandle);
+      }
+      set
+      {
+        if (value <= 0)
+        {
+          ARLog._Error
+          (
+            "The voxel size must be larger than 0."
+          );
+
+          return;
+        }
+
+        if (_NativeAccess.IsNativeAccessValid())
+          _NARConfiguration_SetVoxelSize(NativeHandle, value);
+      }
+    }
+
     public float MeshingTargetBlockSize
     {
       get
@@ -350,12 +408,7 @@ namespace Niantic.ARDK.AR.Configuration
     {
       get
       {
-        if (_NativeAccess.IsNativeAccessValid())
-          return _NARConfiguration_IsPalmDetectionEnabled(NativeHandle) != 0;
-
-#pragma warning disable 0162
-        throw new IncorrectlyUsedNativeClassException();
-#pragma warning restore 0162
+        return _NARConfiguration_IsPalmDetectionEnabled(NativeHandle) != 0;
       }
       set
       {
@@ -410,8 +463,9 @@ namespace Niantic.ARDK.AR.Configuration
       worldTarget.IsMeshingEnabled = IsMeshingEnabled;
       worldTarget.MeshingTargetFrameRate = MeshingTargetFrameRate;
       worldTarget.MeshingTargetBlockSize = MeshingTargetBlockSize;
-      worldTarget.MeshingRadius = MeshingRadius;
-
+      worldTarget.MeshDecimationThreshold = MeshDecimationThreshold;
+      worldTarget.MeshingRangeMax = MeshingRangeMax;
+      worldTarget.VoxelSize = VoxelSize;
       worldTarget.IsPalmDetectionEnabled = IsPalmDetectionEnabled;
     }
 
@@ -580,7 +634,27 @@ namespace Niantic.ARDK.AR.Configuration
     private static extern void _NARConfiguration_SetMeshingRadius
     (
       IntPtr nativeHandle,
-      float meshingRadius
+      float meshDecimationThreshold
+    );
+    
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern float _NARConfiguration_GetViewDepthMax(IntPtr nativeHandle);
+
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern void _NARConfiguration_SetViewDepthMax
+    (
+      IntPtr nativeHandle,
+      float viewDepthMax
+    );
+    
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern float _NARConfiguration_GetVoxelSize(IntPtr nativeHandle);
+
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern void _NARConfiguration_SetVoxelSize
+    (
+      IntPtr nativeHandle,
+      float voxelSize
     );
 
     [DllImport(_ARDKLibrary.libraryName)]

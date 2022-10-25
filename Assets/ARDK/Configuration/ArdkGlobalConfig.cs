@@ -1,9 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.Configuration
 {
@@ -13,8 +15,6 @@ namespace Niantic.ARDK.Configuration
   /// settings remotely and set them before running the rest of the application.
   public static class ArdkGlobalConfig
   {
-    internal const string _DbowUrl = "https://bowvocab.eng.nianticlabs.com/dbow_b50_l3.bin";
-    internal const string _DefaultAuthUrl = "https://us-central1-ar-dev-portal-prod.cloudfunctions.net/auth_token";
     internal static event Action _LoginChanged;
     
     private static readonly _ArdkGlobalConfigBase _impl;
@@ -43,26 +43,38 @@ namespace Niantic.ARDK.Configuration
       }
     }
     
-    internal static _IArdkMetadataConfig _Internal
+    internal static _ArdkGlobalConfigBase _Internal
     {
       get => _impl; 
     }
     
+    // TODO AR-12775: Formally move several public URL set/get api's to private
+    /// @note
+    ///   This method is deprecated and will be removed in a future update.
+    [Obsolete("This method is not supported and will be removed in a future release.")]
     public static bool SetDbowUrl(string url)
     {
       return _impl.SetDbowUrl(url);
     }
-
+    
+    // TODO AR-12775: Formally move several public URL set/get api's to private
+    /// @note
+    ///   This method is deprecated and will be removed in a future update.
+    [Obsolete("This method is not supported and will be removed in a future release.")]
     public static string GetDbowUrl()
     {
       return _impl.GetDbowUrl();
     }
 
+    // TODO AR-12775: Formally move several public URL set/get api's to private
+    /// @note
+    ///   This method is deprecated and will be removed in a future update.
+    [Obsolete("This method is not supported and will be removed in a future release.")]
     public static string GetContextAwarenessUrl()
     {
       return _impl.GetContextAwarenessUrl();
     }
-
+    
     public static bool SetContextAwarenessUrl(string url)
     {
       return _impl.SetContextAwarenessUrl(url);
@@ -72,7 +84,11 @@ namespace Niantic.ARDK.Configuration
     {
       return _impl.SetApiKey(apiKey);
     }
-
+    
+    // TODO AR-12775: Formally move several public URL set/get api's to private
+    /// @note
+    ///   This method is deprecated and will be removed in a future update.
+    [Obsolete("This method is not supported and will be removed in a future release.")]
     public static string GetAuthenticationUrl()
     {
       return _impl.GetAuthenticationUrl();
@@ -84,7 +100,11 @@ namespace Niantic.ARDK.Configuration
     {
       return _Internal.GetClientId();
     }
-
+    
+    // TODO AR-12775: Formally move several public URL set/get api's to private
+    /// @note
+    ///   This method is deprecated and will be removed in a future update.
+    [Obsolete("This method is not supported and will be removed in a future release.")]
     public static bool SetAuthenticationUrl(string url)
     {
       return _impl.SetAuthenticationUrl(url);
@@ -137,6 +157,7 @@ namespace Niantic.ARDK.Configuration
       
       return result;
     }
+
     
 
     /// Clear the user id set by |SetUserIdOnLogin|.

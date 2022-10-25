@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Networking;
@@ -9,6 +10,7 @@ using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
 using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.MapVisualization
@@ -30,7 +32,7 @@ namespace Niantic.ARDK.Extensions.MapVisualization
     private Dictionary<Guid, IMapVisualizationController> _mapLookup =
       new Dictionary<Guid, IMapVisualizationController>();
 
-    private bool _mapVisibility;
+    private bool _mapVisibility = false;
     private IPeer _self;
 
     private IARSession _session;

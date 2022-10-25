@@ -1,8 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
-using Niantic.ARDK.AR.Camera;
+using System;
+
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
+using Niantic.ARDK.AR.Camera;
+
+using Unity.Collections;
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness.Depth

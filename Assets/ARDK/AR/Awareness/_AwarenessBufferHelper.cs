@@ -1,11 +1,15 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
+
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness
@@ -102,8 +106,8 @@ namespace Niantic.ARDK.AR.Awareness
 
       int cropStartX = 0, cropStartY = 0;
 
-      newWidth = srcWidth;
-      newHeight = srcHeight;
+      newWidth = (int)srcWidth;
+      newHeight = (int)srcHeight;
 
       if (srcRatio > trgRatio)
       {

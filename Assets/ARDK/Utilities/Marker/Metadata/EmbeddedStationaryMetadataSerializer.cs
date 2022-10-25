@@ -2,9 +2,12 @@
 
 using System;
 using System.IO;
+
+using Niantic.ARDK.Utilities.Extensions;
+using Niantic.ARDK.Networking.HLAPI.Data;
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
-using Niantic.ARDK.Utilities.Extensions;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Utilities.Marker

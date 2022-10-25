@@ -1,6 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System;
 using Niantic.ARDK.AR.SLAM;
+using UnityEngine.Rendering;
 
 namespace Niantic.ARDK.Extensions.MapVisualization {
   /// @brief Controller for map visualization

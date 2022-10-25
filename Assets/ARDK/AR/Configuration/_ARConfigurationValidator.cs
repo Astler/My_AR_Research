@@ -1,7 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System;
+
+using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Configuration;
+using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.Utilities.Logging;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.AR.Configuration
 {
@@ -68,14 +74,21 @@ namespace Niantic.ARDK.AR.Configuration
 
         worldConfig.IsDepthEnabled = true;
       }
-
+      
+      // This section of code is needed because the default Context Awareness URL is generated
+      // (when necessary) in internal code if no Context Awareness URL is provided.
       var needsContextAwarenessUrl =
         isDepthEnabled ||
         worldConfig.IsMeshingEnabled ||
         worldConfig.IsSemanticSegmentationEnabled;
 
-      var hasEmptyUrl = string.IsNullOrEmpty(ArdkGlobalConfig.GetContextAwarenessUrl());
-
+#pragma warning disable 0618
+      // TODO AR-12775: Formally move several public URL set/get api's to private
+      // Warning disabled for now. When the method has been removed from the public API, the
+      // warning should be re-enabled.
+      var hasEmptyUrl = string.IsNullOrEmpty(ArdkGlobalConfig._Internal.GetContextAwarenessUrl());
+#pragma warning restore 0618
+      
       if (needsContextAwarenessUrl && hasEmptyUrl)
       {
         ARLog._Debug("Context Awareness URL was not set. The default URL will be used.");

@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness

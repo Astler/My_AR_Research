@@ -5,7 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+
 using AOT;
+
+using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking.Clock;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
@@ -469,6 +472,12 @@ namespace Niantic.ARDK.Networking
       return string.Format("StageID: {0}", StageIdentifier.ToString().Substring(0, count));
     }
 
+    /// <inheritdoc />
+    internal int _GetLatestArbeRttMeasurement()
+    {
+      return _NARMultipeerNetworking_GetLatestArbeRttMeasurement(_nativeHandle);
+    }
+
     static _NativeMultipeerNetworking()
     {
       _Platform.Init();
@@ -523,8 +532,14 @@ namespace Niantic.ARDK.Networking
       }
       else
       {
-        var apiKeyCopy = ServerConfiguration.ApiKey;
-        var authUrlCopy = ServerConfiguration.AuthenticationUrl;
+        var apiKeyCopy = ArdkGlobalConfig._Internal.GetApiKey();
+        
+#pragma warning disable 0618
+        // TODO AR-12775: Formally move several public URL set/get api's to private
+        // Disabling the obsolete method call warning. When we remove the API from the public SDK,
+        // it will become private. We then need to remove the warning disablement.
+        var authUrlCopy = ArdkGlobalConfig._Internal.GetAuthenticationUrl();
+#pragma warning restore 0618
 
         var isMissingAuthComponents =
           string.IsNullOrEmpty(apiKeyCopy) || string.IsNullOrEmpty(authUrlCopy);
@@ -696,7 +711,7 @@ namespace Niantic.ARDK.Networking
     public event ArdkEventHandler<DeinitializedArgs> Deinitialized;
 
     /// <inheritdoc />
-    public event ArdkEventHandler<DataReceivedFromArmArgs> DataReceivedFromArm = args => {};
+    public event ArdkEventHandler<DataReceivedFromArmArgs> DataReceivedFromArm = (args) => {};
 
     /// <inheritdoc />
     public event ArdkEventHandler<SessionStatusReceivedFromArmArgs> SessionStatusReceivedFromArm
@@ -950,10 +965,10 @@ namespace Niantic.ARDK.Networking
 
 #region InternalCallbacks
     private event ArdkEventHandler<SessionStatusReceivedFromArmArgs> _sessionStatusReceivedFromArm =
-      args => {};
+      (args) => {};
 
     private event ArdkEventHandler<SessionResultReceivedFromArmArgs> _sessionResultReceivedFromArm =
-      args => {};
+      (args) => {};
 
     [MonoPInvokeCallback(typeof(_NARMultipeerNetworking_Did_Connect_Callback))]
     private static void _didConnectNative
@@ -1491,6 +1506,13 @@ namespace Niantic.ARDK.Networking
       IntPtr context,
       IntPtr nativeHandle,
       _NARMultipeerNetworking_Did_Receive_Session_Result_From_ARM_Callback cb
+    );
+
+
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern int _NARMultipeerNetworking_GetLatestArbeRttMeasurement
+    (
+      IntPtr nativeHandle
     );
 
     private delegate void _NARMultipeerNetworking_Did_Connect_Callback

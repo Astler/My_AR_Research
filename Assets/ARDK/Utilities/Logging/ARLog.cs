@@ -1,8 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 
 /// @namespace Niantic.ARDK.Utilities.Logging
@@ -293,7 +293,7 @@ namespace Niantic.ARDK.Utilities.Logging
       new ConcurrentDictionary<string, bool>();
 
     private static readonly Func<string, bool> _checkEnabledFeaturesDelegate =
-      caller =>
+      (caller) =>
       {
         foreach (var enabledFeature in _enabledFeatures.Keys)
           if (caller.StartsWith(enabledFeature))

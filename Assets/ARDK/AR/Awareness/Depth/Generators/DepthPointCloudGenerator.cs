@@ -3,8 +3,11 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Rendering;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness.Depth.Generators
@@ -47,7 +50,7 @@ namespace Niantic.ARDK.AR.Awareness.Depth.Generators
     private uint _kernelThreadsX;
     private uint _kernelThreadsY;
 
-    private int _size;
+    private int _size = 0;
     private ComputeBuffer _pointCloudBuffer;
     private ComputeBuffer _depthComputeBuffer;
     private Vector3[] _pointCloud;

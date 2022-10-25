@@ -30,7 +30,7 @@ namespace Prototype.Core
             _context.MapOpened.Subscribe(delegate(bool active)
             {
                 Vector2 playerPosition = LocationController.GetPlayerPosition();
-                OnlineMaps.instance.position = playerPosition;
+                OnlineMaps.instance.position = new Vector2(playerPosition.y, playerPosition.x);
 
                 mapObject.SetActive(active);
                 mapControlInterface.SetActive(active);
@@ -48,7 +48,7 @@ namespace Prototype.Core
 
                 foreach (PortalViewInfo viewInfo in _context.GetAllPortals())
                 {
-                    onlineMapsMarker3DManager.Create(viewInfo.Coordinates.x, viewInfo.Coordinates.y,
+                    onlineMapsMarker3DManager.Create(viewInfo.Coordinates.y, viewInfo.Coordinates.x,
                         portalPrefab);
                 }
             }).AddTo(this);
@@ -63,7 +63,7 @@ namespace Prototype.Core
                 _playerPointer = null;
             }
 
-            _playerPointer = onlineMapsMarker3DManager.Create(playerPosition.x, playerPosition.y, playerPrefab);
+            _playerPointer = onlineMapsMarker3DManager.Create(playerPosition.y, playerPosition.x, playerPrefab);
         }
     }
 }

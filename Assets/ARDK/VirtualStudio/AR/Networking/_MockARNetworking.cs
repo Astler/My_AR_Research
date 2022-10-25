@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
@@ -11,6 +12,7 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.Marker;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Networking.Mock
@@ -48,8 +50,8 @@ namespace Niantic.ARDK.VirtualStudio.AR.Networking.Mock
       Networking.Connected += _HandleNetworkingConnected;
       Networking.Disconnected += _HandleNetworkingDisconnected;
 
-      Networking.Deinitialized += _ => Dispose();
-      ARSession.Deinitialized += _ => Dispose();
+      Networking.Deinitialized += (_) => Dispose();
+      ARSession.Deinitialized += (_) => Dispose();
 
       _isInitialized = true;
 

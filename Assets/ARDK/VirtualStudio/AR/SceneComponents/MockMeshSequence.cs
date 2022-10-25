@@ -5,9 +5,11 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
@@ -22,7 +24,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
     /// _meshSequencePath is the path to a folder of mesh files (mesh_*.bin) in the project.
     /// Individual mesh files will be loaded at fixed intervals, ordered by version number.
     [SerializeField]
-    private string _meshSequencePath;
+    private string _meshSequencePath = null;
 
     /// _updateInterval is the desired time interval in seconds between mesh updates.
     [SerializeField]

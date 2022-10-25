@@ -6,7 +6,7 @@ namespace Niantic.ARDK.Utilities.Collections
   {
     public static T[] Create<T>(T element)
     {
-      return new[] { element };
+      return new T[] { element };
     }
   }
 }

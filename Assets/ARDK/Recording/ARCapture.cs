@@ -8,9 +8,13 @@
 #endif
 
 using System;
+using System.Security;
 using System.Runtime.InteropServices;
 using System.Text;
+
+using Niantic.ARDK.AR;
 using Niantic.ARDK.Internals;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Recording

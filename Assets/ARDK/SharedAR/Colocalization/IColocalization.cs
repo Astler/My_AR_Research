@@ -1,6 +1,4 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-#if SHARED_AR_V2
-
 using System;
 using System.Collections.ObjectModel;
 
@@ -9,7 +7,10 @@ using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
 using Matrix4x4 = UnityEngine.Matrix4x4;
 
-namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
+namespace Niantic.Experimental.ARDK.SharedAR {
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public enum ColocalizationState
   {
     Unknown = 0,
@@ -20,6 +21,9 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
     Failed
   }
 
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public enum ColocalizationFailureReason
   {
     Unknown = 0,
@@ -29,7 +33,27 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
     VPSSpaceFailure
   }
 
-  // WIP Names
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public enum ColocalizationAlignmentResult : byte
+  {
+    /// <summary>
+    /// Returned if local user isn't colocalized or hasn't resolved the Pose Anchor for the
+    /// requested peer.
+    /// </summary>
+    Failure = 0,
+
+    /// <summary>
+    /// Returned if local user is colocalized and has resolved the Pose Anchor for the
+    /// requested peer.
+    /// </summary>
+    Success
+  }
+
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public interface IColocalization :
     IDisposable
   {
@@ -37,23 +61,19 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI {
     void Start();
 
     // Stop colocalization 
-    void Pause();
+    void Stop();
 
-    ReadOnlyDictionary<IPeerID,ColocalizationState> ColocalizationStates { get; }
-    ReadOnlyDictionary<IPeerID,Matrix4x4> LatestPeerPoses { get; }
-
-    ColocalizationFailureReason FailureReason { get; }
     Matrix4x4 AlignedSpaceOrigin { get; }
-
+    
     /// <summary>
     /// Fired upon any peers' (including self) localization state updating
     /// </summary>
     event ArdkEventHandler<ColocalizationStateUpdatedArgs> ColocalizationStateUpdated;
 
-    event ArdkEventHandler<PeerPoseReceivedArgs> PeerPoseReceived;
+    void LocalPoseToAligned(Matrix4x4 poseInLocalSpace, out Matrix4x4 poseInAlignedSpace);
+    ColocalizationAlignmentResult AlignedPoseToLocal(IPeerID id, Matrix4x4 poseInAlignedSpace, out Matrix4x4 poseInLocalSpace);
 
-    ColocalizationState ConvertToSharedSpace(Matrix4x4 poseInUnitySpace, out Matrix4x4 poseInSharedSpace);
-    ColocalizationState ConvertToUnitySpace(Matrix4x4 poseInSharedSpace, out Matrix4x4 posInUnitySpace);
+    // NOT IMPLEMENTED
+    ReadOnlyDictionary<IPeerID, ColocalizationState> ColocalizationStates { get; }
   }
 }
-#endif // SHARED_AR_V2

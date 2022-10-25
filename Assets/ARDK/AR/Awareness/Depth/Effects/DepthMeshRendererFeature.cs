@@ -2,9 +2,13 @@
 
 #if ARDK_HAS_URP
 using System;
-using Niantic.ARDK.Rendering.SRP;
+
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+
+using Niantic.ARDK.Rendering.SRP;
+using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.AR.Awareness.Depth.Effects
 {

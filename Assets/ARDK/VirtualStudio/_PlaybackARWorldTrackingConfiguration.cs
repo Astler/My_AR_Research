@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.ReferenceImage;
 using Niantic.ARDK.Internals;
@@ -28,7 +29,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Configuration
       {
         if (value)
         {
-          ARLog._WarnRelease("LightEstimation is not currently supported in Playback mode.");
+          ARLog._WarnRelease($"LightEstimation is not currently supported in Playback mode.");
           return;
         }
 

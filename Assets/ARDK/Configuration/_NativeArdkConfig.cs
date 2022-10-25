@@ -3,11 +3,14 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
+
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking;
+using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.VersionUtilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Configuration
@@ -15,10 +18,21 @@ namespace Niantic.ARDK.Configuration
   internal sealed class _NativeArdkConfig:
     _ArdkGlobalConfigBase
   {
-    private string _dbowUrl;
-    private const int _TelemetryKeyMaxLength = 512;
+    private const int _NativeCallStringMaxLength = 512;
 
-    private bool gettingPlatformFirstTime = true;
+    private bool _gettingPlatformFirstTime = true;
+    
+    private string _dbowUrl;
+    private string _userId;
+    private string _clientId;
+    private string _apiKey;
+    private string _ardkAppInstanceId;
+    private string _contextAwarenessUrl;
+    private string _applicationId;
+    private string _ardkVersion;
+    private string _manufacturer;
+    private string _deviceModel;
+    private string _platform;
     
     public _NativeArdkConfig()
     {
@@ -33,9 +47,11 @@ namespace Niantic.ARDK.Configuration
         return false;
       }
 
+      _userId = userId;
       return true;
     }
 
+    [Obsolete("This method will not be available externally in a future release.")]
     public override bool SetDbowUrl(string url)
     {
       if (!_NAR_ARDKGlobalConfigHelper_SetDBoWUrl(url))
@@ -47,17 +63,18 @@ namespace Niantic.ARDK.Configuration
       // The C++ side actually changes the provided url to include some version information.
       // So, here we just want to clear the cache. On a future get we will get the C++ provided
       // value.
-      _dbowUrl = null;
+      _dbowUrl = string.Empty;
       return true;
     }
 
+    [Obsolete("This method will not be available externally in a future release.")]
     public override string GetDbowUrl()
     {
       var result = _dbowUrl;
-      if (result != null)
+      if (!String.IsNullOrWhiteSpace(result))
         return result;
 
-      var stringBuilder = new StringBuilder(512);
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDBoWUrl(stringBuilder, (ulong)stringBuilder.Capacity);
 
       result = stringBuilder.ToString();
@@ -65,7 +82,6 @@ namespace Niantic.ARDK.Configuration
       return result;
     }
 
-    private string _contextAwarenessUrl;
     public override bool SetContextAwarenessUrl(string url)
     {
       if (!_NAR_ARDKGlobalConfigHelper_SetContextAwarenessUrl(url))
@@ -77,21 +93,25 @@ namespace Niantic.ARDK.Configuration
       _contextAwarenessUrl = url;
       return true;
     }
+    
+    [Obsolete("This method will not be available externally in a future release.")]
     public override string GetContextAwarenessUrl()
     {
       /// For security reasons, we will not exposed the default URL
       return _contextAwarenessUrl;
     }
 
+    [Obsolete("This method will not be available externally in a future release.")]
     public override string GetAuthenticationUrl()
     {
-      var stringBuilder = new StringBuilder(512);
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetAuthURL(stringBuilder, (ulong)stringBuilder.Capacity);
 
       var result = stringBuilder.ToString();
       return result;
     }
 
+    [Obsolete("This method will not be available externally in a future release.")]
     public override bool SetAuthenticationUrl(string url)
     {
       if (!_NAR_ARDKGlobalConfigHelper_SetAuthURL(url))
@@ -119,113 +139,143 @@ namespace Niantic.ARDK.Configuration
         return false;
       }
 
+      _apiKey = key;
       return true;
     }
 
     public override void SetApplicationId(string bundleId)
     {
       _NAR_ARDKGlobalConfigHelperInternal_SetDataField((uint)_ConfigDataField.ApplicationId, bundleId);
+      _applicationId = bundleId;
     }
 
     public override void SetArdkInstanceId(string instanceId)
     {
       _NAR_ARDKGlobalConfigHelperInternal_SetDataField((uint)_ConfigDataField.ArdkAppInstanceId, instanceId);
+      _ardkAppInstanceId = instanceId;
     }
 
     public override string GetApplicationId()
     {
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_applicationId))
+        return _applicationId;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.ApplicationId, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _applicationId = stringBuilder.ToString();
+      return _applicationId;
     }
 
     public override string GetPlatform()
     {
-      if (gettingPlatformFirstTime)
+      if (_gettingPlatformFirstTime)
       {
-        gettingPlatformFirstTime = false;
+        _gettingPlatformFirstTime = false;
 #if UNITY_EDITOR 
         SetUnityVersion(Application.unityVersion);
 #endif
       }
 
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_platform))
+        return _platform;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.Platform, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _platform = stringBuilder.ToString();
+      return _platform;
     }
 
     public override string GetManufacturer()
     {
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_manufacturer))
+        return _manufacturer;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.Manufacturer, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _manufacturer = stringBuilder.ToString();
+      return _manufacturer;
     }
 
     public override string GetDeviceModel()
     {
+      if (!string.IsNullOrWhiteSpace(_deviceModel))
+        return _deviceModel;
 #if UNITY_EDITOR
-      return SystemInfo.operatingSystem;
+      _deviceModel = SystemInfo.operatingSystem;
+      return _deviceModel;
 #else
-      var stringBuilder = new StringBuilder(512);
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.DeviceModel, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _deviceModel = stringBuilder.ToString();
+      return _deviceModel;
 #endif
     }
 
     public override string GetArdkVersion()
     {
-      return ARDKGlobalVersion.GetARDKVersion();
+      if (!string.IsNullOrWhiteSpace(_ardkVersion))
+        return _ardkVersion;
+      
+      _ardkVersion = ARDKGlobalVersion.GetARDKVersion();
+      return _ardkVersion;
     }
 
     public override string GetUserId()
     {
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_userId))
+        return _userId;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.UserId, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _userId = stringBuilder.ToString();
+      return _userId;
     }
 
     public override string GetClientId()
     {
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_clientId))
+        return _clientId;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.ClientId, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _clientId = stringBuilder.ToString();
+      return _clientId;
     }
 
     public override string GetArdkAppInstanceId()
     {
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_ardkAppInstanceId))
+        return _ardkAppInstanceId;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetDataField((uint)_ConfigDataField.ArdkAppInstanceId, stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _ardkAppInstanceId = stringBuilder.ToString();
+      return _ardkAppInstanceId;
     }
 
     public override string GetApiKey()
     {
-      var stringBuilder = new StringBuilder(512);
+      if (!string.IsNullOrWhiteSpace(_apiKey))
+        return _apiKey;
+      
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetApiKey(stringBuilder, (ulong)stringBuilder.Capacity);
 
-      var result = stringBuilder.ToString();
-      return result;
+      _apiKey = stringBuilder.ToString();
+      return _apiKey;
     }
 
-    // get the last good jwt token
+    // get the last good jwt token. since jwt tokens last for a limited time, we cannot cache them
     internal string GetJwtToken()
     {
-      var stringBuilder = new StringBuilder(512);
-
+      var stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetJwtToken(stringBuilder, (ulong)stringBuilder.Capacity);
 
       var result = stringBuilder.ToString();
@@ -234,7 +284,7 @@ namespace Niantic.ARDK.Configuration
     
     public override string GetTelemetryKey()
     {
-      StringBuilder stringBuilder = new StringBuilder(_TelemetryKeyMaxLength);
+      StringBuilder stringBuilder = new StringBuilder(_NativeCallStringMaxLength);
       _NAR_ARDKGlobalConfigHelper_GetTelemetryKey(stringBuilder, stringBuilder.Capacity);
       
       var key = stringBuilder.ToString();
@@ -248,7 +298,7 @@ namespace Niantic.ARDK.Configuration
       return (ARClientEnvelope.Types.AgeLevel)ageLevel;
     }
     
-    public void SetUnityVersion(string unityVersion)
+    private void SetUnityVersion(string unityVersion)
     {
       _NAR_ARDKGlobalConfigHelper_SetGameEngineVersion(unityVersion);
     }
@@ -271,7 +321,7 @@ namespace Niantic.ARDK.Configuration
       StringBuilder outData,
       ulong maxDataSize
     );
-
+        
     // Set DBoW URL
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern bool _NAR_ARDKGlobalConfigHelper_SetDBoWUrl(string url);
@@ -291,7 +341,7 @@ namespace Niantic.ARDK.Configuration
     // Set Api Key
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern bool _NAR_ARDKGlobalConfigHelper_SetApiKey(string key);
-
+    
     // Set Auth URL
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern bool _NAR_ARDKGlobalConfigHelper_SetAuthURL(string key);
@@ -299,7 +349,7 @@ namespace Niantic.ARDK.Configuration
     // Attempt to validate the specified feature, with a previously set Api Key.
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern Int32 _NAR_ARDKGlobalConfigHelper_ValidateApiKeyWithFeature(string feature, bool isAsync);
-
+    
     // Get Auth URL
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern void _NAR_ARDKGlobalConfigHelper_GetAuthURL
@@ -310,16 +360,11 @@ namespace Niantic.ARDK.Configuration
 
     // Get last known jwt token
     [DllImport(_ARDKLibrary.libraryName)]
-    private static extern void _NAR_ARDKGlobalConfigHelper_GetJwtToken
-    (
-      StringBuilder outToken,
-      ulong maxTokenSize
-    );
+    private static extern void _NAR_ARDKGlobalConfigHelper_GetJwtToken(StringBuilder outToken, ulong maxTokenSize);
 
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern bool _NAR_ARDKGlobalConfigHelper_SetUserId(string userId);
     
-        
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern void _NAR_ARDKGlobalConfigHelper_GetTelemetryKey(StringBuilder outKey, int maxSize);
 

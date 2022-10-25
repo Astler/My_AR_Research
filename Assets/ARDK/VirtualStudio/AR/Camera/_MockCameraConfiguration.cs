@@ -1,6 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR
@@ -52,9 +53,6 @@ namespace Niantic.ARDK.VirtualStudio.AR
       }
       set
       {
-        if (_correctedScreenWidth != 0)
-          throw new InvalidOperationException("Can only set screen width value once.");
-
         _correctedScreenWidth = value;
       }
     }
@@ -69,9 +67,6 @@ namespace Niantic.ARDK.VirtualStudio.AR
       }
       set
       {
-        if (_correctedScreenHeight != 0)
-          throw new InvalidOperationException("Can only set screen height value once.");
-
         _correctedScreenHeight = value;
       }
     }

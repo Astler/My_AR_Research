@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Niantic.ARDK.Networking.HLAPI.Object.Unity {
   public class NetworkSceneSpawnManifest : MonoBehaviour {
-    [SerializeField] private PrefabManifest _manifest;
+    [SerializeField] private PrefabManifest _manifest = null;
 
     private void Awake() {
       NetworkSpawner.LoadManifest(_manifest);

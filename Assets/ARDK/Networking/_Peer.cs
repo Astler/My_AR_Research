@@ -2,8 +2,12 @@
 
 using System;
 using System.Runtime.InteropServices;
+
+using Niantic.ARDK.AR;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.Networking
 {
@@ -18,7 +22,7 @@ namespace Niantic.ARDK.Networking
       new _WeakValueDictionary<Guid, _Peer>();
 
     private static readonly Func<Guid, _Peer> _createNativePeer =
-      identifier => new _Peer(identifier);
+      (identifier) => new _Peer(identifier);
 
     internal static _Peer FromIdentifier(Guid identifier)
     {
@@ -33,7 +37,7 @@ namespace Niantic.ARDK.Networking
       Guid identifier;
       _NARPeerInfo_GetIdentifier(nativeHandle, out identifier);
       _NARPeerInfo_Release(nativeHandle);
-
+      
       return FromIdentifier(identifier);
     }
 

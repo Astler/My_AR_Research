@@ -3,6 +3,7 @@ using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.Utilities;
+using Prototype.AR.FoundationAR;
 using UnityEngine;
 
 namespace Prototype.AR
@@ -83,9 +84,7 @@ namespace Prototype.AR
 
             bool hasHit = Physics.Raycast(_position + Vector3.up, Vector3.up, out RaycastHit hit, 100,
                 ceilCheckLayer);
-
-            Debug.Log($"{hasHit}");
-
+            
             _ceilPosition = hasHit ? hit.point : Vector3.zero;
 
             return _position;

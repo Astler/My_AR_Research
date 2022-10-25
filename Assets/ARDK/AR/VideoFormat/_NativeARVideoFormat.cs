@@ -2,8 +2,10 @@
 
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.VideoFormat
@@ -42,7 +44,7 @@ namespace Niantic.ARDK.AR.VideoFormat
         return result;
       }
 
-      result = _allVideoFormats.GetOrAdd(uniqueId, _ => new _NativeARVideoFormat(nativeHandle));
+      result = _allVideoFormats.GetOrAdd(uniqueId, (_) => new _NativeARVideoFormat(nativeHandle));
       if (result._NativeHandle != nativeHandle)
       {
         // Just after our TryGetValue an instance was registered for the given uniqueId.

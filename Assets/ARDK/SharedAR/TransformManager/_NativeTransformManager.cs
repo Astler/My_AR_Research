@@ -1,15 +1,16 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 #pragma warning disable 0067
-#if SHARED_AR_V2
-
 using System.Collections.ObjectModel;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
 using Niantic.Experimental.ARDK.SharedAR.Transform;
 using Niantic.ARDK.Utilities;
 using UnityEngine;
 
-namespace SDK.TransformManager
+namespace Niantic.Experimental.ARDK.SharedAR
 {
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public class _NativeTransformManager :
     ITransformManager
   {
@@ -73,7 +74,5 @@ namespace SDK.TransformManager
     }
   }
 }
-
-#endif // SHARED_AR_V2
 
 #pragma warning restore 0067

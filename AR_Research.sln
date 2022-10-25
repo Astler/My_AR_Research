@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx", "UniRx.csproj", "{c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngameDebugConsole.Runtime", "IngameDebugConsole.Runtime.csproj", "{26b08317-265e-fb83-0baf-00a57b6de0a8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARDK-Examples", "ARDK-Examples.csproj", "{64d29f55-3447-c444-940b-901c5b002e18}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{191d8523-e599-6c39-5819-4b3dc9182d8b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx.Examples", "UniRx.Examples.csproj", "{e9940052-71cb-10cc-dfcb-f0a11fd2ed87}"
@@ -40,6 +42,8 @@ Global
 		{c2f55cb9-f462-8a84-06ad-28f8b3dca527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26b08317-265e-fb83-0baf-00a57b6de0a8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26b08317-265e-fb83-0baf-00a57b6de0a8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64d29f55-3447-c444-940b-901c5b002e18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64d29f55-3447-c444-940b-901c5b002e18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{191d8523-e599-6c39-5819-4b3dc9182d8b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{191d8523-e599-6c39-5819-4b3dc9182d8b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e9940052-71cb-10cc-dfcb-f0a11fd2ed87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

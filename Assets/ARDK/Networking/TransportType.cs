@@ -38,5 +38,5 @@ namespace Niantic.ARDK.Networking
     /// </summary>
     [Obsolete("Removing this option in the future. Use ReliableUnordered instead")]
     ReliableOrdered = 4,
-  }
+  };
 }

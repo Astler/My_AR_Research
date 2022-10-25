@@ -1,70 +1,95 @@
-#if SHARED_AR_V2
+// Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-using Niantic.ARDK.Networking;// TODO(kmori): remove later
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs; // TODO(kmori): remove later
+using Niantic.ARDK.Networking;// TODO: remove later
+using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs; // TODO: remove later
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.BinarySerialization;
 
 namespace Niantic.Experimental.ARDK.SharedAR
 {
-  /// <summary>
-  /// 
-  /// </summary>
+  /// Describes the networking statistics of the current session
+  /// @note this is currently not implemented
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public struct NetworkingStats
   {
-    // TODO(kmori): define this struct
+    // TODO: define this struct
     public int Rtt { get; set; }
     public float PacketLoss { get; set; }
   }
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public enum NetworkingRequestResult
+  /// Describes the result of a network request
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public enum NetworkingRequestResult : 
+    byte
   {
-    // TODO(kmori): Add more stats
+    // TODO: Add more stats
     Success = 0,
     Error = 1
   };
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public enum ConnectionState
+  /// The current connection state of the device to Lightship servers
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public enum ConnectionState : 
+    byte
   {
     Disconnected = 0,
     Connecting = 1,
     Connected = 2,
   };
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public enum ConnectionEvents
+  /// Connection events that are fired from INetworking.ConnectionEvent
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public enum ConnectionEvents : 
+    byte
   {
     Connected = 0,
     Disconnected = 1,
-    ConnectionError = 2 // TODO(kmori): more detailed errors
+    ConnectionError = 2 // TODO: more detailed errors
   };
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public enum ConnectionType
+  /// Protocol used for networked messages
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public enum ConnectionType : 
+    byte
   {
     UseDefault = 0,
     Reliable = 1,
     Unreliable = 2
   };
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public struct ConnectionStateArgs : IArdkEventArgs
+  /// Backend to connect to
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public enum NetworkingBackend : 
+    byte
+  {
+    // Currently hits ARBEs through a shim layer
+    NetworkingV0, 
+    
+    // Mock implementation that returns mock values
+    Mock
+  };
+
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public struct ConnectionStateArgs : 
+    IArdkEventArgs
   {
     public ConnectionState connectionState { get; private set; }
     public ConnectionStateArgs(ConnectionState state)
@@ -73,41 +98,47 @@ namespace Niantic.Experimental.ARDK.SharedAR
     }
   }
 
-  public struct ConnectionEventArgs : IArdkEventArgs
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public struct ConnectionEventArgs : 
+    IArdkEventArgs
   {
     public ConnectionEvents connectionEvent { get; private set; }
     public ConnectionEventArgs(ConnectionEvents connEvent)
     { connectionEvent = connEvent;}
   }
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public struct PeerIDArgs : IArdkEventArgs
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public struct PeerIDArgs :
+    IArdkEventArgs
   {
-    public IPeerID peerID { get; private set; }
+    public IPeerID PeerID { get; private set; }
     public PeerIDArgs(IPeerID peerid)
     {
-      peerID = peerid;
+      PeerID = peerid;
     }
   }
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public struct DataReceivedArgs : IArdkEventArgs
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public struct DataReceivedArgs : 
+    IArdkEventArgs
   {
-    public IPeer Peer { get; private set; } // TODO(kmori): To be removed
+    public IPeer Peer { get; private set; } // TODO: To be removed
     public IPeerID PeerID { get; private set; }
     public uint Tag { get; private set; }
-    //public TransportType TransportType { get; private set; } // TODO(kmori): needed?
+    //public TransportType TransportType { get; private set; } // TODO: needed?
     public int DataLength { get { return _dataArgs.DataLength; } }
     private PeerDataReceivedArgs _dataArgs;
 
     public DataReceivedArgs(PeerDataReceivedArgs dataArgs)
     {
       Peer = dataArgs.Peer;
-      PeerID = PeerIDv0.GetPeerID(Peer);
+      PeerID = new PeerIDv0(Peer);
       Tag = dataArgs.Tag;
       _dataArgs = dataArgs;
     }
@@ -122,96 +153,85 @@ namespace Niantic.Experimental.ARDK.SharedAR
   }
 
   // The low level networking interface
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public interface INetworking :
     IDisposable
   {
 
-    /// <summary>
-    // 
-    /// </summary>
-    /// <param name="dest">default connection type</param>
-    /// <returns></returns>
+    /// Set the default protocol for networked messages on this session 
+    /// <param name="connectionType">Protocol to send the data with</param>
+    /// @note This is currently unimplemented
     void SetDefaultConnectionType(ConnectionType connectionType);
 
-    /// <summary>
-    // 
-    /// </summary>
+    /// Send data to the specified peers. Receiving peers will have a DataReceived event fired
     /// <param name="dest">Destination of the message. destination could be peer ID, “server” peer ID, list of peer IDs, or empty for broadcast </param>
-    /// <param name="tag"></param>
-    /// <param name="tag"></param>
-    /// <returns></returns>
+    /// <param name="tag">Data tag that peers will receive</param>
+    /// <param name="data">Byte[] to send</param>
+    /// <param name="connectionType">Protocol to send the data with</param>
     void SendData(List<IPeerID> dest, uint tag, byte[] data, ConnectionType connectionType);
+    
+    /// Send an object to the specified peers. Receiving peers will have a DataReceived event fired.
+    /// <param name="dest">Destination of the message. destination could be peer ID, “server” peer ID, list of peer IDs, or empty for broadcast </param>
+    /// <param name="tag">Data tag that peers will receive</param>
+    /// <param name="data">Object to send</param>
+    /// <param name="connectionType">Protocol to send the data with</param>
+    /// @note This is currently unimplemented
     void SendData<T>(List<IPeerID> dest, uint tag, T data, ConnectionType connectionType=ConnectionType.UseDefault);
 
-    /// <summary>
-    /// Get the latest connection event
-    /// </summary>
+    /// Get the latest connection state
     /// <returns></returns>
     ConnectionState ConnectionState { get; }
 
-    /// <summary>
-    /// if self is a “server”
-    /// </summary>
+    /// Returns if self is a “server”
     /// <returns>true if this networking is server role, false if this networking is client role</returns>
-    // TDOO(kmori): Remove once colocalization refactored not using this.
+    /// @note This is currently unimplemented
     bool IsServer { get; }
 
-    /// <summary>
     /// Return the self Peer ID
-    /// </summary>
     /// <returns>self Peer ID</returns>
     IPeerID SelfPeerID { get; }
 
-    /// <summary>
     /// Return the server peer ID
-    /// </summary>
     /// <returns>server Peer ID. Invalid peer ID if no server role in the current room</returns>
-    // TDOO(kmori): Remove once colocalization refactored not using this.
+    /// @note This is currently unimplemented
     IPeerID ServerPeerId { get; }
 
-    /// <summary>
     /// Get all PeerIDs actively connected to the room
-    /// </summary>
     /// <returns>List of all Peer IDs actively connected to the room</returns>
     List<IPeerID> PeerIDs { get; }
 
-    /// <summary>
-    /// Make specified peer disconnected
-    /// Can do only by server connection.
-    /// TODO(kmori): Should be async?
-    /// </summary>
+    /// Disconnect the specified peer
+    /// Can do only by server.
+    /// TODO: Should be async?
     /// <param name="peerID">PeerID of the peer to be kicked out</param>
     /// <returns>result of the request</returns>
+    /// @note This is currently unimplemented
     NetworkingRequestResult KickOutPeer(IPeerID peerID);
 
-    /// <summary>
     /// Get networking stats
     /// RTT, bps, packet loss, etc…
-    /// </summary>
     /// <returns>current network stats struct</returns>
+    /// @note This is currently unimplemented
     NetworkingStats NetworkingStats { get; }
 
-    /// <summary>
     /// Join the networking as a server
-    /// </summary>
+    /// @note This is currently unimplemented - joining happens on INetworking creation
     void JoinAsServer(byte[] roomId);
 
-    /// <summary>
     /// Join the networking as a peer
-    /// </summary>
+    /// @note This is currently unimplemented - joining happens on INetworking creation
     void JoinAsPeer(byte[] roomId);
 
-    /// <summary>
-    /// disconnect from network and datastore
-    /// </summary>
+    /// Disconnect from network and datastore
     void Leave();
 
-    /// <summary>
     /// Get room config of the currrently connected room
     /// RoomConfig include name, ID, geo info, etc.
-    /// </summary>
     /// <returns>the room current of the currrently connected room</returns>
-    RoomConfig RoomConfig { get; }
+    /// @note This is currently unimplemented - joining happens on INetworking creation
+    RoomParams RoomParams { get; }
 
     // connected, failed, disconnected, Deinitialized
     event ArdkEventHandler<ConnectionEventArgs> ConnectionEvent;
@@ -221,11 +241,7 @@ namespace Niantic.Experimental.ARDK.SharedAR
     /// Event fired when a peer is removed, either from intentional action, timeout, or error.
     event ArdkEventHandler<PeerIDArgs> PeerRemoved;
 
-    /// <summary>
-    /// </summary>
     event ArdkEventHandler<DataReceivedArgs> DataReceived;
 
   }
 } // namespace Niantic.ARDK.SharedAR
-
-#endif // SHARED_AR_V2

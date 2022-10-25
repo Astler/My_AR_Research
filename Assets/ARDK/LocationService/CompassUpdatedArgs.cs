@@ -2,6 +2,8 @@
 
 using Niantic.ARDK.Utilities;
 
+using UnityEngine;
+
 namespace Niantic.ARDK.LocationService
 {
   public struct CompassUpdatedArgs:

@@ -1,9 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.Permissions;
+
 using UnityEngine;
 using UnityLocationServiceStatus = UnityEngine.LocationServiceStatus;
 
@@ -20,8 +22,8 @@ namespace Niantic.ARDK.LocationService
     private LocationInfo _prevData;
     public LocationInfo LastData { get { return _prevData; } }
 
-    internal const float _DefaultAccuracyMeters = 10f;
-    internal const float _DefaultDistanceMeters = 10f;
+    internal const float _DefaultAccuracyMeters = 0.01f;
+    internal const float _DefaultDistanceMeters = 0.01f;
 
     private float _prevCompassHeading;
     private float _prevCompassAccuracy;

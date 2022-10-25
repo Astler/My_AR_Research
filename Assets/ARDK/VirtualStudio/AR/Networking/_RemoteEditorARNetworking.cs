@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
@@ -12,6 +13,7 @@ using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.Marker;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Remote

@@ -1,9 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.Extensions;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
+using Niantic.ARDK.VirtualStudio;
 using Niantic.ARDK.VirtualStudio.AR.Configuration;
 
 namespace Niantic.ARDK.AR.Configuration
@@ -108,7 +110,7 @@ namespace Niantic.ARDK.AR.Configuration
         // Keep the ARConfiguration from the last run, but have a fresh slate for run options.
         // Just because a dev wanted to reset tracking on the previous run doesn't mean they want
         // changing plane detection, for example, to reset tracking again.
-        _arSession.Run(configCopy);
+        _arSession.Run(configCopy, ARSessionRunOptions.None);
       }
     }
   }

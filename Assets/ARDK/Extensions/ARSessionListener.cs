@@ -20,7 +20,7 @@ namespace Niantic.ARDK.Extensions
   {
     /// The latest initialized ARSession, reset to null whenever the session is deinitialized.
     /// It is not necessarily running.
-    protected IARSession ARSession { get; private set; }
+    protected IARSession ARSession { get; private set; } = null;
 
     /// Implement this method to add callbacks to ARSession.
     protected abstract void ListenToSession();

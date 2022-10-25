@@ -1,6 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.BinarySerialization.Contexts;
 using Niantic.ARDK.Utilities.Collections;
 

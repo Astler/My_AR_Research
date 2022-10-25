@@ -6,8 +6,11 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+
 using AOT;
+
 using Google.Protobuf;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Protobuf;
@@ -42,7 +45,6 @@ namespace Niantic.ARDK.Telemetry
     }
 
     private static string _developerApiKey;
-
     private static string _DeveloperApiKey
     {
       get {
@@ -81,17 +83,14 @@ namespace Niantic.ARDK.Telemetry
 
 
     // fields that can be initialized whenever
-    private static readonly int _maxCountPerSecondForSafeIngress;
     private static readonly MessageParser<ARDKTelemetryOmniProto> _protoMessageParser;
     private static readonly ConcurrentQueue<ARDKTelemetryOmniProto> _messagesToBeSent;
 
     // constants
-    private const int _MaxEventCountBeforeDropping = 100;
-    private const int _TimeInSecondsForQueueFlush = 3;
 
     // fields required for safe startup
     private static object _lock;
-    private static bool _isIntialised; 
+    private static bool _isIntialised = false; 
     public static readonly _TelemetryService Instance;
     
     static _TelemetryService()
@@ -99,7 +98,6 @@ namespace Niantic.ARDK.Telemetry
       _lock = new object();
       Instance = new _TelemetryService();
       
-      _maxCountPerSecondForSafeIngress = _MaxEventCountBeforeDropping / _TimeInSecondsForQueueFlush;
       _protoMessageParser = new MessageParser<ARDKTelemetryOmniProto>(() => new ARDKTelemetryOmniProto());
       _messagesToBeSent = new ConcurrentQueue<ARDKTelemetryOmniProto>();
     }
@@ -171,7 +169,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           InitializationEvent = initializationEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -192,7 +190,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           ArSessionEvent = sessionEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -213,7 +211,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           EnableContextualAwarenessEvent = enabledContextualAwarenessEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -234,7 +232,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           MultiplayerColocalizationEvent = multiplayerColocalizationEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -255,7 +253,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           MultiplayerConnectionEvent = multiplayerConnectionEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -276,7 +274,7 @@ namespace Niantic.ARDK.Telemetry
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           MultiplayerColocalizationInitializationEvent = multiplayerColocalizationInitializationEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
@@ -293,16 +291,18 @@ namespace Niantic.ARDK.Telemetry
       }
     }
     
-    public static void RecordEvent(LightshipServiceEvent lightshipServiceEvent)
+    public static void RecordEvent(LightshipServiceEvent lightshipServiceEvent, string requestId)
     {
       try
       {
-        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto
+        var commonMetadata = _CommonMetadata.Clone();
+        commonMetadata.RequestId = requestId;
+        ARDKTelemetryOmniProto initOmniProto = new ARDKTelemetryOmniProto()
         {
           LightshipServiceEvent = lightshipServiceEvent,
           TimestampMs = GetCurrentUtcTimestamp(),
           DeveloperKey = _DeveloperApiKey,
-          CommonMetadata = _CommonMetadata.Clone(),
+          CommonMetadata = commonMetadata,
           ArSessionId = _sessionId.ToString(),
         };
       
@@ -321,7 +321,7 @@ namespace Niantic.ARDK.Telemetry
       ARLog._Debug("Starting fire and forget task to publish events every second");
       while (!cancellationToken.IsCancellationRequested)
       {
-        PublishEventsEverySecond();
+        PublishTelemetryEvents(_messagesToBeSent);
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
       }
       
@@ -329,23 +329,14 @@ namespace Niantic.ARDK.Telemetry
     }
 
     /*
-    * The telemetry client has some limitations. 
-    * The max possible buffer size is 100. Any more messages and you have dropping that ensues.
-    * The buffer gets cleared out every 3 seconds. 
-    * So if we limit the ingress to be 100/3 i.e. 33 events/second, we can stay right on the limit
-    * and stagger the telemetry events
-    */
-    private static void PublishEventsEverySecond()
+     * The telemetry client for ARDK 2.3 has some limitations.
+     * It allows for Max to max, 100 events every 3 seconds.
+     * If you send more than that, you will have data loss.
+     */
+    private static void PublishTelemetryEvents(ConcurrentQueue<ARDKTelemetryOmniProto> events)
     {
-      PublishTelemetryEvents(_messagesToBeSent, _maxCountPerSecondForSafeIngress);
-    }
-
-    private static void PublishTelemetryEvents(ConcurrentQueue<ARDKTelemetryOmniProto> events, int count)
-    {
-      // We do not know if there will be events to send in the queue at all times. So we 
-      // run the for loop from 0 to either the count/Max possible events in the queue. Whatever is lower.
       int queueLengthRightNow = events.Count;
-      for (int i = 0; i < Math.Min(count, queueLengthRightNow); i++)
+      for (int i = 0; i < queueLengthRightNow; i++)
       {
         var success = events.TryDequeue(out var eventToSend);
         if (success)
@@ -355,6 +346,7 @@ namespace Niantic.ARDK.Telemetry
       }
     }
     
+    // Has to be internal since we provide it for nar system initialization in StartupSystems
     internal delegate void _ARDKTelemetry_Callback([MarshalAs(UnmanagedType.LPArray, SizeParamIndex= 1)]byte[] serialisedProto, UInt32 length);
 
     [MonoPInvokeCallback(typeof(_ARDKTelemetry_Callback))]
@@ -429,25 +421,41 @@ namespace Niantic.ARDK.Telemetry
     private static ARCommonMetadata LazyInitializeCommonMetadata()
     {
       var internallyVisibleConfig = ArdkGlobalConfig._Internal;
+
+      var manufacturer = internallyVisibleConfig.GetManufacturer();
+      var appId = internallyVisibleConfig.GetApplicationId();
+      var clientId = internallyVisibleConfig.GetClientId();
+      var userId = internallyVisibleConfig.GetUserId();
+      var ardkVersion = internallyVisibleConfig.GetArdkVersion();
+      var deviceModel = internallyVisibleConfig.GetDeviceModel();
+      var ardkAppInstanceId = internallyVisibleConfig.GetArdkAppInstanceId();
+      var platform = internallyVisibleConfig.GetPlatform();
       
       var commonMetadata = new ARCommonMetadata
       {
-        Manufacturer = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetManufacturer()) ? 
-          string.Empty : internallyVisibleConfig.GetManufacturer(),
-        ApplicationId = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetApplicationId()) ? 
-          string.Empty : internallyVisibleConfig.GetApplicationId(),
-        ClientId = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetClientId()) ? 
-          string.Empty : internallyVisibleConfig.GetClientId(),
-        UserId = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetUserId()) ? 
-          string.Empty : internallyVisibleConfig.GetUserId(),
-        ArdkVersion = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetArdkVersion()) ? 
-          string.Empty : internallyVisibleConfig.GetArdkVersion(),
-        DeviceModel = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetDeviceModel()) ? 
-          string.Empty : internallyVisibleConfig.GetDeviceModel(),
-        ArdkAppInstanceId = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetArdkAppInstanceId()) ? 
-          string.Empty : internallyVisibleConfig.GetArdkAppInstanceId(),
-        Platform = string.IsNullOrWhiteSpace(internallyVisibleConfig.GetPlatform()) ? 
-          string.Empty : internallyVisibleConfig.GetPlatform()
+        Manufacturer = string.IsNullOrWhiteSpace(manufacturer) ? 
+          string.Empty : manufacturer,
+        
+        ApplicationId = string.IsNullOrWhiteSpace(appId) ? 
+          string.Empty : appId,
+        
+        ClientId = string.IsNullOrWhiteSpace(clientId) ? 
+          string.Empty : clientId,
+        
+        UserId = string.IsNullOrWhiteSpace(userId) ? 
+          string.Empty : userId,
+        
+        ArdkVersion = string.IsNullOrWhiteSpace(ardkVersion) ? 
+          string.Empty : ardkVersion,
+        
+        DeviceModel = string.IsNullOrWhiteSpace(deviceModel) ? 
+          string.Empty : deviceModel,
+        
+        ArdkAppInstanceId = string.IsNullOrWhiteSpace(ardkAppInstanceId) ? 
+          string.Empty : ardkAppInstanceId,
+        
+        Platform = string.IsNullOrWhiteSpace(platform) ? 
+          string.Empty : platform,
       };
 
       return commonMetadata;

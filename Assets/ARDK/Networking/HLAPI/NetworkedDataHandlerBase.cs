@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.Networking.HLAPI.Data;
 
 namespace Niantic.ARDK.Networking.HLAPI

@@ -1,10 +1,15 @@
 using System;
+using Mapbox.Utils;
 using UnityEngine;
 
 namespace Prototype.Location
 {
     public static class LocationUtils
     {
+        public static Vector2d ToVector2d(this Vector2 vector2) => new(vector2.x, vector2.y);
+
+        public static Vector2 ToUnityVector(this Vector2d vector2d) => new((float)vector2d.x, (float)vector2d.y);
+
         public static string ToHumanReadableDistanceFromPlayer(this Vector2 targetPosition)
         {
             double distance = Distance(Input.location.lastData.latitude,

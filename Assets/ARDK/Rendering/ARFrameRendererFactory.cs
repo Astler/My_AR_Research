@@ -1,7 +1,15 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+
+using Niantic.ARDK.AR;
+using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio;
+using Niantic.ARDK.VirtualStudio.Remote;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.Rendering
 {

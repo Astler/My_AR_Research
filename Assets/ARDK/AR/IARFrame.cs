@@ -3,12 +3,14 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Depth;
 using Niantic.ARDK.AR.Awareness.Semantics;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.AR.SLAM;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR
@@ -49,10 +51,19 @@ namespace Niantic.ARDK.AR
     IDepthBuffer Depth { get; }
 
     /// <summary>
-    /// The semantic buffer.
+    /// The semantic segmentation buffer.
     /// @note **May be null**.
     /// </summary>
     ISemanticBuffer Semantics { get; }
+
+    /// <summary>
+    /// Acquires per-pixel confidences for the specified semantic class.
+    /// The confidence values get copied to a floating point CPU buffer.
+    /// @note **May be null**.
+    /// </summary>
+    /// <param name="channelName">The semantics channel to get the confidences for.</param>
+    /// <returns>Floating point CPU buffer containing per-pixel confidences when called on key-frames.</returns>
+    IDataBufferFloat32 CopySemanticConfidences(string channelName);
 
     /// <summary>
     /// Gets the detection rectangle and confidence where palms may be.

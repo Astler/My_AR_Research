@@ -1,4 +1,5 @@
 using Niantic.ARDK.AR.WayspotAnchors;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions

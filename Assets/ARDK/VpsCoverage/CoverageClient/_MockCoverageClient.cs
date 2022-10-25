@@ -2,11 +2,13 @@
 
 using System;
 using System.Threading.Tasks;
+
+using Niantic.ARDK.Utilities.Extensions;
+using Niantic.ARDK.VirtualStudio.VpsCoverage;
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.Extensions;
+using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Logging;
-using Niantic.ARDK.VirtualStudio.VpsCoverage;
 
 namespace Niantic.ARDK.VPSCoverage
 {
@@ -23,7 +25,7 @@ namespace Niantic.ARDK.VPSCoverage
       else
       {
 #if UNITY_EDITOR
-        var foundResponses = _AssetDatabaseExtension.FindAssets<VpsCoverageResponses>();
+        var foundResponses = _AssetDatabaseUtilities.FindAssets<VpsCoverageResponses>();
         if (foundResponses.Length == 0)
         {
           ARLog._Error("No instance of VpsCoverageResponses found in project to use for mock ICoverageClient.");

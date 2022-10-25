@@ -3,8 +3,11 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+
 using Niantic.ARDK.Networking;
+using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Collections;
+using Niantic.ARDK.VirtualStudio.Remote;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
 
 namespace Niantic.ARDK.VirtualStudio.Remote
@@ -77,7 +80,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
         throw new InvalidOperationException("Tried to create a networking with a StageIdentifier already in use.");
 
       handler.InnerNetworking.Deinitialized +=
-        ignored =>
+        (ignored) =>
         {
           _handlers.TryRemove(stageIdentifier, out _);
           handler.Dispose();

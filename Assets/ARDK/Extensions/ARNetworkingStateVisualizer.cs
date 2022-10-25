@@ -1,8 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.ComponentModel;
+
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
+
 using UnityEngine;
 using UnityEngine.UI;
 

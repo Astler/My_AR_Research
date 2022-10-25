@@ -4,7 +4,10 @@ using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Networking;
+using Niantic.ARDK.Networking;
+using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions

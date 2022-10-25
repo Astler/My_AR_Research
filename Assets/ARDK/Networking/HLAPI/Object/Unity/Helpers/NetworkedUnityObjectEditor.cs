@@ -2,14 +2,15 @@
 
 #if UNITY_EDITOR
 
-#if UNITY_2021_2_OR_NEWER
-using UnityEngine;
-using UnityEditor;
 using System.Linq;
+using UnityEditor;
+#if UNITY_2021_2_OR_NEWER
 using UnityEditor.SceneManagement;
 #else
 using UnityEditor.Experimental.SceneManagement;
 #endif
+
+using UnityEngine;
 
 namespace Niantic.ARDK.Networking.HLAPI.Object.Unity.Helpers {
   /// <summary>

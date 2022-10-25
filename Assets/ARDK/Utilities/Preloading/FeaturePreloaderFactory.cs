@@ -1,7 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+
+using Niantic.ARDK.AR;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio;
+using Niantic.ARDK.VirtualStudio.Remote;
 
 namespace Niantic.ARDK.Utilities.Preloading
 {
@@ -17,6 +23,9 @@ namespace Niantic.ARDK.Utilities.Preloading
       switch (env)
       {
         case RuntimeEnvironment.Mock:
+          return new _MockFeaturePreloader();
+
+        case RuntimeEnvironment.Playback:
           return new _MockFeaturePreloader();
 
         case RuntimeEnvironment.Remote:

@@ -3,9 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.Meshing

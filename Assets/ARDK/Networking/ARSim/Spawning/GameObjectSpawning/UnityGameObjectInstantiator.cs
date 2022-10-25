@@ -13,7 +13,7 @@ namespace Niantic.ARDK.Networking.ARSim.Spawning.GameObjectSpawning
     /// <inheritdoc />
     public GameObject Instantiate(GameObject original)
     {
-      return Object.Instantiate(original);
+      return UnityEngine.Object.Instantiate(original);
     }
 
     /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace Niantic.ARDK.Networking.ARSim.Spawning.GameObjectSpawning
       bool instantiateInWorldSpace = false
     )
     {
-      return Object.Instantiate(original, parent, instantiateInWorldSpace);
+      return UnityEngine.Object.Instantiate(original, parent, instantiateInWorldSpace);
     }
 
     /// <inheritdoc />
@@ -37,14 +37,14 @@ namespace Niantic.ARDK.Networking.ARSim.Spawning.GameObjectSpawning
     )
     {
       return parent != null ? 
-        Object.Instantiate(original, position, rotation, parent) : 
-        Object.Instantiate(original, position, rotation);
+        UnityEngine.Object.Instantiate(original, position, rotation, parent) : 
+        UnityEngine.Object.Instantiate(original, position, rotation);
     }
 
     /// <inheritdoc />
     public void Destroy(GameObject obj, float timeToDelay = 0.0f)
     {
-      Object.Destroy(obj, timeToDelay);
+      UnityEngine.Object.Destroy(obj, timeToDelay);
     }
   }
 }

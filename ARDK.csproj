@@ -54,8 +54,8 @@
      <Compile Include="Assets/ARDK/AR/WayspotAnchors/WayspotAnchorStatusUpdatedArgs.cs" />
      <Compile Include="Assets/ARDK/Networking/NetworkingErrorCode.cs" />
      <Compile Include="Assets/ARDK/AR/ReferenceImage/ByteOrderInfo.cs" />
-     <Compile Include="Assets/ARDK/Utilities/Platform/IncorrectlyUsedNativeClassException.cs" />
      <Compile Include="Assets/ARDK/Networking/Clock/_NativeCoordinatedClock.cs" />
+     <Compile Include="Assets/ARDK/Utilities/Platform/IncorrectlyUsedNativeClassException.cs" />
      <Compile Include="Assets/ARDK/Utilities/Marker/ZXingMarkerGenerator.cs" />
      <Compile Include="Assets/ARDK/LocationService/_NativeLocationServiceAdapter.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/SByteSerializer.cs" />
@@ -106,6 +106,8 @@
      <Compile Include="Assets/ARDK/VirtualStudio/MockPlayConfiguration.cs" />
      <Compile Include="Assets/ARDK/AR/ARSessionEventArgs/ARSessionInterruptedArgs.cs" />
      <Compile Include="Assets/ARDK/AR/IARPlaneGeometry.cs" />
+     <Compile Include="Assets/ARDK/AR/Awareness/_NativeAwarenessBufferF32.cs" />
+     <Compile Include="Assets/ARDK/AR/Awareness/IDataBufferFloat32.cs" />
      <Compile Include="Assets/ARDK/AR/ARSessionEventArgs/ARSessionRanArgs.cs" />
      <Compile Include="Assets/ARDK/Extensions/Depth/ARDepthInterpolationAdapter.cs" />
      <Compile Include="Assets/ARDK/Utilities/Platform/_NativeAccess.cs" />
@@ -148,10 +150,12 @@
      <Compile Include="Assets/ARDK/Plugins/unity_exports/ardk_client_platform/libs/nar_csharp_proto/generated/ArClientEnvelope.cs" />
      <Compile Include="Assets/ARDK/AR/ARSessionEventArgs/ARSessionDeinitializedArgs.cs" />
      <Compile Include="Assets/ARDK/Networking/HLAPI/Authority/GreedyAuthorityReplicator.cs" />
+     <Compile Include="Assets/ARDK/Utilities/Editor/_AssetDatabaseUtilities.cs" />
      <Compile Include="Assets/ARDK/SharedAR/Extensions/WayspotAnchorPayloadExtension.cs" />
      <Compile Include="Assets/ARDK/AR/Anchors/_NativeARPlaneAnchor.cs" />
      <Compile Include="Assets/ARDK/Utilities/Logging/LogHandler/IARLogHandler.cs" />
      <Compile Include="Assets/ARDK/AR/IARFaceGeometry.cs" />
+     <Compile Include="Assets/ARDK/Extensions/Depth/ARFusedDepthRenderer.cs" />
      <Compile Include="Assets/ARDK/AR/Frame/_ARFrameFactory.cs" />
      <Compile Include="Assets/ARDK/Networking/HLAPI/Object/MessageStreamReplicator.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Remote/_UsbRemoteConnection.cs" />
@@ -205,6 +209,7 @@
      <Compile Include="Assets/ARDK/Networking/HLAPI/Object/NetworkedField.cs" />
      <Compile Include="Assets/ARDK/VpsCoverage/CoverageClient/_NativeCoverageClient.cs" />
      <Compile Include="Assets/ARDK/AR/Image/_NativeImagePlane.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Experience/Experience.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/Human/HandTracking/HandTracker.cs" />
      <Compile Include="Assets/ARDK/AR/Anchors/_ARAnchorFactory.cs" />
      <Compile Include="Assets/ARDK/Extensions/MapVisualization/ARMapController.cs" />
@@ -215,10 +220,11 @@
      <Compile Include="Assets/ARDK/Utilities/Extensions/_AssetDatabaseExtension.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/_PlaybackDataset.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/Contexts/_TypeDeserializationContext.cs" />
-     <Compile Include="Assets/ARDK/AR/MergedAnchorInfo.cs" />
      <Compile Include="Assets/ARDK/Extensions/Gameboard/GameboardFactory.cs" />
+     <Compile Include="Assets/ARDK/AR/MergedAnchorInfo.cs" />
      <Compile Include="Assets/ARDK/Utilities/Collections/_ReadOnlyCollectionExtensions.cs" />
      <Compile Include="Assets/ARDK/AR/ARSessionEventArgs/ARSessionInterruptionEndedArgs.cs" />
+     <Compile Include="Assets/ARDK/AR/WayspotAnchors/WayspotAnchorControllerBase.cs" />
      <Compile Include="Assets/ARDK/Networking/ARSim/Spawning/IServerAuthoritativeSpawner.cs" />
      <Compile Include="Assets/ARDK/AR/Mesh/MeshBlocksUpdatedArgs.cs" />
      <Compile Include="Assets/ARDK/AR/Mesh/_SerializableARMeshData.cs" />
@@ -232,10 +238,12 @@
      <Compile Include="Assets/ARDK/SharedAR/Datastore/IDatastore.cs" />
      <Compile Include="Assets/ARDK/Configuration/_ArdkGlobalConfigBase.cs" />
      <Compile Include="Assets/ARDK/Utilities/Collections/EmptyArdkReadOnlyCollection.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Net/NetworkingFactory.cs" />
      <Compile Include="Assets/ARDK/Utilities/Logging/LogHandler/UnityARLogHandler.cs" />
      <Compile Include="Assets/ARDK/SharedAR/Room/_NativeRooms.cs" />
      <Compile Include="Assets/ARDK/Configuration/Metadata/_ArdkMetadataConfigExtension.cs" />
      <Compile Include="Assets/ARDK/Utilities/Marker/Parser/IParserResult.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Experience/ExperienceService.cs" />
      <Compile Include="Assets/ARDK/External/EnumFlagAttribute.cs" />
      <Compile Include="Assets/ARDK/SharedAR/Net/PeerIDv0.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/Semantics/SemanticsProvider/SemanticBufferProcessor.cs" />
@@ -257,6 +265,7 @@
      <Compile Include="Assets/ARDK/AR/ReferenceImage/AlphaInfo.cs" />
      <Compile Include="Assets/ARDK/AR/WayspotAnchors/_NativeWayspotAnchorControllerImplementation.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/IntPtrSerializer.cs" />
+     <Compile Include="Assets/ARDK/AR/WayspotAnchors/_NativeWayspotAnchorControllerImplementationBase.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/Depth/Effects/DepthMeshOccluder.cs" />
      <Compile Include="Assets/ARDK/Telemetry/_TelemetryHelper.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/BinarySerializerOrDeserializer.cs" />
@@ -268,6 +277,7 @@
      <Compile Include="Assets/ARDK/VirtualStudio/Networking/ARSimHandlers/MockARSimBase.cs" />
      <Compile Include="Assets/ARDK/Networking/HLAPI/Object/UnreliableBroadcastTransformPacker.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/IItemSerializer.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Datastore/DatastoreFactory.cs" />
      <Compile Include="Assets/ARDK/Rendering/RenderFeatureProvider/ARRenderFeatureProvider.cs" />
      <Compile Include="Assets/ARDK/Extensions/SavedRenderingSettings.cs" />
      <Compile Include="Assets/ARDK/AR/Anchors/AnchorType.cs" />
@@ -278,11 +288,13 @@
      <Compile Include="Assets/ARDK/LocationService/LatLng.cs" />
      <Compile Include="Assets/ARDK/AR/Configuration/ARSessionChangesCollector.cs" />
      <Compile Include="Assets/ARDK/AR/IARFrame.cs" />
+     <Compile Include="Assets/ARDK/AR/WayspotAnchors/_MockWayspotAnchorControllerImplementationBase.cs" />
      <Compile Include="Assets/ARDK/Telemetry/_TelemetryService.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/_NativeAwarenessBufferBase.cs" />
      <Compile Include="Assets/ARDK/AR/TrackingState.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Networking/MessageHandlerBase.cs" />
      <Compile Include="Assets/ARDK/AR/IImagePlane.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Experience/MockExperienceService.cs" />
      <Compile Include="Assets/ARDK/Utilities/_CallbackQueue.cs" />
      <Compile Include="Assets/ARDK/AR/Mesh/_NativeARMeshData.cs" />
      <Compile Include="Assets/ARDK/AR/PlaneGeometry/_NativeARPlaneGeometry.cs" />
@@ -349,6 +361,7 @@
      <Compile Include="Assets/ARDK/Extensions/ARFeaturePointRenderer.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/AwarenessUtils.cs" />
      <Compile Include="Assets/ARDK/AR/IARVideoFormat.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/SharedARClient.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/IMockARSession.cs" />
      <Compile Include="Assets/ARDK/Utilities/Collections/_ReadOnlyDictionary.cs" />
      <Compile Include="Assets/ARDK/Telemetry/_DummyTelemetryPublisher.cs" />
@@ -356,6 +369,7 @@
      <Compile Include="Assets/ARDK/VpsCoverage/CoverageArea.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/SceneComponents/MockPlaneAnchor.cs" />
      <Compile Include="Assets/ARDK/VpsCoverage/CoverageClient/ResponseStatus.cs" />
+     <Compile Include="Assets/ARDK/AR/Awareness/_SerializeableAwarenessBufferF32.cs" />
      <Compile Include="Assets/ARDK/Utilities/Preloading/_MockFeaturePreloader.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Remote/_EasyConnection.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Remote/_RemoteDeviceRole.cs" />
@@ -370,6 +384,7 @@
      <Compile Include="Assets/ARDK/AR/Image/_ImageFactory.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/Networking/_IEditorARNetworkingSessionMediator.cs" />
      <Compile Include="Assets/ARDK/Extensions/Gameboard/AgentConfiguration.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Experience/IExperienceService.cs" />
      <Compile Include="Assets/ARDK/Networking/HLAPI/Object/MessageReceivedEventArgs.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Remote/AR/_RemoteBufferConfiguration.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/SimpleSerializableSerializer.cs" />
@@ -428,6 +443,7 @@
      <Compile Include="Assets/ARDK/Networking/HLAPI/IHlapiSession.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/UInt16Serializer.cs" />
      <Compile Include="Assets/ARDK/AR/WayspotAnchors/_NativeWayspotAnchorsConfiguration.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Room/IRoom.cs" />
      <Compile Include="Assets/ARDK/VpsCoverage/CoverageClient/_MockCoverageClient.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/_MockARSessionMediator.cs" />
      <Compile Include="Assets/ARDK/AR/SLAM/MarkerSyncer/NativeMarkerSyncer.cs" />
@@ -493,6 +509,7 @@
      <Compile Include="Assets/ARDK/VirtualStudio/AR/SceneComponents/MockImageAnchor.cs" />
      <Compile Include="Assets/ARDK/Utilities/Collections/EmptyArray.cs" />
      <Compile Include="Assets/ARDK/AR/WayspotAnchors/WayspotAnchorsCreatedArgs.cs" />
+     <Compile Include="Assets/ARDK/VirtualStudio/ConditionalHideAttribute.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/EnumSerializer.cs" />
      <Compile Include="Assets/ARDK/Extensions/Meshing/MeshObjectsGenerator.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/SceneComponents/MockMap.cs" />
@@ -529,9 +546,11 @@
      <Compile Include="Assets/ARDK/AR/_SessionFrameSharedLogic.cs" />
      <Compile Include="Assets/ARDK/AR/TrackingStateReason.cs" />
      <Compile Include="Assets/ARDK/AR/WayspotAnchors/_MockWayspotAnchorControllerImplementation.cs" />
+     <Compile Include="Assets/ARDK/Utilities/Editor/_ProjectBrowserUtilities.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/_UntypedToTypedSerializerAdapter.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/Depth/DepthProvider/DepthBufferProcessor.cs" />
      <Compile Include="Assets/ARDK/AR/ImageFormat.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Room/Room.cs" />
      <Compile Include="Assets/ARDK/Extensions/Depth/DepthMeshOcclusionManager.cs" />
      <Compile Include="Assets/ARDK/LocationService/_UnityLocationService.cs" />
      <Compile Include="Assets/ARDK/Extensions/_ExtensionsExecutionOrder.cs" />
@@ -548,6 +567,7 @@
      <Compile Include="Assets/ARDK/Extensions/Gameboard/Surface.cs" />
      <Compile Include="Assets/ARDK/AR/Mesh/FileARMesh.cs" />
      <Compile Include="Assets/ARDK/Networking/HLAPI/Object/Unity/NetworkSpawner.cs" />
+     <Compile Include="Assets/ARDK/AR/WayspotAnchors/WayspotAnchorServiceBase.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/ArrayOfUnsealedSerializer.cs" />
      <Compile Include="Assets/ARDK/AR/PointCloud/_SerializableARPointCloud.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Remote/_RemoteConnectionStatus.cs" />
@@ -562,12 +582,14 @@
      <Compile Include="Assets/ARDK/AR/Networking/ARNetworkingEventArgs/AnyARNetworkingInitializedArgs.cs" />
      <Compile Include="Assets/ARDK/Utilities/Preloading/IFeaturePreloader.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/AR/Camera/_MockFrameBufferProvider.cs" />
+     <Compile Include="Assets/ARDK/Utilities/Editor/_PrettyHeirarchyItem.cs" />
      <Compile Include="Assets/ARDK/AR/Networking/ARNetworkingFactory.cs" />
      <Compile Include="Assets/ARDK/AR/WayspotAnchors/_NativeWayspotAnchor.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/GlobalSerializer.cs" />
      <Compile Include="Assets/ARDK/Utilities/Marker/Parser/ZXingBarcodeParser.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/_VirtualStudioLauncher.cs" />
      <Compile Include="Assets/ARDK/Networking/TransportType.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Room/RoomParams.cs" />
      <Compile Include="Assets/ARDK/Extensions/Gameboard/PathFindingNode.cs" />
      <Compile Include="Assets/ARDK/Utilities/_KeyValuePair.cs" />
      <Compile Include="Assets/ARDK/VpsCoverage/GeoserviceMessages/_LocalizationTargetsRequest.cs" />
@@ -576,6 +598,7 @@
      <Compile Include="Assets/ARDK/AR/Awareness/Semantics/IAwarenessBufferProcessor.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/Depth/Generators/IDepthPointCloud.cs" />
      <Compile Include="Assets/ARDK/Utilities/BinarySerialization/ItemSerializers/BaseItemSerializer.cs" />
+     <Compile Include="Assets/ARDK/SharedAR/Colocalization/ColocalizationFactory.cs" />
      <Compile Include="Assets/ARDK/Utilities/Optional.cs" />
      <Compile Include="Assets/ARDK/AR/Configuration/ARHardwareCapability.cs" />
      <Compile Include="Assets/ARDK/AR/Mesh/_MeshDataParser.cs" />
@@ -637,14 +660,17 @@
      <Compile Include="Assets/ARDK/VirtualStudio/AR/_IMockARSession.cs" />
      <Compile Include="Assets/ARDK/Networking/HLAPI/Object/Unity/NetTransform.cs" />
      <Compile Include="Assets/ARDK/AR/Image/_SerializableImagePlaneSerializer.cs" />
+     <Compile Include="Assets/ARDK/Utilities/_ArrayUtils.cs" />
      <Compile Include="Assets/ARDK/AR/Awareness/IDataBuffer.cs" />
      <Compile Include="Assets/ARDK/Utilities/TypedId/TypedId.cs" />
+     <Compile Include="Assets/ARDK/Utilities/Editor/_SceneHierarchyUtilities.cs" />
      <Compile Include="Assets/ARDK/VirtualStudio/Remote/_DeviceHandle.cs" />
      <Compile Include="Assets/ARDK/Recording/ARCaptureSetMetadataConfig.cs" />
      <Compile Include="Assets/ARDK/AR/Networking/IARNetworking.cs" />
      <Compile Include="Assets/ARDK/Plugins/unity_exports/ardk_client_platform/libs/nar_csharp_proto/generated/ArdkTelemetry.cs" />
      <None Include="Assets/ARDK/Plugins/unity_exports/ardk_client_platform/libs/protobuf_csharp_dll/Niantic.Protobufs/Niantic.Google.Protobuf.3.0.0/Google.Protobuf.xml" />
      <None Include="Assets/ARDK/Rendering/Resources/YCbCrShader.shader" />
+     <None Include="Assets/ARDK/Rendering/Resources/ARFusedDepthShader.shader" />
      <None Include="Assets/ARDK/Extensions/Meshing/Materials/MeshNormalFresnel.shader" />
      <None Include="Assets/ARDK/Extensions/Meshing/Materials/MeshInvisible.shader" />
      <None Include="Assets/ARDK/Rendering/Resources/ARCoreFrameLegacy.shader" />

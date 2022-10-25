@@ -14,25 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalZones:
   - name: City Portal
-    longitude: 34.391990661621094
     latitude: 47.568328857421875
+    longitude: 34.391990661621094
     radius: 20
-    isActive: 1
+    isActive: 0
   - name: Dev Portal
-    longitude: 35.07780838012695
-    latitude: 48.508941650390625
+    latitude: 48.5089416503906
+    longitude: 35.077808380127
     radius: 20
     isActive: 1
   - name: Test Portal
-    longitude: 35.0491729
     latitude: 48.4559393
+    longitude: 35.0491729
     radius: 20
-    isActive: 1
+    isActive: 0
   - name: MS Portal
-    longitude: 35.0503276
     latitude: 48.4557197
+    longitude: 35.0503276
     radius: 20
+    isActive: 0
+  - name: Steve
+    latitude: 26.0127707
+    longitude: -80.4276731
+    radius: 20
+    isActive: 0
+  - name: Ra'anana
+    latitude: 32.195067
+    longitude: 34.8760091
+    radius: 20
+    isActive: 0
+  - name: Ra'anana
+    latitude: 32.195068
+    longitude: 34.878197
+    radius: 30
+    isActive: 0
+  - name: Dev Near
+    latitude: 48.5085339
+    longitude: 35.0768523
+    radius: 30
     isActive: 1
+  - name: Dead End
+    latitude: 0
+    longitude: 0
+    radius: 100
+    isActive: 0
   giftModels:
   - giftViewPrefab: {fileID: 1721562904039139676, guid: fded08e8410875d44b61d25fc66eb6de,
       type: 3}

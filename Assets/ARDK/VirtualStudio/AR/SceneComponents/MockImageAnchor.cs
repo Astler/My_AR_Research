@@ -1,15 +1,18 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
+using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.ReferenceImage;
 using Niantic.ARDK.Utilities.Logging;
-using UnityEngine;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+
+using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
 {
@@ -28,7 +31,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
 
     private Texture2D _currImage;
     private bool _imageDirty;
-    private bool _isTracked;
+    private bool _isTracked = false;
 
     private readonly Vector3[] _defaultVertices =
     {
@@ -373,7 +376,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
       var xExtent = width / 2;
       var yExtent = height / 2;
 
-      _vertices = new[]
+      _vertices = new Vector3[]
       {
         new Vector3(-xExtent, 0, -yExtent), // BL
         new Vector3(xExtent, 0, -yExtent),  // BR

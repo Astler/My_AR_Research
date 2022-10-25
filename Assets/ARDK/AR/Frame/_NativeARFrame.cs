@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.Awareness;
 using Niantic.ARDK.AR.Awareness.Depth;
@@ -19,6 +20,7 @@ using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Frame
@@ -235,6 +237,21 @@ namespace Niantic.ARDK.AR.Frame
       }
     }
 
+    public IDataBufferFloat32 CopySemanticConfidences(string channelName)
+    {
+      _threadChecker._CheckThread();
+     
+      IntPtr handle = IntPtr.Zero;
+
+      if (_NativeAccess.IsNativeAccessValid())
+        handle = _NARFrame_CopySemanticConfidences(_NativeHandle, channelName);
+
+      if (handle == IntPtr.Zero)
+        return null;
+      
+      return new _NativeAwarenessBufferF32(handle, WorldScale, Camera.Intrinsics);
+    }
+    
     private IReadOnlyList<Detection> _palmDetections;
     private bool _palmDetectionsRead;
 
@@ -684,6 +701,9 @@ namespace Niantic.ARDK.AR.Frame
 
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern IntPtr _NARFrame_GetSemanticBuffer(IntPtr nativeHandle);
+    
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern IntPtr _NARFrame_CopySemanticConfidences(IntPtr nativeHandle, string channel);
 
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern IntPtr _NARFrame_GetPalmDetections(IntPtr nativeHandle, out int size);

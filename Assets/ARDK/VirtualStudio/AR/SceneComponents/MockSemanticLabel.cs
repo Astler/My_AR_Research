@@ -1,9 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
+using System.ComponentModel;
+
 using Niantic.ARDK.AR.Awareness.Semantics;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
 {
@@ -25,7 +28,17 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
       foliage,
       grass,
       natural_ground,
-      person
+      person,
+      flower_experimental,
+      tree_trunk_experimental,
+      pet_experimental,
+      sand_experimental,
+      tv_experimental,
+      dirt_experimental,
+      vehicle_experimental,
+      food_experimental,
+      loungeable_experimental,
+      snow_experimental
     }
 
     public ChannelName Channel;
@@ -39,7 +52,7 @@ namespace Niantic.ARDK.VirtualStudio.AR.Mock
 
       materialPropertyBlock = new MaterialPropertyBlock();
       materialPropertyBlock.SetColor("PackedColor", color);
-      materialPropertyBlock.SetColor("DebugColor", _debugColors[(int)Channel]);
+      // materialPropertyBlock.SetColor("DebugColor", _debugColors[(int)Channel]);
       GetComponent<MeshRenderer>().SetPropertyBlock(materialPropertyBlock);
 
       ARLog._DebugFormat("GameObject: {0} - Channel: {1} - Bits: {2}", false, gameObject.name, Channel, ToBinaryString(bits));

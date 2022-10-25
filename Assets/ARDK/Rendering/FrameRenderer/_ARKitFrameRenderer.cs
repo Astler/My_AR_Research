@@ -1,9 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using Niantic.ARDK.AR;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 using UnityEngine.Rendering;
+
+using Object = UnityEngine.Object;
 
 namespace Niantic.ARDK.Rendering
 {

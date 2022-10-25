@@ -49,7 +49,7 @@ namespace Prototype.States.StateScanning
         {
             if (args.BlocksUpdated == null) return;
 
-            Debug.Log("StateScanning found mesh");
+            // Debug.Log("StateScanning found mesh");
             _foundMesh = true;
         }
 

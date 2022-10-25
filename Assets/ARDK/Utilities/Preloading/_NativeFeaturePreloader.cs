@@ -1,10 +1,17 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+
+using Niantic.ARDK.AR;
+using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Internals;
+using Niantic.ARDK.Utilities.Logging;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.Utilities.Preloading
 {
@@ -12,8 +19,6 @@ namespace Niantic.ARDK.Utilities.Preloading
     IFeaturePreloader
   {
     private IntPtr _nativeHandle;
-
-    private const string _dbowUrl = "https://bowvocab.eng.nianticlabs.com/dbow_b50_l3.bin";
 
     internal _NativeFeaturePreloader()
     {
@@ -55,10 +60,6 @@ namespace Niantic.ARDK.Utilities.Preloading
 
     public void Download(Feature[] features)
     {
-      // Todo: This should really be done in native
-      if (features.Contains(Feature.Dbow) && string.IsNullOrEmpty(ArdkGlobalConfig.GetDbowUrl()))
-        ArdkGlobalConfig.SetDbowUrl(ArdkGlobalConfig._DbowUrl);
-
       UInt32[] featuresInts = Array.ConvertAll(features, value => (UInt32) value);
       _NAR_ARDKFilePreloader_Download(_nativeHandle, featuresInts, featuresInts.Length);
     }

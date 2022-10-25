@@ -1,8 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.Meshing

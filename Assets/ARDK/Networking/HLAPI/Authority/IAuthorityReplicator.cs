@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using Niantic.ARDK.Utilities.Collections;
+
 namespace Niantic.ARDK.Networking.HLAPI.Authority
 {
   /// <summary>

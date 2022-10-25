@@ -3,6 +3,7 @@
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 #pragma warning disable 0649
@@ -22,7 +23,7 @@ namespace Niantic.ARDK.Extensions
     [SerializeField]
     /// How often (in seconds) a point should be added to the position history.
     private float _updateInterval = 0.5f;
-    private float _lastUpdate;
+    private float _lastUpdate = 0;
     private LineRenderer _lineRenderer;
 
     public bool Visible

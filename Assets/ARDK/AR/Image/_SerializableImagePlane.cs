@@ -1,8 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+using System.Runtime.InteropServices;
+
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.AR.Image
 {

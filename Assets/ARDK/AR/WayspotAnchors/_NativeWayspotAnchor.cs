@@ -1,11 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Niantic.ARDK.AR.WayspotAnchors
 {
@@ -55,9 +57,9 @@ namespace Niantic.ARDK.AR.WayspotAnchors
 
     public WayspotAnchorStatusCode Status { get; private set; }
 
-    public Vector3 LastKnownPosition { get; private set; }
+    public Vector3 LastKnownPosition { get; private set; } = new Vector3(float.NaN, float.NaN, float.NaN);
 
-    public Quaternion LastKnownRotation { get; private set; }
+    public Quaternion LastKnownRotation { get; private set; } = new Quaternion(float.NaN, float.NaN, float.NaN, float.NaN);
 
     // There is a bug(?) where the native layer sometimes invokes a status code callback before it
     // surfaces the creation callback. Queuing the status update if the creation callback has not
@@ -80,6 +82,8 @@ namespace Niantic.ARDK.AR.WayspotAnchors
       ARLog._Debug($"_NativeWayspotAnchor.SetTransform({position}, {rotation.eulerAngles})");
       LastKnownPosition = position;
       LastKnownRotation = rotation;
+
+      TryUnqueueSuccessCode();
       _transformUpdated?.Invoke(new WayspotAnchorResolvedArgs(ID, LastKnownPosition, LastKnownRotation));
     }
 
@@ -89,8 +93,10 @@ namespace Niantic.ARDK.AR.WayspotAnchors
       if (statusCode == Status)
         return;
 
-      if (_NativeHandle == IntPtr.Zero)
+      var isQueueableStatus = statusCode == WayspotAnchorStatusCode.Limited || statusCode == WayspotAnchorStatusCode.Success;
+      if (isQueueableStatus && (_NativeHandle == IntPtr.Zero || float.IsNaN(LastKnownPosition.x)))
       {
+        ARLog._Debug($"Status update queued because no identifier ({_NativeHandle == IntPtr.Zero}) or no transform ({float.IsNaN(LastKnownPosition.x)})");
         _queuedStatus = statusCode;
       }
       else
@@ -98,6 +104,15 @@ namespace Niantic.ARDK.AR.WayspotAnchors
         ARLog._Debug($"_NativeWayspotAnchor.SetStatusCode({statusCode})");
         Status = statusCode;
         _statusCodeUpdated?.Invoke(new WayspotAnchorStatusUpdate(ID, Status));
+      }
+    }
+
+    private void TryUnqueueSuccessCode()
+    {
+      if (_queuedStatus.HasValue && (_NativeHandle != IntPtr.Zero || !float.IsNaN(LastKnownPosition.x)))
+      {
+        SetStatusCode(_queuedStatus.Value);
+        _queuedStatus = null;
       }
     }
 
@@ -137,14 +152,13 @@ namespace Niantic.ARDK.AR.WayspotAnchors
     /// @param nativeHandle The pointer to the native handle
     public void SetNativeHandle(IntPtr nativeHandle)
     {
+      if (nativeHandle == IntPtr.Zero)
+        throw new ArgumentException($"{nameof(nativeHandle)} value cannot be IntPtr.Zero");
+
       _NativeHandle = nativeHandle;
       GC.AddMemoryPressure(_MemoryPressure);
 
-      if (_queuedStatus.HasValue)
-      {
-        SetStatusCode(_queuedStatus.Value);
-        _queuedStatus = null;
-      }
+      TryUnqueueSuccessCode();
     }
 
     private static void _ReleaseImmediate(IntPtr nativeHandle)

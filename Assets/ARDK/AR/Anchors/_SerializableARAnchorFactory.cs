@@ -1,6 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.AR.ReferenceImage;
 
 namespace Niantic.ARDK.AR.Anchors

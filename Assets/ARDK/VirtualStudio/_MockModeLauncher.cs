@@ -1,10 +1,15 @@
+using System;
+
+using Niantic.ARDK.AR.WayspotAnchors;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
 using Niantic.ARDK.VirtualStudio.Networking.Mock;
+
 using UnityEditor;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio
@@ -185,11 +190,6 @@ namespace Niantic.ARDK.VirtualStudio
       {
         _playConfiguration = existingConfig;
       }
-
-      // Cache the correct values so they can be used instead of potentially incorrect values
-      // due to this bug: Unity Issue-598763
-      _MockCameraConfiguration.CorrectedScreenWidth = Screen.width;
-      _MockCameraConfiguration.CorrectedScreenHeight = Screen.height;
 
       // Instantiate Mock Scene
       var scenePrefab = GetMockScenePrefab();

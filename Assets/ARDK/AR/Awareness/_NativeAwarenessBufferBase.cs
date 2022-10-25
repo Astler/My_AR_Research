@@ -2,26 +2,28 @@
 
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.Utilities;
+
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness
 {
   internal abstract class _NativeAwarenessBufferBase<T>:
     _AwarenessBufferBase,
-    IDataBuffer<T>,
-    IDisposable
+    IDataBuffer<T>
   where T: struct
   {
-    protected readonly float _worldScale;
+    protected readonly float _worldScale = 0;
     protected IntPtr _nativeHandle;
 
     private long _consumedUnmanagedMemory;
-    private Matrix4x4? _cacheViewMatrix;
-    private CameraIntrinsics? _cachedIntrinsics;
+    private Matrix4x4? _cacheViewMatrix = null;
+    private CameraIntrinsics? _cachedIntrinsics = null;
 
     private NativeArray<T> _data;
 #if UNITY_EDITOR
@@ -79,6 +81,32 @@ namespace Niantic.ARDK.AR.Awareness
           return _data;
         }
       }
+    }
+
+    public T Sample(Vector2 uv)
+    {
+      var w = (int)Width;
+      var h = (int)Height;
+
+      var x = Mathf.Clamp(Mathf.RoundToInt(uv.x * w - 0.5f), 0, w - 1);
+      var y = Mathf.Clamp(Mathf.RoundToInt(uv.y * h - 0.5f), 0, h - 1);
+
+      return Data[x + w * y];
+    }
+
+    public T Sample(Vector2 uv, Matrix4x4 transform)
+    {
+      var w = (int)Width;
+      var h = (int)Height;
+
+      var st = transform * new Vector4(uv.x, uv.y, 1.0f, 1.0f);
+      var sx = st.x / st.z;
+      var sy = st.y / st.z;
+
+      var x = Mathf.Clamp(Mathf.RoundToInt(sx * w - 0.5f), 0, w - 1);
+      var y = Mathf.Clamp(Mathf.RoundToInt(sy * h - 0.5f), 0, h - 1);
+
+      return Data[x + w * y];
     }
 
     public override Matrix4x4 ViewMatrix

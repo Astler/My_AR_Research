@@ -32,6 +32,9 @@ namespace Niantic.ARDK.AR.Anchors
           case AnchorType.Image:
             imageAnchors.Add(((IARImageAnchor)anchor)._AsSerializableImage());
             break;
+
+          default:
+            break;
         }
       }
 

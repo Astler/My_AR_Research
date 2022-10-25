@@ -1,3 +1,6 @@
+using Niantic.ARDK.Utilities.Logging;
+using Niantic.ARDK.VirtualStudio.AR;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio

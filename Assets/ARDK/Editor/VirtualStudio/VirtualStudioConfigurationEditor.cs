@@ -1,6 +1,9 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System;
+
 using UnityEditor;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Editor

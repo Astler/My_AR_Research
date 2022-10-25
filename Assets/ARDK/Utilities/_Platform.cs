@@ -2,6 +2,11 @@
 
 using System;
 using System.Runtime.InteropServices;
+
+using Niantic.ARDK.AR;
+
+using UnityEngine;
+
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities.Logging;
 

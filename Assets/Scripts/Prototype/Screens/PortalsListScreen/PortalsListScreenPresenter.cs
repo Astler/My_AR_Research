@@ -41,7 +41,7 @@ namespace Prototype.Screens.PortalsListScreen
 
         private void OnMoveToClicked(Vector2 coordinates)
         {
-            OnlineMaps.instance.position = coordinates;
+            OnlineMaps.instance.position = new Vector2(coordinates.y, coordinates.x);
         }
     }
 }

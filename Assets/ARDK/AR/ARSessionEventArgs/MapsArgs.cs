@@ -1,6 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System.Collections.ObjectModel;
+
 using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Utilities;
 

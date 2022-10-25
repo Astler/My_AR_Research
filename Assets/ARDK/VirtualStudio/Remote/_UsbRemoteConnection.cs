@@ -3,13 +3,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 using UnityEngine.Networking.PlayerConnection;
+
 #if UNITY_EDITOR
 using UnityEditor.Networking.PlayerConnection;
+using UnityEditor;
 #endif
 
 namespace Niantic.ARDK.VirtualStudio.Remote
@@ -152,7 +156,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
 
     public void Send(Guid id, byte[] data)
     {
-      var dataStruct = new Data
+      var dataStruct = new Data()
       {
         ID = id.ToByteArray(), Contents = data,
       };
@@ -167,7 +171,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
     {
       var data = e.data.DeserializeFromArray<Data>();
       var guid = new Guid(data.ID);
-      var eventArgs = new MessageEventArgs
+      var eventArgs = new MessageEventArgs()
       {
         data = data.Contents, playerId = e.playerId,
       };

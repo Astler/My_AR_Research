@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
 
@@ -23,7 +24,7 @@ namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers
       (a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture);
 
     private static readonly Func<Type, SimpleSerializableSerializer> _createSerializerFunc =
-      type => new SimpleSerializableSerializer(type);
+      (type) => new SimpleSerializableSerializer(type);
 
     public static SimpleSerializableSerializer ForType(Type type)
     {
@@ -119,7 +120,7 @@ namespace Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers
         currentType = currentType.BaseType;
       }
 
-      allFields.Sort(_fieldComparison);
+      allFields.Sort(SimpleSerializableSerializer._fieldComparison);
 
       _typeToSerialize = typeToSerialize;
       _fields = allFields.ToArray();

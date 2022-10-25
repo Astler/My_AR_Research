@@ -1,7 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using System;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
+using Niantic.ARDK.VirtualStudio.AR;
+using Niantic.ARDK.VirtualStudio.AR.Networking;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities;
@@ -9,6 +13,7 @@ using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.AR.Networking.Mock;
 using Niantic.ARDK.VirtualStudio.Networking;
 using Niantic.ARDK.VirtualStudio.Networking.Mock;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio

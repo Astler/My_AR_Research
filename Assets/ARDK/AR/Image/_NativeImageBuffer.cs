@@ -2,6 +2,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
 

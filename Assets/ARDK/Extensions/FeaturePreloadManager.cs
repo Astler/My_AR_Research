@@ -5,9 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.Preloading;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions
@@ -25,7 +27,7 @@ namespace Niantic.ARDK.Extensions
     }
 
     [SerializeField]
-    private List<Feature> _features;
+    private List<Feature> _features = null;
 
     private Coroutine _preloadCoroutine;
 

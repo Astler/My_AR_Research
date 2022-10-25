@@ -2,8 +2,12 @@
 
 using System;
 using System.Text;
+
+using Niantic.ARDK.AR;
+using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -48,17 +52,17 @@ namespace Niantic.ARDK.Extensions
     /// @note If the `InputField` is not-null, its text value will override this field's current value.
     [SerializeField]
     [Tooltip("The session identifier used when `Connect` is called.")]
-    private string _sessionIdentifier;
+    private string _sessionIdentifier = null;
 
     /// If not empty, the text value of this InputField will be used as the session
     /// identifier when `Connect` is called. Leave empty to get the default behaviour.
     [SerializeField]
     [Tooltip("(Optional) InputField source for the session identifier.")]
-    private InputField _inputField;
+    private InputField _inputField = null;
 
     private IMultipeerNetworking _networking;
     private bool _needToRecreate;
-    private Guid _stageIdentifier;
+    private Guid _stageIdentifier = default;
 
     /// @warning
     ///   Underlying object will change if this component is enabled (connected), disabled (disconnected),

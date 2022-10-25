@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
+
 using Niantic.ARDK.LocationService;
 
 namespace Niantic.ARDK.VPSCoverage

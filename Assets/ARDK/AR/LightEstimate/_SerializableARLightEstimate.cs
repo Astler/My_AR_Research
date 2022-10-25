@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.ObjectModel;
+
 using Niantic.ARDK.Utilities.Collections;
 
 namespace Niantic.ARDK.AR.LightEstimate

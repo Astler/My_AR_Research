@@ -2,9 +2,16 @@
 
 using System;
 using System.Runtime.InteropServices;
+
+using Niantic.ARDK.AR;
+using Niantic.ARDK.Utilities;
+
+using UnityEngine;
+
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
+using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.Utilities.VersionUtilities
 {

@@ -3,8 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using AOT;
+
+using Niantic.ARDK.AR.ARSessionEventArgs;
+using Niantic.ARDK.AR.Configuration;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
+using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Networking;
@@ -13,7 +16,10 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.Utilities.Marker;
+
 using UnityEngine;
+
+using AOT;
 
 namespace Niantic.ARDK.AR.Networking
 {
@@ -109,12 +115,6 @@ namespace Niantic.ARDK.AR.Networking
 
     private bool _ValidateComponents(IARSession arSession, IMultipeerNetworking networking)
     {
-      if (string.IsNullOrEmpty(ArdkGlobalConfig.GetDbowUrl()))
-      {
-        ARLog._Debug("DBOW URL was not set. The default URL will be used.");
-        ArdkGlobalConfig.SetDbowUrl(ArdkGlobalConfig._DbowUrl);
-      }
-
       if (arSession.StageIdentifier != networking.StageIdentifier)
       {
         var msg =
@@ -511,7 +511,7 @@ namespace Niantic.ARDK.AR.Networking
 #endregion
 
 #region PoseFromPeer
-    private bool _didReceivePoseFromPeerInitialized;
+    private bool _didReceivePoseFromPeerInitialized = false;
 
     private void SubscribeToDidReceivePoseFromPeer()
     {
@@ -602,7 +602,7 @@ namespace Niantic.ARDK.AR.Networking
 #endregion
 
 #region StateFromPeer
-    private bool _didReceiveStateFromPeerInitialized;
+    private bool _didReceiveStateFromPeerInitialized = false;
 
     private void SubscribeToDidReceiveStateFromPeer()
     {

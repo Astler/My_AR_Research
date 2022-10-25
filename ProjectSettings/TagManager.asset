@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Allow Splats
+  - BlueGoal
+  - RedGoal
   layers:
   - Default
   - TransparentFX
@@ -14,28 +16,28 @@ TagManager:
   - UI
   - GeneratedMesh
   - Coin
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ARDK_MockWorld
+  - sky
+  - ground
+  - artificial_ground
+  - water
+  - building
+  - foliage
+  - grass
   - RealworldMap
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MapboxMap
+  - natural_ground
+  - person
+  - flower_experimental
+  - tree_trunk_experimental
+  - pet_experimental
+  - sand_experimental
+  - tv_experimental
+  - dirt_experimental
+  - vehicle_experimental
+  - food_experimental
+  - loungeable_experimental
+  - snow_experimental
   - 
   - 
   m_SortingLayers:

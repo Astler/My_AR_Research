@@ -5,6 +5,9 @@ using T = Niantic.ARDK.AR.Configuration._NativeARWorldTrackingConfiguration;
 #else
 using T = Niantic.ARDK.AR.Configuration._SerializableARWorldTrackingConfiguration;
 #endif
+using System;
+
+using Niantic.ARDK.AR.SLAM;
 using Niantic.ARDK.Utilities.BinarySerialization;
 using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
 

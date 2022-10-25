@@ -2,14 +2,20 @@
 
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.ComponentModel;
+
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
-using Niantic.ARDK.Networking;
-using Niantic.ARDK.Utilities;
-using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio;
+using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.VirtualStudio.AR.Networking.Mock;
 using Niantic.ARDK.VirtualStudio.Remote;
+using Niantic.ARDK.VirtualStudio.Networking;
+using Niantic.ARDK.VirtualStudio.Networking.Mock;
+using Niantic.ARDK.Networking;
+using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
+using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Logging;
 
 /// @namespace Niantic.ARDK.AR.Networking
 /// @brief Handles AR Networking sessions
@@ -266,7 +272,7 @@ namespace Niantic.ARDK.AR.Networking
         handler = _arNetworkingInitialized;
 
         arNetworking.Deinitialized +=
-          _ =>
+          (_) =>
           {
             lock (_arNetworkingLock)
               if (_arNetworking == arNetworking)
@@ -285,7 +291,7 @@ namespace Niantic.ARDK.AR.Networking
         handler = _nonLocalARNetworkingInitialized;
 
         arNetworking.Deinitialized +=
-          ignored => _nonLocalARNetworkings.TryRemove(arNetworking, out _);
+          (ignored) => _nonLocalARNetworkings.TryRemove(arNetworking, out _);
 
       }
 

@@ -1,7 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
+
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.WayspotAnchors
@@ -23,7 +24,7 @@ namespace Niantic.ARDK.AR.WayspotAnchors
     Guid ID { get; }
 
     /// Gets the payload for the wayspot anchor. Only valid if the anchor is created (i.e. the
-    /// value of Status is Stable or Limited).
+    /// value of Status is Success or Limited).
     WayspotAnchorPayload Payload { get; }
 
     /// Whether or not the wayspot anchor is currently being tracked
@@ -32,11 +33,11 @@ namespace Niantic.ARDK.AR.WayspotAnchors
     WayspotAnchorStatusCode Status { get; }
 
     /// Current position of the anchor. Only valid if the anchor has resolved (i.e. the
-    /// value of Status is Stable or Limited).
+    /// value of Status is Success or Limited).
     Vector3 LastKnownPosition { get; }
 
     /// Current rotation of the anchor. Only valid if the anchor has resolved (i.e. the
-    /// value of Status is Stable or Limited).
+    /// value of Status is Success or Limited).
     Quaternion LastKnownRotation { get; }
   }
 }

@@ -2,8 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Anchors;
+using Niantic.ARDK.AR.Configuration;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
 {

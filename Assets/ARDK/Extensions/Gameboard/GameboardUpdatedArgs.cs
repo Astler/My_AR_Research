@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.Gameboard

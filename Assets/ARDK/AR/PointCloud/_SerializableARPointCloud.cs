@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.ObjectModel;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.PointCloud

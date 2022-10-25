@@ -1,19 +1,16 @@
-#if SHARED_AR_V2
-
+// Copyright 2022 Niantic, Inc. All Rights Reserved.
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace Niantic.Experimental.ARDK.SharedAR
 {
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
   public class RoomID: IEquatable<RoomID>
   {
-
-    public static readonly RoomID InvalidRoomID;
-    static RoomID()
-    {
-      InvalidRoomID = new RoomID("");
-    }
+    public static readonly RoomID InvalidRoomID = new RoomID("");
 
     private readonly string _string;
     public RoomID(string id) {
@@ -48,5 +45,3 @@ namespace Niantic.Experimental.ARDK.SharedAR
   }
 
 } // namespace Niantic.ARDK.SharedAR
-
-#endif // SHARED_AR_V2

@@ -3,8 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Niantic.ARDK.Networking.HLAPI.Data;
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.BinarySerialization;
+using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
 using Niantic.ARDK.Utilities.Logging;
 
 namespace Niantic.ARDK.Networking.HLAPI.Object

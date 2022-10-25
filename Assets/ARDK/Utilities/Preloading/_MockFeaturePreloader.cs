@@ -1,8 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System.Collections.Generic;
 using System.Linq;
+
 using Niantic.ARDK.Utilities.Logging;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.Utilities.Preloading
 {

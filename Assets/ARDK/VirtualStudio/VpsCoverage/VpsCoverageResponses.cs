@@ -1,9 +1,11 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
+using System.Collections.Generic;
 using System.Linq;
+
 using Niantic.ARDK.VPSCoverage;
 using Niantic.ARDK.VPSCoverage.GeoserviceMessages;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.VpsCoverage

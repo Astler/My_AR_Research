@@ -1,31 +1,49 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
+#if UNITY_STANDALONE_OSX || UNITY_STANDALONE_LINUX || UNITY_STANDALONE_WIN
+#define UNITY_STANDALONE_DESKTOP
+#endif
+#if (UNITY_IOS || UNITY_ANDROID || UNITY_STANDALONE_DESKTOP) && !UNITY_EDITOR
+#define AR_NATIVE_SUPPORT
+#endif
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
+
 using AOT;
+
+using UnityEngine;
+using UnityEngine.Rendering;
+
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Awareness;
-using Niantic.ARDK.AR.Awareness.Depth.Generators;
-using Niantic.ARDK.AR.Awareness.Human;
 using Niantic.ARDK.AR.Camera;
 using Niantic.ARDK.AR.Configuration;
+using Niantic.ARDK.AR.Awareness.Depth.Generators;
+using Niantic.ARDK.AR.Awareness.Human;
 using Niantic.ARDK.AR.Frame;
+using Niantic.ARDK.AR.PointCloud;
 using Niantic.ARDK.AR.Mesh;
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.AR.SLAM;
+using Niantic.ARDK.Extensions.Meshing;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Rendering;
 using Niantic.ARDK.Telemetry;
 using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
+using Niantic.ARDK.Utilities.Collections;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio;
 using Niantic.ARDK.VirtualStudio.AR;
-using UnityEngine;
-using UnityEngine.Rendering;
+
+
 
 namespace Niantic.ARDK.AR
 {
@@ -35,7 +53,7 @@ namespace Niantic.ARDK.AR
     _IARSession
   {
     /// Indicates whether this is a playback based session
-    private bool _playbackEnabled;
+    private bool _playbackEnabled = false;
 
     RuntimeEnvironment IARSession.RuntimeEnvironment
     {
@@ -72,7 +90,7 @@ namespace Niantic.ARDK.AR
 
     private CommandBuffer _commandBuffer = null;
     private _VirtualCamera _virtualCamera = null;
-    private UnityEngine.Camera _updatingCamera;
+    private UnityEngine.Camera _updatingCamera = null;
 
     /// <inheritdoc />
     public float WorldScale { get; set; } = 1;
@@ -281,14 +299,19 @@ namespace Niantic.ARDK.AR
         ARLog._Error("Configuration validation failed, not running session");
         return;
       }
-
-      var configForTelemetry = (IARWorldTrackingConfiguration)configuration;
-      _TelemetryService.RecordEvent(new EnabledContextualAwarenessEvent
+      
+      try
       {
-        Depth = configForTelemetry.IsDepthEnabled,
-        Meshing = configForTelemetry.IsMeshingEnabled,
-        Semantics = configForTelemetry.IsSemanticSegmentationEnabled
-      });
+        var configForTelemetry = (IARWorldTrackingConfiguration)configuration;
+        _TelemetryService.RecordEvent(new EnabledContextualAwarenessEvent()
+        {
+          Depth = configForTelemetry.IsDepthEnabled,
+          Meshing = configForTelemetry.IsMeshingEnabled,
+          Semantics = configForTelemetry.IsSemanticSegmentationEnabled
+        });
+      }
+      finally
+      { }
 
       Configuration = configuration;
       RunOptions = options;
@@ -471,15 +494,19 @@ namespace Niantic.ARDK.AR
           return status;
         }
 #pragma warning disable CS0162
-
-        // TODO AR-10906: Fix _NARSession_GetAwarenessFeaturesErrorMessage returning garbage values for playback
-        error = AwarenessInitializationError.None;
-        errorMessage = string.Empty;
-        return AwarenessInitializationStatus.Ready;
+        else
+        {
+          // TODO AR-10906: Fix _NARSession_GetAwarenessFeaturesErrorMessage returning garbage values for playback
+          error = AwarenessInitializationError.None;
+          errorMessage = string.Empty;
+          return AwarenessInitializationStatus.Ready;
+        }
 #pragma warning restore CS0162
       }
-
-      ARLog._Debug("Session was freed before call to _GetAwarenessFeaturesStatus()");
+      else
+      {
+        ARLog._Debug("Session was freed before call to _GetAwarenessFeaturesStatus()");
+      }
 
       // Default values when native was not queried
       error = AwarenessInitializationError.None;
@@ -1116,9 +1143,9 @@ namespace Niantic.ARDK.AR
 
     private ArdkEventHandler<AnchorsMergedArgs> _anchorsMerged = args => {};
 
-    private ArdkEventHandler<ARSessionInterruptedArgs> _sessionInterrupted = args => {};
+    private ArdkEventHandler<ARSessionInterruptedArgs> _sessionInterrupted = (args) => {};
 
-    private ArdkEventHandler<ARSessionInterruptionEndedArgs> _sessionInterruptionEnded = args => {};
+    private ArdkEventHandler<ARSessionInterruptionEndedArgs> _sessionInterruptionEnded = (args) => {};
 
     private readonly List<ArdkEventHandler<QueryingShouldSessionAttemptRelocalizationArgs>>
       _queryingShouldSessionAttemptRelocalization =
@@ -1170,7 +1197,12 @@ namespace Niantic.ARDK.AR
           }
 
           var frame = new _NativeARFrame(newFramePtr, session.WorldScale);
-
+#if AR_NATIVE_SUPPORT
+          // We mark the frame as consumed to let the native layer know that
+          // this ARFrame was not dropped and it's going to be processed by
+          // the application. 
+          _NARSession_MarkFrameConsumed(session._nativeHandle, newFramePtr);
+#endif
           session.CurrentFrame = frame;
           session.UpdateGenerators(frame);
 
@@ -1825,7 +1857,7 @@ namespace Niantic.ARDK.AR
 
     internal static class _TestingShim
     {
-      #pragma warning disable 0162
+#pragma warning disable 0162
       // If the session has already been disposed, this method will incidentally recreate the
       // session's _handle. To avoid this, use _GetHandle and the _InvokeDidReceiveFrame override
       // that takes an IntPtr instead of a _NativeARSession.
@@ -1844,7 +1876,7 @@ namespace Niantic.ARDK.AR
       {
         return session._handle;
       }
-      #pragma warning restore 0162
+#pragma warning restore 0162
     }
 
 #endregion
@@ -1868,6 +1900,9 @@ namespace Niantic.ARDK.AR
 
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern void _NARSession_Pause(IntPtr nativeSession);
+    
+    [DllImport(_ARDKLibrary.libraryName)]
+    private static extern void _NARSession_MarkFrameConsumed(IntPtr nativeSession, IntPtr nativeFrame);
 
     [DllImport(_ARDKLibrary.libraryName)]
     private static extern IntPtr GetRenderEventFunc();

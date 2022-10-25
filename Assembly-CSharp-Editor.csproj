@@ -41,58 +41,163 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/VectorFilterOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ElevationRequiredOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_MapMatcher.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsArcGISTiledElevationManagerEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MaterialListDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/UnityLayerOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManagerEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Buildings/OnlineMapsBuildingBaseEditor.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_ReverseGeocodeResource.cs" />
+     <Compile Include="Assets/LightshipHUB/Editor/Scripts/LightshipCommon.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsBingMapsElevationManagerEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/GeocodeAttributeDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsAboutWindow.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Geocoder.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsCustomURLWizard.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/TerrainSideWallOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/ModifierStackEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/SpawnPrefabOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ElevationModificationOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBase3DEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsPanoConnectorEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsUpdater.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/GeocodeAttributeSearchWindow.cs" />
+     <Compile Include="Assets/LightshipHUB/Editor/Scripts/LightshipWelcomeWindow.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MapOptionsDrawer.cs" />
+     <Compile Include="Assets/MapboxAR/Unity/Ar/Editor/Tests/MapboxUnitTests_AverageHeadingAlignmentStrategy.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsElevationManagerBaseEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsWelcome.cs" />
+     <Compile Include="Assets/Mapbox/Core/cheap-ruler-cs/Tests/Editor/MapboxUnitTests_CheapRulerCs.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_GeoCoordinate.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsUIImageControlEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsUIRawImageControlEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/LocationService/OnlineMapsLocationServiceEditorBase.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MapLocationOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/TreeModel.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ModelingSectionDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_FileSource.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_PolylineToGeoCoordinateListConverter.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/BuildStuff/Mapbox_iOS_build.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/AtlasTemplateGenerator.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_ForwardGeocodeResource.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ElevationLayerPropertiesDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsUContextActions.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/VectorLayerPropertiesDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_CanonicalTileId.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBaseUIEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MapPlacementOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsSinglePartElevationManagerEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsPrefs.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Token.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/FeaturesSubLayerPropertiesDrawer.cs" />
+     <Compile Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Editor/LogEntries.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/TreeViewWithTreeModel.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarkerBasePropertyDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_PolylineUtils.cs" />
+     <Compile Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Editor/Enums.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/LayerSourceOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_DirectionResource.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/AddMonoBehavioursModifierDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/GeometryMaterialOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/LayerPerformanceOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsAdjustToScreenEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/PrefabItemOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/PointsOfInterestSubLayerPropertiesDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsNGUITextureControlEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsEditorUtils.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Compression.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/FeatureBehaviourEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManager3DEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsImporter.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/ClearFileCache.cs" />
+     <Compile Include="Assets/Mapbox/Core/probe-extractor-cs/Tests/Editor/MapboxUnitTests_ProbeExtractorCs.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/ScriptableCreatorWindow.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBase2DEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsTilesetControlEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/EditorLayout/OnlineMapsFormattedEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBaseDynamicMeshEditor.cs" />
+     <Compile Include="Assets/LightshipHUB/Editor/Scripts/LightshipHelperWindow.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/StyleSearchWindow.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Map.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/UnitTests/MapboxUnitTests_CircularBuffer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/LineGeometryOptionsDrawer.cs" />
+     <Compile Include="Assets/LightshipHUB/Editor/Scripts/LightshipTemplateFactory.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PointsOfInterestSubLayerTreeView.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/VectorSubLayerTreeView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsRangePropertyDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/FactoryEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/ScriptablePaletteEditor.cs" />
+     <Compile Include="Assets/LightshipHUB/Editor/Scripts/LightshipTemplatesMenu.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_TileResource.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsCameraOrbitEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsControlBaseEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/BehaviorModifiersSectionDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ImageryRasterOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Directions.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MapScalingOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ImageryLayerPropertiesDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/TerrainColliderOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/MapboxConfigurationWindow.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/OnlineMapsPackageManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsEasyTouchConnectorEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsTextureControlEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MapExtentOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows/OnlineMapsWizard.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManagerBaseEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/StyleOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/ScenesListEditor.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_AngleSmoothing.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/TreeElement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsTiledElevationManagerEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/MaterialModifierEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/MapManagerEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/CoreVectorLayerPropertiesDrawer.cs" />
+     <Compile Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Editor/FileMonitor.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_TileJSON.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Buildings/OnlineMapsBuildingsEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/LocationService/OnlineMapsLocationServiceEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/GeometryExtrusionOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/TreeElementUtility.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/EditorHelper.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsRWTConnectorEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsBingMapsTiledElevationManagerEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PopupSelectionMenu.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarker3DPropertyDrawer.cs" />
+     <Compile Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Editor/LogEntry.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/FeatureTreeElement.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_TileCover.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsLimitsEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarkerPropertyDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/RangeAroundTransformTileProviderOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_VectorTile.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_BearingFilter.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/FeatureSubLayerTreeView.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_SQLiteCache.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsCacheEditor.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Utils.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsTouchScriptConnectorEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/FeatureSectionMultiColumnHeader.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/RangeTileProviderOptionsDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_Tile.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_LonLatToGeoCoordinateConverter.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/StyleSearchAttributeDrawer.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/MapImageFactoryEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsFingersTouchGesturesConnectorEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/MergedModifierStackEditor.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_GeoCoordinateBounds.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/CameraBoundsTileProviderOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsArcGISElevationManagerEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations/OnlineMapsMapboxElevationManagerEditor.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_BboxToGeoCoordinateBoundsConverter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsBuildingMaterialPropertyDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Controls/OnlineMapsSpriteRendererControlEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/LayerModifierEditor.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/ColliderOptionsDrawer.cs" />
+     <None Include="Assets/LightshipHUB/Editor/Scripts/LightshipWelcomeWindowStyles.uss" />
+     <None Include="Assets/LightshipHUB/Editor/Scripts/LightshipWelcomeWindow.uxml" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -348,6 +453,9 @@
      <Reference Include="UnityEditor.Android.Extensions">
      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="MapboxAccountsUnity">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net35/MapboxAccountsUnity.dll</HintPath>
+     </Reference>
      <Reference Include="DOTweenEditor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
      </Reference>
@@ -356,6 +464,15 @@
      </Reference>
      <Reference Include="zxing.unity">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/ARDK/External/Plugins/zxing.unity.dll</HintPath>
+     </Reference>
+     <Reference Include="Mapbox.Json">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35/Mapbox.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="Mapbox.VectorTile.VectorTileReader">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.VectorTileReader.dll</HintPath>
+     </Reference>
+     <Reference Include="Mapbox.IO.Compression">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
@@ -381,11 +498,17 @@
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
      </Reference>
+     <Reference Include="Mapbox.VectorTile.ExtensionMethods">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.ExtensionMethods.dll</HintPath>
+     </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="unityplastic">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.15.15/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+     </Reference>
+     <Reference Include="Mapbox.VectorTile.PbfReader">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.PbfReader.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
@@ -395,6 +518,9 @@
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.6.5/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
+     </Reference>
+     <Reference Include="Mapbox.VectorTile.Geometry">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.Geometry.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -1251,6 +1377,10 @@
     <ProjectReference Include="ARDK-Editor.csproj">
       <Project>{72a7a07c-5dc9-4038-3949-10a4b897fbbb}</Project>
       <Name>ARDK-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="ARDK-Examples.csproj">
+      <Project>{64d29f55-3447-c444-940b-901c5b002e18}</Project>
+      <Name>ARDK-Examples</Name>
     </ProjectReference>
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>

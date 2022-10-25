@@ -1,7 +1,9 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -61,7 +63,7 @@ namespace Niantic.ARDK.Extensions.Gameboard
     [SerializeField]
     public bool _visualise = true;
 
-    private bool recreateGameboard;
+    private bool recreateGameboard = false;
 
 #region GetterAndSetter
     public Camera Camera

@@ -1,12 +1,16 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.AR;
-using UnityEngine;
-using UnityEngine.Rendering;
+using Niantic.ARDK.AR.Awareness.Depth;
+
 #if ARDK_HAS_URP
 using Niantic.ARDK.Rendering.SRP;
 #endif
+
+using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Niantic.ARDK.Rendering
 {

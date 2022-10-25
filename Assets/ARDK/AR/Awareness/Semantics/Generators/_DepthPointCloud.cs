@@ -1,7 +1,12 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+
+using Niantic.ARDK.AR;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Depth

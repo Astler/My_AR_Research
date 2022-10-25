@@ -1,6 +1,7 @@
 using System;
 using Prototype.World;
 using UniRx;
+using UnityEngine;
 
 namespace Prototype.Screens.MainScreen
 {
@@ -22,7 +23,7 @@ namespace Prototype.Screens.MainScreen
             {
                 _view.SetCanPlacePortal(zone != null);
             }).AddTo(_compositeDisposable);
-            
+
             _view.GetMapUserInterface().PortalsListClicked += OnPortalsListClicked;
             _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
             _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
@@ -30,12 +31,14 @@ namespace Prototype.Screens.MainScreen
 
         private void OnNearestPortalClicked()
         {
-            OnlineMaps.instance.position = _context.GetLocationController().NearestPortalZone.Value.GetPosition();
+            Vector2 target = _context.GetLocationController().NearestPortalZone.Value.GetPosition();
+            OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
 
         private void OnMyPositionClicked()
         {
-            OnlineMaps.instance.position = LocationController.GetPlayerPosition();
+            Vector2 target = LocationController.GetPlayerPosition();
+            OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
 
         private void OnPortalsListClicked()

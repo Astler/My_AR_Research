@@ -4,6 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Concurrent;
 
+using UnityEngine;
+
 namespace Niantic.ARDK.Utilities
 {
   // A class that works like a dictionary but allows the values to be collected, effectively
@@ -14,7 +16,7 @@ namespace Niantic.ARDK.Utilities
     TValue: class
   {
     private static readonly Func<TKey, WeakReference> _createWeakReference =
-      _ => new WeakReference(null);
+      (_) => new WeakReference(null);
 
     internal ConcurrentDictionary<TKey, WeakReference> _innerDictionary =
       new ConcurrentDictionary<TKey, WeakReference>();

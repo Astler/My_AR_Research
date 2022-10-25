@@ -2,13 +2,20 @@
 
 using System;
 using System.Collections;
+
 using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
-using UnityEngine;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+
+using UnityEngine;
+
+using Matrix4x4 = UnityEngine.Matrix4x4;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Niantic.ARDK.VirtualStudio.AR.Mock
 {

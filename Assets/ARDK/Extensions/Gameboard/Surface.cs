@@ -2,7 +2,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
+
 using Niantic.ARDK.Utilities.Collections;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Extensions.Gameboard

@@ -3,7 +3,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Networking.HLAPI.Data;
+using Niantic.ARDK.Utilities.BinarySerialization;
+using Niantic.ARDK.Utilities.BinarySerialization.ItemSerializers;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Networking.HLAPI.Object.Unity

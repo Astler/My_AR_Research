@@ -11,15 +11,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.AR.Protobuf;
-using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Configuration.Authentication;
+
+using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Telemetry;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -43,11 +47,17 @@ namespace Niantic.ARDK.Internals
     [InitializeOnLoadMethod]
     private static void EditorStartup()
     {
-      // make sure native dll is kicked in
-      EnforceRosettaBasedCompatibility();
+      var nonNativeCompatibilityFilesChangedToBeEnabled = false;
+      // Use rsp files to disable the native dll in case of lack of native support
+      nonNativeCompatibilityFilesChangedToBeEnabled = EnforceRosettaBasedCompatibility();
       
 #if !REQUIRE_MANUAL_STARTUP
-      ManualStartup();
+      if (!nonNativeCompatibilityFilesChangedToBeEnabled)
+      {
+        _InitializeNativeLibraries();
+      }
+      _SetCSharpInitializationMetadata();
+
 #endif
     }
 #endif
@@ -57,7 +67,8 @@ namespace Niantic.ARDK.Internals
     {
 #if AR_NATIVE_SUPPORT
 #if !REQUIRE_MANUAL_STARTUP
-      ManualStartup();
+      _InitializeNativeLibraries();
+      _SetCSharpInitializationMetadata();
 #endif
 #endif
     }
@@ -65,12 +76,12 @@ namespace Niantic.ARDK.Internals
     /// <summary>
     /// Starts up the ARDK startup systems if they haven't been started yet.
     /// </summary>
-    public static void ManualStartup()
+    private static void _InitializeNativeLibraries()
     {
 #if (AR_NATIVE_SUPPORT || UNITY_EDITOR_OSX)
       // start the telemetry service
       InitializeTelemetry();
-
+      
       try
       {
         // TODO(sxian): Remove the _ROR_CREATE_STARTUP_SYSTEMS() after moving the functionalities to
@@ -88,18 +99,22 @@ namespace Niantic.ARDK.Internals
         _nativeHandle = _InitialiseNarBaseSystemBasedOnOS();
         _CallbackQueue.ApplicationWillQuit += OnApplicationQuit;
       } else {
-        ARLog._Error("_nativeHandle is not null, ManualStartup is called twice");
+        ARLog._Error("_nativeHandle is not null, _InitializeNativeLibraries is called twice");
       }
       
+#endif
+    }
+
+    private static void _SetCSharpInitializationMetadata()
+    {
       // The initialization of C# components should happen below.
-      SetAuthenticationParameters();
+      _SetAuthenticationParameters();
       SetDeviceMetadata();
-      
-      _TelemetryService.RecordEvent(new InitializationEvent
+
+      _TelemetryService.RecordEvent(new InitializationEvent()
       {
         InstallMode = GetInstallMode(),
       });
-#endif
     }
 
     private static void OnApplicationQuit()
@@ -113,7 +128,7 @@ namespace Niantic.ARDK.Internals
 
     private const string AUTH_DOCS_MSG = "For more information, visit the niantic.dev/docs/authentication.html site.";
 
-    private static void SetAuthenticationParameters()
+    internal static void _SetAuthenticationParameters()
     {
       // We always try to find an api key
       var apiKey = string.Empty;
@@ -159,15 +174,6 @@ namespace Niantic.ARDK.Internals
           ARLog._Error($"No API Key was found. Add it to an ArdkAuthConfig asset. {AUTH_DOCS_MSG}");
         }
       }
-      
-      var authUrl = ArdkGlobalConfig.GetAuthenticationUrl();
-      if (string.IsNullOrEmpty(authUrl))
-      {
-        ArdkGlobalConfig.SetAuthenticationUrl(ArdkGlobalConfig._DefaultAuthUrl);
-        authUrl = ArdkGlobalConfig.GetAuthenticationUrl();
-      }
-
-      ServerConfiguration.AuthenticationUrl = authUrl;
 
 #if UNITY_EDITOR
       if (!string.IsNullOrEmpty(apiKey))
@@ -203,48 +209,49 @@ namespace Niantic.ARDK.Internals
       {
         return _NARSystemBase_Initialize(_TelemetryService._OnNativeRecordTelemetry);
       }
-      
+
       return IntPtr.Zero;
     }
 
-    private static readonly Dictionary<string, string> _rosettaFiles = new Dictionary<string, string>
+    private static readonly Dictionary<string, string> _rosettaFiles = new Dictionary<string, string>()
     {
       {"mcs", "/ARDK/mcs.rsp"},
       {"csc", "/ARDK/csc.rsp"},
     };
-    
-    private static bool _rosettaCompatibilityCheckPerformed;
-    private static void EnforceRosettaBasedCompatibility()
+
+    private static bool _rosettaCompatibilityCheckPerformed = false;
+    private static bool EnforceRosettaBasedCompatibility()
     {
       if (_rosettaCompatibilityCheckPerformed)
-        return;
+        return false;
 
 #if UNITY_EDITOR
       if (_ArdkPlatformUtility.IsUsingRosetta())
       {
-        _EnableRosettaFiles();
+        return _EnableRosettaFiles();
       }
-      else
-      {
-        _DisableRosettaFiles();
-      }
+
+      _DisableRosettaFiles();
 #endif
       _rosettaCompatibilityCheckPerformed = true;
+      return false;
     }
 
 #if UNITY_EDITOR
-    private static void _EnableRosettaFiles()
+    private static bool _EnableRosettaFiles()
     {
       ARLog._Debug("Enabling the files for rosetta compatibility");
-
+      bool fileChanged = false;
       foreach (var rosettaFile in _rosettaFiles)
       {
         var disabledFileName = rosettaFile.Value + FileDisablingSuffix;
         var absolutePath = _GetPathForFile(rosettaFile.Key, disabledFileName);
 
         if (!string.IsNullOrWhiteSpace(absolutePath))
-          _EnableFileWithRename(absolutePath);
+          fileChanged |= _EnableFileWithRename(absolutePath);
       }
+
+      return fileChanged;
     }
 
     private static void _DisableRosettaFiles()
@@ -260,19 +267,30 @@ namespace Niantic.ARDK.Internals
       }
     }
 
-    private static void _EnableFileWithRename(string sourcePath)
+    private static bool _EnableFileWithRename(string sourceFilePath)
     {
-      string newPath = sourcePath.Substring(0, sourcePath.Length - FileDisablingSuffix.Length);
+      string sourcePathEnabledFile = sourceFilePath.Substring(0, sourceFilePath.Length - FileDisablingSuffix.Length);
 
-      if (File.Exists(newPath))
+      if (File.Exists(sourcePathEnabledFile))
       {
-        ARLog._Debug($"File with name {newPath} already exists. So cleaning it up");
-        File.Delete(newPath);
+        ARLog._Debug($"File with name {sourcePathEnabledFile} already exists. So removing disabled file if exists");
+        if (File.Exists(sourceFilePath))
+        {
+          ARLog._Debug($"Deleting {sourceFilePath}");
+
+          File.Delete(sourceFilePath);
+          RemoveMetaFile(sourceFilePath);
+        }
+      }
+      else
+      {
+        ARLog._Debug($"File with name {sourcePathEnabledFile} does not exist. Creating it.");
+        File.Move(sourceFilePath, sourcePathEnabledFile);
+        RemoveMetaFile(sourceFilePath);
+        return true;
       }
 
-      File.Move(sourcePath, newPath);
-
-      RemoveMetaFile(sourcePath);
+      return false;
     }
 
     private static void _DisableFileWithRename(string sourcePath)
@@ -286,10 +304,9 @@ namespace Niantic.ARDK.Internals
       }
 
       File.Move(sourcePath, newPath);
-
       RemoveMetaFile(sourcePath);
     }
-
+    
     private static void RemoveMetaFile(string sourcePath)
     {
       string metaFilePath = sourcePath + ".meta";
@@ -324,9 +341,9 @@ namespace Niantic.ARDK.Internals
 
     private static void InitializeTelemetry()
     {
-      _telemetryService = _TelemetryService.Instance; 
+      _telemetryService = _TelemetryService.Instance;
       _telemetryService.Start(Application.persistentDataPath);
-      
+
       _TelemetryHelper.Start();
     }
 

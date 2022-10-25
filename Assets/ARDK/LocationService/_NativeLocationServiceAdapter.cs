@@ -2,7 +2,10 @@
 
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.Internals;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.LocationService
 {

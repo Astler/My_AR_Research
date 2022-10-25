@@ -1,5 +1,4 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-#if SHARED_AR_V2
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,9 +20,12 @@ using Niantic.ARDK.Utilities.Logging;
 
 using UnityEngine;
 
-namespace Niantic.Experimental.ARDK.SharedAR.LLAPI
+namespace Niantic.Experimental.ARDK.SharedAR
 {
-  internal sealed class MockColocalization :
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public class MockColocalization :
     IColocalization
   {
     private const string STATE_PREFIX = "state_";
@@ -36,7 +38,6 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI
         _datastore = datastore;
     }
 
-    // Start Colocalization
     public void Start() {
         // Send self peer state stable
         if (_networking != null && _datastore != null) {
@@ -49,19 +50,23 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI
         }
     }
 
+    public void Stop() {
+      // TODO: implement
+    }
+
     private void OnPersistentKVUpdated(KeyValuePairArgs args) {
       if (args.Key.StartsWith(STATE_PREFIX))
       {
         var peer = PeerSerialization.PeerFromKey(args.Key);
         if (peer.Equals(_self)) {
           // Potential boiler plate?
-          byte[] value = new byte[1024]; // TODO(kmori): adjust buf size
+          byte[] value = new byte[1024]; // TODO: adjust buf size
           _datastore.GetData(args.Key, ref value);
           var colocalizationState = 
             PeerSerialization.ColocalizationStateFromBytes(new MemoryStream(value));
           var stateArgs = new ColocalizationStateUpdatedArgs
           (
-            PeerIDv0.GetPeer(peer),
+            peer,
             colocalizationState
           );
           var handler = ColocalizationStateUpdated;
@@ -96,14 +101,13 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI
     public event ArdkEventHandler<PeerPoseReceivedArgs> PeerPoseReceived;
 #pragma warning restore 0067
 
-    public ColocalizationState ConvertToSharedSpace(Matrix4x4 poseInUnitySpace, out Matrix4x4 poseInSharedSpace) {
-        poseInSharedSpace = poseInUnitySpace;
-        return ColocalizationState.Colocalized;
+    public void LocalPoseToAligned(Matrix4x4 poseInLocalSpace, out Matrix4x4 poseInAlignedSpace) {
+        poseInAlignedSpace = poseInLocalSpace;
     }
 
-    public ColocalizationState ConvertToUnitySpace(Matrix4x4 poseInSharedSpace, out Matrix4x4 poseInUnitySpace) {
-        poseInUnitySpace = poseInSharedSpace;
-        return ColocalizationState.Colocalized;
+    public ColocalizationAlignmentResult AlignedPoseToLocal(IPeerID id, Matrix4x4 poseInAlignedSpace, out Matrix4x4 poseInLocalSpace) {
+        poseInLocalSpace = poseInAlignedSpace;
+        return ColocalizationAlignmentResult.Success;
     }
 
     public void Dispose()
@@ -117,4 +121,3 @@ namespace Niantic.Experimental.ARDK.SharedAR.LLAPI
     }
   }
 }
-#endif // SHARED_AR_V2

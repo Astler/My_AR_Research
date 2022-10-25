@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Items;
+using Niantic.ARDK.AR.Anchors;
+using Niantic.ARDK.Configuration;
 using Prototype.AR;
+using Prototype.AR.FoundationAR;
 using Prototype.Assets;
 using Prototype.Core;
 using Prototype.Data;
@@ -32,18 +35,30 @@ namespace Prototype
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
 
+        public IARAnchor AddAnchor(Vector2 position)
+        {
+            return _arController.AddAnchor(position);
+        }
+
+        public void ClearAnchors()
+        {
+            _arController.ClearAnchors();
+        }
+
         private void Awake()
         {
+            ArdkGlobalConfig.SetUserIdOnLogin(Application.identifier);
+
             _playerData = new PlayerData();
             _customZones = PlayerPrefsHelper.CustomZonesData.Length == 0
                 ? new List<PortalZoneModel>()
                 : JsonUtility.FromJson<List<PortalZoneModel>>(PlayerPrefsHelper.CustomZonesData);
+
+            _arController = FindObjectOfType<ARDKController>();
         }
 
         private void Start()
         {
-            _arController = FindObjectOfType<ARDKController>();
-
             if (_arController == null) return;
 
             _cameraView = _arController.GetCamera();
@@ -156,7 +171,7 @@ namespace Prototype
 
                 portalsList.Add(viewInfo);
             }
-            
+
             return portalsList;
         }
 
@@ -165,5 +180,7 @@ namespace Prototype
             _customZones.Add(newZone);
             PlayerPrefsHelper.CustomZonesData = JsonUtility.ToJson(_customZones);
         }
+
+        public IARController GetARController() => _arController;
     }
 }

@@ -1,8 +1,10 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
+
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.LocationService;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VPSCoverage.GeoserviceMessages
@@ -20,7 +22,7 @@ namespace Niantic.ARDK.VPSCoverage.GeoserviceMessages
     private int user_distance_to_query_location_in_meters;
 
     [SerializeField]
-    private ARCommonMetadataStruct ar_common_metadata;
+    internal ARCommonMetadataStruct ar_common_metadata;
 
     public _CoverageAreasRequest(LatLng queryLocation, int queryRadiusInMeters, int userDistanceToQueryLocationInMeters, ARCommonMetadataStruct arCommonMetadata):
       this(queryLocation, queryRadiusInMeters, arCommonMetadata)

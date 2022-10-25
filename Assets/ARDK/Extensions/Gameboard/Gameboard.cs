@@ -3,8 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
+
 using Random = UnityEngine.Random;
 
 namespace Niantic.ARDK.Extensions.Gameboard
@@ -205,7 +208,7 @@ namespace Niantic.ARDK.Extensions.Gameboard
 
       // Construct a mathematical plane
       var position = Utils.TileToPosition(surface.Elements.FirstOrDefault().Coordinates, _settings.TileSize);
-      var p = new Plane
+      var p = new UnityEngine.Plane
         (Vector3.up, new Vector3(position.x, surface.Elevation, position.y));
 
       // Raycast plane

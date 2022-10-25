@@ -2,10 +2,13 @@
 
 using System;
 using System.Threading.Tasks;
+
 using Niantic.ARDK.LocationService;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.VPSCoverage.GeoserviceMessages;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Niantic.ARDK.VPSCoverage
 {

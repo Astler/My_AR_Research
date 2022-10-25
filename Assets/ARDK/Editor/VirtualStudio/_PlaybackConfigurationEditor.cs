@@ -1,5 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+using Niantic.ARDK.Editor;
+using Niantic.ARDK.Utilities.Logging;
+using Niantic.ARDK.VirtualStudio.AR;
+
 using UnityEditor;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio.Editor
@@ -27,14 +36,13 @@ namespace Niantic.ARDK.VirtualStudio.Editor
       DrawDatsetGUI();
     }
 
-    const char refreshArrow = '\u25c9';
     private void DrawDatsetGUI()
     {
       EditorGUILayout.BeginHorizontal();
 
       EditorGUILayout.TextField("Dataset", Launcher.DatasetPath);
 
-      if (GUILayout.Button(refreshArrow.ToString(), GUILayout.Width(50)))
+      if (GUILayout.Button(CommonStyles.FindIcon.ToString(), GUILayout.Width(50)))
       {
         var path = EditorUtility.OpenFolderPanel("Select Dataset Directory", Launcher.DatasetPath, "");
         if (path.Length > 0)

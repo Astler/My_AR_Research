@@ -1,7 +1,8 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using Niantic.ARDK.Extensions;
+
 using UnityEditor;
+
 using UnityEngine;
 
 namespace ARDK.Editor.Extensions.Rendering

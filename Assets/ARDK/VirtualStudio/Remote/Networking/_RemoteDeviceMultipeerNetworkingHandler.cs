@@ -1,12 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Text;
+
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
 using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VirtualStudio.Remote.Data;
+
 using UnityEngine.Networking.PlayerConnection;
 
 namespace Niantic.ARDK.VirtualStudio.Remote
@@ -224,9 +225,9 @@ namespace Niantic.ARDK.VirtualStudio.Remote
       _RemoteConnection.Send
       (
         NetworkingPersistentKeyValueUpdatedMessage.ID.Combine(InnerNetworking.StageIdentifier),
-        new NetworkingPersistentKeyValueUpdatedMessage
+        new NetworkingPersistentKeyValueUpdatedMessage()
         {
-          Key = Encoding.UTF8.GetBytes(args.Key), Value = args.CopyValue()
+          Key = System.Text.Encoding.UTF8.GetBytes(args.Key), Value = args.CopyValue()
         }.SerializeToArray()
       );
     }
@@ -303,7 +304,7 @@ namespace Niantic.ARDK.VirtualStudio.Remote
     {
       var message = e.data.DeserializeFromArray<NetworkingStorePersistentKeyValueMessage>();
 
-      var key = Encoding.UTF8.GetString(message.Key);
+      var key = System.Text.Encoding.UTF8.GetString(message.Key);
       var value = message.Value;
 
       _networking.StorePersistentKeyValue(key, value);

@@ -2,9 +2,11 @@
 
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.AR.PlaneGeometry;
 using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Anchors
@@ -35,8 +37,9 @@ namespace Niantic.ARDK.AR.Anchors
         if (_NativeAccess.Mode == _NativeAccess.ModeType.Native)
           return (PlaneAlignment)_NARPlaneAnchor_GetAlignment(_NativeHandle);
         #pragma warning disable 0162
-        return PlaneAlignment.Unknown;
-#pragma warning restore 0162
+        else
+          return PlaneAlignment.Unknown;
+        #pragma warning restore 0162
       }
     }
 
@@ -47,8 +50,9 @@ namespace Niantic.ARDK.AR.Anchors
         if (_NativeAccess.Mode == _NativeAccess.ModeType.Native)
           return (PlaneClassification)_NARPlaneAnchor_GetClassification(_NativeHandle);
         #pragma warning disable 0162
-        return PlaneClassification.None;
-#pragma warning restore 0162
+        else
+          return PlaneClassification.None;
+        #pragma warning restore 0162
       }
     }
 
@@ -59,8 +63,9 @@ namespace Niantic.ARDK.AR.Anchors
         if (_NativeAccess.Mode == _NativeAccess.ModeType.Native)
           return (PlaneClassificationStatus)_NARPlaneAnchor_GetClassificationStatus(_NativeHandle);
         #pragma warning disable 0162
-        return PlaneClassificationStatus.NotAvailable;
-#pragma warning restore 0162
+        else
+          return PlaneClassificationStatus.NotAvailable;
+        #pragma warning restore 0162
       }
     }
 

@@ -3,6 +3,7 @@
 
 #if UNITY_EDITOR
 using System;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,9 +12,9 @@ namespace Niantic.ARDK.External {
   [CustomPropertyDrawer(typeof(EnumFlagAttribute))]
   public class EnumFlagDrawer : PropertyDrawer {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-      Type propertyType = fieldInfo.FieldType;
-      string[] enumNames = Enum.GetNames(propertyType);
-      int[] enumValues = Enum.GetValues(propertyType) as int[];
+      System.Type propertyType = fieldInfo.FieldType;
+      string[] enumNames = System.Enum.GetNames(propertyType);
+      int[] enumValues = System.Enum.GetValues(propertyType) as int[];
 
       int currentVal = property.intValue;
       int enumMask = 0;

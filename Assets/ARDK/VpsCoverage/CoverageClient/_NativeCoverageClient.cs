@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading.Tasks;
+
 using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Configuration;
 using Niantic.ARDK.Configuration.Internal;
@@ -10,9 +11,12 @@ using Niantic.ARDK.Telemetry;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.VPSCoverage.GeoserviceMessages;
+
 using UnityEngine;
+
 using LocationInfo = Niantic.ARDK.LocationService.LocationInfo;
 using LocationServiceStatus = UnityEngine.LocationServiceStatus;
+
 
 namespace Niantic.ARDK.VPSCoverage
 {
@@ -55,7 +59,7 @@ namespace Niantic.ARDK.VPSCoverage
         request = new _CoverageAreasRequest(queryLocation, queryRadius, metadata);
       }
 
-      ReportRequestToTelemetry(CoverageAreasMethodName);
+      ReportRequestToTelemetry(CoverageAreasMethodName, request.ar_common_metadata.request_id);
 
       _HttpResponse<_CoverageAreasResponse> response =
         await _HttpClient.SendPostAsync<_CoverageAreasRequest, _CoverageAreasResponse>
@@ -69,7 +73,7 @@ namespace Niantic.ARDK.VPSCoverage
       {
         response.Status = _ResponseStatusTranslator.FromString(response.Data.status);
       }
-      ReportResponseToTelemetry(CoverageAreasMethodName, response.HttpStatusCode, response.Status);
+      ReportResponseToTelemetry(CoverageAreasMethodName, request.ar_common_metadata.request_id, response.HttpStatusCode, response.Status);
 
       CoverageAreasResult result = new CoverageAreasResult(response);
 
@@ -89,7 +93,7 @@ namespace Niantic.ARDK.VPSCoverage
       ARLog._Debug(JsonUtility.ToJson(metadata, true));
 
       _LocalizationTargetsRequest request = new _LocalizationTargetsRequest(targetIdentifiers, metadata);
-      ReportRequestToTelemetry(LocalizationTargetMethodName);
+      ReportRequestToTelemetry(LocalizationTargetMethodName, request.ar_common_metadata.request_id);
       
       _HttpResponse<_LocalizationTargetsResponse> response =
         await _HttpClient.SendPostAsync<_LocalizationTargetsRequest, _LocalizationTargetsResponse>
@@ -101,7 +105,7 @@ namespace Niantic.ARDK.VPSCoverage
 
       if (response.Status == ResponseStatus.Success)
         response.Status = _ResponseStatusTranslator.FromString(response.Data.status);
-      ReportResponseToTelemetry(LocalizationTargetMethodName, response.HttpStatusCode, response.Status);
+      ReportResponseToTelemetry(LocalizationTargetMethodName, request.ar_common_metadata.request_id, response.HttpStatusCode, response.Status);
       
       LocalizationTargetsResult result = new LocalizationTargetsResult(response);
 
@@ -125,35 +129,18 @@ namespace Niantic.ARDK.VPSCoverage
       LocalizationTargetsResult result = await RequestLocalizationTargetsAsync(targetIdentifiers);
       onTargetsReceived?.Invoke(result);
     }
-
-    private bool _isFirstCoverageAreasRequest = true;
-    private bool _isFirstLocalisationTargetsRequest = true;
-    private void ReportRequestToTelemetry(string methodName)
+    
+    private void ReportRequestToTelemetry(string methodName, string requestId)
     {
       try
       {
-        if (methodName.Equals(CoverageAreasMethodName))
-        {
-          if (_isFirstCoverageAreasRequest)
-            _isFirstCoverageAreasRequest = false;
-          else
-            return;
-        }
-
-        if (methodName.Equals(LocalizationTargetMethodName))
-        {
-          if (_isFirstLocalisationTargetsRequest)
-            _isFirstLocalisationTargetsRequest = false;
-          else
-            return;
-        }
-
         _TelemetryService.RecordEvent
         (
-          new LightshipServiceEvent
+          new LightshipServiceEvent()
           {
             IsRequest = true, ApiMethodName = methodName,
-          }
+          },
+          requestId
         );
       }
       catch (Exception e)
@@ -161,41 +148,25 @@ namespace Niantic.ARDK.VPSCoverage
         ARLog._Debug($"Error logging vps coverage request {e}");
       }
     }
-
-    private bool _isFirstCoverageAreasResponse = true;
-    private bool _isFirstLocalisationTargetsResponse = true;
-    private void ReportResponseToTelemetry(string methodName, long httpStatus, ResponseStatus responseStatus)
+    
+    private void ReportResponseToTelemetry(string methodName, string requestId, long httpStatus, ResponseStatus responseStatus)
     {
       try
       {
-        if (methodName.Equals(CoverageAreasMethodName))
-        {
-          if(_isFirstCoverageAreasResponse)
-            _isFirstCoverageAreasResponse = false;
-          else
-            return;
-        }
-
-        if (methodName.Equals(LocalizationTargetMethodName))
-        {
-          if (_isFirstLocalisationTargetsResponse)
-            _isFirstLocalisationTargetsResponse = false;
-          else
-            return;
-        }
-
         bool isSuccess = false;
         if (httpStatus >= 200 && httpStatus < 300)
           isSuccess = true;
         
-        _TelemetryService.RecordEvent(new LightshipServiceEvent
-        {
-          IsRequest = false,
-          ApiMethodName = methodName,
-          Success = isSuccess,
-          Response = responseStatus.ToString(),
-          HttpStatus = httpStatus.ToString(),
-        });
+        _TelemetryService.RecordEvent(
+          new LightshipServiceEvent()
+          {
+            IsRequest = false,
+            ApiMethodName = methodName,
+            Success = isSuccess,
+            Response = responseStatus.ToString(),
+            HttpStatus = httpStatus.ToString(),
+          },
+          requestId);
       }
       catch (Exception e)
       {

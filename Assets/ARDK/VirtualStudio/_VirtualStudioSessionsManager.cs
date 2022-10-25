@@ -2,7 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+
 using Niantic.ARDK.AR;
+using Niantic.ARDK.AR.Anchors;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.AR.Networking;
 using Niantic.ARDK.AR.Networking.ARNetworkingEventArgs;
@@ -15,6 +17,8 @@ using Niantic.ARDK.VirtualStudio.AR.Networking;
 using Niantic.ARDK.VirtualStudio.AR.Networking.Mock;
 using Niantic.ARDK.VirtualStudio.Networking;
 using Niantic.ARDK.VirtualStudio.Networking.Mock;
+
+using UnityEngine;
 
 namespace Niantic.ARDK.VirtualStudio
 {
@@ -358,17 +362,19 @@ namespace Niantic.ARDK.VirtualStudio
         ARLog._Error("This method is only valid while running MultipeerNetworking in Mock mode.");
         return null;
       }
-
-      var peerStageIdentifier = mockPeer.StageIdentifier;
-      var networking = MultipeerMediator.GetSession(peerStageIdentifier);
-
-      if (networking != null)
+      else
       {
-        var playerName = _arSessionIdentifierToPlayerName[networking.StageIdentifier];
-        return _mockPlayers[playerName];
-      }
+        var peerStageIdentifier = mockPeer.StageIdentifier;
+        var networking = MultipeerMediator.GetSession(peerStageIdentifier);
 
-      return null;
+        if (networking != null)
+        {
+          var playerName = _arSessionIdentifierToPlayerName[networking.StageIdentifier];
+          return _mockPlayers[playerName];
+        }
+
+        return null;
+      }
     }
   }
 }

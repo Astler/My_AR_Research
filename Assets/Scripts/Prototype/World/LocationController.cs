@@ -170,12 +170,12 @@ namespace Prototype.World
         }
 
         public static Vector2 GetPlayerPosition() =>
-            new(Input.location.lastData.longitude, Input.location.lastData.latitude);
+            new(Input.location.lastData.latitude, Input.location.lastData.longitude);
 
         private void FixedUpdate()
         {
-            _playerLocationChanged.Value = new Vector2(locationService.GetCurrentLocation().longitude,
-                locationService.GetCurrentLocation().latitude);
+            _playerLocationChanged.Value = new Vector2(locationService.GetCurrentLocation().latitude,
+                locationService.GetCurrentLocation().longitude);
         }
     }
 }

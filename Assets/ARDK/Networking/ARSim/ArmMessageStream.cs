@@ -3,9 +3,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
+
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.BinarySerialization;
+using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Networking.ARSim 

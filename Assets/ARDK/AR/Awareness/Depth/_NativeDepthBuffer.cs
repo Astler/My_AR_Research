@@ -1,10 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
+using Niantic.ARDK.Internals;
+
 using System;
 using System.Runtime.InteropServices;
+
 using Niantic.ARDK.AR.Camera;
-using Niantic.ARDK.Internals;
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Awareness.Depth
@@ -108,32 +111,6 @@ namespace Niantic.ARDK.AR.Awareness.Depth
         );
 
       return new _NativeDepthBuffer(newHandle, _worldScale, Intrinsics);
-    }
-
-    public float Sample(Vector2 uv)
-    {
-      var w = (int)Width;
-      var h = (int)Height;
-
-      var x = Mathf.Clamp(Mathf.RoundToInt(uv.x * w - 0.5f), 0, w - 1);
-      var y = Mathf.Clamp(Mathf.RoundToInt(uv.y * h - 0.5f), 0, h - 1);
-
-      return Data[x + w * y];
-    }
-
-    public float Sample(Vector2 uv, Matrix4x4 transform)
-    {
-      var w = (int)Width;
-      var h = (int)Height;
-
-      var st = transform * new Vector4(uv.x, uv.y, 1.0f, 1.0f);
-      var sx = st.x / st.z;
-      var sy = st.y / st.z;
-
-      var x = Mathf.Clamp(Mathf.RoundToInt(sx * w - 0.5f), 0, w - 1);
-      var y = Mathf.Clamp(Mathf.RoundToInt(sy * h - 0.5f), 0, h - 1);
-
-      return Data[x + w * y];
     }
 
     public bool CreateOrUpdateTextureARGB32

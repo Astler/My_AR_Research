@@ -1,10 +1,13 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Google.Protobuf;
+
 using Niantic.ARDK.AR.Protobuf;
+using Niantic.ARDK.Utilities.Logging;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.Configuration.Internal
@@ -84,7 +87,7 @@ namespace Niantic.ARDK.Configuration.Internal
 
     private static string EncodeAsBase64(string stringToEncode)
     {
-      byte[] stringToEncodeAsBytes = ASCIIEncoding.ASCII.GetBytes(stringToEncode);
+      byte[] stringToEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(stringToEncode);
       return Convert.ToBase64String(stringToEncodeAsBytes);
     }
 

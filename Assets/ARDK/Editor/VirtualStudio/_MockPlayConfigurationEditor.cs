@@ -1,13 +1,20 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
-
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Niantic.ARDK.AR;
 using Niantic.ARDK.AR.Networking;
+using Niantic.ARDK.Editor;
+using Niantic.ARDK.Networking;
+using Niantic.ARDK.Networking.MultipeerNetworkingEventArgs;
+using Niantic.ARDK.Utilities.Editor;
 using Niantic.ARDK.Utilities.Extensions;
 using Niantic.ARDK.Utilities.Logging;
+using Niantic.ARDK.VirtualStudio.AR;
 using Niantic.ARDK.VirtualStudio.AR.Mock;
+using Niantic.ARDK.VirtualStudio.Networking.Mock;
+
 using UnityEditor;
 using UnityEngine;
 
@@ -39,7 +46,7 @@ namespace Niantic.ARDK.VirtualStudio.Editor
     private void LoadMockScenes()
     {
       var mockPrefabs =
-        _AssetDatabaseExtension.FindPrefabsWithComponent<MockSceneConfiguration>("Assets");
+        _AssetDatabaseUtilities.FindPrefabsWithComponent<MockSceneConfiguration>("Assets");
 
       _mockSceneGuids = new string[mockPrefabs.Length];
 
@@ -60,7 +67,7 @@ namespace Niantic.ARDK.VirtualStudio.Editor
     private static void ValidateAllMockSceneLayers()
     {
       var mockPrefabs =
-        _AssetDatabaseExtension.FindPrefabsWithComponent<MockSceneConfiguration>("Assets");
+        _AssetDatabaseUtilities.FindPrefabsWithComponent<MockSceneConfiguration>("Assets");
 
       foreach (var prefab in mockPrefabs)
       {
@@ -92,7 +99,7 @@ namespace Niantic.ARDK.VirtualStudio.Editor
       DrawPlayers();
     }
 
-    const char refreshArrow = '\u21bb';
+
 
     private void DrawMockSceneGUI()
     {
@@ -110,10 +117,9 @@ namespace Niantic.ARDK.VirtualStudio.Editor
 
         var guid = _selectedMockSceneIndex >= 1 ? _mockSceneGuids[_selectedMockSceneIndex - 1] : "";
         Launcher.SceneGuid = guid;
-
       }
 
-      if (GUILayout.Button(refreshArrow.ToString(), GUILayout.Width(50)))
+      if (CommonStyles.RefreshButton())
         LoadMockScenes();
 
       EditorGUILayout.EndHorizontal();
@@ -244,7 +250,7 @@ namespace Niantic.ARDK.VirtualStudio.Editor
         EditorGUI.BeginDisabledGroup(Application.isPlaying);
         using (var col1 = new GUILayout.VerticalScope())
         {
-          var style = new[]
+          var style = new GUILayoutOption[]
           {
             GUILayout.Width(150)
           };

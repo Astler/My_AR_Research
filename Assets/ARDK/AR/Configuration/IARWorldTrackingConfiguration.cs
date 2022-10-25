@@ -2,7 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+
+using Niantic.ARDK.AR.Awareness.Depth.Generators;
 using Niantic.ARDK.AR.ReferenceImage;
+using Niantic.ARDK.AR.SLAM;
+using Niantic.ARDK.Utilities.Collections;
 
 namespace Niantic.ARDK.AR.Configuration
 {
@@ -47,11 +51,25 @@ namespace Niantic.ARDK.AR.Configuration
     /// A value specifying how many times the meshing routine
     /// should target running per second.
     UInt32 MeshingTargetFrameRate { get; set; }
-
-    /// A value specifying the radius in meters of the meshed area around the player. The minimum value is 5 meters.
-    /// The default value is 0, meaning that there is no limitations while the mesh grows forever.
+    
+    /// The value specifying the distance, in meters, of the meshed surface around the player. Existing mesh blocks are
+    /// decimated when distance to device is bigger than this threshold. Minimum distance is maximum meshing range.
+    /// @note A value of 0 represents 'Infinity'
+    [Obsolete("This property is obsolete. Use MeshDecimationThreshold instead.", false)]
     float MeshingRadius { get; set; }
 
+    /// The value specifying the distance, in meters, of the meshed surface around the player. Existing mesh blocks are
+    /// decimated when distance to device is bigger than this threshold. Minimum distance is maximum meshing range.
+    /// @note A value of 0 represents 'Infinity'
+    float MeshDecimationThreshold { get; set; }
+    
+    /// The value specifying the maximum range in meters of a depth measurement / estimation used
+    /// for meshing.
+    float MeshingRangeMax { get; set; }
+
+    /// The value specifying the edge length of the meshing voxels in meters.
+    float VoxelSize { get; set; }
+    
     /// A value specifying the target size of a mesh block in meters.
     float MeshingTargetBlockSize { get; set; }
 

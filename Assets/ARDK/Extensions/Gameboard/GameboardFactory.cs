@@ -70,7 +70,7 @@ namespace Niantic.ARDK.Extensions.Gameboard
             }
 
             gameboard.GameboardDestroyed +=
-                _ =>
+                (_) =>
                 {
                     lock (_activeGameboardLock)
                         if (_activeGameboard == gameboard)

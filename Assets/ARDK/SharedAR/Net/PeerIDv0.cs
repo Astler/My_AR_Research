@@ -1,74 +1,44 @@
-#if SHARED_AR_V2
+// Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 using Niantic.ARDK.Networking;
 
 namespace Niantic.Experimental.ARDK.SharedAR
 {
-
-  public class PeerIDv0 : IPeerID
+  /// @note This is an experimental feature. Experimental features should not be used in
+  /// production products as they are subject to breaking changes, not officially supported, and
+  /// may be deprecated without notice
+  public class PeerIDv0 : 
+    IPeerID
   {
-    // static members
-    private static Dictionary<string, IPeer> _peers;
+    private static readonly Dictionary<Guid, PeerIDv0> _peers;
 
     static PeerIDv0()
     {
-      _peers = new Dictionary<string, IPeer>();
+      _peers = new Dictionary<Guid, PeerIDv0>();
     }
 
-    public static IPeerID GetPeerID(IPeer peer)
+    public static IPeerID GetPeerID(Guid peerId)
     {
-      return GetPeerID(peer.ToString());
+      return _peers.ContainsKey(peerId) ? _peers[peerId] : null;
     }
 
-    public static IPeerID GetPeerID(string stringID)
+    private readonly IPeer _ipeer;
+    
+    public Guid Identifier
     {
-      if (_peers.ContainsKey(stringID))
-      {
-        return new PeerIDv0(_peers[stringID]);
-      }
-      else
-      {
-        return null;
-      }
+      get => _ipeer.Identifier;
     }
-
-    internal static IPeer GetPeer(IPeerID peerID)
-    {
-      if (_peers.ContainsKey(peerID.ToString()))
-      {
-        return _peers[peerID.ToString()];
-      }
-      else
-      {
-        return null;
-      }
-    }
-
-    //
-    private IPeer _ipeer;
 
     internal PeerIDv0(IPeer ipeer)
     {
       _ipeer = ipeer;
-      if (!_peers.ContainsKey(ipeer.ToString()))
+      if (!_peers.ContainsKey(ipeer.Identifier))
       {
-        _peers.Add(ipeer.ToString(), ipeer);
+        _peers.Add(ipeer.Identifier, this);
       }
-    }
-
-    // Implementing IPeerID
-    public override string ToString()
-    {
-      return _ipeer.ToString();
-    }
-
-    public Guid ToGUID()
-    {
-      return _ipeer.Identifier;
     }
 
     public override int GetHashCode()
@@ -76,19 +46,14 @@ namespace Niantic.Experimental.ARDK.SharedAR
       return _ipeer.GetHashCode();
     }
 
-    // Implementing IEqualable
     public bool Equals(IPeerID info)
     {
-      return info != null && _ipeer.Identifier.Equals(info.ToGUID());
+      return info != null && Identifier.Equals(info.Identifier);
     }
 
     public override bool Equals(object obj)
     {
       return Equals(obj as IPeerID);
     }
-
   };
-
-} // namespace Niantic.ARDK.SharedAR
-
-#endif // SHARED_AR_V2
+}

@@ -2,6 +2,7 @@
 
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities;
+
 using UnityEngine;
 
 namespace Niantic.ARDK.AR.Networking.ARNetworkingEventArgs

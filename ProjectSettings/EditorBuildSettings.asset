@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/SelectedScene.unity
     guid: d5d8cc0d1c8974b858745941de2b4123
+  - enabled: 1
+    path: Assets/Mapbox/Examples/0_PrefabScenes/Location-basedGame.unity
+    guid: 42f6aa7ce7a604f16ade319663f46ceb
+  - enabled: 1
+    path: Assets/LightshipHUB/Samples/VPS/WayspotAnchors.unity
+    guid: 7f59a72c54d7846b099709832cfd7170
+  - enabled: 1
+    path: Assets/LightshipHUB/Samples/VPS/VpsCoverageList.unity
+    guid: 721787c6a652248c29ebc1d843237ffe
+  - enabled: 1
+    path: Assets/LightshipHUB/Samples/AR Fundamentals/PlaneTracker.unity
+    guid: ce63ad5768cba4429b5a2535858c5a6a
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 455ead877bcd8ff47a62e2e686e4e343,
       type: 2}
