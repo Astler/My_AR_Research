@@ -54,13 +54,13 @@
      <None Include="Assets/Plugins/Editor/JetBrains.RiderFlow/InstallationData/Resources/ReEditor/RiderLight.xml" />
      <None Include="Assets/Plugins/Editor/JetBrains.RiderFlow/InstallationData/Resources/ReEditor/RiderDark.xml" />
      <Reference Include="UnityEngine">
-     <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.CoreModule">
-     <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor">
-     <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEditor.dll</HintPath>
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
