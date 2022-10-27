@@ -17,7 +17,7 @@ MonoBehaviour:
     latitude: 47.568328857421875
     longitude: 34.391990661621094
     radius: 20
-    isActive: 0
+    isActive: 1
   - name: Dev Portal
     latitude: 48.5089416503906
     longitude: 35.077808380127
@@ -27,12 +27,12 @@ MonoBehaviour:
     latitude: 48.4559393
     longitude: 35.0491729
     radius: 20
-    isActive: 0
+    isActive: 1
   - name: MS Portal
     latitude: 48.4557197
     longitude: 35.0503276
     radius: 20
-    isActive: 0
+    isActive: 1
   - name: Steve
     latitude: 26.0127707
     longitude: -80.4276731
@@ -47,7 +47,7 @@ MonoBehaviour:
     latitude: 32.195068
     longitude: 34.878197
     radius: 30
-    isActive: 0
+    isActive: 1
   - name: Dev Near
     latitude: 48.5085339
     longitude: 35.0768523
@@ -57,7 +57,22 @@ MonoBehaviour:
     latitude: 0
     longitude: 0
     radius: 100
-    isActive: 0
+    isActive: 1
+  - name: Dead End Near
+    latitude: 10
+    longitude: 0
+    radius: 100
+    isActive: 1
+  - name: QA
+    latitude: 48.402111657581024
+    longitude: 35.006753963293214
+    radius: 100
+    isActive: 1
+  - name: QA Near
+    latitude: 48.4025754950592
+    longitude: 35.00711848125057
+    radius: 100
+    isActive: 1
   giftModels:
   - giftViewPrefab: {fileID: 1721562904039139676, guid: fded08e8410875d44b61d25fc66eb6de,
       type: 3}

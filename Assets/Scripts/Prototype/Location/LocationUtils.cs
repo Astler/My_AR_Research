@@ -14,8 +14,8 @@ namespace Prototype.Location
         {
             double distance = Distance(Input.location.lastData.latitude,
                 Input.location.lastData.longitude,
-                targetPosition.y,
-                targetPosition.x);
+                targetPosition.x,
+                targetPosition.y);
 
             string result;
 

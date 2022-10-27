@@ -43,7 +43,7 @@ namespace Prototype.AR
             _initialized.Value = true;
         }
 
-        public IARAnchor AddAnchor(Vector2 position)
+        public IARAnchor AddAnchor(Vector2 position, Quaternion rotation = default)
         {
             Matrix4x4 matrix = new();
             matrix.SetTRS(position, Quaternion.identity, Vector3.one);

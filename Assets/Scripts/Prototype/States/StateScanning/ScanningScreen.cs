@@ -1,12 +1,15 @@
+using System;
 using Modules.Shared.VFX.FeaturePoints;
 using Niantic.ARDK.Extensions.Meshing;
 using Prototype.Screens;
+using UniRx;
 using UnityEngine;
 
 namespace Prototype.States.StateScanning
 {
     public class ScanningScreen : ScreenView
     {
+        private const float MinStepDuration = 2f;
         private const float MinScanningDuration = 5f;
 
         private ARMeshManager _arMeshUpdater;
@@ -31,6 +34,12 @@ namespace Prototype.States.StateScanning
 
             _featurePointHelper.Tracking = true;
             _featurePointHelper.Spawning = true;
+
+            if (Application.isEditor)
+            {
+                Observable.Timer(TimeSpan.FromSeconds(MinStepDuration)).Subscribe(_ => FinishStep()).AddTo(this);
+                return;
+            }
         }
 
         protected override void OnStepFinished()

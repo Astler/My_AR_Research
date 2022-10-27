@@ -26,6 +26,12 @@ namespace Prototype.States.LocationDetection
             _transitionActive = false;
             BackdropView.SetActive(false);
 
+            if (Application.isEditor)
+            {
+                Observable.Timer(TimeSpan.FromSeconds(MinStepDuration)).Subscribe(_ => FinishStep()).AddTo(this);
+                return;
+            }
+
             _connectionListener = _context.GetLocationController().NearestPortalZone.Subscribe(
                 delegate(PortalZoneModel model)
                 {

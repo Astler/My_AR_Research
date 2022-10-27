@@ -38,7 +38,7 @@ namespace Prototype.AR.FoundationAR
             return Vector3.zero;
         }
 
-        public IARAnchor AddAnchor(Vector2 position)
+        public IARAnchor AddAnchor(Vector2 position, Quaternion rotation = default)
         {
             return null;
         }

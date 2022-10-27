@@ -35,9 +35,9 @@ namespace Prototype
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
 
-        public IARAnchor AddAnchor(Vector2 position)
+        public IARAnchor AddAnchor(Vector2 position, Quaternion rotation = default)
         {
-            return _arController.AddAnchor(position);
+            return _arController.AddAnchor(position, rotation);
         }
 
         public void ClearAnchors()

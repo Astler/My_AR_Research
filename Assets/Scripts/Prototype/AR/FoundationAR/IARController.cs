@@ -12,7 +12,7 @@ namespace Prototype.AR.FoundationAR
         CameraView GetCamera();
         Vector3 GetPointerPosition();
         Vector3 GetCeilPosition();
-        IARAnchor AddAnchor(Vector2 position);
+        IARAnchor AddAnchor(Vector2 position, Quaternion rotation = default);
         void Reset();
         void ClearAnchors();
         IARSession GetSession();

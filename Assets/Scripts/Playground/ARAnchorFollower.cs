@@ -1,5 +1,4 @@
 using Niantic.ARDK.AR.Anchors;
-using Niantic.ARDK.Utilities;
 using UnityEngine;
 
 namespace Playground
@@ -10,16 +9,16 @@ namespace Playground
 
         private void Update()
         {
-            if (!gameObject.activeSelf) return;
-            
-            if (Anchor == null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            transform.position = Anchor.Transform.ToPosition();
-            transform.rotation = Anchor.Transform.ToRotation();
+            // if (!gameObject.activeSelf) return;
+            //
+            // if (Anchor == null)
+            // {
+            //     Destroy(gameObject);
+            //     return;
+            // }
+            //
+            // transform.position = Anchor.Transform.ToPosition();
+            // transform.rotation = Anchor.Transform.ToRotation();
         }
 
         public void SetActive(bool isActive)
