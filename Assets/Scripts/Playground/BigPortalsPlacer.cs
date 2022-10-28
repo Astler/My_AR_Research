@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Mapbox.Unity.Map;
-using Niantic.ARDK.AR.ARSessionEventArgs;
 using Prototype;
 using Prototype.Assets;
 using UniRx;
@@ -17,7 +15,8 @@ namespace Playground
         [SerializeField] private ARAnchorFollower controlPoint;
         [SerializeField] private ARAnchorFollower movePoint;
         [SerializeField] private AbstractMap abstractMap;
-        [SerializeField] private Transform camera;
+        [SerializeField] private Transform arMapCamera;
+        [SerializeField] private Transform mainCamera;
         private ProjectContext _context;
         private ARAnchorFollower _pointMe;
         private readonly List<SpawnOnMapAR> _anchors = new();
@@ -54,26 +53,24 @@ namespace Playground
             return false;
         }
 
-        private void OnAnchorsUpdated(AnchorsArgs args)
-        {
-            _startCompassRotation = -Input.compass.trueHeading;
-            _deviceRotation = -_startCompassRotation + camera.transform.rotation.eulerAngles.y;
-
-            abstractMap.transform.rotation = Quaternion.Euler(new Vector3(0f, -Input.compass.trueHeading, 0f));
-        }
-
         private void PlaceObjects()
         {
             _startCompassRotation = Input.compass.trueHeading;
             // _deviceRotation = -_startCompassRotation + camera.transform.rotation.eulerAngles.y;
             abstractMap.Root.rotation =
-                Quaternion.Euler(new Vector3(0f, -_startCompassRotation + camera.rotation.eulerAngles.y, 0f));
+                Quaternion.Euler(new Vector3(0f, -_startCompassRotation + arMapCamera.rotation.eulerAngles.y, 0f));
 
-            _context.GetARController().GetSession().CameraTrackingStateChanged += _ =>
+            _context.GetARController().GetSession().CameraTrackingStateChanged += changes =>
             {
-                abstractMap.Root.rotation =
-                    Quaternion.Euler(new Vector3(0f, -_startCompassRotation + camera.rotation.eulerAngles.y, 0f));
+                _startCompassRotation = Input.compass.trueHeading;
+                Debug.Log("rebuild this shit plase");
+                Debug.Log($"pre rebuild rotation = {abstractMap.Root.rotation.eulerAngles.y}");
+                abstractMap.Root.rotation = Quaternion.Euler(new Vector3(0f,
+                    -_startCompassRotation + changes.Camera.Transform.rotation.eulerAngles.y, 0f));
+                Debug.Log($"post rebuild rotation = {abstractMap.Root.rotation.eulerAngles.y}");
             };
+
+            _context.GetARController().GetSession().Ran += args => { Debug.Log("RAN!"); };
 
             _context.GetLocationController().PlayerLocationChanged.Subscribe(delegate(Vector2 position)
             {
@@ -101,10 +98,8 @@ namespace Playground
 
         private void Update()
         {
-            // _startCompassRotation = Input.compass.trueHeading;
-            // // _deviceRotation = -_startCompassRotation + camera.transform.rotation.eulerAngles.y;
-            // abstractMap.Root.rotation =
-            //     Quaternion.Euler(new Vector3(0f, _startCompassRotation - camera.rotation.eulerAngles.y + 30, 0f));
+            arMapCamera.rotation = mainCamera.rotation;
+            // arMapCamera.position = mainCamera.position;
         }
     }
 }

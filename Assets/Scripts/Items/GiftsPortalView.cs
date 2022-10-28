@@ -28,14 +28,14 @@ namespace Items
 
         private IEnumerator OpenPortalCoroutine(Action onOpen)
         {
-            idleParticle.gameObject.SetActive(false);
-            closeParticle.gameObject.SetActive(false);
-            openParticle.gameObject.SetActive(true);
-            openParticle.Play();
+            // idleParticle.gameObject.SetActive(false);
+            // closeParticle.gameObject.SetActive(false);
+            // openParticle.gameObject.SetActive(true);
+            // openParticle.Play();
             yield return new WaitForSeconds(openParticle.main.duration);
-            openParticle.gameObject.SetActive(false);
-            idleParticle.gameObject.SetActive(true);
-            idleParticle.Play();
+            // openParticle.gameObject.SetActive(false);
+            // idleParticle.gameObject.SetActive(true);
+            // idleParticle.Play();
             onOpen?.Invoke();
         }
 
@@ -46,12 +46,12 @@ namespace Items
 
         private IEnumerator ClosePortalCoroutine()
         {
-            openParticle.gameObject.SetActive(false);
-            idleParticle.gameObject.SetActive(false);
-            closeParticle.gameObject.SetActive(true);
-            closeParticle.Play();
+            // openParticle.gameObject.SetActive(false);
+            // idleParticle.gameObject.SetActive(false);
+            // closeParticle.gameObject.SetActive(true);
+            // closeParticle.Play();
             yield return new WaitForSeconds(closeParticle.main.duration);
-            closeParticle.gameObject.SetActive(false);
+            // closeParticle.gameObject.SetActive(false);
         }
 
         public void SetPosition(Vector3 position)

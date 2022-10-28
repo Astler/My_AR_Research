@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8418317221641902664}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2653817024718053303}
   - component: {fileID: 2653817024718053304}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: _AR Portal World On Map(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2653817024769521002}
   - component: {fileID: 2653817024769521003}
   - component: {fileID: 2653817024769521004}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2653817025077099766}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2653817025891876951}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 2653817026016009360}
   - component: {fileID: 2653817026016009361}
   - component: {fileID: 2653817026016009362}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2653817026035242821}
   - component: {fileID: 2653817026035242820}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: BigPortal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 2653817026154941387}
   - component: {fileID: 2653817026154941388}
   - component: {fileID: 2653817026154941389}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 2653817026164691628}
   - component: {fileID: 2653817026164691629}
   - component: {fileID: 2653817026164691630}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Dots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5344,7 +5344,7 @@ GameObject:
   - component: {fileID: 2653817026371384856}
   - component: {fileID: 2653817026371384854}
   - component: {fileID: 2653817026371384855}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: PortalYellowIdle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10177,7 +10177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2653817026536413069}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}

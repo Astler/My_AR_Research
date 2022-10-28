@@ -38,7 +38,7 @@ TagManager:
   - food_experimental
   - loungeable_experimental
   - snow_experimental
-  - 
+  - AR_WorldMap
   - 
   m_SortingLayers:
   - name: Default

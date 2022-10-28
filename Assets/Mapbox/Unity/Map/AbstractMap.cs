@@ -481,8 +481,8 @@ namespace Mapbox.Unity.Map
 			{
 				TileProvider.ExtentChanged -= OnMapExtentChanged;
 			}
-			_mapVisualizer.ClearMap();
-			_mapVisualizer.Destroy();
+			MapVisualizer.ClearMap();
+			MapVisualizer.Destroy();
 		}
 
 		protected virtual void Awake()

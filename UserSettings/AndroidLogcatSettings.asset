@@ -1,42 +1,90 @@
 {
     "m_SelectedDeviceId": "8B8X15GYE",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "8B8X15GYE",
+        "name": "com.ms.vr_demo",
+        "processId": 24300,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 17984,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 21693,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 25107,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 28545,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
             "name": "com.google.android.apps.nexuslauncher",
-            "processId": 2939,
+            "processId": 17480,
             "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
-            "processId": 21814,
-            "exited": true
+            "processId": 29973,
+            "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
-            "processId": 24382,
-            "exited": true
+            "processId": 2304,
+            "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
-            "processId": 10750,
-            "exited": true
+            "processId": 6895,
+            "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
-            "processId": 23628,
-            "exited": true
+            "processId": 10664,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 14063,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 18906,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 23849,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 24300,
+            "exited": false
         }
     ],
     "m_Tags": {

@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: City Portal
     latitude: 47.568328857421875
     longitude: 34.391990661621094
-    radius: 20
+    radius: 10
     isActive: 1
   - name: Dev Portal
     latitude: 48.5089416503906
@@ -26,12 +26,12 @@ MonoBehaviour:
   - name: Test Portal
     latitude: 48.4559393
     longitude: 35.0491729
-    radius: 20
+    radius: 40
     isActive: 1
   - name: MS Portal
     latitude: 48.4557197
     longitude: 35.0503276
-    radius: 20
+    radius: 40
     isActive: 1
   - name: Steve
     latitude: 26.0127707
@@ -39,14 +39,9 @@ MonoBehaviour:
     radius: 20
     isActive: 0
   - name: Ra'anana
-    latitude: 32.195067
-    longitude: 34.8760091
-    radius: 20
-    isActive: 0
-  - name: Ra'anana
     latitude: 32.195068
     longitude: 34.878197
-    radius: 30
+    radius: 50
     isActive: 1
   - name: Dev Near
     latitude: 48.5085339
@@ -56,22 +51,27 @@ MonoBehaviour:
   - name: Dead End
     latitude: 0
     longitude: 0
-    radius: 100
+    radius: 50
     isActive: 1
   - name: Dead End Near
     latitude: 10
     longitude: 0
-    radius: 100
+    radius: 50
     isActive: 1
   - name: QA
     latitude: 48.402111657581024
     longitude: 35.006753963293214
-    radius: 100
+    radius: 50
     isActive: 1
   - name: QA Near
     latitude: 48.4025754950592
     longitude: 35.00711848125057
-    radius: 100
+    radius: 50
+    isActive: 1
+  - name: Prospect
+    latitude: 48.5090725
+    longitude: 35.0773679
+    radius: 50
     isActive: 1
   giftModels:
   - giftViewPrefab: {fileID: 1721562904039139676, guid: fded08e8410875d44b61d25fc66eb6de,
