@@ -59,6 +59,9 @@
      <Compile Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/ProgressManager.cs" />
      <Compile Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/SceneIntegration/RiderFlowSceneToolbarRoot.cs" />
      <Compile Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/SceneIntegration/VisualElementToolbarDisplay.cs" />
+     <Folder Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/SceneIntegration" />
+     <Folder Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/EnhancedHierarchyIntegration" />
+     <Folder Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2" />
      <None Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2021.2/JetBrains.Frontend.2021.2.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

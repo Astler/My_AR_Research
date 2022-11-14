@@ -41,14 +41,30 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18N.cs" />
+     <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18NSprite.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" />
+     <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18NText.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" />
+     <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18NAudioSource.cs" />
+     <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18NImage.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" />
+     <Folder Include="Assets/Plugins/Honeti/I18N" />
+     <Folder Include="Assets/Plugins/Demigiant/DOTween/Modules" />
+     <Folder Include="Assets/Plugins" />
+     <Folder Include="Assets/Plugins/Honeti" />
+     <Folder Include="Assets/Plugins/UniRx" />
+     <Folder Include="Assets/Plugins/Honeti/I18N/Scripts" />
+     <Folder Include="Assets/Plugins/Honeti/I18N/Prefabs" />
+     <Folder Include="Assets/Plugins/Android" />
+     <Folder Include="Assets/Plugins/Honeti/I18N/Data" />
+     <Folder Include="Assets/Plugins/Demigiant" />
+     <Folder Include="Assets/Plugins/Demigiant/DOTween" />
      <None Include="Assets/Plugins/Demigiant/DOTween/readme.txt" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -284,6 +300,9 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject-usage">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+     </Reference>
      <Reference Include="MapboxAccountsUnity">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net35/MapboxAccountsUnity.dll</HintPath>
      </Reference>
@@ -308,6 +327,9 @@
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
@@ -323,11 +345,20 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+     </Reference>
      <Reference Include="Mapbox.VectorTile.PbfReader">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.PbfReader.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
@@ -722,26 +753,11 @@
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Purchasing">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.007.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.SecurityStub">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Advertisements">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Searcher.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARCore.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
@@ -749,44 +765,23 @@
      <Reference Include="Unity.XR.ARKit.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InputSystem">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Rider.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
-     <Reference Include="Analytics">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Analytics.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.SpatialTracking">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Analytics.DataPrivacy">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.Simulation.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Simulation.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.CoreUtils.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.MockHMD">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.Codeless">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Analytics.DataPrivacy">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
@@ -794,14 +789,8 @@
      <Reference Include="Unity.XR.ARAnalytics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARAnalytics.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.ARSubsystems.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.Management">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
@@ -815,9 +804,6 @@
      <Reference Include="Unity.XR.ARSubsystems">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.ARKit.FaceTracking">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.ARFoundation.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
      </Reference>
@@ -827,44 +813,14 @@
      <Reference Include="Unity.Tutorials.Core">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Tutorials.Core.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.ARKit">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.007.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Analytics.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Analytics">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -875,14 +831,8 @@
      <Reference Include="Unity.PlasticSCM.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.MockHMD.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Tutorials.Core.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Tutorials.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -890,32 +840,17 @@
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Purchasing.SecurityCore">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.CoreUtils">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Purchasing.Stores">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
@@ -923,11 +858,107 @@
      <Reference Include="UnityEditor.XR.LegacyInputHelpers">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEditor.Purchasing">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEditor.SpatialTracking">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Purchasing.SecurityStub">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Advertisements">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Searcher.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InputSystem">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="Analytics">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Analytics.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.CoreUtils.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.MockHMD">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Purchasing.Codeless">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.Management">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit.FaceTracking">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Analytics.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Analytics">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.MockHMD.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.Purchasing">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Advertisements.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
@@ -940,6 +971,14 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{d14a0ec0-7235-d77f-5d14-4a683b5c7df2}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{44054a5a-e9dd-6ee6-60a4-a99515ca958e}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
     <ProjectReference Include="IngameDebugConsole.Editor.csproj">
       <Project>{8bf52602-5f51-ac59-6e11-af72f4b5e0e9}</Project>
       <Name>IngameDebugConsole.Editor</Name>
@@ -947,6 +986,10 @@
     <ProjectReference Include="IngameDebugConsole.Runtime.csproj">
       <Project>{26b08317-265e-fb83-0baf-00a57b6de0a8}</Project>
       <Name>IngameDebugConsole.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
+      <Project>{74d50c33-ae83-f141-18f3-e56728d861bf}</Project>
+      <Name>Zenject-ReflectionBaking-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="ARDK-Editor.csproj">
       <Project>{72a7a07c-5dc9-4038-3949-10a4b897fbbb}</Project>
@@ -959,6 +1002,10 @@
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
       <Name>ARDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{d0376efc-106a-bc3f-ec85-839e8b8c7a7d}</Project>
+      <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
       <Project>{c2f55cb9-f462-8a84-06ad-28f8b3dca527}</Project>

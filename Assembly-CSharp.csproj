@@ -41,14 +41,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MoveMarkersExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/PlaceAtLocations.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/LocationStatus.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/SimpleAutomaticSynchronizationContext.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerCustomStyleAtlasWithColorPallete.cs" />
-     <Compile Include="Assets/Scripts/Playground/BigPortalsPlacer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsWizardControlHelperAttribute.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/MemoryCache.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response/Feature.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/MathUtils.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OnHoverExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/ILocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOSMNominatim.cs" />
@@ -63,15 +65,18 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationServiceGenericBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerCustomStyleTiled.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/FeatureBehaviour.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/Examples/ArMenuController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsEnums.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsOpenRouteServiceGeocodingResult.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/BboxToGeoCoordinateBoundsConverter.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/RotatingCoinView.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/RotatingCoinView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ChangePositionUsingGyro.cs" />
+     <Compile Include="Assets/Scripts/Assets/ScreenAssets.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/ZoomArea.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/AngleSmoothingAverage.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Instances/OnlineMapsDrawingPoly.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/HeroBuildingSelectionUserInput.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/AndroidMagneticDeclination.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/uGUI/uGUICustomTooltipExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/AngleSmoothingEMA.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/ARPlaneHandler.cs" />
@@ -80,40 +85,46 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/CacheItem.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/MakiHelper.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/ElevationBasedTerrainStrategy.cs" />
-     <Compile Include="Assets/Scripts/UI/SpriteSequencePlayer.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/SpriteSequencePlayer.cs" />
+     <Compile Include="Assets/Scripts/Screens/Interfaces/INewsScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsInteractiveElement.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsSavableItem.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/MeshData.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsSavableItem.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ARSession/ARFoundationSessionManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Interfaces/IMapScalingStrategy.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/SingletonScriptableObject.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LocationPrefabCategoryOptions.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/PlaceAlongPath.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/TileErrorHandler.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/LocationArrayEditorLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindAutocompleteExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/Singleton.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingsNodeData.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ModifyTooltipStyleExample.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/PlayerSizeFromLocationAccuracy.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/DriveToPointByRoute.cs" />
-     <Compile Include="Assets/Scripts/UI/CheckboxButton/CheckboxButton.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GroupMarkersExample.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/LabelTextSetter.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Strategies/MapScalingAtWorldScaleStrategy.cs" />
+     <Compile Include="Assets/Scripts/Screens/Transitions/AlphaAndScaleTransition.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsQQSearch.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteService.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GoogleAPIHook.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.File.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationService.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/Location.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationService.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/LayerVisualizers/VectorLayerVisualizer.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/LayerProperties.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/LoftModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SmoothMoveExample.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/Utilities/PlotRoute.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/GameStateMachine/GameStates/LoadLevelState.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarkerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSONObject.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsElevationManager.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/IDSessionGenerator.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DottedLineExample.cs" />
+     <Compile Include="Assets/Scripts/Screens/LoadingScreen/LoadingScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ChangePositionAndZoomEventsExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/TileJSON/TileJSONReponse.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/IAsyncRequest.cs" />
@@ -123,27 +134,35 @@
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/BalloonAnimation.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/WayspotAnchorTemplateController.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MapMatchingParameters.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/DVector3.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/TileCover.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/UpdateMapPosByARPlaneY.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/AndroidNativeCompass.cs" />
      <Compile Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Scripts/BlinkLight.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ChangeMarkerTextureExample.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/IARController.cs" />
+     <Compile Include="Assets/Scripts/SceneManagement/SceneName.cs" />
+     <Compile Include="Assets/Scripts/AR/FoundationAR/IARController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsKeyboardInput.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleDirections.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Assets/AssetsScriptableObject.cs" />
-     <Compile Include="Assets/Scripts/ErrorManager/ErrorManager.cs" />
-     <Compile Include="Assets/Scripts/UI/DebugMenu/DebugMenuGUI.cs" />
+     <Compile Include="Assets/Scripts/Assets/AssetsScriptableObject.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/ILocationProvider.cs" />
+     <Compile Include="Assets/old_Scripts/ErrorManager/ErrorManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LayerModifierOptions.cs" />
      <Compile Include="Assets/LightshipHUBMockEnviroments/Scripts/MeshMaterial.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/HTTPRequestThreaded.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerTexturing.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/MockLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/RealTilesetSizeExample.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/PathRouteRenderer.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/IReplaceable.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerLightStyle.cs" />
+     <Compile Include="Assets/Scripts/Utils/CoordinatesUtils.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/ICache.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/QuadTreeMapVisualizer.cs" />
+     <Compile Include="Assets/Scripts/Screens/MainScreen/MainScreenPresenter.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerModeling.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Threading/OnlineMapsThreadWINRT.cs" />
+     <Compile Include="Assets/Scripts/Screens/Presenters/NewsScreenPresenter.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/CanonicalTileId.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerLightStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsEasyTouchConnector.cs" />
@@ -155,6 +174,7 @@
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/DistanceFunctions.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/TerrainLayer.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/ModifierStack.cs" />
+     <Compile Include="Assets/Scripts/Assets/GameAssetsSO.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsMapboxTile.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/AddMonoBehavioursModifierType.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/TerrainStrategy.cs" />
@@ -165,43 +185,55 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/TileResource.cs" />
      <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/AstronautMouseController.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/LowPolyTerrainStrategy.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/LocationData.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/IntervalHeap.cs" />
+     <Compile Include="Assets/Scripts/Screens/IScreenView.cs" />
+     <Compile Include="Assets/Scripts/Screens/Utils/Pagination.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/RouteLoader.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerColliderOptions.cs" />
+     <Compile Include="Assets/Scripts/Data/IDataProxy.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/HTTPRequest.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsGenericBase.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/Vendor/SimpleJson.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/RangeAroundTransformTileProviderOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/MapboxDefaultImagery.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ARSession/VuforiaSessionManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsAdjustToScreen.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/AirRoute.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxRoute.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/RotateObject.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/PresetSubLayerPropertiesFetcher.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/VectorTileFactory.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsCameraOrbit.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Strategies/MapPlacementAtLocationCenterStrategy.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CheckArcGISTile.cs" />
+     <Compile Include="Assets/Scripts/Screens/SettingsScreen/SettingsScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarker3DInstance.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/CatmullRomSpline.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Interfaces/LayerVisualizerBase.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/Interfaces/Activate/ActivatablesController.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Route.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/GameObjectExtensions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindLocationExample.cs" />
      <Compile Include="Assets/Modules/Shared/ARPlane/ARPlaneHelper.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/CoreVectorLayerProperties.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OnDrawTooltipExample.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/MapboxApi.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/VectorFeatureUnity.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/VectorTile.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/TileStats.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CustomWMSProvider.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/FeaturePointHelper.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Geocoder.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/SmoothZoomOnMouseEvents.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/FeatureCollectionBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LayerSourceOptions.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/RotateOnYTargetTransform.cs" />
-     <Compile Include="Assets/Scripts/Prototype/States/LocationDetection/LocationDetectionScreen.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AbstractLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/InertiaExample.cs" />
      <Compile Include="Assets/Mapbox/Examples/6_ZoomableMap/Scripts/SpawnOnMap.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsTouchScriptConnector.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarkerBillboard.cs" />
+     <Compile Include="Assets/Scripts/Screens/UILayerConfigurator.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/VertexDebuggerGizmo.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/SQLiteCache/Tiles.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Filters/TypeFilter.cs" />
@@ -212,24 +244,26 @@
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerExtrusionOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response/GeocodeResponse.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGooglePlacesAutocompleteResult.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/MainScreenPresenter.cs" />
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/TextureScaler.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/FollowTargetTransform.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/SnapMapToTargetTransform.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Location/LocationInfoView.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/LocationInfoView.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/SharedObjectHolder.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/SQLite/SQLite.cs" />
-     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/IObservable.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/AbstractTileProvider.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/IObservable.cs" />
+     <Compile Include="Assets/Scripts/Utils/ComponentPool.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/InterpolationUtil.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Filters/FilterBase.cs" />
-     <Compile Include="Assets/Scripts/Playground/ARAnchorFollower.cs" />
+     <Compile Include="Assets/Scripts/AR/World/ARAnchorFollower.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/ObjectMasking.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/ARFoundationController.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/RouteWaypoint.cs" />
+     <Compile Include="Assets/Scripts/AR/FoundationAR/ARFoundationController.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/AverageHeadingAlignmentStrategy.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/LocationSmoothing/KalmanFilter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsOpenRouteServiceDirectionResult.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGooglePlacePhoto.cs" />
+     <Compile Include="Assets/Scripts/Installers/MainSceneInstaller.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SaveMapStateExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindDirectionExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Vector2d/Vector2d.cs" />
@@ -237,59 +271,65 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/AircraftWarning.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainDataFetcher.cs" />
      <Compile Include="Assets/Mapbox/Examples/3_POIPlacement/POIPlacementScriptExample.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/ScreenView.cs" />
+     <Compile Include="Assets/old_Scripts/Prototype/ScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/IReplacementCriteria.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/ObjectAnimation.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSON.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/HereRoutingAPIExample.cs" />
      <Compile Include="Assets/Mapbox/Core/Plugins/Android/UniAndroidPermission/UniAndroidPermission.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsBingMapsElevationManager.cs" />
-     <Compile Include="Assets/Scripts/ARPGFXRotation.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/ObjectInteraction.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/MeshCeilTrackerView.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ImmediatePositionWithLocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/LayerModifier.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/GeometryExtrusionOptions.cs" />
+     <Compile Include="Assets/Scripts/SceneManagement/SceneLoader.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/Logger.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ITerrainLayer.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Data/PortalViewInfo.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/PortalViewInfo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Projections/OnlineMapsProjection.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/Scene/BackdropView.cs" />
+     <Compile Include="Assets/Scripts/Screens/BackdropView.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/SmoothMove.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/Runnable.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARPrerequisiteInfo.cs" />
+     <Compile Include="Assets/Scripts/Screens/UIOrderLayer.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/RouteResponse.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsTiledElevationManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/SpawnPrefabOptions.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenView.cs" />
+     <Compile Include="Assets/Scripts/Screens/PortalsListScreen/ZonesListView.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/CameraBillboard.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsElevationManagerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationServiceBase.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Step.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Waypoint.cs" />
+     <Compile Include="Assets/Scripts/Utils/XROriginExtensions.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/FeatureUiMarker.cs" />
      <Compile Include="Assets/Mapbox/Examples/7_Globe/Scripts/DragRotate.cs" />
-     <Compile Include="Assets/Scripts/Prototype/ProjectContext.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindLocationNameExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Vector2d/RectD.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/PlayerBalanceBarView.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/PlayerBalanceBarView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/TileJSON/TileJSONObjectVectorLayer.cs" />
+     <Compile Include="Assets/Scripts/Installers/ProjectContextInstaller.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/ClassicRasterTile.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Base/OnlineMapsTextWebService.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarker2DDrawer.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Enums/TilePropertyState.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/UnityLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBase.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MapMatchingResponse.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/MeshFloorFallback.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/SnapAlignmentStrategy.cs" />
+     <Compile Include="Assets/Scripts/Screens/Transitions/IScreenTransitionAnimation.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/FeatureBehaviourModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsPanoConnector.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/HeightModifier.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalCardView.cs" />
+     <Compile Include="Assets/Scripts/Screens/PortalsListScreen/PortalCardView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/BearingFilter.cs" />
+     <Compile Include="Assets/Scripts/Screens/Presenters/NewsSellPresenter.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/ManualSynchronizationContextBehaviour.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/GiftsController.cs" />
+     <Compile Include="Assets/Scripts/AR/World/GiftsController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarker3DManager.cs" />
-     <Compile Include="Assets/Scripts/AudioManager/AudioKeys.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsArcGISTiledElevationManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsMapboxElevationManager.cs" />
+     <Compile Include="Assets/Scripts/Screens/LoadingScreen/LoadingScreenPresenter.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/SharedSession.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/UnifiedMapOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/VectorEntity.cs" />
@@ -297,6 +337,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsRWTConnector.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/JsonConverters.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/SearchPanel.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/Misc.cs" />
      <Compile Include="Assets/Mapbox/Examples/5_Playground/Scripts/DirectionsExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/ReplaceFeatureCollectionModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsFingersTouchGesturesConnector.cs" />
@@ -305,9 +346,10 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/RoutingProfile.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/PolygonUtils.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/LinearSpline.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/CustomRoute.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/VectorFilterOptions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/BuildingClickExample.cs" />
-     <Compile Include="Assets/Scripts/RectTransformEventBridge.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsWWW.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSONArray.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SaveMarker3DExample.cs" />
@@ -320,56 +362,59 @@
      <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/AstronautDirections.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/OpenUrlOnButtonClick.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapScalingOptions.cs" />
-     <Compile Include="Assets/Scripts/Prototype/StateBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Managers/OnlineMapsDrawingElementManager.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response/Geometry.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/CameraMovement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsPluginAttribute.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBaseUI.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/VectorLayerProperties.cs" />
-     <Compile Include="Assets/Scripts/Prototype/SceneFinder.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/FileSource.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/CreatePointOfInterestTextMeshes.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/UvModifier.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers/MapboxLocationServiceMock.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Location/NianticLocationService.cs" />
      <Compile Include="Assets/Mapbox/Core/probe-extractor-cs/ProbeExtractor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/BingMapsElevationsExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshGenerationBase.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Core/ScreensInstaller.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/SnowballTossDebugManager.cs" />
      <Compile Include="Assets/Mapbox/Core/cheap-ruler-cs/CheapRuler.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/SnapTerrainModifier.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerCustomStyleAtlas.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Overview.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/VectorLayer.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Assets/GiftModel.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/GiftModel.cs" />
      <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/CharacterMovement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CheckAllTilesLoadedExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/ARLocationManager.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/HighlightFeature.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/UIBubblePopup.cs" />
-     <Compile Include="Assets/Scripts/Items/GiftsPortalView.cs" />
+     <Compile Include="Assets/Scripts/AR/World/GiftsPortalView.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/Camera/ManualTouchCamera.cs" />
-     <Compile Include="Assets/Scripts/Prototype/States/StateScanning/ScanningScreen.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifier.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/AbstractLayer.cs" />
      <Compile Include="Assets/Mapbox/Unity/Constants.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/AddToCollectionModifier.cs" />
-     <Compile Include="Assets/Scripts/Logging/UnityLogStackTraceEnabler.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsJPEGDecoder.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/ChamferHeightModifier.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/UpdateMapWithLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D/OnlineMapsUIImageControl.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/UI/LocationProviderInfo.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/TransformLocationProvider.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/UI/LoadingBar.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/InteractionController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CheckIntenetConnectionExample.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/Route.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/PolygonMeshModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/DriveUsingKeyboard.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/Interfaces/Activate/IActivatable.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/TextureModifier.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/MapUserInterfaceView.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/MapUserInterfaceView.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/AbstractOnScreenTargetIndicator.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/DebugCanvas.cs" />
+     <Compile Include="Assets/Scripts/Screens/ScreenName.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/UnityTile.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsGeoRect.cs" />
-     <Compile Include="Assets/Scripts/Floor/PlaneFloorFallback.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/PortalController.cs" />
+     <Compile Include="Assets/Scripts/AR/Floor/PlaneFloorFallback.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/AbstractLocationProvider.cs" />
+     <Compile Include="Assets/Scripts/AR/World/PortalController.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/ModifierBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LineGeometryOptions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGooglePlacesAutocomplete.cs" />
@@ -379,16 +424,19 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsZipDecompressor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DistanceAndDirectionExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapboxEnums.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/RenderPathLine.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsDescriptionAttribute.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsGPXObject.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ARLocation.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/XML/OnlineMapsXML.cs" />
-     <Compile Include="Assets/Scripts/Prototype/States/StatePortalPlacement/PortalPlacementScreen.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ElevationRequiredOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ExtentOptions.cs" />
+     <Compile Include="Assets/Scripts/AR/World/ARWorldCoordinator.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/IAsyncRequestFactory.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/LoadingPanelController.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/LayerVisualizers/LocationPrefabsLayerVisualizer.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/GeocodeResource.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/BeamData.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsLimits.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ForwardGeocodeUserInput.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTreeCollection.cs" />
@@ -400,53 +448,62 @@
      <Compile Include="Assets/VFX/MeshClipper/Clipper.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DistanceAndDurationExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DragAndZoomInertia.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/WorldBoxView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/ElevatedTerrainStrategy.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/Spline.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DetectWaterByTextureExample.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/DeviceLocationProviderAndroidNative.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/LightEstimationHelper.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsRange.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/HorizonWithoutElevation.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Annotation.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/CatmullRomCurve.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ShowMarkerLabelsByZoomExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarkerManagerBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/TerrainColliderOptions.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/PortalsListScreen/PortalsListScreenPresenter.cs" />
+     <Compile Include="Assets/_Project/Scripts/MenuController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleRoads.cs" />
+     <Compile Include="Assets/Scripts/AR/ZonesController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MoveMarkerOnRouteExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapboxDataProperty.cs" />
+     <Compile Include="Assets/_Project/Scripts/LineBuilder.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/MushroomAnimation.cs" />
-     <Compile Include="Assets/Scripts/UI/DebugMenu/DebugMenuButton.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/DontDestroyOnLoad.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/GameStateMachine/GameStateMachine.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/PrefabModifier.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/ARLocationOrientation.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleGeocoding.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/IImageryLayer.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/SQLiteCache/Tilesets.cs" />
      <Compile Include="Assets/Mapbox/Unity/MapboxAccess.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Location/LocationDetectService.cs" />
+     <Compile Include="Assets/Scripts/Geo/LocationDetectService.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapLocationOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/Map.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GPXExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/MapboxStylesColorModifier.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/SimpleAutomaticSynchronizationContextBehaviour.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/ConditionalPropertyAttribute.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryAndroid.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Leg.cs" />
-     <Compile Include="Assets/Scripts/Platform/PlatformValidator.cs" />
+     <Compile Include="Assets/Scripts/PlatformValidator.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsSinglePartElevationManager.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/Examples/MenuController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingBuiltIn.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsVector2i.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/WayspotAnchorTemplateDataUtility.cs" />
      <Compile Include="Assets/Mapbox/Examples/5_Playground/Scripts/LogLocationProviderData.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/GroundHeight.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/LocationProviderFactory.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/Interfaces/Activate/IActivatablesQueue.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/Curve.cs" />
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/VoxelTile.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/FeatureSelectionDetector.cs" />
-     <Compile Include="Assets/Scripts/Playground/SpawnOnMapAR.cs" />
+     <Compile Include="Assets/Scripts/AR/Map/SpawnOnMapAR.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Projections/OnlineMapsProjectionSphericalMercator.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/ARTableTopCameraMovement.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/LonLatToGeoCoordinateConverter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.Memory.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/FlatSphereTerrainStrategy.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/MockApi/MockApiInterface.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/Demo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsWhat3WordsResult.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/PoiMarkerHelper.cs" />
@@ -458,17 +515,24 @@
      <Compile Include="Assets/Mapbox/Unity/Map/InitializeMapWithLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/RotateCameraByCompassExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers/MapboxLocationInfoUnityWrapper.cs" />
+     <Compile Include="Assets/Scripts/Screens/ScreensInstaller.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarkerBufferDrawer.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCustomStyleAtlasWithColorPallete.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CreateMarkerOnClick.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ILayer.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/AbstractRouteSignpost.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/UnityLayerOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/DebugTools/SceneData.cs" />
+     <Compile Include="Assets/Scripts/Screens/ScreenNavigationSystem.cs" />
+     <Compile Include="Assets/Scripts/Utils/StateMachine/StateMachine.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Mapbox/OnlineMapsMapboxClipper.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/LocationPath.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/MovingAveragePosition.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBase2D.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarkerFlatDrawer.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/TileErrorEventArgs.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/TrafficUvAnimator.cs" />
+     <Compile Include="Assets/ARLocation/Experimental/World Voxel Craft/WorldVoxelController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OSMRequestExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarkerDrawerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GetElevationExample.cs" />
@@ -478,15 +542,17 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/ForwardGeocodeResource.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerSimpleStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsTile.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Data/IPlayerData.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/IPlayerData.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Intersection.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CalcAreaExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerCustomDataExample.cs" />
+     <Compile Include="Assets/Scripts/Screens/MainScreen/IMainScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/Logging/LocationLogReader.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerModeling.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/Marker3D_Example.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/NGUI/NGUICustomTooltipExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsWWWBehaviour.cs" />
+     <Compile Include="Assets/ARLocation/Experimental/NewPathLineRenderer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/RasterizeDrawingForOverlay.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/ClassicRetinaRasterTile.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/ObjectHolderController.cs" />
@@ -496,22 +562,22 @@
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/MeshPlacementController.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/DebugTools/ScenesList.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsTileManager.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/CameraView.cs" />
+     <Compile Include="Assets/Scripts/GameCamera/CameraView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/CustomMarkerEngine.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainFactoryBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/TilesetOverlayExample.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Utils/Pool.cs" />
+     <Compile Include="Assets/Scripts/Utils/Pool.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/FollowCameraPosition.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/ImageryLayerProperties.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DrawingAPI_Example.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/InterceptInputExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/FaceCamera.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/RotateWithLocationProvider.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/SharedObjectInteraction.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/TextureSideWallModifier.cs" />
+     <Compile Include="Assets/Scripts/Utils/Utils.cs" />
+     <Compile Include="Assets/Scripts/AR/World/InteractableObject.cs" />
      <Compile Include="Assets/VFX/TransparentDepthHelper/TransparentDepthHelper.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Utils/Utils.cs" />
-     <Compile Include="Assets/Scripts/Items/InteractableObject.cs" />
-     <Compile Include="Assets/Scripts/AudioManager/AudioManager.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/ARDKController.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ImageryLayer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGooglePlaces.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/Tracepoint.cs" />
@@ -524,27 +590,29 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/TilesetMarkerDepthExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsSavableComponent.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsPositionRange.cs" />
+     <Compile Include="Assets/Scripts/Utils/StateMachine/IState.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/VectorDataFetcher.cs" />
-     <Compile Include="Assets/Scripts/StateWarning/StateWarning.cs" />
+     <Compile Include="Assets/old_Scripts/StateWarning/StateWarning.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Interfaces/IFeaturePropertySettable.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsPBR.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/PolylineUtils.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/TileStatsFetcher.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/AngleLowPassFilter.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerDarkStyle.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ReverseGeocodeUserInput.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteServiceGeocode.cs" />
-     <Compile Include="Assets/Scripts/AudioManager/AudioClipList.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/PathAnimation.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ChangeShadowDistance.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.Custom.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/LocationController.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/ARDKTargetSelectView.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/CoinsController.cs" />
+     <Compile Include="Assets/Scripts/Geo/LocationController.cs" />
+     <Compile Include="Assets/Scripts/AR/World/CoinsController.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/DeviceLocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/AtlasInfo.cs" />
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/VoxelData.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/AbstractAlignmentStrategy.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/UI/OrientationInfo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarker.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/SignPost.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Instances/OnlineMapsDrawingRect.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/PositionWithLocationProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SaveMarkersExample.cs" />
@@ -556,24 +624,28 @@
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/VectorSubLayerProperties.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarker2DMeshDrawer.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Compression.cs" />
-     <Compile Include="Assets/Scripts/StateInstructions/InstructionsScreen.cs" />
+     <Compile Include="Assets/old_Scripts/StateInstructions/InstructionsScreen.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/AngleSmoothingAbstractBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsDynamicTexture.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsQQSearchResult.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/ARLocationConfig.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSONValue.cs" />
-     <Compile Include="Assets/Scripts/Prototype/World/Coins/CoinView.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/HeadingReading.cs" />
+     <Compile Include="Assets/Scripts/AR/World/CoinView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/MaterialModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsHereRoutingAPIResult.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MapMatcher.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/FadeOutTextMesh.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Providers/Traffic/OnlineMapsTrafficProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/MapboxDefaultVector.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AbstractEditorLocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapPlacementOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/NodeEditorElementAttribute.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/FoundationAR/TargetSelectView.cs" />
+     <Compile Include="Assets/Scripts/AR/FoundationAR/TargetSelectView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsAMapSearch.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleTester.cs" />
-     <Compile Include="Assets/Scripts/Items/GiftView.cs" />
+     <Compile Include="Assets/Scripts/AR/World/GiftView.cs" />
+     <Compile Include="Assets/_Project/Scripts/ArMenuController.cs" />
      <Compile Include="Assets/Modules/Shared/Rendering/RenderPipelineHelper.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerSimpleStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Base/OnlineMapsWebServiceAPI.cs" />
@@ -586,8 +658,10 @@
      <Compile Include="Assets/Mapbox/Unity/Utilities/GeocodeAttribute.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ImageryRasterOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MatchObject.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/SelectScene.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerRealisticStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsBingMapsTiledElevationManager.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/Geocoding.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Strategies/MapScalingAtUnityScaleStrategy.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/IFileSource.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/Logging/LocationLogAbstractBase.cs" />
@@ -597,12 +671,12 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/HTTPRequestNonThreaded.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/NearestNeighbour.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Response.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/DVector2.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/KDNode.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/VertexDebugger.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsVector2d.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Filters/HeightFilter.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Location/LocationUtils.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Core/MapController.cs" />
+     <Compile Include="Assets/Scripts/AR/Map/MapController.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MergedModifierStack.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/GeometryMaterialOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerDarkStyle.cs" />
@@ -610,47 +684,54 @@
      <Compile Include="Assets/Mapbox/Examples/Scripts/DragableDirectionWaypoint.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarkerManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/TerrainSideWallOptions.cs" />
+     <Compile Include="Assets/Scripts/Screens/MainScreen/MainScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GetCenterPointOfMarkersExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/Singleton.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/RangeTileProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SwitchToProviderWithKey.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/RotateMapInsteadMarkerExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/Console.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/MainScreen/MainSceneView.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/TelemetryConfigurationButton.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/UnwrappedTileId.cs" />
      <Compile Include="Assets/Mapbox/Unity/Styling/ScriptablePalette.cs" />
+     <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilderApplicationController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsRawImageTouchForwarder.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CustomDownloadTileExample.cs" />
      <Compile Include="Assets/Mapbox/Examples/5_Playground/Scripts/ReverseGeocoderExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Interfaces/IUnifiedMap.cs" />
+     <Compile Include="Assets/Scripts/Screens/ScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapExtentOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/MapImageFactory.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/uGUI/uGUICustomTooltipForAllMarkersExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/Aircraft.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/Hotspot.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/ITelemetryLibrary.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsCache.cs" />
+     <Compile Include="Assets/Scripts/Screens/LoadingScreen/ILoadingScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ElevationModificationOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/AngleSmoothingNoOp.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/QuadTreeTileProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsLog.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/MapUtils.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/MoveAlongPath.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/SharedInteractionController.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteServiceDirections.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarkerBillboardDrawer.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteServiceDirections.cs" />
      <Compile Include="Assets/Mapbox/Examples/1_DataExplorer/Scripts/TextMeshOutline.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tokens/MapboxTokenApi.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSONItem.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/MeshController.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/ShowHideSelfOnPointerClick.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGooglePlaceDetailsResult.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FollowGameObject.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGooglePlacesResult.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MapMatchingResource.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/LockPositionAndZoomExample.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/NextStepRoutePathRenderer.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/AddMonoBehavioursModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D/OnlineMapsSpriteRendererControl.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryFactory.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Data/PlayerData.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/PlayerData.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DragMarkerAndTranslateMapExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Interfaces/IMap.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ColorUnderCursorExample.cs" />
@@ -663,13 +744,14 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DrawCircleAroundMarker.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/DriveToPoint.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/3D/OnlineMapsTileSetControl.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Data/LocationDetectResult.cs" />
+     <Compile Include="Assets/Scripts/Geo/LocationDetectResult.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarkerInstanceBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/Marker3D_GPS_Example.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/UnixTimestampUtils.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/ColliderModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsInteractiveElementManager.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/Line.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsUtils.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/VPSCoverageListController.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/DirectionsResponse.cs" />
@@ -678,12 +760,12 @@
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/MapboxDefaultElevation.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleElevation.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/SmoothLineModifier.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/DefaultOnScreenTargetIndicator.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/KDTree.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/IAngleSmoothing.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/FlatTerrainStrategy.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerLineGeometryOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/GeoCoordinateBounds.cs" />
-     <Compile Include="Assets/Scripts/Prototype/AR/SnowballTossManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/LineMeshModifier.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/PlacementController.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/RangeAroundTransformTileProvider.cs" />
@@ -695,36 +777,45 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ControlDataTrafficExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LayerPerformanceOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/AndroidSettings.cs" />
-     <Compile Include="Assets/Scripts/AudioManager/AudioLoop.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsReflectionHelper.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DrawingElementEventsExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCustomStyleTiled.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOSMAPIQuery.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Utils/DevCameraController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsAMapSearchResult.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/NoiseOffsetModifier.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/UI/ARTrackingInfo.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleUtil.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/WebMapEditor/WebMapLoader.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/UpdateShaderCoordinatesByARPlane.cs" />
+     <Compile Include="Assets/Scripts/GameCamera/LookAtCamera.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildings.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OpenRouteServiceExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsGUITooltipDrawer.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers/MapboxLocationInfoMock.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Assets/PortalZoneModel.cs" />
+     <Compile Include="Assets/Scripts/Screens/NavigationCommand.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/PortalZoneModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerFantasyStyle.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/MapboxDefaultStyles.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/PrefabDatabase.cs" />
+     <Compile Include="Assets/Scripts/Data/DataProxy.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ScreenToGeoExample.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/GameStateMachine/GameStates/BootstrapState.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Instances/OnlineMapsDrawingElement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/InterceptElevationRequestExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/PrefabItemOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryFallback.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Core/GameStepsController.cs" />
+     <Compile Include="Assets/old_Scripts/Prototype/GameStepsController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsWhat3Words.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/ARLocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryWebgl.cs" />
-     <Compile Include="Assets/Scripts/ARPGFXLightFlicker.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Math/LowPassFilter.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/TextureSelector.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/AbstractMap.cs" />
+     <Compile Include="Assets/_Project/Scripts/DirectionsFactory.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/XML/OnlineMapsXMLList.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Threading/OnlineMapsThreadManager.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Data/PlayerPrefsHelper.cs" />
+     <Compile Include="Assets/Scripts/Data/PlayerPrefsHelper.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ReloadMap.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsInteractiveElementManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsBingMapsElevationResult.cs" />
@@ -735,17 +826,21 @@
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCustomStyleOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/AbstractMapVisualizer.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/QuadTreeCameraMovement.cs" />
+     <Compile Include="Assets/Scripts/Infrastructure/GameStateMachine/GameStates/GameLoopState.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerClickCountExample.cs" />
+     <Compile Include="Assets/Scripts/AR/GameStates.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/CircularBuffer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/Marker_GPS_Example.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D/OnlineMapsNGUITextureControl.cs" />
-     <Compile Include="Assets/Scripts/Playground/TransformDebugger.cs" />
      <Compile Include="Assets/Mapbox/Core/probe-extractor-cs/Probe.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerColorStyle.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/LocationReading.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/ModifierStackBase.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Resource.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/TooltipWithoutBackgroundExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/ARSession/IARSessionManager.cs" />
      <Compile Include="Assets/Mapbox/Examples/5_Playground/Scripts/RasterTileExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Location/Location.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/DescriptionAttribute.cs" />
      <Compile Include="Assets/VFX/FeaturePoints/FeaturePointParticle.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryIos.cs" />
@@ -762,6 +857,7 @@
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCoreOptions.cs" />
      <Compile Include="Assets/Mapbox/Examples/6_ZoomableMap/Scripts/SetCameraHeight.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBaseVectorMesh.cs" />
+     <Compile Include="Assets/Scripts/Screens/IScreenNavigationSystem.cs" />
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/VoxelFetcher.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsTooltipDrawerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsVectorTile.cs" />
@@ -769,19 +865,22 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/CachingWebFileSource.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerScaleByZoomExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindPlacesExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/UI/DebugDistance.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers/IMapboxLocationService.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/DirectionsFactory.cs" />
-     <Compile Include="Assets/Scripts/Prototype/Screens/Scene/Fader.cs" />
+     <Compile Include="Assets/Scripts/Screens/Fader.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/DirectionResource.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/MinHeap.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/PolylineToGeoCoordinateListConverter.cs" />
-     <Compile Include="Assets/Mapbox/Unity/Location/Logging/LocationLogWriter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingMaterial.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Location/Logging/LocationLogWriter.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerFantasyStyle.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/TextureMonoBehaviourModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBaseDynamicMesh.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/ReplaceFeatureModifier.cs" />
+     <Compile Include="Assets/Scripts/Utils/Extensions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerClickExample.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/PlaceAtLocation.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/EditorLocationProvider.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/PreloadController.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/SQLiteCache/SQLiteCache.cs" />
@@ -789,62 +888,584 @@
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/GlobeTileProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MapBaseboards.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/OnlineMaps.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/AbstractRouteRenderer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.cs" />
      <Compile Include="Assets/Mapbox/Examples/1_DataExplorer/HighlightBuildings.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/RasterTile.cs" />
+     <Compile Include="Assets/ARLocation/Scripts/Components/UI/DebugInfoOverlay.cs" />
+     <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
+     <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
+     <Folder Include="Assets" />
+     <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Materials/Models" />
+     <Folder Include="Assets/Infinity Code/Online maps/Shaders" />
+     <Folder Include="Assets/Prefabs/Portals/Blue" />
+     <Folder Include="Assets/ARLocation/Textures" />
+     <Folder Include="Assets/XR/UserSimulationSettings/Resources" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples (API usage)/NGUI" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
+     <Folder Include="Assets/UI/Icons" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/XML" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Providers/Traffic" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures" />
+     <Folder Include="Assets/Scripts/GameCamera" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Scenes" />
+     <Folder Include="Assets/QuickOutline/Resources" />
+     <Folder Include="Assets/Infinity Code/Online maps/Documentation" />
+     <Folder Include="Assets/QuickOutline/Resources/Materials" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop/Materials" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElementZTestAlways.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Textures/SegmentationExamples" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop/Shaders" />
+     <Folder Include="Assets/LightshipHUB/Resources/ARDK" />
      <None Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/ProjectorLight.shader" />
+     <Folder Include="Assets/Modules/Shared/Scripts" />
+     <Folder Include="Assets/Scripts/Infrastructure" />
+     <Folder Include="Assets/TextMesh Pro/Sprites" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/x64" />
+     <Folder Include="Assets/Scripts/Infrastructure/MockApi" />
+     <Folder Include="Assets/Modules/Shared/Utilities/Animation" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut" />
+     <Folder Include="Assets/Infinity Code/Online maps/Textures/Markers" />
+     <Folder Include="Assets/Mapbox/Unity/Location/Plugins/Android" />
+     <Folder Include="Assets/Mapbox/Examples/Textures" />
+     <Folder Include="Assets/Audio/VPS" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Portable" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Textures" />
+     <Folder Include="Assets/Modules/Art/SnoballToss/PromptScanMesh/SpriteSequence" />
      <None Include="Assets/LightshipHUB/Runtime/Shaders/OptimizedObjectMasking.shader" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <None Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/ClipBox/LICENSE.txt" />
+     <Folder Include="Assets/Scripts/AR/Map" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple" />
+     <Folder Include="Assets/ThirdPartyAssets/WoLfulus" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/RoadLayer" />
+     <Folder Include="Assets/Mapbox/Unity/Map/Strategies" />
      <None Include="Assets/Mapbox/Unity/Location/ExampleGpsTraces/LocationProviderAndroidNative.txt" />
+     <Folder Include="Assets/Mapbox/Resources/HeroStructures" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Base" />
+     <Folder Include="Assets/RiderFlow.UserData" />
+     <Folder Include="Assets/LightshipHUB/Resources" />
+     <Folder Include="Assets/Scripts/Screens" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests" />
      <None Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Building/CharacterBuildingShader.shader" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty" />
+     <Folder Include="Assets/Textures/RenderTextures" />
+     <Folder Include="Assets/old_Scripts/UI" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop/ARTableMapVisualizer" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Android" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Textures" />
+     <Folder Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Documentation" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Vector2d" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Screenshots" />
      <None Include="Assets/Mapbox/Shaders/MapboxStylesPerRenderer.shader" />
+     <Folder Include="Assets/ARLocation/Scripts/ScriptableObjects" />
      <None Include="Assets/Mapbox/Unity/Location/ExampleGpsTraces/LocationProviderUnity.txt" />
+     <Folder Include="Assets/Modules/Shared/Rendering" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Filters" />
+     <Folder Include="Assets/Audio/Build A Ship" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules" />
+     <Folder Include="Assets/Infinity Code" />
+     <Folder Include="Assets/Mapbox/Unity/Map" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Scripts/Vendor" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles" />
      <None Include="Assets/Mapbox/link.xml" />
+     <Folder Include="Assets/LightshipHUB/Samples" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame" />
+     <Folder Include="Assets/Mapbox/Unity/Location/ExampleGpsTraces" />
+     <Folder Include="Assets/SO" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Projections" />
+     <Folder Include="Assets/Mapbox/Examples/5_Playground/Scripts" />
+     <Folder Include="Assets/Scripts/Screens/LoadingScreen" />
+     <Folder Include="Assets/Mapbox/Examples/0_PrefabScenes" />
+     <Folder Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil" />
+     <Folder Include="Assets/Audio/Snowball Toss" />
+     <Folder Include="Assets/Mapbox/Examples/3_POIPlacement" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop/Scripts" />
+     <Folder Include="Assets/VFX/Prefabs" />
+     <Folder Include="Assets/Infinity Code/Online maps/Icons" />
+     <Folder Include="Assets/Mapbox/Unity/Utilities/DebugTools" />
+     <Folder Include="Assets/LightshipHUB" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Textures" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Tooltips" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Prefabs" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android/libs/arm64-v8a" />
+     <Folder Include="Assets/Mapbox/Unity" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base" />
+     <Folder Include="Assets/ARLocation/Experimental/World Builder" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/HillshadeLayer" />
+     <Folder Include="Assets/Mapbox/Unity/Location/Plugins" />
+     <Folder Include="Assets/MapboxAR/Prefabs" />
+     <Folder Include="Assets/Scripts" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
+     <Folder Include="Assets/Scripts/Screens/Presenters" />
+     <None Include="Assets/ARLocation/Data/data.xml" />
+     <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap/Scripts" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration" />
+     <Folder Include="Assets/Mapbox/Examples/3_POIPlacement/Resources" />
+     <Folder Include="Assets/QuickOutline/Samples" />
+     <Folder Include="Assets/ARLocation/Scripts/Components" />
+     <Folder Include="Assets/XR/Loaders" />
+     <Folder Include="Assets/Scripts/Screens/Utils" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/BuildingLayer" />
+     <Folder Include="Assets/ARLocation/Scripts/Utils" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests" />
+     <Folder Include="Assets/Mapbox/Unity/Map/Interfaces" />
+     <Folder Include="Assets/MapboxAR/Unity/Ar" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElementZOffset.shader" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Materials" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/HeavyTraffic" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Prefabs/UI" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Prefabs" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Textures" />
+     <Folder Include="Assets/Mapbox/Unity/Styling" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+     <Folder Include="Assets/old_Scripts/UI/WarningGUI" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35" />
+     <Folder Include="Assets/ARLocation/Scripts/Location" />
+     <Folder Include="Assets/Modules/Shared/Utilities" />
+     <Folder Include="Assets/TextMesh Pro/Resources" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Interfaces" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/WaterwayLayer" />
+     <None Include="Assets/QuickOutline/Resources/Shaders/OutlineMask.shader" />
+     <Folder Include="Assets/ARLocation/Materials/Shaders" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Textures" />
+     <Folder Include="Assets/ARLocation/Sounds" />
      <None Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/Clip_MapBoxStylesPerRenderer.shader" />
+     <Folder Include="Assets/Shaders" />
      <None Include="Assets/Resources/BillingMode.json" />
+     <Folder Include="Assets/MapboxAR/Examples/Scenes" />
+     <Folder Include="Assets/Audio/Walkabout" />
+     <Folder Include="Assets/Mapbox/Examples/7_Globe/Screenshots" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets" />
+     <Folder Include="Assets/old_Scripts/Prototype/States/StatePortalPlacement" />
+     <Folder Include="Assets/MapboxAR/Scripts/ManualSync" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Textures" />
+     <Folder Include="Assets/Mapbox/Unity/Location/LocationSmoothing" />
+     <Folder Include="Assets/Fonts/Noto_Sans_JP" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Animations" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Components" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes" />
+     <Folder Include="Assets/UI/Buttons" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Materials" />
+     <Folder Include="Assets/Mapbox/User" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression" />
+     <Folder Include="Assets/Mapbox/Examples/7_Globe" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/SQLite" />
+     <Folder Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Documentation/Images" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Interfaces" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Atlas" />
+     <Folder Include="Assets/Scripts/Geo" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Models" />
+     <Folder Include="Assets/XR" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android/libs/x86" />
+     <Folder Include="Assets/VFX" />
+     <Folder Include="Assets/Scripts/Assets" />
      <None Include="Assets/Resources/Mapbox/MapboxConfiguration.txt" />
+     <Folder Include="Assets/Scripts/Screens/PortalsListScreen" />
+     <Folder Include="Assets/Scripts/Screens/Interfaces" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Prefabs" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Atlas" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/AdminLayer" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/x86" />
+     <Folder Include="Assets/VFX/TransparentDepthHelper" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Textures/Exterior" />
+     <Folder Include="Assets/ARLocation/Plugins" />
+     <Folder Include="Assets/Prefabs/_UserInterface" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles" />
      <None Include="Assets/Mapbox/Shaders/MapboxStyles.shader" />
+     <Folder Include="Assets/Mapbox/Resources/Mapbox/PrefabScreens" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Buildings" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Traffic" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TerrainFactory" />
+     <Folder Include="Assets/_Project/Textures" />
+     <Folder Include="Assets/Scripts/Data/Objects" />
+     <Folder Include="Assets/Scripts/Screens/SettingsScreen" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Textures/Models" />
+     <Folder Include="Assets/Prefabs/_RealMapPointers" />
+     <Folder Include="Assets/Mapbox/Examples/Resources/Assets" />
+     <Folder Include="Assets/Mapbox/Core/probe-extractor-cs" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Scripts" />
+     <Folder Include="Assets/TextMesh Pro" />
+     <Folder Include="Assets/LightshipHUB/Runtime" />
+     <Folder Include="Assets/ARLocation/Scripts/ARSession" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Cache" />
+     <Folder Include="Assets/Prefabs/ScreenComponents" />
+     <Folder Include="Assets/Prefabs" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments" />
+     <Folder Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/LayerVisualizers" />
+     <Folder Include="Assets/Mapbox/Examples/3_POIPlacement/Screenshots" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Materials" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Enums" />
+     <Folder Include="Assets/Prefabs/Portals/Green" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Models/Materials" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/LocationService" />
+     <Folder Include="Assets/Mapbox/Examples/Resources/maki" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes/Behaviours" />
+     <Folder Include="Assets/Mapbox/Unity/Location/AngleSmoothing" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/JSON" />
+     <Folder Include="Assets/old_Scripts/Prototype/States/StateScanning" />
+     <Folder Include="Assets/ARLocation/Samples/Data" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/LanduseLayer" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/TileJSON" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/SQLiteCache" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/LandcoverLayer" />
+     <Folder Include="Assets/ARLocation/Prefabs" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Meshes" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetShader.shader" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElement.shader" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Materials" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/Contour" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform" />
+     <Folder Include="Assets/old_Scripts/StateWarning" />
+     <None Include="Assets/ARLocation/GO Map Integration/README.txt" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Materials" />
+     <Folder Include="Assets/Mapbox/Unity/Location/Logging" />
      <None Include="Assets/Mapbox/Unity/DataContainers/streets-v7-stats.json" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map" />
+     <Folder Include="Assets/Animations" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes/Features" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Materials" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Shaders" />
+     <Folder Include="Assets/old_Scripts/UI/InstructionsGUI" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite" />
+     <Folder Include="Assets/Scripts/ViewModels" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Threading" />
+     <Folder Include="Assets/Scripts/SceneManagement" />
+     <Folder Include="Assets/_Project/Mapbox" />
+     <Folder Include="Assets/Scripts/Infrastructure/Interfaces/Activate" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets/Materials" />
+     <Folder Include="Assets/ARLocation/Meshes" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/portable-net45+uap10" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls/3D" />
+     <Folder Include="Assets/Modules/Art" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Building" />
+     <Folder Include="Assets/Mapbox/Materials" />
+     <Folder Include="Assets/Infinity Code/Online maps" />
+     <Folder Include="Assets/LightshipHUB/Runtime/AnimatorControllers" />
+     <Folder Include="Assets/Modules/Art/SnoballToss/PromptScanMesh" />
+     <Folder Include="Assets/Prefabs/Screens" />
+     <Folder Include="Assets/Mapbox/Examples/_sharedModules" />
+     <Folder Include="Assets/LightshipHUB/Samples/Shared AR" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples" />
+     <Folder Include="Assets/Mapbox/Resources/HeroStructures/Prefabs" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android/libs/armeabi-v7a" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Markers" />
+     <Folder Include="Assets/Sprites" />
+     <Folder Include="Assets/MapboxAR/Scripts/Camera" />
+     <Folder Include="Assets/Textures" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching" />
+     <Folder Include="Assets/Audio/Map" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop/Textures" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <Folder Include="Assets/Resources" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Scripts" />
+     <Folder Include="Assets/ARLocation/Prefabs/Debug" />
+     <Folder Include="Assets/Fonts" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+     <Folder Include="Assets/UI/Background" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tokens" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+     <Folder Include="Assets/MapboxAR/Materials" />
+     <Folder Include="Assets/Scripts/AR" />
+     <Folder Include="Assets/Mapbox/Examples" />
+     <Folder Include="Assets/Mapbox/Unity/SourceLayers" />
+     <Folder Include="Assets/ARLocation/Scripts/Components/UI" />
      <None Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/ClipBox/Clip_Box.shader" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road" />
+     <Folder Include="Assets/QuickOutline/Samples/Scenes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+     <Folder Include="Assets/Modules/Shared/UI" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Targets" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts" />
+     <Folder Include="Assets/Mapbox/Core/cheap-ruler-cs" />
+     <None Include="Assets/QuickOutline/Readme.txt" />
+     <Folder Include="Assets/Mapbox/Core/Plugins" />
+     <Folder Include="Assets/ARLocation/Plugins/Android" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer" />
+     <Folder Include="Assets/Mapbox/Unity/Map/TileProviders" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Prefabs" />
+     <Folder Include="Assets/Mapbox/Examples/5_Playground/Scenes" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Shaders" />
+     <Folder Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers" />
+     <Folder Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/Resources" />
+     <Folder Include="Assets/Prefabs/Portals" />
+     <Folder Include="Assets/Sprites/SpriteSequence" />
+     <Folder Include="Assets/XR/UserSimulationSettings" />
+     <Folder Include="Assets/MapboxAR/Unity" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Textures" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/Aeroway" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D" />
+     <Folder Include="Assets/Scripts/AR/FoundationAR" />
+     <Folder Include="Assets/Scripts/Utils" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Scripts/Examples" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Scripts" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite/Assets/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetCutoutShader.shader" />
+     <None Include="Assets/ARLocation/Third-Party-Notices.txt" />
+     <Folder Include="Assets/MapboxAR" />
+     <Folder Include="Assets/TextMesh Pro/Shaders" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers" />
+     <Folder Include="Assets/Scripts/Infrastructure/Interfaces" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net35" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android" />
+     <Folder Include="Assets/UI" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Plugins" />
+     <Folder Include="Assets/Prefabs/Portals/Red" />
      <None Include="Assets/Mapbox/README.txt" />
      <None Include="Assets/MapboxAR/link.xml" />
+     <Folder Include="Assets/Scripts/Installers" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances" />
+     <Folder Include="Assets/Modules/Shared/UI/ButtonWithCooldown/SpriteSequence" />
+     <Folder Include="Assets/Audio/Shared" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes/Controls" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox" />
+     <Folder Include="Assets/old_Scripts/ErrorManager" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Scripts" />
+     <Folder Include="Assets/old_Scripts/StateInstructions" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Android/UniAndroidPermission" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
+     <Folder Include="Assets/Mapbox/Unity/DataContainers" />
+     <Folder Include="Assets/Mapbox/Resources" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite/Assets" />
+     <Folder Include="Assets/QuickOutline/Resources/Shaders" />
+     <Folder Include="Assets/TextMesh Pro/Fonts" />
+     <Folder Include="Assets/MapboxAR/Unity/Ar/Utilities" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/WebServices" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Screenshots" />
+     <Folder Include="Assets/Prefabs/Portals/Yellow" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets/Atlas" />
+     <Folder Include="Assets/_Project" />
      <None Include="Assets/Mapbox/Core/Plugins/Android/UniAndroidPermission/AndroidManifest-uniRP.xml" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Palettes" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Atlas" />
+     <Folder Include="Assets/QuickOutline" />
+     <Folder Include="Assets/Mapbox/Examples/7_Globe/Scripts" />
+     <Folder Include="Assets/Models" />
+     <Folder Include="Assets/Prefabs/Presents" />
+     <Folder Include="Assets/Mapbox/Core/probe-extractor-cs/Tests" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples (API usage)/uGUI" />
+     <Folder Include="Assets/MapboxAR/Scripts" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Textures" />
+     <Folder Include="Assets/XR/Temp" />
+     <Folder Include="Assets/VFX/MeshClipper" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+     <Folder Include="Assets/_Scenes/Map" />
+     <Folder Include="Assets/QuickOutline/Samples/Materials" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Scripts" />
+     <Folder Include="Assets/LightshipHUB/Samples/AR Fundamentals" />
+     <Folder Include="Assets/_Project/Scenes" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Materials/Interior" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Core" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Materials" />
+     <Folder Include="Assets/old_Scripts" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Data" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs" />
+     <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap/Screenshots" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Materials/Exterior" />
+     <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Elevations" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Textures/Interior" />
+     <Folder Include="Assets/Prefabs/Portals/Purple" />
+     <Folder Include="Assets/Localization" />
+     <Folder Include="Assets/Settings" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Providers" />
+     <Folder Include="Assets/MapboxAR/Examples" />
+     <Folder Include="Assets/old_Scripts/Prototype/States" />
+     <Folder Include="Assets/Mapbox/Core" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite" />
+     <Folder Include="Assets/LightshipHUB/Samples/Contextual Awareness" />
+     <Folder Include="Assets/Modules" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Models" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/LabelLayers" />
+     <Folder Include="Assets/LightshipHUB/Samples/VPS" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls" />
+     <Folder Include="Assets/Mapbox/Examples/Resources" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters" />
      <None Include="Assets/LightshipHUB/Runtime/Shaders/Segmentation.shader" />
+     <Folder Include="Assets/Mapbox/Examples/3_POIPlacement/Modifiers" />
+     <Folder Include="Assets/ARLocation" />
+     <Folder Include="Assets/ARLocation/LocationPaths" />
+     <Folder Include="Assets/Modules/Shared" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Materials" />
+     <Folder Include="Assets/Mapbox" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color" />
+     <Folder Include="Assets/Modules/Shared/UI/ButtonWithCooldown" />
+     <Folder Include="Assets/ThirdPartyAssets" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Screenshots" />
+     <Folder Include="Assets/Scripts/Data" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Atlas" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light" />
      <None Include="Assets/Mapbox/Core/Plugins/link.xml" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets" />
      <None Include="Assets/Mapbox/Shaders/RasterWithTransparencyShader.shader" />
+     <Folder Include="Assets/ARLocation/GO Map Integration" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets/Materials" />
+     <Folder Include="Assets/Modules/Shared/ARPlane" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/BarrierLine" />
+     <Folder Include="Assets/Mapbox/Resources/Mapbox" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/ModerateTraffic" />
+     <Folder Include="Assets/Scripts/Screens/Views" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Materials" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Providers/Tiles" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+     <Folder Include="Assets/LightshipHUB/Runtime/Models" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net4x" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Textures" />
+     <Folder Include="Assets/ARLocation/Experimental" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Drawing" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/uap10" />
+     <Folder Include="Assets/Mapbox/Prefabs" />
+     <Folder Include="Assets/Scripts/Screens/MainScreen" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers" />
+     <Folder Include="Assets/Mapbox/Resources/HeroStructures/Meshes" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes" />
+     <Folder Include="Assets/Infinity Code/Online maps/Textures" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic" />
+     <Folder Include="Assets/Mapbox/Unity/Utilities" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Models" />
+     <Folder Include="Assets/ARLocation/Locations" />
+     <Folder Include="Assets/Mapbox/Fonts" />
+     <Folder Include="Assets/PhysicsMaterials" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Materials" />
+     <Folder Include="Assets/Scripts/Screens/Transitions" />
+     <Folder Include="Assets/QuickOutline/Scripts" />
+     <Folder Include="Assets/old_Scripts/Prototype" />
+     <Folder Include="Assets/ARLocation/Scripts" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/SevereTraffic" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/VectorFactory" />
      <None Include="Assets/Mapbox/Fonts/OpenSansLic.txt" />
+     <None Include="Assets/ARLocation/Experimental/World Builder/Readme.txt" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/ScreenShots" />
+     <Folder Include="Assets/Scripts/Utils/StateMachine" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Managers" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Atlas" />
+     <Folder Include="Assets/Mapbox/Core/cheap-ruler-cs/Tests" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/WaterLayer" />
+     <Folder Include="Assets/Mapbox/Examples/5_Playground/Materials" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/MotorwayJunctionLayer" />
+     <Folder Include="Assets/MapboxAR/Examples/SimpleMap" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+     <Folder Include="Assets/Mapbox/Textures" />
+     <Folder Include="Assets/Audio/Snowball Fight" />
+     <Folder Include="Assets/XR/Settings" />
+     <Folder Include="Assets/Scripts/AR/Floor" />
+     <Folder Include="Assets/Scripts/Infrastructure/GameStateMachine/GameStates" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Factories" />
+     <Folder Include="Assets/ARLocation/Materials" />
+     <Folder Include="Assets/ARLocation/Scripts/Components/WebMapEditor" />
+     <Folder Include="Assets/ARLocation/Samples" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets/Atlas" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets/Scripts/AR/World" />
+     <Folder Include="Assets/ARLocation/Prefabs/Sample Assets" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Materials" />
+     <None Include="Assets/QuickOutline/Resources/Shaders/OutlineFill.shader" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Prefabs" />
+     <Folder Include="Assets/LightshipHUBMockEnviroments/Materials" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy" />
+     <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response" />
+     <Folder Include="Assets/MapboxAR/Textures" />
      <None Include="Assets/Mapbox/Unity/Location/ExampleGpsTraces/Helsinki.txt" />
+     <Folder Include="Assets/Mapbox/Examples/Prefabs" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <Folder Include="Assets/Scripts/Infrastructure/GameStateMachine" />
+     <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Scripts" />
+     <Folder Include="Assets/MockMeshes" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/LowTraffic" />
+     <Folder Include="Assets/Mapbox/Unity/Location" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android/libs" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts" />
+     <None Include="Assets/ARLocation/Mapbox Routes/README.txt" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/iOS" />
+     <Folder Include="Assets/XR/Resources" />
+     <Folder Include="Assets/Mapbox/Resources/HeroStructures/Materials" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Textures/Compass" />
+     <Folder Include="Assets/Fonts/Comic_Neue_Body" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/ImageFactory" />
+     <Folder Include="Assets/Mapbox/Shaders" />
      <None Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/Clip_MapboxStyles.shader" />
+     <Folder Include="Assets/old_Scripts/Prototype/States/LocationDetection" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples (API usage)" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/Resources" />
+     <Folder Include="Assets/_Scenes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets/ARLocation/Experimental/World Voxel Craft" />
+     <Folder Include="Assets/Infinity Code/Online maps/Examples/Models/Materials" />
+     <Folder Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi" />
+     <None Include="Assets/ARLocation/Materials/Shaders/ShadowDrawer.shader" />
+     <Folder Include="Assets/Mapbox/Unity/LayerProperties" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/LanduseOverlayLayer" />
+     <None Include="Assets/ARLocation/Mapbox Routes/Shaders/LineShader.shader" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/iOS/MapboxMobileEvents" />
+     <Folder Include="Assets/VFX/FeaturePoints" />
+     <Folder Include="Assets/_Project/Scripts" />
      <None Include="Assets/LightshipHUB/Runtime/Shaders/ObjectMasking.shader" />
+     <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree" />
      <None Include="Assets/Mapbox/Unity/Location/ExampleGpsTraces/LocationProviderAndroidNative-2.txt" />
+     <Folder Include="Assets/Resources/Mapbox" />
+     <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Prefabs/Voxels" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets" />
+     <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Park" />
+     <Folder Include="Assets/Materials" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Tiles" />
+     <Folder Include="Assets/Mapbox/Examples/Scripts" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
+     <Folder Include="Assets/Mapbox/Examples/5_Playground" />
+     <Folder Include="Assets/Fonts/Londrina_Solid" />
+     <Folder Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/ClipBox" />
+     <Folder Include="Assets/Audio" />
+     <Folder Include="Assets/Mapbox/Resources/HeroStructures/Modifiers" />
+     <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Models" />
+     <Folder Include="Assets/Infinity Code/Online maps/Packages" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Mapbox" />
+     <Folder Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Instances" />
+     <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Palettes" />
+     <Folder Include="Assets/ARLocation/Scripts/Math" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
+     <Folder Include="Assets/Modules/Art/SnoballToss" />
+     <Folder Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleSourceAnimations" />
+     <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46" />
+     <Folder Include="Assets/Mapbox/User/Modifiers" />
+     <Folder Include="Assets/Mapbox/Unity/Telemetry" />
+     <Folder Include="Assets/ARLocation/Data" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -1079,6 +1700,9 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject-usage">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+     </Reference>
      <Reference Include="MapboxAccountsUnity">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net35/MapboxAccountsUnity.dll</HintPath>
      </Reference>
@@ -1103,6 +1727,9 @@
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
@@ -1118,11 +1745,20 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+     </Reference>
      <Reference Include="Mapbox.VectorTile.PbfReader">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.PbfReader.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>
@@ -1517,26 +2153,11 @@
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Purchasing">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.007.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.SecurityStub">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Advertisements">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Searcher.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARCore.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
@@ -1544,44 +2165,23 @@
      <Reference Include="Unity.XR.ARKit.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InputSystem">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Rider.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
-     <Reference Include="Analytics">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Analytics.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.SpatialTracking">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Analytics.DataPrivacy">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.Simulation.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Simulation.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.CoreUtils.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.MockHMD">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.Purchasing.Codeless">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Analytics.DataPrivacy">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
@@ -1589,14 +2189,8 @@
      <Reference Include="Unity.XR.ARAnalytics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARAnalytics.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.ARSubsystems.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.XR.Management">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
@@ -1610,9 +2204,6 @@
      <Reference Include="Unity.XR.ARSubsystems">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.ARKit.FaceTracking">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.ARFoundation.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
      </Reference>
@@ -1622,44 +2213,14 @@
      <Reference Include="Unity.Tutorials.Core">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Tutorials.Core.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.ARKit">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.007.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Analytics.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Burst.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Analytics">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -1670,14 +2231,8 @@
      <Reference Include="Unity.PlasticSCM.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.XR.MockHMD.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Tutorials.Core.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Tutorials.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Services.Core">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -1685,32 +2240,17 @@
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Burst">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEngine.Purchasing.SecurityCore">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.CoreUtils">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Purchasing.Stores">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
@@ -1718,11 +2258,107 @@
      <Reference Include="UnityEditor.XR.LegacyInputHelpers">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEditor.Purchasing">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
-     </Reference>
      <Reference Include="UnityEditor.SpatialTracking">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.TextMeshPro.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Purchasing.SecurityStub">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Advertisements">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Searcher.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InputSystem">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="Analytics">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Analytics.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.CoreUtils.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.CoreUtils.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.MockHMD">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.Purchasing.Codeless">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.Management">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit.FaceTracking">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Tilemap.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Analytics.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Analytics">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Analytics.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.MockHMD.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Services.Core">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Burst">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Timeline.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEditor.Purchasing">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Advertisements.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Advertisements.Editor.dll</HintPath>
@@ -1739,6 +2375,14 @@
       <Project>{191d8523-e599-6c39-5819-4b3dc9182d8b}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{d14a0ec0-7235-d77f-5d14-4a683b5c7df2}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{44054a5a-e9dd-6ee6-60a4-a99515ca958e}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
     <ProjectReference Include="IngameDebugConsole.Editor.csproj">
       <Project>{8bf52602-5f51-ac59-6e11-af72f4b5e0e9}</Project>
       <Name>IngameDebugConsole.Editor</Name>
@@ -1746,6 +2390,10 @@
     <ProjectReference Include="IngameDebugConsole.Runtime.csproj">
       <Project>{26b08317-265e-fb83-0baf-00a57b6de0a8}</Project>
       <Name>IngameDebugConsole.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
+      <Project>{74d50c33-ae83-f141-18f3-e56728d861bf}</Project>
+      <Name>Zenject-ReflectionBaking-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="ARDK-Editor.csproj">
       <Project>{72a7a07c-5dc9-4038-3949-10a4b897fbbb}</Project>
@@ -1758,6 +2406,10 @@
     <ProjectReference Include="ARDK.csproj">
       <Project>{6786bf00-cfdd-5673-ddb4-d8012488c16c}</Project>
       <Name>ARDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{d0376efc-106a-bc3f-ec85-839e8b8c7a7d}</Project>
+      <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
       <Project>{c2f55cb9-f462-8a84-06ad-28f8b3dca527}</Project>

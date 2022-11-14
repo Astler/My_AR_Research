@@ -106,8 +106,8 @@
      <Compile Include="Assets/Plugins/UniRx/Scripts/Observable.Aggregate.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Disposables/SingleAssignmentDisposable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Observable.cs" />
-     <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/ToObservable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/System/IObservable.cs" />
+     <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/ToObservable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCanvasGroupChangedTrigger.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/Do.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/InspectorDisplayDrawer.cs" />
@@ -268,7 +268,23 @@
      <Compile Include="Assets/Plugins/UniRx/Scripts/InternalUtil/PromiseHelper.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/Take.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/Last.cs" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/System" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Subjects" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Tasks" />
      <None Include="Assets/Plugins/UniRx/Scripts/UniRx.asmdef" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Schedulers" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Operators" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Notifiers" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Asynchronous" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/InternalUtil" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Operators" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/UnityWinRTBridge" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/Disposables" />
+     <Folder Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Toolkit" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -515,6 +531,9 @@
      <Reference Include="UnityEditor.iOS.Extensions">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject-usage">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+     </Reference>
      <Reference Include="MapboxAccountsUnity">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net35/MapboxAccountsUnity.dll</HintPath>
      </Reference>
@@ -551,6 +570,9 @@
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
@@ -566,11 +588,20 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+     </Reference>
      <Reference Include="Mapbox.VectorTile.PbfReader">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.PbfReader.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>

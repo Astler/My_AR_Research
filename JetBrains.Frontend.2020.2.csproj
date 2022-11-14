@@ -41,6 +41,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Folder Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2020.2" />
+     <Folder Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2020.2/EnhancedHierarchyIntegration" />
      <None Include="Assets/Plugins/Editor/JetBrains.RiderFlow/2020.2/JetBrains.Frontend.2020.2.asmdef" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

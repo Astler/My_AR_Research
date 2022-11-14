@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218dd9e97153442e82ccafb300084d51, type: 3}
+  m_Name: LegacyAssets
+  m_EditorClassIdentifier: 
+  portalZones:
+  - name: City Portal
+    latitude: 47.568328857421875
+    longitude: 34.391990661621094
+    radius: 10
+    isActive: 0
+  - name: Dev Portal
+    latitude: 48.5089416503906
+    longitude: 35.077808380127
+    radius: 5
+    isActive: 1
+  - name: Test Portal
+    latitude: 48.4559393
+    longitude: 35.0491729
+    radius: 200
+    isActive: 1
+  - name: MS Portal
+    latitude: 48.4557197
+    longitude: 35.0503276
+    radius: 200
+    isActive: 1
+  - name: Steve
+    latitude: 26.0127707
+    longitude: -80.4276731
+    radius: 200
+    isActive: 1
+  - name: Ra'anana
+    latitude: 32.195068
+    longitude: 34.878197
+    radius: 200
+    isActive: 1
+  - name: Dev Near
+    latitude: 48.5085339
+    longitude: 35.0768523
+    radius: 30
+    isActive: 1
+  - name: Dead End
+    latitude: 0
+    longitude: 0
+    radius: 50
+    isActive: 1
+  - name: Dead End Near
+    latitude: 10
+    longitude: 0
+    radius: 50
+    isActive: 1
+  - name: QA
+    latitude: 48.402111657581024
+    longitude: 35.006753963293214
+    radius: 20
+    isActive: 1
+  - name: QA Near
+    latitude: 48.4025754950592
+    longitude: 35.00711848125057
+    radius: 200
+    isActive: 1
+  - name: Prospect
+    latitude: 48.5090725
+    longitude: 35.0773679
+    radius: 200
+    isActive: 1
+  giftModels:
+  - giftViewPrefab: {fileID: 1721562904039139676, guid: fded08e8410875d44b61d25fc66eb6de,
+      type: 3}
+  - giftViewPrefab: {fileID: -886005292865218802, guid: 9fc7e78846ce08d4491d4d4e45724bbb,
+      type: 3}
+  - giftViewPrefab: {fileID: -1881087309283328388, guid: 860583af96d009042a3b060497e32cda,
+      type: 3}
+  - giftViewPrefab: {fileID: 6300866854612201395, guid: 676e221c17d6f024abc877e970e30a04,
+      type: 3}
+  - giftViewPrefab: {fileID: -7127078701462239746, guid: 955b07ab98b590643be9e3d2e9fb7597,
+      type: 3}
+  - giftViewPrefab: {fileID: -6464754684150920992, guid: 31bb285121bc5f44b8597bc9cb1e3b08,
+      type: 3}
+  - giftViewPrefab: {fileID: 2948979726057970895, guid: 240c31290dd88c340b202eede4acc0d6,
+      type: 3}
+  - giftViewPrefab: {fileID: -5735522997991345305, guid: 1a1f4436220def04aae417f6a9a77450,
+      type: 3}

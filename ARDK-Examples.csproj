@@ -95,9 +95,51 @@
      <Compile Include="Assets/ARDKExamples/PersistentKeyValue/PersistentKeyValueExampleManager.cs" />
      <Compile Include="Assets/ARDKExamples/Common/Helpers/Networking/SessionStartGatekeeper.cs" />
      <Compile Include="Assets/ARDKExamples/ARNetworking/ARNetworkingExampleManager.cs" />
+     <Folder Include="Assets/ARDKExamples/VirtualStudio/Mock" />
+     <Folder Include="Assets/ARDKExamples/Rendering" />
+     <Folder Include="Assets/ARDKExamples/SceneSelector" />
+     <Folder Include="Assets/ARDKExamples/PlaneAnchors" />
+     <Folder Include="Assets/ARDKExamples/Preloading" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/Gameboard" />
      <None Include="Assets/ARDKExamples/Common/Prefabs/Yeti/Source/Shadow/ShadowBlit.shader" />
+     <Folder Include="Assets/ARDKExamples/Pong" />
+     <Folder Include="Assets/ARDKExamples/LowLevelNetworking" />
+     <Folder Include="Assets/ARDKExamples/ImageDetection" />
+     <Folder Include="Assets/ARDKExamples/Common/Materials" />
+     <Folder Include="Assets/ARDKExamples/Common/Prefabs/Yeti/Source/Shadow" />
+     <Folder Include="Assets/ARDKExamples/LocationService" />
+     <Folder Include="Assets/ARDKExamples/WayspotAnchors" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/Depth" />
+     <Folder Include="Assets/ARDKExamples/MarkerSync" />
+     <Folder Include="Assets/ARDKExamples/Common/Helpers/Configuration" />
+     <Folder Include="Assets/ARDKExamples/Common/Prefabs/Yeti" />
+     <Folder Include="Assets/ARDKExamples/PersistentKeyValue" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/HumanAR/HandTracking" />
+     <Folder Include="Assets/ARDKExamples/PongHLAPI/Prefabs" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness" />
+     <Folder Include="Assets/ARDKExamples/PongHLAPI" />
      <None Include="Assets/ARDKExamples/ARDK-Examples.asmdef" />
      <None Include="Assets/ARDKExamples/ContextAwareness/Segmentation/SemanticOverlay.shader" />
+     <Folder Include="Assets/ARDKExamples" />
+     <Folder Include="Assets/ARDKExamples/Pong/Prefabs" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/Segmentation" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/Meshing/MockMeshes" />
+     <Folder Include="Assets/ARDKExamples/AnchorsWithoutPlanes" />
+     <Folder Include="Assets/ARDKExamples/Common/Prefabs" />
+     <Folder Include="Assets/ARDKExamples/Common/Logging" />
+     <Folder Include="Assets/ARDKExamples/VpsCoverage" />
+     <Folder Include="Assets/ARDKExamples/Common/Helpers/AR" />
+     <Folder Include="Assets/ARDKExamples/Common/Textures" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/HumanAR" />
+     <Folder Include="Assets/ARDKExamples/Common/Helpers" />
+     <Folder Include="Assets/ARDKExamples/Common/Prefabs/Yeti/Source" />
+     <Folder Include="Assets/ARDKExamples/Common" />
+     <Folder Include="Assets/ARDKExamples/VirtualStudio/Playback" />
+     <Folder Include="Assets/ARDKExamples/VirtualStudio/Remote" />
+     <Folder Include="Assets/ARDKExamples/VirtualStudio" />
+     <Folder Include="Assets/ARDKExamples/ARNetworking" />
+     <Folder Include="Assets/ARDKExamples/Common/Helpers/Networking" />
+     <Folder Include="Assets/ARDKExamples/ContextAwareness/Meshing" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
@@ -344,6 +386,9 @@
      <Reference Include="UnityEditor.iOS.Extensions">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject-usage">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
+     </Reference>
      <Reference Include="MapboxAccountsUnity">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts/net35/MapboxAccountsUnity.dll</HintPath>
      </Reference>
@@ -380,6 +425,9 @@
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
@@ -395,11 +443,20 @@
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+     </Reference>
      <Reference Include="Mapbox.VectorTile.PbfReader">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.PbfReader.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Mdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll</HintPath>

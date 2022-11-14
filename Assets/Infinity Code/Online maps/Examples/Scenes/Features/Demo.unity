@@ -1416,7 +1416,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 193630192}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: InfinityCode.OnlineMapsDemos.Demo, Assembly-CSharp
         m_MethodName: SetLabels
         m_Mode: 1
         m_Arguments:
@@ -1538,6 +1538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2276,7 +2277,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 193630192}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: InfinityCode.OnlineMapsDemos.Demo, Assembly-CSharp
         m_MethodName: SetElevations
         m_Mode: 1
         m_Arguments:
@@ -2902,7 +2903,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 193630192}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: InfinityCode.OnlineMapsDemos.Demo, Assembly-CSharp
         m_MethodName: SetTraffic
         m_Mode: 1
         m_Arguments:
