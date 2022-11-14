@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.ms.vr_demo",
-        "processId": 12622,
+        "processId": 16169,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -192,6 +192,18 @@
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
             "processId": 12622,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 13653,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 16169,
             "exited": false
         },
         {

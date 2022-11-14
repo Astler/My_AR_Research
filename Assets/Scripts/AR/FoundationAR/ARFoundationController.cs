@@ -30,6 +30,13 @@ namespace AR.FoundationAR
         {
             _coordinator = coordinator;
             _locationController = locationController;
+            
+            ARSession.stateChanged += OnStateChanged;
+        }
+
+        private void OnStateChanged(ARSessionStateChangedEventArgs obj)
+        {
+            Debug.Log("session state changed: " + obj.state);
         }
 
         public IReadOnlyReactiveProperty<bool> Initialized { get; }
