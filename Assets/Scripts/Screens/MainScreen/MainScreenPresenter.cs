@@ -199,17 +199,10 @@ namespace Screens.MainScreen
                 foreach (RaycastHit hit in hits)
                 {
                     Debug.Log($"hit name = {hit.collider.gameObject.name}");
-                    if (hit.collider.gameObject.TryGetComponent(out GiftView gift))
+                    
+                    if (hit.collider.gameObject.TryGetComponent(out GiftView giftView))
                     {
-                        double distance = Vector3.Distance(gift.transform.position, cameraView.transform.position);
-
-                        Debug.Log($"gift Hit {distance}");
-                        
-                        if (distance > 5) return;
-
-                        Debug.Log("gift Hit");
-                        gift.Interact();
-                        return;
+                        giftView.Interact();
                     }
                 }
             }

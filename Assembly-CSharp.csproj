@@ -896,6 +896,7 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
+     <Compile Include="Assets/Scripts/Utils/GlobalConstants.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
      <Folder Include="Assets/LightshipHUB/Runtime/Materials/Models" />
