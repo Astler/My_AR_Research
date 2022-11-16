@@ -449,6 +449,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DistanceAndDurationExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DragAndZoomInertia.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/ElevatedTerrainStrategy.cs" />
+     <Compile Include="Assets/Scripts/Utils/GlobalConstants.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/Spline.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/DetectWaterByTextureExample.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/MeshColliderController.cs" />
@@ -896,7 +897,6 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
-     <Compile Include="Assets/Scripts/Utils/GlobalConstants.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
      <Folder Include="Assets/LightshipHUB/Runtime/Materials/Models" />

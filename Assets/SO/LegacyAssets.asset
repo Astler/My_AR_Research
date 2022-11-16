@@ -21,7 +21,7 @@ MonoBehaviour:
   - name: Dev Portal
     latitude: 48.5089416503906
     longitude: 35.077808380127
-    radius: 5
+    radius: 20
     isActive: 1
   - name: Test Portal
     latitude: 48.4559393

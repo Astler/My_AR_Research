@@ -7,6 +7,8 @@ namespace AR.World
 {
     public class ARAnchorFollower : MonoBehaviour
     {
+        private const float BorderWidth = 0.1f;
+
         [SerializeField] private GiftView gift;
         [SerializeField] private TMP_Text distanceText;
         [SerializeField] private TMP_Text nameText;
@@ -18,17 +20,19 @@ namespace AR.World
         {
             if (!gift) return;
 
+            Vector2 position = Application.isEditor ? GlobalConstants.MockPosition : WorldCoordinates ?? Vector2.zero;
+
             gift.Interacted += _ =>
             {
                 double distance = CoordinatesUtils.Distance(Input.location.lastData.latitude,
                     Input.location.lastData.longitude,
-                    WorldCoordinates.Value.x,
-                    WorldCoordinates.Value.y);
-                            
+                    position.x,
+                    position.y);
+
                 Debug.Log($"gift Hit {distance}");
-                        
+
                 if (distance * 1000 > GlobalConstants.CollectDistance) return;
-                
+
                 Debug.Log($"collect!");
                 clicked?.Invoke();
             };
@@ -36,7 +40,7 @@ namespace AR.World
 
         public void SetZoneScale(float scale)
         {
-            zoneTransform.localScale = new Vector3(1f, 5f, 1f) * (scale / 10);
+            zoneTransform.localScale = new Vector3(1f, 5f, 1f) * (scale / 10) + new Vector3(1f, 0f, 1f) * scale / 100;
         }
 
         public void SetActive(bool isActive) => gameObject.SetActive(isActive);
@@ -51,10 +55,12 @@ namespace AR.World
         {
             if (WorldCoordinates == null) return;
 
+            Vector2 position = Application.isEditor ? GlobalConstants.MockPosition : WorldCoordinates ?? Vector2.zero;
+
             double distance = CoordinatesUtils.Distance(Input.location.lastData.latitude,
                 Input.location.lastData.longitude,
-                WorldCoordinates.Value.x,
-                WorldCoordinates.Value.y);
+                position.x,
+                position.y);
 
             distanceText.text = distance.DistanceToHuman();
 
@@ -66,7 +72,7 @@ namespace AR.World
         public void Interact()
         {
             if (!gift) return;
-            
+
             gift.Interact();
         }
     }

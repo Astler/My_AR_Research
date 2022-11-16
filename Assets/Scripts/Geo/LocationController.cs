@@ -148,7 +148,7 @@ namespace Geo
         {
             if (Application.isEditor)
             {
-                _dataProxy.SetPlayerPosition(new Vector2(48.5089416503906f, 35.077808380127f));
+                _dataProxy.SetPlayerPosition(GlobalConstants.MockPosition);
                 return;
             }
 

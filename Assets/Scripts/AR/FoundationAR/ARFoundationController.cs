@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AR.World;
+using ARLocation;
 using GameCamera;
 using Geo;
 using Niantic.ARDK.AR;
@@ -10,6 +11,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Zenject;
+using ARSessionState = UnityEngine.XR.ARFoundation.ARSessionState;
 
 namespace AR.FoundationAR
 {
@@ -37,6 +39,11 @@ namespace AR.FoundationAR
         private void OnStateChanged(ARSessionStateChangedEventArgs obj)
         {
             Debug.Log("session state changed: " + obj.state);
+
+            if (obj.state == ARSessionState.SessionInitializing)
+            {
+                ARLocationManager.Instance.Restart();
+            }
         }
 
         public IReadOnlyReactiveProperty<bool> Initialized { get; }
