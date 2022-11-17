@@ -1011,6 +1011,10 @@
       <Project>{c2f55cb9-f462-8a84-06ad-28f8b3dca527}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
+    <ProjectReference Include="BestHTTP.csproj">
+      <Project>{d8e7336e-b30f-da7d-fd5a-bf82757993b9}</Project>
+      <Name>BestHTTP</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

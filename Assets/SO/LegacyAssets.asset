@@ -78,6 +78,21 @@ MonoBehaviour:
     longitude: 34.96606730630426
     radius: 200
     isActive: 1
+  - name: Ivan
+    latitude: 38.75289297221765
+    longitude: -9.17643043589909
+    radius: 100
+    isActive: 1
+  - name: Ivan Near
+    latitude: 38.75166438192044
+    longitude: -9.17318927792375
+    radius: 100
+    isActive: 1
+  - name: Ivan Again
+    latitude: 38.7494935998441
+    longitude: -9.168947890274904
+    radius: 10
+    isActive: 1
   giftModels:
   - giftViewPrefab: {fileID: 1721562904039139676, guid: fded08e8410875d44b61d25fc66eb6de,
       type: 3}

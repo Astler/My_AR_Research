@@ -897,6 +897,16 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
+     <Compile Include="Assets/Scripts/Core/ApiInterface.cs" />
+     <Compile Include="Assets/Scripts/Core/IApiInterface.cs" />
+     <Compile Include="Assets/Scripts/Data/EnvironmentType.cs" />
+     <Compile Include="Assets/Scripts/Data/DataModels.cs" />
+     <Compile Include="Assets/Scripts/Core/WebSockets/WebSocketService.cs" />
+     <Compile Include="Assets/Scripts/Data/IncomingMessagesTypes.cs" />
+     <Compile Include="Assets/Scripts/Core/WebSockets/IncomingMessage.cs" />
+     <Compile Include="Assets/Scripts/Core/WebSockets/WebSocketMessage.cs" />
+     <Compile Include="Assets/Scripts/Utils/DeviceIDGetter.cs" />
+     <Compile Include="Assets/Scripts/Utils/StringConstants.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
      <Folder Include="Assets/LightshipHUB/Runtime/Materials/Models" />
@@ -1018,6 +1028,7 @@
      <Folder Include="Assets/ARLocation/Scripts/Utils" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests" />
+     <Folder Include="Assets/Scripts/Core" />
      <Folder Include="Assets/Mapbox/Unity/Map/Interfaces" />
      <Folder Include="Assets/MapboxAR/Unity/Ar" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElementZOffset.shader" />
@@ -1220,6 +1231,7 @@
      <Folder Include="Assets/XR/UserSimulationSettings" />
      <Folder Include="Assets/MapboxAR/Unity" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples/Textures" />
+     <Folder Include="Assets/Scripts/Core/WebSockets" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/Aeroway" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D" />
      <Folder Include="Assets/Scripts/AR/FoundationAR" />
@@ -2415,6 +2427,10 @@
     <ProjectReference Include="UniRx.csproj">
       <Project>{c2f55cb9-f462-8a84-06ad-28f8b3dca527}</Project>
       <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="BestHTTP.csproj">
+      <Project>{d8e7336e-b30f-da7d-fd5a-bf82757993b9}</Project>
+      <Name>BestHTTP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

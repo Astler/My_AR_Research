@@ -94,11 +94,10 @@ namespace AR
 
         private void OnStateChanged(ARSessionStateChangedEventArgs stateArgs)
         {
-            Debug.Log($"state changed = {stateArgs.state}");
-
             if (stateArgs.state != ARSessionState.SessionTracking) return;
 
             PlaceZonesByMap();
+            ARSession.stateChanged -= OnStateChanged;
         }
 
         private void PlaceObjectsAnchors(Vector2d playerPositionRaw)
@@ -174,16 +173,10 @@ namespace AR
                 };
 
                 PlaceAtLocation.AddPlaceAtComponent(follower.gameObject, location, options);
-                // follower.gameObject.AddComponent<ARAnchor>();
-
                 follower.name = portalZoneModel.name;
 
                 _anchors.Add(follower);
-
-                // Debug.Log("Placed " + portalZoneModel.name + " at " + objectPosition);
             }
-
-            // ARLocationManager.Instance.Restart();
         }
 
         private void CreateNewBeam()
@@ -253,14 +246,11 @@ namespace AR
                 };
 
                 PlaceAtLocation.AddPlaceAtComponent(follower.gameObject, location, options);
-                follower.gameObject.AddComponent<ARAnchor>();
 
                 _beams.Add(follower);
 
                 Debug.Log("Placed " + data.Name + " at " + objectPosition);
             }
-
-            // ARLocationManager.Instance.Restart();
         }
     }
 }

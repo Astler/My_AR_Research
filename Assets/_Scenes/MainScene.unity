@@ -549,9 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8509790efa844279ea4b7b19529fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
+  Camera: {fileID: 1387174004}
   WaitForARTrackingToStart: 1
-  RestartWhenARTrackingIsRestored: 0
+  RestartWhenARTrackingIsRestored: 1
   SetTargetFrameRateTo60Mhz: 1
   DebugMode: 0
   OnTrackingStarted:
@@ -575,12 +575,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5e11077e489453a9cbcfff72c5a9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfUpdates: 4
+  MaxNumberOfUpdates: 6
   AverageCount: 150
   UseRawUntilFirstAverage: 1
   MovementSmoothingFactor: 0.5
   TrueNorthOffset: 0
-  ApplyCompassTiltCompensationOnAndroid: 1
+  ApplyCompassTiltCompensationOnAndroid: 0
   LowPassFilterFactor: 0.9
   OnOrientationUpdated:
     m_PersistentCalls:

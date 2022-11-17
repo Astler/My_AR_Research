@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngameDebugConsole.Runtime"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARDK-Examples", "ARDK-Examples.csproj", "{64d29f55-3447-c444-940b-901c5b002e18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestHTTP", "BestHTTP.csproj", "{d8e7336e-b30f-da7d-fd5a-bf82757993b9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-PoolMonitor-Editor", "Zenject-PoolMonitor-Editor.csproj", "{d0376efc-106a-bc3f-ec85-839e8b8c7a7d}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-UnitTests-Editor", "Zenject-UnitTests-Editor.csproj", "{46988fb2-d2d9-98c9-5a92-d4a25e1f14f4}"
@@ -66,6 +68,8 @@ Global
 		{26b08317-265e-fb83-0baf-00a57b6de0a8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64d29f55-3447-c444-940b-901c5b002e18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64d29f55-3447-c444-940b-901c5b002e18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d8e7336e-b30f-da7d-fd5a-bf82757993b9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d8e7336e-b30f-da7d-fd5a-bf82757993b9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d0376efc-106a-bc3f-ec85-839e8b8c7a7d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d0376efc-106a-bc3f-ec85-839e8b8c7a7d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46988fb2-d2d9-98c9-5a92-d4a25e1f14f4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

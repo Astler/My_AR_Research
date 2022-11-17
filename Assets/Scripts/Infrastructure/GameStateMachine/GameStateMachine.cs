@@ -1,4 +1,7 @@
-﻿using Infrastructure.GameStateMachine.GameStates;
+﻿using Core;
+using Core.WebSockets;
+using Data;
+using Infrastructure.GameStateMachine.GameStates;
 using SceneManagement;
 using Screens;
 using Utils.StateMachine;
@@ -8,9 +11,15 @@ namespace Infrastructure.GameStateMachine
 {
     public class GameStateMachine : StateMachine, IInitializable
     {
-        public GameStateMachine(SceneLoader sceneLoader, IScreenNavigationSystem screenNavigationSystem)
+        private readonly IApiInterface _apiInterface;
+        private readonly WebSocketService _webSocketService;
+
+        public GameStateMachine(SceneLoader sceneLoader, IScreenNavigationSystem screenNavigationSystem,
+            IApiInterface apiInterface, WebSocketService webSocketService, IDataProxy dataProxy)
         {
-            AddNewState(new BootstrapState(this, sceneLoader));
+            _apiInterface = apiInterface;
+            _webSocketService = webSocketService;
+            AddNewState(new BootstrapState(this, sceneLoader, _apiInterface, _webSocketService, dataProxy));
             AddNewState(new LoadLevelState(this, sceneLoader, screenNavigationSystem));
             AddNewState(new GameLoopState());
         }

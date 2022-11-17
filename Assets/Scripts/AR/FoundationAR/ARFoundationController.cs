@@ -39,11 +39,6 @@ namespace AR.FoundationAR
         private void OnStateChanged(ARSessionStateChangedEventArgs obj)
         {
             Debug.Log("session state changed: " + obj.state);
-
-            if (obj.state == ARSessionState.SessionInitializing)
-            {
-                ARLocationManager.Instance.Restart();
-            }
         }
 
         public IReadOnlyReactiveProperty<bool> Initialized { get; }

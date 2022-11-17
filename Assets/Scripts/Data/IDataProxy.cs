@@ -37,5 +37,6 @@ namespace Data
         void ResetScene();
         void RestartGeoLocation();
         void ToggleMap();
+        void AddEvents(EventsData data);
     }
 }

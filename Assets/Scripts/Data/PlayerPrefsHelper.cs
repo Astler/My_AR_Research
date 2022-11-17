@@ -5,7 +5,7 @@ namespace Data
     public static class PlayerPrefsHelper
     {
         private const string CoinsKey = "coins";
-        private const string CustomZonesDataKey = "custom_zones_data";
+        private const string AccessTokenKey = "access_token";
 
         public static int Coins
         {
@@ -13,6 +13,16 @@ namespace Data
             set
             {
                 PlayerPrefs.SetInt(CoinsKey, value);
+                PlayerPrefs.Save();
+            }
+        }
+        
+        public static string AccessToken
+        {
+            get => PlayerPrefs.GetString(AccessTokenKey);
+            set
+            {
+                PlayerPrefs.SetString(AccessTokenKey, value);
                 PlayerPrefs.Save();
             }
         }

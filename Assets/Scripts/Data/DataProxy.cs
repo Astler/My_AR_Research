@@ -4,6 +4,7 @@ using ARLocation;
 using Assets;
 using Data.Objects;
 using Geo;
+using Mapbox.Utils;
 using UniRx;
 using UnityEngine;
 using Utils;
@@ -13,19 +14,21 @@ namespace Data
     public class DataProxy : IDataProxy
     {
         private readonly AssetsScriptableObject _assetsScriptableObject;
-        private Subject<bool> _reset = new();
-        private Subject<bool> _clear = new();
-        private ReactiveProperty<bool> _inRewardZone = new();
-        private ReactiveProperty<bool> _mapOpened = new();
-        private ReactiveProperty<float> _distanceToClosestReward = new();
+        private readonly Subject<bool> _reset = new();
+        private readonly Subject<bool> _clear = new();
+        private readonly ReactiveProperty<bool> _inRewardZone = new();
+        private readonly ReactiveProperty<bool> _mapOpened = new();
+        private readonly ReactiveProperty<float> _distanceToClosestReward = new();
         private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
         private readonly ReactiveProperty<PortalZoneModel> _selectedPortalZone = new();
         private readonly ReactiveProperty<PortalZoneModel> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
         private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
-        private ReactiveProperty<int> _coins = new();
+        private readonly ReactiveProperty<int> _coins = new();
         private readonly PlayerData _playerData;
+        private readonly List<PortalViewInfo> _portalsList = new();
+        private EventData[] _eventsData;
 
         public DataProxy(AssetsScriptableObject assetsScriptableObject)
         {
@@ -76,19 +79,7 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
-        public IEnumerable<PortalViewInfo> GetAllZones()
-        {
-            List<PortalViewInfo> portalsList = new();
-
-            foreach (PortalZoneModel portalZoneModel in _assetsScriptableObject.GetZonesList())
-            {
-                PortalViewInfo viewInfo = portalZoneModel.ToViewInfo();
-                viewInfo.Distance = viewInfo.Coordinates.ToHumanReadableDistanceFromPlayer();
-                portalsList.Add(viewInfo);
-            }
-
-            return portalsList;
-        }
+        public IEnumerable<PortalViewInfo> GetAllZones() => _portalsList;
 
         public void NextStateStep()
         {
@@ -104,6 +95,25 @@ namespace Data
         public void ToggleMap()
         {
             _mapOpened.Value = !_mapOpened.Value;
+        }
+
+        public void AddEvents(EventsData data)
+        {
+            _portalsList.Clear();
+            _eventsData = data.events;
+
+            foreach (EventData eventData in _eventsData)
+            {
+                PortalViewInfo viewInfo = new()
+                {
+                    Name = eventData.title,
+                    Coordinates = new Vector2d(eventData.latitude, eventData.longitude).ToUnityVector()
+                };
+
+                viewInfo.Distance = viewInfo.Coordinates.ToHumanReadableDistanceFromPlayer();
+
+                _portalsList.Add(viewInfo);
+            }
         }
 
         public Vector2 GetPlayerPosition() => _playerLocationChanged.Value;

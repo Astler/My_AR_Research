@@ -1,3 +1,5 @@
+using Core;
+using Core.WebSockets;
 using Data;
 using Infrastructure.GameStateMachine;
 using SceneManagement;
@@ -17,6 +19,9 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<ScreenNavigationSystem>().FromNew().AsSingle().NonLazy();
             
             Container.BindInterfacesAndSelfTo<DataProxy>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<ApiInterface>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<WebSocketService>().AsSingle().NonLazy();
         }
     }
 }
