@@ -80,7 +80,17 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
-        public IEnumerable<PortalViewInfo> GetAllZones() => _portalsList.Where(it => it.IsActive());
+        public IEnumerable<PortalViewInfo> GetAllZones()
+        {
+            List<PortalViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
+            
+            foreach (PortalViewInfo portalViewInfo in activeZones)
+            {
+                portalViewInfo.Distance = portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer();
+            }
+            
+            return activeZones;
+        }
 
         public void NextStateStep()
         {
@@ -113,9 +123,7 @@ namespace Data
                     FinishTime = eventData.finish_time,
                     Coordinates = new Vector2d(eventData.latitude, eventData.longitude).ToUnityVector()
                 };
-
-                viewInfo.Distance = viewInfo.Coordinates.ToHumanReadableDistanceFromPlayer();
-
+                
                 _portalsList.Add(viewInfo);
             }
         }
