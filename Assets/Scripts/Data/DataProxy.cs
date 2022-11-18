@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using AR;
 using ARLocation;
 using Assets;
@@ -79,7 +80,7 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
-        public IEnumerable<PortalViewInfo> GetAllZones() => _portalsList;
+        public IEnumerable<PortalViewInfo> GetAllZones() => _portalsList.Where(it => it.IsActive());
 
         public void NextStateStep()
         {
@@ -107,6 +108,9 @@ namespace Data
                 PortalViewInfo viewInfo = new()
                 {
                     Name = eventData.title,
+                    Radius = eventData.radius,
+                    StartTime = eventData.start_time,
+                    FinishTime = eventData.finish_time,
                     Coordinates = new Vector2d(eventData.latitude, eventData.longitude).ToUnityVector()
                 };
 

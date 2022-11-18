@@ -114,7 +114,6 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            //TODO active check .Where(it => it.isActive)
             foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
@@ -156,9 +155,7 @@ namespace AR
                     Instantiate(zonePrefab, new Vector3(objectPosition.x, 0f, objectPosition.y), Quaternion.identity,
                         _coordinator.GetContentTransform());
 
-                //TODO restore radius 
-                float radius = 100;
-                follower.SetZoneScale(radius);
+                follower.SetZoneScale(portalZoneModel.Radius);
 
                 Location location = new()
                 {
@@ -189,12 +186,10 @@ namespace AR
 
             if (selectedZone == null) return;
 
-            //TODO radius 
-            float radius = 100;
             _beamsData.Add(new BeamData
             {
                 Position = CoordinatesUtils.GetRandomWorldPositionInRadius(selectedZone.Coordinates,
-                    radius),
+                    selectedZone.Radius),
                 Name = "Beam" + _beamsData.Count,
             });
 

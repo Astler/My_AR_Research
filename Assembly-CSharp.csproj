@@ -805,7 +805,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsGUITooltipDrawer.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers/MapboxLocationInfoMock.cs" />
      <Compile Include="Assets/Scripts/Screens/NavigationCommand.cs" />
-     <Compile Include="Assets/Scripts/Data/Objects/PortalZoneModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerFantasyStyle.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/MapboxDefaultStyles.cs" />
      <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/PrefabDatabase.cs" />

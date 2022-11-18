@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Assets;
 using Data;
 using Data.Objects;
 using UnityEngine;
@@ -15,14 +14,12 @@ namespace Geo
     {
         private LocationDetectService _locationService;
         private Coroutine _zonesLocator;
-        private AssetsScriptableObject _assetsScriptableObject;
         private IDataProxy _dataProxy;
 
         [Inject]
-        public void Construct(AssetsScriptableObject assetsScriptableObject, IDataProxy dataProxy)
+        public void Construct(IDataProxy dataProxy)
         {
             _dataProxy = dataProxy;
-            _assetsScriptableObject = assetsScriptableObject;
         }
 
         private void Awake()
@@ -109,10 +106,8 @@ namespace Geo
                 distances.Add(portalZoneModel, distance);
             }
 
-            //TODO Radius
-            float radius = 100;
             List<KeyValuePair<PortalViewInfo, double>> detectAvailableZones =
-                distances.Where(it => it.Value < radius / 1000).ToList();
+                distances.Where(it => it.Value < it.Key.Radius / 1000).ToList();
 
             if (detectAvailableZones.Any())
             {
