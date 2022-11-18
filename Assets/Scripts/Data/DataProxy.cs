@@ -20,8 +20,8 @@ namespace Data
         private readonly ReactiveProperty<bool> _mapOpened = new();
         private readonly ReactiveProperty<float> _distanceToClosestReward = new();
         private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
-        private readonly ReactiveProperty<PortalZoneModel> _selectedPortalZone = new();
-        private readonly ReactiveProperty<PortalZoneModel> _nearestPortalZone = new();
+        private readonly ReactiveProperty<PortalViewInfo> _selectedPortalZone = new();
+        private readonly ReactiveProperty<PortalViewInfo> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
         private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
@@ -41,8 +41,8 @@ namespace Data
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
         public IReadOnlyReactiveProperty<bool> InRewardZone => _inRewardZone;
         public IReadOnlyReactiveProperty<float> DistanceToClosestReward => _distanceToClosestReward;
-        public IReadOnlyReactiveProperty<PortalZoneModel> SelectedPortalZone => _selectedPortalZone;
-        public IReadOnlyReactiveProperty<PortalZoneModel> NearestPortalZone => _nearestPortalZone;
+        public IReadOnlyReactiveProperty<PortalViewInfo> SelectedPortalZone => _selectedPortalZone;
+        public IReadOnlyReactiveProperty<PortalViewInfo> NearestPortalZone => _nearestPortalZone;
         public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
         public IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult => _locationDetectResult;
         public System.IObservable<bool> PlaceRandomBeamForSelectedZone => _placeRandomBeamForSelectedZone;
@@ -50,12 +50,12 @@ namespace Data
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
 
-        public void SetActivePortalZone(PortalZoneModel zoneModel)
+        public void SetActivePortalZone(PortalViewInfo zoneModel)
         {
             _selectedPortalZone.Value = zoneModel;
         }
 
-        public void SetNearestPortalZone(PortalZoneModel zoneModel)
+        public void SetNearestPortalZone(PortalViewInfo zoneModel)
         {
             _nearestPortalZone.Value = zoneModel;
         }

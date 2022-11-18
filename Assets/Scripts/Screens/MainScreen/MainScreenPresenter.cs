@@ -9,7 +9,6 @@ using Geo;
 using Screens.PortalsListScreen;
 using UniRx;
 using UnityEngine;
-using Utils;
 using Object = UnityEngine.Object;
 
 namespace Screens.MainScreen
@@ -83,7 +82,7 @@ namespace Screens.MainScreen
 
             _view.WarningOkClicked += OnWarningOkClicked;
 
-            _dataProxy.SelectedPortalZone.Subscribe(zone => { _view.SetupActiveZone(zone?.name); }).AddTo(_disposables);
+            _dataProxy.SelectedPortalZone.Subscribe(zone => { _view.SetupActiveZone(zone?.Name); }).AddTo(_disposables);
 
             _dataProxy.LocationDetectResult.Subscribe(result =>
             {
@@ -134,7 +133,7 @@ namespace Screens.MainScreen
 
         private void OnNearestPortalClicked()
         {
-            Vector2 target = _dataProxy.NearestPortalZone.Value.GetPosition();
+            Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;
             OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
 
@@ -199,7 +198,7 @@ namespace Screens.MainScreen
                 foreach (RaycastHit hit in hits)
                 {
                     Debug.Log($"hit name = {hit.collider.gameObject.name}");
-                    
+
                     if (hit.collider.gameObject.TryGetComponent(out GiftView giftView))
                     {
                         giftView.Interact();

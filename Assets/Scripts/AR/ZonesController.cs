@@ -114,20 +114,21 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            foreach (PortalZoneModel portalZoneModel in _assetsScriptableObject.GetZonesList().Where(it => it.isActive))
+            //TODO active check .Where(it => it.isActive)
+            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllZones())
             {
-                Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.GetPosition2d(),
+                Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
 
                 ARAnchorFollower follower =
                     Instantiate(zonePrefab, new Vector3(objectPosition.x, 0f, objectPosition.y), Quaternion.identity,
                         _coordinator.GetContentTransform());
                 follower.gameObject.AddComponent<ARAnchor>();
-                follower.name = portalZoneModel.name;
+                follower.name = portalZoneModel.Name;
 
                 _anchors.Add(follower);
 
-                Debug.Log("Placed " + portalZoneModel.name + " at " + objectPosition);
+                Debug.Log("Placed " + portalZoneModel.Name + " at " + objectPosition);
             }
         }
 
@@ -145,21 +146,24 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            foreach (PortalZoneModel portalZoneModel in _assetsScriptableObject.GetZonesList().Where(it => it.isActive))
+            //TODO active check .Where(it => it.isActive)
+            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllZones())
             {
-                Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.GetPosition2d(),
+                Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
 
                 ARAnchorFollower follower =
                     Instantiate(zonePrefab, new Vector3(objectPosition.x, 0f, objectPosition.y), Quaternion.identity,
                         _coordinator.GetContentTransform());
 
-                follower.SetZoneScale(portalZoneModel.radius);
+                //TODO restore radius 
+                float radius = 100;
+                follower.SetZoneScale(radius);
 
                 Location location = new()
                 {
-                    Latitude = portalZoneModel.GetPosition().x,
-                    Longitude = portalZoneModel.GetPosition().y,
+                    Latitude = portalZoneModel.Coordinates.x,
+                    Longitude = portalZoneModel.Coordinates.y,
                     Altitude = 0,
                     AltitudeMode = AltitudeMode.GroundRelative,
                 };
@@ -173,7 +177,7 @@ namespace AR
                 };
 
                 PlaceAtLocation.AddPlaceAtComponent(follower.gameObject, location, options);
-                follower.name = portalZoneModel.name;
+                follower.name = portalZoneModel.Name;
 
                 _anchors.Add(follower);
             }
@@ -181,14 +185,16 @@ namespace AR
 
         private void CreateNewBeam()
         {
-            PortalZoneModel selectedZone = _dataProxy.SelectedPortalZone.Value;
+            PortalViewInfo selectedZone = _dataProxy.SelectedPortalZone.Value;
 
             if (selectedZone == null) return;
 
+            //TODO radius 
+            float radius = 100;
             _beamsData.Add(new BeamData
             {
-                Position = CoordinatesUtils.GetRandomWorldPositionInRadius(selectedZone.GetPosition(),
-                    selectedZone.radius),
+                Position = CoordinatesUtils.GetRandomWorldPositionInRadius(selectedZone.Coordinates,
+                    radius),
                 Name = "Beam" + _beamsData.Count,
             });
 

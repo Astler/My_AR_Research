@@ -14,8 +14,8 @@ namespace Data
         IReadOnlyReactiveProperty<bool> MapOpened { get; }
         IReadOnlyReactiveProperty<bool> InRewardZone { get; }
         IReadOnlyReactiveProperty<float> DistanceToClosestReward { get; }
-        IReadOnlyReactiveProperty<PortalZoneModel> SelectedPortalZone { get; }
-        IReadOnlyReactiveProperty<PortalZoneModel> NearestPortalZone { get; }
+        IReadOnlyReactiveProperty<PortalViewInfo> SelectedPortalZone { get; }
+        IReadOnlyReactiveProperty<PortalViewInfo> NearestPortalZone { get; }
         IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged { get; }
         IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult { get; }
         System.IObservable<bool> PlaceRandomBeamForSelectedZone { get; }
@@ -23,8 +23,8 @@ namespace Data
         System.IObservable<bool> Clear { get; }
         IReadOnlyReactiveProperty<int> Coins { get; }
 
-        void SetActivePortalZone(PortalZoneModel zoneModel);
-        void SetNearestPortalZone(PortalZoneModel zoneModel);
+        void SetActivePortalZone(PortalViewInfo zoneModel);
+        void SetNearestPortalZone(PortalViewInfo zoneModel);
         void SetPlayerPosition(Vector2 position);
         LocationDetectResult GetLocationDetectResult();
         void SetLocationDetectStatus(LocationDetectResult result);

@@ -86,34 +86,37 @@ namespace Geo
         {
             if (Application.isEditor)
             {
-                _dataProxy.SetActivePortalZone(_assetsScriptableObject.GetZonesList()
-                    .FirstOrDefault(it => it.name == "Dev Portal"));
+                _dataProxy.SetActivePortalZone(_dataProxy.GetAllZones()
+                    .FirstOrDefault(it => it.Name == "Dev Portal"));
                 return;
             }
 
-            List<PortalZoneModel> points = _assetsScriptableObject.GetZonesList().ToList();
+            List<PortalViewInfo> points = _dataProxy.GetAllZones().ToList();
 
-            Dictionary<PortalZoneModel, double> distances = new();
+            Dictionary<PortalViewInfo, double> distances = new();
 
             string zonesInfo = "";
 
-            foreach (PortalZoneModel portalZoneModel in points)
+            foreach (PortalViewInfo portalZoneModel in points)
             {
-                if (!portalZoneModel.isActive) continue;
+                //TODO Date check
+                // if (!portalZoneModel.isActive) continue;
 
                 double distance = CoordinatesUtils.Distance(Input.location.lastData.latitude,
                     Input.location.lastData.longitude,
-                    portalZoneModel.latitude,
-                    portalZoneModel.longitude);
+                    portalZoneModel.Coordinates.x,
+                    portalZoneModel.Coordinates.y);
                 distances.Add(portalZoneModel, distance);
             }
 
-            List<KeyValuePair<PortalZoneModel, double>> detectAvailableZones =
-                distances.Where(it => it.Value < it.Key.radius / 1000).ToList();
+            //TODO Radius
+            float radius = 100;
+            List<KeyValuePair<PortalViewInfo, double>> detectAvailableZones =
+                distances.Where(it => it.Value < radius / 1000).ToList();
 
             if (detectAvailableZones.Any())
             {
-                KeyValuePair<PortalZoneModel, double> closestPoint =
+                KeyValuePair<PortalViewInfo, double> closestPoint =
                     detectAvailableZones.OrderBy(it => it.Value).FirstOrDefault();
 
                 _dataProxy.SetActivePortalZone(closestPoint.Key);
@@ -124,17 +127,17 @@ namespace Geo
 
             _dataProxy.SetActivePortalZone(null);
 
-            List<KeyValuePair<PortalZoneModel, double>> nearZones =
+            List<KeyValuePair<PortalViewInfo, double>> nearZones =
                 distances.OrderBy(it => it.Value).ToList();
 
             _dataProxy.SetNearestPortalZone(nearZones.FirstOrDefault().Key);
 
             for (int i = 0; i < (nearZones.Count > 5 ? 5 : nearZones.Count); i++)
             {
-                KeyValuePair<PortalZoneModel, double> zoneData = nearZones[i];
+                KeyValuePair<PortalViewInfo, double> zoneData = nearZones[i];
 
-                zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.name + " " +
-                             zoneData.Key.GetPosition().ToHumanReadableDistanceFromPlayer();
+                zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.Name + " " +
+                             zoneData.Key.Coordinates.ToHumanReadableDistanceFromPlayer();
             }
 
             //TODO Restore

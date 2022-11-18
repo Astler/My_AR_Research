@@ -53,12 +53,11 @@ namespace Infrastructure.GameStateMachine.GameStates
                     _apiInterface.GetEventsList(data =>
                     {
                         _dataProxy.AddEvents(data);
+                        _gameStateMachine.Enter<LoadLevelState, SceneName>(SceneName.MainScene);
                     }, status => { });
                 }, null);
             
             Initialize();
-            
-            _gameStateMachine.Enter<LoadLevelState, SceneName>(SceneName.MainScene);
         }
 
         private void Initialize()

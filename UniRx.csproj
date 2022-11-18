@@ -205,8 +205,8 @@
      <Compile Include="Assets/Plugins/UniRx/Scripts/Disposables/RefCountDisposable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/YieldInstructionCache.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Diagnostics/UnityDebugSink.cs" />
-     <Compile Include="Assets/Plugins/UniRx/Scripts/Schedulers/Scheduler.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableSelectTrigger.cs" />
+     <Compile Include="Assets/Plugins/UniRx/Scripts/Schedulers/Scheduler.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableCollisionTrigger.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableTriggerExtensions.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Asynchronous/WebRequestExtensions.cs" />
@@ -250,8 +250,8 @@
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableEnableTrigger.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Disposables/SerialDisposable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Pair.cs" />
-     <Compile Include="Assets/Plugins/UniRx/Scripts/Disposables/BooleanDisposable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityEngineBridge/Triggers/ObservableLateUpdateTrigger.cs" />
+     <Compile Include="Assets/Plugins/UniRx/Scripts/Disposables/BooleanDisposable.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/Never.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/UnityWinRTBridge/ThreadPoolScheduler_UnityWinRT.cs" />
      <Compile Include="Assets/Plugins/UniRx/Scripts/Operators/SelectWhere.cs" />

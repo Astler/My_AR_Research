@@ -111,8 +111,8 @@
      <Compile Include="Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder6.cs" />
      <Compile Include="Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/DeclareSignal/DeclareSignalIdRequireHandlerAsyncTickPriorityCopyBinder.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Factories/Pooling/Util/PoolCleanupChecker.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Providers/MethodProviderMultiple.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Install/InstallerBase.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Providers/MethodProviderMultiple.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Factories/PlaceholderFactoryBase.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Factories/PrefabFactory.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Main/ZenjectSettings.cs" />
@@ -244,8 +244,8 @@
      <Compile Include="Assets/Plugins/Zenject/Source/Providers/SubContainerCreators/SubContainerCreatorByInstaller.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Binding/Binders/ConditionCopyNonLazyBinder.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Providers/SubContainerCreators/SubContainerCreatorByInstanceGetter.cs" />
-     <Compile Include="Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder4.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Providers/SubContainerCreators/ISubContainerCreator.cs" />
+     <Compile Include="Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder4.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Runtime/TickableManager.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder6.cs" />
      <Compile Include="Assets/Plugins/Zenject/Source/Binding/Binders/ScopeConcreteIdArgConditionCopyNonLazyBinder.cs" />
