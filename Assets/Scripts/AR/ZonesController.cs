@@ -114,7 +114,7 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllZones())
+            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
@@ -146,7 +146,7 @@ namespace AR
                 Vector2d.zero).ToUnityVector();
 
             //TODO active check .Where(it => it.isActive)
-            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllZones())
+            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();

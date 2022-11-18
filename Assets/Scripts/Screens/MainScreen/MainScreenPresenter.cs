@@ -53,11 +53,21 @@ namespace Screens.MainScreen
                         _view.ShowWarningMessage();
                         break;
                     case GameStates.LocationDetection:
-                        Observable.Timer(TimeSpan.FromSeconds(2f)).Subscribe(_ => { _dataProxy.NextStateStep(); })
-                            .AddTo(_disposables);
+                        _dataProxy.LocationDetectResult.Subscribe(result =>
+                        {
+                            if (result == LocationDetectResult.Success)
+                            {
+                                _dataProxy.NextStateStep();
+                                _view.HideLocationDetectionPopup();
+                            }
+                            else
+                            {
+                                _view.ShowLocationDetectionPopup();
+                            }
+                        }).AddTo(_disposables);
+
                         _view.ShowBaseInterface();
                         _view.HideWarningMessage();
-                        _view.ShowLocationDetectionPopup();
                         break;
                     case GameStates.Scanning:
                         Observable.Timer(TimeSpan.FromSeconds(4f)).Subscribe(_ => { _dataProxy.NextStateStep(); })
@@ -139,7 +149,7 @@ namespace Screens.MainScreen
 
         private void OnMyPositionClicked()
         {
-            Vector2 target = LocationController.GetPlayerPosition();
+            Vector2 target = _dataProxy.GetPlayerPosition();
             OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
 
@@ -152,7 +162,7 @@ namespace Screens.MainScreen
 
             _cards.Clear();
 
-            foreach (PortalViewInfo portalViewInfo in _dataProxy.GetAllZones())
+            foreach (PortalViewInfo portalViewInfo in _dataProxy.GetAllActiveZones())
             {
                 PortalCardView portalCardView = Object.Instantiate(_view.GetZonesListView().GetCardPrefab(),
                     _view.GetZonesListView().GetListContainer());
@@ -170,6 +180,7 @@ namespace Screens.MainScreen
         private void OnMoveToClicked(Vector2 coordinates)
         {
             OnlineMaps.instance.position = new Vector2(coordinates.y, coordinates.x);
+            _view.HideZonesList();
         }
 
         public void Dispose() => _disposables?.Dispose();

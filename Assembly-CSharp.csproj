@@ -835,6 +835,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/AMapSearchExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCustomStyleOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/AbstractMapVisualizer.cs" />
+     <Compile Include="Assets/Scripts/GameCamera/InteractionDetector.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/QuadTreeCameraMovement.cs" />
      <Compile Include="Assets/Scripts/Infrastructure/GameStateMachine/GameStates/GameLoopState.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerClickCountExample.cs" />
@@ -1174,6 +1175,7 @@
      <Folder Include="Assets/Modules/Art" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Building" />
      <Folder Include="Assets/Mapbox/Materials" />
+     <Folder Include="Assets/_Scenes/MainScene" />
      <Folder Include="Assets/Infinity Code/Online maps" />
      <Folder Include="Assets/LightshipHUB/Runtime/AnimatorControllers" />
      <Folder Include="Assets/Modules/Art/SnoballToss/PromptScanMesh" />

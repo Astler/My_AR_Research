@@ -5,6 +5,7 @@ using Core.WebSockets;
 using Data;
 using DG.Tweening;
 using SceneManagement;
+using Screens;
 using UnityEngine;
 using Utils.StateMachine;
 using static Data.PlayerPrefsHelper;
@@ -18,15 +19,18 @@ namespace Infrastructure.GameStateMachine.GameStates
         private readonly IApiInterface _apiInterface;
         private readonly WebSocketService _webSocketService;
         private readonly IDataProxy _dataProxy;
+        private readonly IScreenNavigationSystem _screenNavigationSystem;
 
         public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader,
-            IApiInterface apiInterface, WebSocketService webSocketService, IDataProxy dataProxy)
+            IApiInterface apiInterface, WebSocketService webSocketService, IDataProxy dataProxy,
+            IScreenNavigationSystem screenNavigationSystem)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _apiInterface = apiInterface;
             _webSocketService = webSocketService;
             _dataProxy = dataProxy;
+            _screenNavigationSystem = screenNavigationSystem;
         }
 
         public void Enter()
@@ -43,6 +47,8 @@ namespace Infrastructure.GameStateMachine.GameStates
             method?.Invoke(new object(), null);
 #endif
             Debug.Log("Loaded BootScene");
+            
+            _screenNavigationSystem.ExecuteNavigationCommand(new NavigationCommand().ShowNextScreen(ScreenName.LoadingScreen).WithoutAnimation());
             
             _apiInterface.SignIn(
                 delegate(SignInResponse response)

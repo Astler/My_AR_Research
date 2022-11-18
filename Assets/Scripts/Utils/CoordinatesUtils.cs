@@ -11,10 +11,10 @@ namespace Utils
 
         public static Vector2 ToUnityVector(this Vector2d vector2d) => new((float)vector2d.x, (float)vector2d.y);
 
-        public static string ToHumanReadableDistanceFromPlayer(this Vector2 targetPosition)
+        public static string ToHumanReadableDistanceFromPlayer(this Vector2 targetPosition, Vector2 playerPosition)
         {
-            double distance = Distance(Input.location.lastData.latitude,
-                Input.location.lastData.longitude,
+            double distance = Distance(playerPosition.x,
+                playerPosition.y,
                 targetPosition.x,
                 targetPosition.y);
 

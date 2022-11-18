@@ -16,6 +16,7 @@ namespace Screens.MainScreen
         [SerializeField] private Button restartButton;
         [SerializeField] private Button placeRandomBeamButton;
         [SerializeField] private Button warningOkButton;
+        [SerializeField] private GameObject placementParent;
         [SerializeField] private LocationInfoView locationInfoView;
         [SerializeField] private PlayerBalanceBarView playerBalancesView;
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
@@ -56,6 +57,8 @@ namespace Screens.MainScreen
             locationInfoView.SetActiveZoneName(hasZone
                 ? $"<color=green>{zoneName}</color>"
                 : "<color=red>You are not in the portal area!</color>");
+
+            placementParent.SetActive(hasZone);
 
             if (!hasZone)
             {

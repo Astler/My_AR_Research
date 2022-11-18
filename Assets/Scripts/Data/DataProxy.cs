@@ -54,6 +54,7 @@ namespace Data
         public void SetActivePortalZone(PortalViewInfo zoneModel)
         {
             _selectedPortalZone.Value = zoneModel;
+            SetNearestPortalZone(zoneModel);
         }
 
         public void SetNearestPortalZone(PortalViewInfo zoneModel)
@@ -80,13 +81,13 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
-        public IEnumerable<PortalViewInfo> GetAllZones()
+        public IEnumerable<PortalViewInfo> GetAllActiveZones()
         {
             List<PortalViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
             
             foreach (PortalViewInfo portalViewInfo in activeZones)
             {
-                portalViewInfo.Distance = portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer();
+                portalViewInfo.Distance = portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
             }
             
             return activeZones;

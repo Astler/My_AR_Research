@@ -7,9 +7,10 @@ namespace Utils
     public class GlobalConstants
     {
         public const int ApiVersion = 1;
+        public const float GeoAccuracy = 0.01f;
         public static EnvironmentType EnvironmentType => EnvironmentType.dev;
         
-        public const float CollectDistance = 3.0f;
+        public const float CollectDistance = 5.0f;
         public static readonly Vector2 MockPosition = new(48.5089416503906f, 35.077808380127f);
         
         public static string GetClientId()

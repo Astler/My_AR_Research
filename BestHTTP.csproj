@@ -1847,8 +1847,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/MarkerPacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/V2TBSCertListGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ECFieldElement.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ECCurve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ByteQueueOutputStream.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ECCurve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/RecipientInfoGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalRCore/JsonProtocol.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/BEROctetStringGenerator.cs" />

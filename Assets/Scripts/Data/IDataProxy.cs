@@ -31,7 +31,7 @@ namespace Data
         void PlaceRandomBeam();
         Vector2 GetPlayerPosition();
         void CollectedCoin();
-        IEnumerable<PortalViewInfo> GetAllZones();
+        IEnumerable<PortalViewInfo> GetAllActiveZones();
         void NextStateStep();
         void ClearScene();
         void ResetScene();

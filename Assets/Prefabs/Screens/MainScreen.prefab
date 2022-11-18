@@ -461,6 +461,7 @@ MonoBehaviour:
   restartButton: {fileID: 891577576451028678}
   placeRandomBeamButton: {fileID: 8773436876945572015}
   warningOkButton: {fileID: 1986883960252240173}
+  placementParent: {fileID: 4908758679465018738}
   locationInfoView: {fileID: 6188652043405619652}
   playerBalancesView: {fileID: 505230440159401739}
   mapUserInterfaceView: {fileID: 5455338593860922097}

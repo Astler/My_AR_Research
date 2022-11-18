@@ -19,7 +19,8 @@ namespace Infrastructure.GameStateMachine
         {
             _apiInterface = apiInterface;
             _webSocketService = webSocketService;
-            AddNewState(new BootstrapState(this, sceneLoader, _apiInterface, _webSocketService, dataProxy));
+            AddNewState(new BootstrapState(this, sceneLoader, _apiInterface, _webSocketService, dataProxy,
+                screenNavigationSystem));
             AddNewState(new LoadLevelState(this, sceneLoader, screenNavigationSystem));
             AddNewState(new GameLoopState());
         }

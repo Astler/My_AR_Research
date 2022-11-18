@@ -83,24 +83,21 @@ namespace Geo
         {
             if (Application.isEditor)
             {
-                _dataProxy.SetActivePortalZone(_dataProxy.GetAllZones()
+                _dataProxy.SetActivePortalZone(_dataProxy.GetAllActiveZones()
                     .FirstOrDefault(it => it.Name == "Dev Portal"));
                 return;
             }
 
-            List<PortalViewInfo> points = _dataProxy.GetAllZones().ToList();
+            Vector2 playerPosition = _dataProxy.GetPlayerPosition();
 
             Dictionary<PortalViewInfo, double> distances = new();
 
             string zonesInfo = "";
 
-            foreach (PortalViewInfo portalZoneModel in points)
+            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllActiveZones().ToList())
             {
-                //TODO Date check
-                // if (!portalZoneModel.isActive) continue;
-
-                double distance = CoordinatesUtils.Distance(Input.location.lastData.latitude,
-                    Input.location.lastData.longitude,
+                double distance = CoordinatesUtils.Distance(playerPosition.x,
+                    playerPosition.y,
                     portalZoneModel.Coordinates.x,
                     portalZoneModel.Coordinates.y);
                 distances.Add(portalZoneModel, distance);
@@ -113,10 +110,7 @@ namespace Geo
             {
                 KeyValuePair<PortalViewInfo, double> closestPoint =
                     detectAvailableZones.OrderBy(it => it.Value).FirstOrDefault();
-
                 _dataProxy.SetActivePortalZone(closestPoint.Key);
-                _dataProxy.SetNearestPortalZone(closestPoint.Key);
-
                 return;
             }
 
@@ -132,27 +126,11 @@ namespace Geo
                 KeyValuePair<PortalViewInfo, double> zoneData = nearZones[i];
 
                 zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.Name + " " +
-                             zoneData.Key.Coordinates.ToHumanReadableDistanceFromPlayer();
+                             zoneData.Key.Coordinates.ToHumanReadableDistanceFromPlayer(_dataProxy.GetPlayerPosition());
             }
-
+            
             //TODO Restore
             // locationInfoView.ShowAllZones($"Nearest zones:\n{zonesInfo}");
-        }
-
-        public static Vector2 GetPlayerPosition() =>
-            new(Input.location.lastData.latitude, Input.location.lastData.longitude);
-
-        private void FixedUpdate()
-        {
-            if (Application.isEditor)
-            {
-                _dataProxy.SetPlayerPosition(GlobalConstants.MockPosition);
-                return;
-            }
-
-            if (_dataProxy.GetLocationDetectResult() != LocationDetectResult.Success) return;
-
-            _dataProxy.SetPlayerPosition(GetPlayerPosition());
         }
     }
 }

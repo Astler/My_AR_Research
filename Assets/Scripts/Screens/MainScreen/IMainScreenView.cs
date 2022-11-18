@@ -31,5 +31,6 @@ namespace Screens.MainScreen
         void ShowGameInterface();
         void ShowAllZonesList();
         IPortalsListScreenView GetZonesListView();
+        void HideZonesList();
     }
 }

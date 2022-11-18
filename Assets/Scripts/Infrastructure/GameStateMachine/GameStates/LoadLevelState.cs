@@ -23,7 +23,6 @@ namespace Infrastructure.GameStateMachine.GameStates
 
         public void Enter(SceneName sceneName)
         {
-            _screenNavigationSystem.ExecuteNavigationCommand(new NavigationCommand().ShowNextScreen(ScreenName.LoadingScreen).WithoutAnimation());
             Observable.Timer(TimeSpan.FromSeconds(SceneLoadDelay)).Subscribe(delegate(long l)
             {
                 _sceneLoader.Load(sceneName, delegate { OnSceneLoaded(sceneName); });

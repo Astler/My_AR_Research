@@ -31,7 +31,7 @@ namespace AR.Map
 
             _dataProxy.MapOpened.Subscribe(delegate(bool active)
             {
-                Vector2 playerPosition = LocationController.GetPlayerPosition();
+                Vector2 playerPosition = _dataProxy.GetPlayerPosition();
                 OnlineMaps.instance.position = new Vector2(playerPosition.y, playerPosition.x);
 
                 mapObject.SetActive(active);
@@ -47,7 +47,7 @@ namespace AR.Map
 
                 CreatePlayerPointer(playerPosition);
 
-                foreach (PortalViewInfo viewInfo in _dataProxy.GetAllZones())
+                foreach (PortalViewInfo viewInfo in _dataProxy.GetAllActiveZones())
                 {
                     onlineMapsMarker3DManager.Create(viewInfo.Coordinates.y, viewInfo.Coordinates.x,
                         portalPrefab);
