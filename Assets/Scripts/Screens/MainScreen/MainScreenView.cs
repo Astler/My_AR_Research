@@ -56,7 +56,7 @@ namespace Screens.MainScreen
 
             locationInfoView.SetActiveZoneName(hasZone
                 ? $"<color=green>{zoneName}</color>"
-                : "<color=red>You are not in the portal area!</color>");
+                : "<color=red>Go to the portal area!</color>");
 
             placementParent.SetActive(hasZone);
 
