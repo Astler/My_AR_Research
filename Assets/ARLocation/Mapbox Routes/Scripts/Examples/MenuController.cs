@@ -183,7 +183,8 @@ namespace ARLocation.MapboxRoutes.Examples.Search
         {
             if (s.destination != null)
             {
-                var api = new MapboxApi(MapboxToken);
+                var lang = MapboxRoute.Settings.Language;
+                var api = new MapboxApi(MapboxToken, lang);
                 var loader = new RouteLoader(api, DebugMode);
                 StartCoroutine(
                         loader.LoadRoute(
@@ -212,7 +213,8 @@ namespace ARLocation.MapboxRoutes.Examples.Search
 
         IEnumerator search()
         {
-            var api = new MapboxApi(MapboxToken);
+            var lang = MapboxRoute.Settings.Language;
+            var api = new MapboxApi(MapboxToken, lang);
 
             yield return api.QueryLocal(s.QueryText, DebugMode);
 

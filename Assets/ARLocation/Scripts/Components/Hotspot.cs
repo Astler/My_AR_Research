@@ -5,6 +5,7 @@ using Logger = ARLocation.Utils.Logger;
 
 namespace ARLocation
 {
+    using UI;
 
     [AddComponentMenu("AR+GPS/Hotspot")]
     [HelpURL("https://http://docs.unity-ar-gps-location.com/guide/#hotspot")]
@@ -12,16 +13,10 @@ namespace ARLocation
     public class Hotspot : MonoBehaviour
     {
         [Serializable]
-        public class OnHotspotActivatedUnityEvent : UnityEvent<GameObject> { }
+        public class HotspotActivatedEvent : UnityEvent<GameObject, int> { }
 
         [Serializable]
-        public class OnHotspotActivatedWithIdUnityEvent : UnityEvent<GameObject, int> { }
-
-        [Serializable]
-        public class OnHotspotLeaveUnityEvent : UnityEvent<GameObject> { }
-
-        [Serializable]
-        public class OnHotspotLeaveWithIdUnityEvent : UnityEvent<GameObject, int> { }
+        public class HotspotDeactivatedEvent : UnityEvent<int> { }
 
         [Serializable]
         public enum PositionModes
@@ -39,86 +34,67 @@ namespace ARLocation
             [Tooltip("The positioning mode. 'HotspotCenter' means the object will be instantiated at the Hotpot's center geo-location. 'CameraPosition' means it will be positioned at the front of the camera.")]
             public PositionModes PositionMode;
 
-            [Tooltip("The distance from the center that the user must be located to activate the Hotspot.")]
-            public float ActivationRadius = 4.0f;
-
             [Tooltip("If true, align the instantiated object to face the camera (horizontally).")]
             public bool AlignToCamera = true;
 
             [Tooltip("If 'PositionMode' is set to 'CameraPosition', how far from the camera the instantiated object should be placed.")]
             public float DistanceFromCamera = 3.0f;
 
-            [Tooltip("If true, use raw GPS data, instead of the filtered GPS data.")]
-            public bool UseRawLocation = true;
+            [Tooltip("The distance from the center that the user must be located to activate the Hotspot.")]
+            public float ActivationRadius = 4.0f;
 
-            [Tooltip("If true, deactivate the hotspot when leaving the radius after entering it. After deactivattion, the hotspot will be available for activation againg when re-entering the radius.")]
+            [Tooltip("If true, use raw GPS data, instead of the filtered GPS data.")]
+            public bool UseRawLocation = false;
+
+            [Tooltip("If true, destroys the prefab when the user leaves the hotspot radius.")]
             public bool DeactivateOnLeave = false;
 
+            [Tooltip("If true, the deactivated hotspot can be reactivated again when the user re-enters the activated readius. "
+                   + "Only has effect when \"Can Deactivate\" is true.")]
+            [ConditionalProperty("DeactivateOnLeave")]
+            public bool Reactivate = false;
+
+            [Tooltip("The distance from the center that the user must be located to activate the Hotspot.")]
+            [ConditionalProperty("DeactivateOnLeave")]
+            public float DeactivationRadius = 4.0f;
+
             [Tooltip("An optional integer ID which is passed to the \"On Hotspot Activated With Id\" and \"On Hotspot Leave With Id\" events.")]
-            [HideInInspector] public int Id = 0;
+            public int Id = 0;
         }
 
         [Serializable]
         public class StateData
         {
-            public bool Activated;
             public GameObject Instance;
+            public bool Activated;
             public Location Location;
-            public bool EmittedLeaveHotspotEvent;
+            public Vector3 Position;
+            public bool Positioned;
         }
 
         public PlaceAtLocation.LocationSettingsData LocationSettings = new PlaceAtLocation.LocationSettingsData();
         public HotspotSettingsData HotspotSettings = new HotspotSettingsData();
 
-        [Space(4.0f)]
-
-        [Header("Debug")]
-        [Tooltip("When debug mode is enabled, this component will print relevant messages to the console. Filter by 'Hotspot' in the log output to see the messages.")]
+        [Tooltip("When set to true, will enable debug logging; it will also place a red cube at the hotspot location and draw a line from " + 
+                "the user position to the hotspot, indicating the distance, in meters, on the screen.")]
         public bool DebugMode;
 
-        [Space(4.0f)]
-
-
         [Header("Events")]
-        [Tooltip("If true, monitor distance to emit the 'OnLeaveHotspot' event. If you don't need it, keep this disabled for better performance.")]
-        public bool UseOnLeaveHotspotEvent;
 
         [Tooltip("Event for the Hotspot is activated.")]
-        public OnHotspotActivatedUnityEvent OnHotspotActivated = new OnHotspotActivatedUnityEvent();
+        public HotspotActivatedEvent OnHotspotActivated = new HotspotActivatedEvent();
 
         [Tooltip("This event will be emited only once, when the user leaves the hotspot area after it is activated.")]
-        public OnHotspotLeaveUnityEvent OnHotspotLeave = new OnHotspotLeaveUnityEvent();
+        public HotspotDeactivatedEvent OnHotspotDeactivated = new HotspotDeactivatedEvent();
 
-        [Tooltip("This event will be emited only once, when the user leaves the hotspot area after it is activated.")]
-        [HideInInspector] public OnHotspotLeaveWithIdUnityEvent OnHotspotLeaveWithId = new OnHotspotLeaveWithIdUnityEvent();
-
-        [Tooltip("Event for the Hotspot is activated.")]
-        [HideInInspector] public OnHotspotActivatedWithIdUnityEvent OnHotspotActivatedWithId = new OnHotspotActivatedWithIdUnityEvent();
-
-        private readonly StateData state = new StateData();
-
-        private Transform root;
-        private Camera arCamera;
-        private double currentDistance;
-
-        // ReSharper disable once UnusedMember.Global
         public GameObject Instance => state.Instance;
 
-        // ReSharper disable once MemberCanBePrivate.Global
         public Location Location
         {
-            // ReSharper disable once UnusedMember.Global
             get => state.Location;
             set => state.Location = value;
         }
 
-        /// <summary>
-        ///
-        /// Returns the Hotspot's current position, both before and after
-        /// activation. Before activation it will return a Horizontal position,
-        /// i.e., without altiture (that is, with y = 0).
-        ///
-        /// </summary>
         public Vector3 Position
         {
             get
@@ -129,43 +105,89 @@ namespace ARLocation
                 }
                 else
                 {
-                    var arLocMngr = ARLocationManager.Instance;
-                    var arLocPrvdr = ARLocationProvider.Instance;
-
-                    var pos = Location.GetGameObjectPositionForLocation(
-                            arLocMngr.gameObject.transform,
-                            arLocMngr.Camera.transform.position,
-                            arLocPrvdr.CurrentLocation.ToLocation(),
-                            state.Location,
-                            true
-                    );
-
-                    pos.y = 0;
-
-                    return pos;
+                    return state.Position;
                 }
             }
         }
 
-        /// <summary>
-        /// Returns the current user distance to the Hotspot center.
-        /// </summary>
-        public float CurrentDistance => (float)currentDistance;
+        public float currentDistance
+        {
+            get
+            {
+                return MathUtils.HorizontalDistance(Position, arCamera.transform.position);
+            }
+        }
+
+        private StateData state = new StateData();
+        private Camera arCamera;
+        private ARLocationProvider arLocationProvider;
+        private Transform arLocationRoot;
+        private GameObject cube;
+        private bool initialized;
 
         void Start()
         {
-            var arLocationProvider = ARLocationProvider.Instance;
+            if (!initialized)
+            {
+                Init();
+            }
+        }
 
+        void createDebugCube()
+        {
+            if (DebugMode && cube == null)
+            {
+                cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.GetComponent<Renderer>().material.color = Color.red;
+                cube.AddComponent<DebugDistance>();
+            }
+        }
+
+        void Deinit()
+        {
             if (HotspotSettings.UseRawLocation)
             {
-                arLocationProvider.Provider.LocationUpdatedRaw += Provider_LocationUpdated;
+                arLocationProvider.Provider.LocationUpdatedRaw -= onLocationUpdated;
             }
             else
             {
-                arLocationProvider.Provider.LocationUpdated += Provider_LocationUpdated;
+                arLocationProvider.Provider.LocationUpdated -= onLocationUpdated;
             }
 
-            root = ARLocationManager.Instance.gameObject.transform;
+            if (cube != null)
+            {
+                Destroy(cube);
+            }
+
+            if (state.Instance != null)
+            {
+                Destroy(state.Instance);
+                state.Activated = false;
+            }
+
+            initialized = false;
+        }
+
+        void Init()
+        {
+            state = new StateData();
+            arLocationProvider = ARLocationProvider.Instance;
+            arLocationRoot = ARLocationManager.Instance.gameObject.transform;
+
+            if (arLocationProvider.Provider == null)
+            {
+                Logger.WarnFromMethod("Hotspot", "Init", "Provider is null!");
+                return;
+            }
+
+            if (HotspotSettings.UseRawLocation)
+            {
+                arLocationProvider.Provider.LocationUpdatedRaw += onLocationUpdated;
+            }
+            else
+            {
+                arLocationProvider.Provider.LocationUpdated += onLocationUpdated;
+            }
 
             if (state.Location == null)
             {
@@ -176,68 +198,114 @@ namespace ARLocation
 
             if (arLocationProvider.IsEnabled)
             {
-                Provider_LocationUpdated(arLocationProvider.CurrentLocation, arLocationProvider.LastLocation);
+                onLocationUpdated(arLocationProvider.CurrentLocation, arLocationProvider.LastLocation);
             }
+
+            if (DebugMode)
+            {
+                createDebugCube();
+            }
+
+            initialized = true;
         }
 
-        public void OnDisable()
+        void OnEnable()
         {
-            var arLocationProvider = ARLocationProvider.Instance;
+            Init();
+        }
 
-            if (!arLocationProvider) return;
-
-            if (HotspotSettings.UseRawLocation)
-            {
-                arLocationProvider.Provider.LocationUpdatedRaw -= Provider_LocationUpdated;
-            }
-            else
-            {
-                arLocationProvider.Provider.LocationUpdated -= Provider_LocationUpdated;
-            }
+        void OnDisable()
+        {
+            Deinit();
         }
 
         public void Restart()
         {
-            Destroy(state.Instance);
-            state.Instance = null;
-            state.Activated = false;
-            state.EmittedLeaveHotspotEvent = false;
+            if (state.Instance != null)
+            {
+                Destroy(state.Instance);
+            }
+
+            state = new StateData();
         }
 
+        void OnValidate()
+        {
+            if (HotspotSettings.DeactivationRadius < HotspotSettings.ActivationRadius)
+            {
+                HotspotSettings.DeactivationRadius = HotspotSettings.ActivationRadius;
+            }
+        }
 
-        private void Provider_LocationUpdated(LocationReading currentLocation, LocationReading lastLocation)
+        void Update()
+        {
+            if (!state.Positioned) return;
+
+            var cam = arCamera.transform.position;
+            cam.y = 0;
+
+            var distance = Vector3.Distance(cam, state.Position);
+
+            if (!state.Activated)
+            {
+                if (distance <= HotspotSettings.ActivationRadius)
+                {
+                    Activate();
+                }
+            }
+            else if (HotspotSettings.DeactivateOnLeave)
+            {
+                if (distance > HotspotSettings.DeactivationRadius)
+                {
+                    Deactivate();
+                }
+            }
+
+            if (DebugMode && cube != null)
+            {
+                cube.transform.position = state.Position;
+            }
+        }
+
+        private void onLocationUpdated(LocationReading currentLocation, LocationReading lastLocation)
         {
             if (state.Activated) return;
 
-            Logger.LogFromMethod("Hotspot", "LocationUpdatedRaw", $"({gameObject.name}): New device location {currentLocation}", DebugMode);
+            var pos = Location.GetGameObjectPositionForLocation(
+                    arLocationRoot,
+                    arCamera.transform,
+                    arLocationProvider.CurrentLocation.ToLocation(),
+                    state.Location, true);
+            pos.y = 0;
 
-            currentDistance = Location.HorizontalDistance(currentLocation.ToLocation(), state.Location);
+            state.Positioned = true;
+            state.Position = pos;
 
-            var delta = Location.HorizontalVectorFromTo(currentLocation.ToLocation(), state.Location);
-
-            if (currentDistance <= HotspotSettings.ActivationRadius)
+            if (DebugMode)
             {
-                ActivateHotspot(new Vector3((float)delta.x, 0, (float)delta.y));
-            }
-            else
-            {
-                Logger.LogFromMethod("Hotspot", "LocationUpdatedRaw", $"({gameObject.name}): No activation - distance = {currentDistance}", DebugMode);
+                Logger.LogFromMethod("Hotspot", "onLocationUpdated",
+                        $"Current Location = {currentLocation}, Position = {state.Position}");
             }
         }
 
-        private void ActivateHotspot(Vector3 delta)
+        public void Activate()
         {
-            Logger.LogFromMethod("Hotspot", "ActivateHotspot", $"({gameObject.name}): Activating hotspot...", DebugMode);
+            if (HotspotSettings.Prefab == null)
+            {
+                Logger.WarnFromMethod("Hotspot", "Activate", "Prefab is null!");
+                return;
+            }
 
-            if (HotspotSettings.Prefab == null) return;
-
-            state.Instance = Instantiate(HotspotSettings.Prefab, HotspotSettings.AlignToCamera ? gameObject.transform : root);
+            state.Instance = Instantiate(
+                    HotspotSettings.Prefab,
+                    HotspotSettings.AlignToCamera ? transform : arLocationRoot);
 
             switch (HotspotSettings.PositionMode)
             {
                 case PositionModes.HotspotCenter:
-                    state.Instance.transform.position = arCamera.transform.position + delta;
+                    state.Instance.transform.position = state.Position;
                     break;
+
                 case PositionModes.CameraPosition:
                     var transform1 = arCamera.transform;
                     var forward = transform1.forward;
@@ -250,16 +318,50 @@ namespace ARLocation
             {
                 state.Instance.transform.LookAt(arCamera.transform);
             }
+            var groundHeight = state.Instance.AddComponent<GroundHeight>();
 
-            state.Instance.AddComponent<GroundHeight>();
+            if (state.Location.AltitudeMode == AltitudeMode.GroundRelative)
+            {
+                groundHeight.Settings.Altitude = (float)state.Location.Altitude;
+
+            }
+
             state.Instance.name = name + " (Hotspot)";
-
-            state.Activated = true;
 
             Logger.LogFromMethod("Hotspot", "ActivateHotspot", $"({name}): Hotspot activated", DebugMode);
 
-            OnHotspotActivated?.Invoke(state.Instance);
-            OnHotspotActivatedWithId?.Invoke(state.Instance, HotspotSettings.Id);
+            state.Activated = true;
+
+            if (OnHotspotActivated != null)
+            {
+                OnHotspotActivated.Invoke(state.Instance, HotspotSettings.Id);
+            }
+
+            if (DebugMode && cube != null)
+            {
+                Destroy(cube);
+                cube = null;
+            }
+        }
+
+        public void Deactivate()
+        {
+            if (state.Instance == null) return;
+
+            Destroy(state.Instance);
+            state.Instance = null;
+
+            if (HotspotSettings.Reactivate)
+            {
+                state.Activated = false;
+
+                if (DebugMode && cube == null)
+                {
+                    createDebugCube();
+                }
+            }
+
+            OnHotspotDeactivated.Invoke(HotspotSettings.Id);
         }
 
         public static Hotspot AddHotspotComponent(GameObject go, Location location, HotspotSettingsData settings)
@@ -277,7 +379,6 @@ namespace ARLocation
             return AddHotspotComponent(go, location, settings);
         }
 
-
         public static GameObject CreateHotspotGameObject(Location location, HotspotSettingsData settings,
             string name = "GPS Hotspot")
         {
@@ -293,25 +394,6 @@ namespace ARLocation
         {
             settings.Id = id;
             return CreateHotspotGameObject(location, settings, name);
-        }
-
-        void Update()
-        {
-            if (UseOnLeaveHotspotEvent && state.Activated && !state.EmittedLeaveHotspotEvent)
-            {
-                var distance = Vector3.Distance(arCamera.transform.position, state.Instance.transform.position);
-                if (distance >= HotspotSettings.ActivationRadius)
-                {
-                    OnHotspotLeave?.Invoke(state.Instance);
-                    OnHotspotLeaveWithId?.Invoke(state.Instance, HotspotSettings.Id);
-                    state.EmittedLeaveHotspotEvent = true;
-
-                    if (HotspotSettings.DeactivateOnLeave)
-                    {
-                        Restart();
-                    }
-                }
-            }
         }
     }
 }

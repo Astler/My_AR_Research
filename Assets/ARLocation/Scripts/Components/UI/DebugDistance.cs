@@ -49,6 +49,12 @@ namespace ARLocation.UI
             textMesh = textMeshGo.AddComponent<TextMesh>();
             textMesh.fontSize = 100;
         }
+
+        void OnDestroy()
+        {
+            Destroy(textMeshGo);
+        }
+        
         void Update()
         {
 

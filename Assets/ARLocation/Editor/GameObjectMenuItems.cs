@@ -70,17 +70,18 @@ namespace ARLocation
             var capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
             capsule.transform.SetParent(stage.transform);
 #else
-            EditorApplication.ExecuteMenuItem("GameObject/XR/AR Session");
-            Selection.activeObject = null;
-            EditorApplication.ExecuteMenuItem("GameObject/XR/AR Session Origin");
-            Selection.activeObject = null;
-            EditorApplication.ExecuteMenuItem("GameObject/AR+GPS/ARLocationRoot");
-
+            
             var prevMain = GameObject.FindWithTag("MainCamera");
             if (prevMain)
             {
                 Object.DestroyImmediate(prevMain);
             }
+
+            EditorApplication.ExecuteMenuItem("GameObject/XR/AR Session");
+            Selection.activeObject = null;
+            EditorApplication.ExecuteMenuItem("GameObject/XR/AR Session Origin");
+            Selection.activeObject = null;
+            EditorApplication.ExecuteMenuItem("GameObject/AR+GPS/ARLocationRoot");
 
             var cam = GameObject.Find("AR Camera");
 

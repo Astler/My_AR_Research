@@ -1,3 +1,49 @@
+# 3.9.3
+- Improvement: Usually objects are hidden until they are positioned. But
+  previously this only worked with meshes, which use the `MeshRenderer`, so
+  that sprites, which use the `SpriteRenderer` were not hidden. This fixes this
+  situation.
+
+# 3.9.2 
+- Fixed bug where "Create Basic Scene Structure" does not create an "AR Camera".
+
+# 3.9.1
+
+- Fixed orientation update bug when "Use Raw Until First Average" is enabled.
+
+# 3.9.0
+
+- **Breaking Changes**:
+
+    - **Rewritten the `Hotspot` component from scratch.** This fixes a few bugs
+      and is mostly backwards-compatible but there are a few breaking changes.
+      The main changes are as follows:
+      
+        * Now there are only two events, one for hotspot activation and the
+          other for hotspot deactivation.
+
+        * No there is a "Deactivation Radius" property, which tells how far
+          from the hotspot object you need to get so that is dectivates if
+          "Deactivate On Leave" is set to true.
+
+        * When you disable the Hotspot component at runtime it will destroy the
+          instantiated object.
+
+        * Now, when "Debug Mode" is enabled, it will render a line from the
+          device's location to the hotspot center, and will place a red cube at
+          the center.
+
+    - **Rewritten the GOMap integration from scratch.** Now it works based on
+      three scenes: one persistent scene which switches between a AR scene and
+      a GOMap scene.
+
+- **Added multi-language support for MapboxRoutes.** Previously you could only
+  get instructions in English (United State). Now you can choose from any of
+  the languages supported by the Mapbox API.
+
+- **Fixed crash when loading custom routes in MapboxRoutes**.
+        
+
 # 3.8.0
 - Added `ARLocationManager.GetGameObjectPositionForLocation` method.
 - Fixed locale issue with mapbox requests.

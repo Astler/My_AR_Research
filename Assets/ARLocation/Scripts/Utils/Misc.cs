@@ -133,17 +133,11 @@ namespace ARLocation.Utils
 
         public static void SetGameObjectVisible(GameObject go, bool value)
         {
-            var meshRenderer = go.GetComponent<MeshRenderer>();
-            var skinnedMeshRenderer = go.GetComponent<SkinnedMeshRenderer>();
+            var renderer = go.GetComponent<Renderer>();
 
-            if (meshRenderer)
+            if (renderer)
             {
-                meshRenderer.enabled = value;
-            }
-
-            if (skinnedMeshRenderer)
-            {
-                skinnedMeshRenderer.enabled = value;
+                renderer.enabled = value;
             }
 
             SetActiveOnAllChildren(go, value);

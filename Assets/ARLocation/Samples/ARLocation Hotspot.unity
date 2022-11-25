@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -416,24 +416,19 @@ MonoBehaviour:
     Prefab: {fileID: 1830897451228971326, guid: c23c5ef42ede27b4bb614fbad18d2f2e,
       type: 3}
     PositionMode: 1
-    ActivationRadius: 2
     AlignToCamera: 1
     DistanceFromCamera: 2
-    UseRawLocation: 1
+    ActivationRadius: 2
+    UseRawLocation: 0
     DeactivateOnLeave: 0
+    Reactivate: 0
+    DeactivationRadius: 4
     Id: 0
   DebugMode: 1
-  UseOnLeaveHotspotEvent: 0
   OnHotspotActivated:
     m_PersistentCalls:
       m_Calls: []
-  OnHotspotLeave:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotLeaveWithId:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotActivatedWithId:
+  OnHotspotDeactivated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &558373281
@@ -592,24 +587,19 @@ MonoBehaviour:
     Prefab: {fileID: 1830897451228971326, guid: c23c5ef42ede27b4bb614fbad18d2f2e,
       type: 3}
     PositionMode: 1
-    ActivationRadius: 2
     AlignToCamera: 1
     DistanceFromCamera: 2
-    UseRawLocation: 1
+    ActivationRadius: 2
+    UseRawLocation: 0
     DeactivateOnLeave: 0
+    Reactivate: 0
+    DeactivationRadius: 4
     Id: 0
   DebugMode: 1
-  UseOnLeaveHotspotEvent: 0
   OnHotspotActivated:
     m_PersistentCalls:
       m_Calls: []
-  OnHotspotLeave:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotLeaveWithId:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotActivatedWithId:
+  OnHotspotDeactivated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &769139662
@@ -674,24 +664,19 @@ MonoBehaviour:
     Prefab: {fileID: 1830897451228971326, guid: c23c5ef42ede27b4bb614fbad18d2f2e,
       type: 3}
     PositionMode: 1
-    ActivationRadius: 2
     AlignToCamera: 1
     DistanceFromCamera: 2
-    UseRawLocation: 1
+    ActivationRadius: 2
+    UseRawLocation: 0
     DeactivateOnLeave: 0
+    Reactivate: 0
+    DeactivationRadius: 4
     Id: 0
   DebugMode: 1
-  UseOnLeaveHotspotEvent: 0
   OnHotspotActivated:
     m_PersistentCalls:
       m_Calls: []
-  OnHotspotLeave:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotLeaveWithId:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotActivatedWithId:
+  OnHotspotDeactivated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &863526715
@@ -756,24 +741,19 @@ MonoBehaviour:
     Prefab: {fileID: 1830897451228971326, guid: c23c5ef42ede27b4bb614fbad18d2f2e,
       type: 3}
     PositionMode: 1
-    ActivationRadius: 2
     AlignToCamera: 1
     DistanceFromCamera: 2
-    UseRawLocation: 1
+    ActivationRadius: 2
+    UseRawLocation: 0
     DeactivateOnLeave: 0
+    Reactivate: 0
+    DeactivationRadius: 4
     Id: 0
   DebugMode: 1
-  UseOnLeaveHotspotEvent: 0
   OnHotspotActivated:
     m_PersistentCalls:
       m_Calls: []
-  OnHotspotLeave:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotLeaveWithId:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotActivatedWithId:
+  OnHotspotDeactivated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1082827240
@@ -905,24 +885,19 @@ MonoBehaviour:
     Prefab: {fileID: 1830897451228971326, guid: c23c5ef42ede27b4bb614fbad18d2f2e,
       type: 3}
     PositionMode: 1
-    ActivationRadius: 2
     AlignToCamera: 1
     DistanceFromCamera: 2
-    UseRawLocation: 1
+    ActivationRadius: 2
+    UseRawLocation: 0
     DeactivateOnLeave: 0
+    Reactivate: 0
+    DeactivationRadius: 4
     Id: 0
   DebugMode: 1
-  UseOnLeaveHotspotEvent: 0
   OnHotspotActivated:
     m_PersistentCalls:
       m_Calls: []
-  OnHotspotLeave:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotLeaveWithId:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotActivatedWithId:
+  OnHotspotDeactivated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1737371396
@@ -1058,24 +1033,19 @@ MonoBehaviour:
     Prefab: {fileID: 1830897451228971326, guid: c23c5ef42ede27b4bb614fbad18d2f2e,
       type: 3}
     PositionMode: 1
-    ActivationRadius: 2
     AlignToCamera: 1
     DistanceFromCamera: 2
-    UseRawLocation: 1
+    ActivationRadius: 2
+    UseRawLocation: 0
     DeactivateOnLeave: 0
+    Reactivate: 0
+    DeactivationRadius: 4
     Id: 0
   DebugMode: 1
-  UseOnLeaveHotspotEvent: 0
   OnHotspotActivated:
     m_PersistentCalls:
       m_Calls: []
-  OnHotspotLeave:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotLeaveWithId:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHotspotActivatedWithId:
+  OnHotspotDeactivated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &2046553109

@@ -291,6 +291,7 @@
      <Compile Include="Assets/Scripts/Data/Objects/PortalViewInfo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Projections/OnlineMapsProjection.cs" />
      <Compile Include="Assets/Scripts/Screens/BackdropView.cs" />
+     <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/MapboxApiLanguage.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Utils/SmoothMove.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/Runnable.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARPrerequisiteInfo.cs" />
@@ -1022,6 +1023,7 @@
      <Folder Include="Assets/Mapbox/Examples/3_POIPlacement/Resources" />
      <Folder Include="Assets/QuickOutline/Samples" />
      <Folder Include="Assets/ARLocation/Scripts/Components" />
+     <Folder Include="Assets/Fonts/Gilroy" />
      <Folder Include="Assets/XR/Loaders" />
      <Folder Include="Assets/Scripts/Screens/Utils" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/BuildingLayer" />
@@ -1059,6 +1061,7 @@
      <Folder Include="Assets/MapboxAR/Examples/Scenes" />
      <Folder Include="Assets/Audio/Walkabout" />
      <Folder Include="Assets/Mapbox/Examples/7_Globe/Screenshots" />
+     <Folder Include="Assets/SoftMaskForUGUI" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets" />
      <Folder Include="Assets/old_Scripts/Prototype/States/StatePortalPlacement" />
      <Folder Include="Assets/MapboxAR/Scripts/ManualSync" />
@@ -1097,7 +1100,6 @@
      <Folder Include="Assets/VFX/TransparentDepthHelper" />
      <Folder Include="Assets/LightshipHUBMockEnviroments/Textures/Exterior" />
      <Folder Include="Assets/ARLocation/Plugins" />
-     <Folder Include="Assets/Prefabs/_UserInterface" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles" />
      <None Include="Assets/Mapbox/Shaders/MapboxStyles.shader" />
      <Folder Include="Assets/Mapbox/Resources/Mapbox/PrefabScreens" />
@@ -1254,6 +1256,7 @@
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Plugins" />
      <Folder Include="Assets/Prefabs/Portals/Red" />
      <None Include="Assets/Mapbox/README.txt" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs" />
      <None Include="Assets/MapboxAR/link.xml" />
      <Folder Include="Assets/Scripts/Installers" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances" />
@@ -1297,6 +1300,7 @@
      <Folder Include="Assets/QuickOutline/Samples/Materials" />
      <Folder Include="Assets/LightshipHUBMockEnviroments/Scripts" />
      <Folder Include="Assets/LightshipHUB/Samples/AR Fundamentals" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/ZonesList" />
      <Folder Include="Assets/_Project/Scenes" />
      <Folder Include="Assets/LightshipHUBMockEnviroments/Materials/Interior" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Core" />
@@ -1321,6 +1325,7 @@
      <Folder Include="Assets/Modules" />
      <Folder Include="Assets/LightshipHUBMockEnviroments/Models" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/LabelLayers" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI" />
      <Folder Include="Assets/LightshipHUB/Samples/VPS" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls" />
      <Folder Include="Assets/Mapbox/Examples/Resources" />
@@ -1341,6 +1346,7 @@
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light" />
      <None Include="Assets/Mapbox/Core/Plugins/link.xml" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/Main" />
      <None Include="Assets/Mapbox/Shaders/RasterWithTransparencyShader.shader" />
      <Folder Include="Assets/ARLocation/GO Map Integration" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets/Materials" />
@@ -1383,6 +1389,7 @@
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/ScreenShots" />
      <Folder Include="Assets/Scripts/Utils/StateMachine" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Managers" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/Main/Elements" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Atlas" />
      <Folder Include="Assets/Mapbox/Core/cheap-ruler-cs/Tests" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Simple/Assets/Textures" />

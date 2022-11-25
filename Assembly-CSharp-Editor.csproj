@@ -49,6 +49,7 @@
      <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/MaterialListDrawer.cs" />
      <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/UnityLayerOptionsDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers/OnlineMapsMarkerManagerEditor.cs" />
+     <Compile Include="Assets/ARLocation/Editor/HotspotSettingsPropertyDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Buildings/OnlineMapsBuildingBaseEditor.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_ReverseGeocodeResource.cs" />
      <Compile Include="Assets/LightshipHUB/Editor/Scripts/LightshipCommon.cs" />

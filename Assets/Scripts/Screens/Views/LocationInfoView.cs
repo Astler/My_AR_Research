@@ -3,37 +3,13 @@ using UnityEngine;
 
 namespace Screens.Views
 {
-    public class LocationInfoView: MonoBehaviour
+    public class LocationInfoView : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI responseText;
         [SerializeField] private TextMeshProUGUI zoneNameText;
-        [SerializeField] private TextMeshProUGUI allZonesText;
-        
-        public void ShowResponse(string text)
-        {
-            responseText.text = text;
-        }
+        [SerializeField] private TextMeshProUGUI zoneSearchStatus;
 
-        public void SetActiveZoneName(string zoneName)
-        {
-            zoneNameText.text = zoneName;
-        }
+        public void SetActiveZoneName(string zoneName) => zoneNameText.text = zoneName;
 
-        public void ShowAllZones(string zoneName)
-        {
-            allZonesText.gameObject.SetActive(true);
-            allZonesText.text = zoneName;
-        }
-        
-        public void HideAllZonesList()
-        {
-            allZonesText.gameObject.SetActive(false);
-        }
-
-        private void Awake()
-        {
-            allZonesText.text = "";
-            responseText.text = "";
-        }
+        public void ShowResponse(string status) => zoneSearchStatus.text = status;
     }
 }

@@ -89,6 +89,7 @@ namespace Screens.MainScreen
             _view.GetMapUserInterface().PortalsListClicked += OnPortalsListClicked;
             _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
             _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
+            _view.GetMapUserInterface().MapCloseClicked += () => _dataProxy.ToggleMap();
 
             _view.WarningOkClicked += OnWarningOkClicked;
 

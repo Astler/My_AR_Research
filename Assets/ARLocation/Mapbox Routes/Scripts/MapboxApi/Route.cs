@@ -6,8 +6,8 @@ namespace ARLocation.MapboxRoutes
 {
     using Vendor.SimpleJSON;
 
-    [CreateAssetMenu(fileName = "ARLocationConfig", menuName = "AR+GPS/Route")]
-    public class Route : ScriptableObject
+    [Serializable]
+    public class Route
     {
         [Serializable]
         public class Geometry
@@ -172,10 +172,11 @@ namespace ARLocation.MapboxRoutes
         public float distance;
         public Geometry geometry;
         public List<RouteLeg> legs;
+        public string name;
 
         public static Route Parse(JSONNode node)
         {
-            var result = ScriptableObject.CreateInstance<Route>(); //Route();
+            var result = new Route();
 
             result.distance = node["distance"].AsFloat;
             result.geometry = Geometry.Parse(node["geometry"]);

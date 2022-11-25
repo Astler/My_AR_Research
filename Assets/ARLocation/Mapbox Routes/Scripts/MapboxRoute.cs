@@ -54,6 +54,9 @@ namespace ARLocation.MapboxRoutes
             [Tooltip("The Mapbox API token, used for accessing the Mapbox REST API.")]
             public string MapboxToken = "";
 
+            [Tooltip("The language used for queries and for route instructions.")]
+            public MapboxApiLanguage Language = MapboxApiLanguage.English_US;
+
             [Header("Route")]
             public RouteSettings RouteSettings;
 
@@ -142,7 +145,7 @@ namespace ARLocation.MapboxRoutes
                         "Please insert a Mapbox Token on the inspector panel for the 'MapboxRoutes' component!");
             }
 
-            mapbox = new MapboxApi(Settings.MapboxToken);
+            mapbox = new MapboxApi(Settings.MapboxToken, Settings.Language);
         }
 
         void Start()

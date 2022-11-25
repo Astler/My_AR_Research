@@ -59,14 +59,12 @@ namespace Screens.MainScreen
                 : "<color=red>Go to the portal area!</color>");
 
             placementParent.SetActive(hasZone);
-
-            if (!hasZone)
-            {
-                locationInfoView.HideAllZonesList();
-            }
         }
 
-        public void ShowLocationSearchStatus(string status) => locationInfoView.ShowResponse(status);
+        public void ShowLocationSearchStatus(string status)
+        {
+            locationInfoView.ShowResponse(status);
+        }
 
         public MapUserInterfaceView GetMapUserInterface() => mapUserInterfaceView;
 
@@ -167,6 +165,7 @@ namespace Screens.MainScreen
             restartButton.ActionWithThrottle(() => { RestartButtonClicked?.Invoke(); });
             openMapButton.ActionWithThrottle(() => { OpenMapClicked?.Invoke(); });
             closeZonesList.ActionWithThrottle(HideZonesList);
+            HideZonesList();
         }
 
         private void Update()

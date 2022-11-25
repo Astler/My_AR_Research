@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.ms.vr_demo",
-        "processId": 5771,
+        "processId": 7614,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,331 +11,31 @@
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
-            "processId": 31571,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 31795,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 6036,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 6598,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 7582,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 9898,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 11176,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 11707,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 12989,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 13636,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 18015,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 18727,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 19971,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 22264,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 22717,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 25444,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 27550,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 28378,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 32112,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 1188,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 2565,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 3825,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 4975,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 6379,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 7179,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 8814,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 9651,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 10434,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 11354,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 11937,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 12622,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 13653,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 16169,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 20470,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 21216,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 29080,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 31013,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 32427,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 19767,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 22164,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 12348,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 3667,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 5230,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 14118,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 18816,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 20230,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 21850,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 29283,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 30590,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 31601,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 32526,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 1487,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 3187,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
             "processId": 4148,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
             "processId": 5771,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 6418,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 18379,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 7614,
             "exited": false
         },
         {
@@ -343,6 +43,24 @@
             "name": "com.ms.vr_demo",
             "processId": 27337,
             "exited": true
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.vr_demo",
+            "processId": 19329,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.vr_demo",
+            "processId": 20201,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.vr_demo",
+            "processId": 21655,
+            "exited": false
         }
     ],
     "m_Tags": {

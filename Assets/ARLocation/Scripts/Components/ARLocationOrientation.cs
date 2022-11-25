@@ -131,6 +131,7 @@ namespace ARLocation
         {
             if (waitingForARTracking) return;
 
+
             if (!newHeading.isMagneticHeadingAvailable)
             {
                 Debug.LogWarning("[AR+GPS][ARLocationOrientation]: Magnetic heading data not available.");
@@ -177,13 +178,6 @@ namespace ARLocation
                 return;
             }
 
-
-            if (isFirstAverage && UseRawUntilFirstAverage)
-            {
-                TrySetOrientation(value, true);
-                return;
-            }
-
             if (values.Count >= AverageCount)
             {
                 if (isFirstAverage)
@@ -196,9 +190,16 @@ namespace ARLocation
 
                 TrySetOrientation(average);
             }
+            
+            if (isFirstAverage && UseRawUntilFirstAverage)
+            {
+                TrySetOrientation(value, true, true);
+                return;
+            }
+
         }
 
-        private void TrySetOrientation(float angle, bool isFirstUpdate = false)
+        private void TrySetOrientation(float angle, bool isFirstUpdate = false, bool dontIncrementCounter = false)
         {
             if (isFirstUpdate)
             {
@@ -208,7 +209,7 @@ namespace ARLocation
                 transform.localRotation = Quaternion.AngleAxis(angle, Vector3.up);
                 OnOrientationUpdated?.Invoke();
 
-                updateCounter++;
+                if (!dontIncrementCounter) updateCounter++;
                 return;
             }
 
@@ -220,7 +221,7 @@ namespace ARLocation
             targetAngle = angle;
             OnBeforeOrientationUpdated?.Invoke(targetAngle);
             isChangingOrientation = true;
-            updateCounter++;
+            if (!dontIncrementCounter) updateCounter++;
         }
 
         private void Update()

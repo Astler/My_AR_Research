@@ -12,6 +12,7 @@ namespace ARLocation.MapboxRoutes
     public class MapboxApi
     {
         public string AccessToken;
+        public MapboxApiLanguage Language;
 
         private RouteResponse queryRouteResult;
         public RouteResponse QueryRouteResult => queryRouteResult;
@@ -22,15 +23,15 @@ namespace ARLocation.MapboxRoutes
         public string errorMessage;
         public string ErrorMessage => errorMessage;
 
-        public MapboxApi(string token)
+        public MapboxApi(string token, MapboxApiLanguage lang = MapboxApiLanguage.English_US)
         {
             AccessToken = token;
+            Language = lang;
         }
 
         public IEnumerator QueryLocal(string text, bool verbose = false)
         {
-            var term = text;
-            var url = Uri.EscapeUriString($"https://api.mapbox.com/geocoding/v5/mapbox.places/{term}.json?access_token={AccessToken}");
+            var url = buildQueryLocalUrl(text);
 
             errorMessage = null;
             queryLocalResult = null;
@@ -46,10 +47,7 @@ namespace ARLocation.MapboxRoutes
 
                 if (Utils.Misc.WebRequestResultIsError(req))
                 {
-                    if (verbose)
-                    {
-                        Debug.LogError("[MapboxApi#QueryLocal]: Error -> " + req.error);
-                    }
+                    Debug.LogError("[MapboxApi#QueryLocal]: Error -> " + req.error);
 
                     errorMessage = req.error;
                 }
@@ -57,13 +55,10 @@ namespace ARLocation.MapboxRoutes
                 {
                     if (req.responseCode != 200)
                     {
-                        if (verbose)
-                        {
-                            Debug.LogError("[MapboxApi#QueryLocal]: Error -> " + req.downloadHandler.text);
-                            var node = JSON.Parse(req.downloadHandler.text);
-                            errorMessage = node["message"].Value; //req.downloadHandler.text;
-                            queryLocalResult = null;
-                        }
+                        Debug.LogError("[MapboxApi#QueryLocal]: Error -> " + req.downloadHandler.text);
+                        var node = JSON.Parse(req.downloadHandler.text);
+                        errorMessage = node["message"].Value; //req.downloadHandler.text;
+                        queryLocalResult = null;
                     }
                     else
                     {
@@ -78,17 +73,38 @@ namespace ARLocation.MapboxRoutes
             }
         }
 
-        public IEnumerator QueryRoute(Location from, Location to, bool alternatives = false, bool verbose = false)
+        string buildQueryLocalUrl(string query)
         {
-            string alt = alternatives ? "true" : "false";
+            var url = Uri.EscapeUriString($"https://api.mapbox.com/geocoding/v5/mapbox.places/{query}.json?access_token={AccessToken}");
+            url += $"&language={Language.GetCode()}";
 
+            return url;
+        }
+
+        string buildQueryRouteUrl(Location from, Location to, bool alternatives)
+        {
+            string url = "https://api.mapbox.com/directions/v5/mapbox/walking/";
+            string alt = alternatives ? "true" : "false";
             var fromLat = from.Latitude.ToString(CultureInfo.InvariantCulture);
             var fromLon = from.Longitude.ToString(CultureInfo.InvariantCulture);
             var toLat = to.Latitude.ToString(CultureInfo.InvariantCulture);
             var toLon = to.Longitude.ToString(CultureInfo.InvariantCulture);
-            
-            string url = $"https://api.mapbox.com/directions/v5/mapbox/walking/{fromLon}%2C{fromLat}%3B{toLon}%2C{toLat}?alternatives={alt}&geometries=geojson&steps=true&access_token={AccessToken}";
-            
+            var langCode = Language.GetCode();
+
+            url += $"{fromLon}%2C{fromLat}%3B{toLon}%2C{toLat}";
+            url += $"?alternatives={alt}";
+            url += "&geometries=geojson";
+            url += "&steps=true";
+            url += $"&access_token={AccessToken}";
+            url += $"&language={langCode}";
+
+            return url;
+        }
+
+        public IEnumerator QueryRoute(Location from, Location to, bool alternatives = false, bool verbose = false)
+        {
+            var url = buildQueryRouteUrl(from, to, alternatives);
+
             errorMessage = null;
             queryRouteResult = null;
 
@@ -103,10 +119,7 @@ namespace ARLocation.MapboxRoutes
 
                 if (Utils.Misc.WebRequestResultIsError(req))
                 {
-                    if (verbose)
-                    {
-                        Debug.LogError("[MapboxApi#QueryRoute]: Error -> " + req.error);
-                    }
+                    Debug.LogError("[MapboxApi#QueryRoute]: Error -> " + req.error);
 
                     errorMessage = req.error;
                 }

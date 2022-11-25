@@ -53,10 +53,7 @@ namespace ARLocation.MapboxRoutes
 
             if (resolver.IsError)
             {
-                if (verbose)
-                {
-                    Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Failed to resolve start waypoint: {resolver.ErrorMessage}", verbose);
-                }
+                Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Failed to resolve start waypoint: {resolver.ErrorMessage}", true);
 
                 error = resolver.ErrorMessage;
                 result = null;
@@ -72,10 +69,7 @@ namespace ARLocation.MapboxRoutes
 
             if (resolver.IsError)
             {
-                if (verbose)
-                {
-                    Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Failed to resolve end waypoint: {resolver.ErrorMessage}", verbose);
-                }
+                Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Failed to resolve end waypoint: {resolver.ErrorMessage}", true);
 
                 error = resolver.ErrorMessage;
                 result = null;
@@ -95,10 +89,7 @@ namespace ARLocation.MapboxRoutes
 
             if (mapbox.errorMessage != null)
             {
-                if (verbose)
-                {
-                    Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Route query failed: {mapbox.errorMessage}", verbose);
-                }
+                Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Route query failed: {mapbox.errorMessage}", true);
 
                 error = resolver.ErrorMessage;
                 result = null;
@@ -106,11 +97,28 @@ namespace ARLocation.MapboxRoutes
                 yield break;
             }
 
+            if (mapbox.QueryRouteResult == null)
+            {
+                Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Route result is null!", verbose);
+            }
+            else if (mapbox.QueryRouteResult.routes.Count == 0)
+            {
+                Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Route result is empty!", verbose);
+            }
+
             if (verbose)
             {
                 Utils.Logger.LogFromMethod("RouteLoader", "LoadRoute", $"Done! {mapbox.QueryLocalResult}", verbose);
             }
 
+            if (mapbox.QueryRouteResult == null)
+            {
+                error = "[MapboxApi]: Route result is null!";
+                result = null;
+
+                yield break;
+            }
+            
             error = null;
             result = mapbox.QueryRouteResult;
         }

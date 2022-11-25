@@ -745,8 +745,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/SignatureAndHashAlgorithm.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DHPrivateKeyParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ServerSrpParams.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/DSTU7564Mac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/cert/CertificateException.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/DSTU7564Mac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcDefaultTlsCredentialedDecryptor.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/CommitmentTypeQualifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/PKMacValue.cs" />
@@ -1074,8 +1074,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/KeyUsage.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/SerpentEngineBase.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/encoders/IEncoder.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateStatusType.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/ArmoredOutputStream.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateStatusType.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/IMemoable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/isismtt/ocsp/RequestedCertificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/GeneralSecurityException.cs" />
