@@ -8,10 +8,12 @@ using GameCamera;
 using Geo;
 using Infrastructure.GameStateMachine;
 using Infrastructure.GameStateMachine.GameStates;
+using SceneManagement;
 using Screens.PortalsListScreen;
 using Screens.RewardsListScreen;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 using Object = UnityEngine.Object;
 
@@ -64,7 +66,7 @@ namespace Screens.MainScreen
                     case GameStates.LocationDetection:
                         _dataProxy.LocationDetectResult.Subscribe(result =>
                         {
-                            if (result == LocationDetectResult.Success)
+                            if (result == LocationDetectResult.Success || Application.isEditor)
                             {
                                 _dataProxy.NextStateStep();
                                 _view.HideLocationDetectionPopup();
@@ -160,6 +162,7 @@ namespace Screens.MainScreen
         private void OnRestartButtonClicked()
         {
             _gameStateMachine.Initialize();
+            _view.CloseScreen();
             _dataProxy.ResetScene();
         }
 

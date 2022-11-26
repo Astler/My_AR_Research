@@ -36,8 +36,7 @@ namespace SceneManagement
             {
                 onLoaded?.Invoke();
             };
-            if (nextScene == SceneName.BootScene) yield break;
-            
+  
             while (true)
             {
                 activeSceneName = SceneManager.GetActiveScene().name;

@@ -11,9 +11,10 @@ namespace Screens.LoadingScreen
         private readonly SceneLoader _sceneLoader;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly IDataProxy _dataProxy;
-        private readonly CompositeDisposable _compositeDisposable = new ();
-        
-        public LoadingScreenPresenter(ILoadingScreenView view, SceneLoader sceneLoader, IScreenNavigationSystem screenNavigationSystem,
+        private readonly CompositeDisposable _compositeDisposable = new();
+
+        public LoadingScreenPresenter(ILoadingScreenView view, SceneLoader sceneLoader,
+            IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy)
         {
             _view = view;
@@ -25,7 +26,11 @@ namespace Screens.LoadingScreen
 
         private void Init()
         {
-            _view.OnShowCallback += obj=> _view.SetViewModel(Application.version);
+            _view.OnShowCallback += obj =>
+            {
+                _view.SetLoadingProgressValue(0);
+                _view.SetViewModel(Application.version);
+            };
 
             _view.OnLoadingAnimationFinish += () =>
             {
@@ -33,7 +38,7 @@ namespace Screens.LoadingScreen
                     new NavigationCommand().ShowNextScreen(ScreenName.MainScreen).WithoutAnimation()
                         .CloseCurrentScreen());
             };
-            
+
             _sceneLoader.LoadSceneProgress.Subscribe((sceneProgress) =>
             {
                 _view.SetLoadingProgressValue(sceneProgress);

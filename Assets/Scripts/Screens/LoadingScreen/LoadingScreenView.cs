@@ -17,10 +17,10 @@ namespace Screens.LoadingScreen
         [SerializeField] private TextMeshProUGUI loadingText;
         [SerializeField] private Slider loadingProgress;
         public event Action OnLoadingAnimationFinish;
-        
+
         private const string _Loading = "^loading";
         private const string Version = "^version";
-        
+
         private Coroutine _loadingCoroutine;
         private float _currentProgress;
 
@@ -39,11 +39,16 @@ namespace Screens.LoadingScreen
 
         public void SetLoadingProgressValue(float progress)
         {
+            if (progress == 0)
+            {
+                loadingProgress.value = 0f;
+            }
+            
             Debug.Log("Progress: " + progress);
             _currentProgress = progress;
             _loadingCoroutine ??= StartCoroutine(Loading());
         }
-        
+
         private IEnumerator BlinkText(float duration)
         {
             Transform textTransform = loadingText.transform;
@@ -72,9 +77,15 @@ namespace Screens.LoadingScreen
                 progress = Mathf.Clamp(progress + Random.Range(0.08f, 0.15f), 0f, _currentProgress);
                 float stepPause = Random.Range(0.2f, 0.4f);
                 loadingProgress.DOValue(progress, stepPause);
-                loadingText.text = $"{I18N.instance.GetValue(_Loading)} ({(int) (progress * 100)}%)";
+                loadingText.text = $"{I18N.instance.GetValue(_Loading)} ({(int)(progress * 100)}%)";
                 yield return new WaitForSeconds(stepPause);
-                if (progress > 0.99f) OnLoadingAnimationFinish?.Invoke();
+                if (progress > 0.99f)
+                {
+                    StopCoroutine(_loadingCoroutine);
+                    _loadingCoroutine = null;
+                    
+                    OnLoadingAnimationFinish?.Invoke();
+                }
             }
         }
     }

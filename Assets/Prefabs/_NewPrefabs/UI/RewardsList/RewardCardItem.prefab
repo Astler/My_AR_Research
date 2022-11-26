@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0770ce4fce14edeb693482868cc6091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 341906175783133080}
   rewardIcon: {fileID: 6209838968420594433}
 --- !u!1 &8209902031285488726
 GameObject:

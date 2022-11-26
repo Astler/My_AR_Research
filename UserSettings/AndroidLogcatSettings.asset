@@ -3,81 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.ms.vr_demo",
-        "processId": 4932,
+        "processId": 23568,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 4148,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 5771,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 6418,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
             "name": "com.google.android.apps.nexuslauncher",
             "processId": 18379,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 7614,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 12833,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 13539,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 15759,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 16683,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 31252,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.vr_demo",
-            "processId": 1743,
             "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
             "processId": 4932,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 6882,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 9384,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 11196,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 22327,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 23568,
             "exited": false
         },
         {
