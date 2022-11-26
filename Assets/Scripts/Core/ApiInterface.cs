@@ -347,7 +347,7 @@ namespace Core
             AddRequestToList(new Request("events", NewRequest));
         }
 
-        public void CollectReward(int zoneId, int rewardId, Action<EventsData> onSuccess, Action<ResponseStatus> onFailure)
+        public void CollectReward(int zoneId, int rewardId, Action<PrizeCollectResponseData> onSuccess, Action<ResponseStatus> onFailure)
         {
             WWWForm form = new();
             form.AddField("event_id", zoneId);

@@ -7,6 +7,6 @@ namespace Core
     {
         void SignIn(Action<SignInResponse> onSuccess, Action<ResponseStatus> onFailure);
         void GetEventsList(Action<EventsData> onSuccess, Action<ResponseStatus> onFailure);
-        void CollectReward(int zoneId, int rewardId, Action<EventsData> onSuccess, Action<ResponseStatus> onFailure);
+        void CollectReward(int zoneId, int rewardId, Action<PrizeCollectResponseData> onSuccess, Action<ResponseStatus> onFailure);
     }
 }

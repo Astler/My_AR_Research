@@ -18,6 +18,7 @@ namespace Data
     {
         private readonly AssetsScriptableObject _assetsScriptableObject;
         private readonly IApiInterface _apiInterface;
+        private readonly LocalStorageHelper _localStorageHelper;
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<bool> _inRewardZone = new();
@@ -34,10 +35,12 @@ namespace Data
         private readonly List<ZoneViewInfo> _portalsList = new();
         private EventData[] _eventsData;
 
-        public DataProxy(AssetsScriptableObject assetsScriptableObject, IApiInterface apiInterface)
+        public DataProxy(AssetsScriptableObject assetsScriptableObject, IApiInterface apiInterface,
+            LocalStorageHelper localStorageHelper)
         {
             _assetsScriptableObject = assetsScriptableObject;
             _apiInterface = apiInterface;
+            _localStorageHelper = localStorageHelper;
             _playerData = new PlayerData();
             _coins.Value = _playerData.GetCoins();
         }
@@ -155,9 +158,14 @@ namespace Data
             return rewards.Count == 0 ? null : rewards.GetRandomElement();
         }
 
-        public void TryToCollectBeam(BeamData data)
+        public void TryToCollectBeam(BeamData data, Action<Sprite> success)
         {
-            _apiInterface.CollectReward(data.ZoneId, data.Id, result => { }, error => {});
+            _apiInterface.CollectReward(data.ZoneId, data.Id,
+                result =>
+                {
+                    _localStorageHelper.LoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
+                },
+                error => { });
         }
 
         public Vector2 GetPlayerPosition() => _playerLocationChanged.Value;

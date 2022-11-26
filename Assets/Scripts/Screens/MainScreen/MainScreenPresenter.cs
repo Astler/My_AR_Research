@@ -148,9 +148,6 @@ namespace Screens.MainScreen
                 _localStorageHelper.LoadSprite(rewardViewInfo.Url, sprite => { portalCardView.SetRewardIcon(sprite); });
 
                 portalCardView.transform.SetAsLastSibling();
-                //TODO reward configure
-                // portalCardView.ConfigureView(rewardViewInfo);
-
                 _rewardsList.Add(portalCardView);
             }
 
@@ -245,8 +242,11 @@ namespace Screens.MainScreen
                     {
                         if (beam.CanBeCollected(_dataProxy.GetPlayerPosition()))
                         {
-                            _dataProxy.TryToCollectBeam(beam.GetBeamData());
-                            beam.Collect();
+                            _dataProxy.TryToCollectBeam(beam.GetBeamData(), sprite =>
+                            {
+                                beam.Collect();
+                                _view.ShowRewardPopup(sprite);
+                            });
                         }
                     }
                 }

@@ -85,4 +85,10 @@ namespace Data
         public string name;
         public bool is_claimed;
     }
+    
+    [Serializable]
+    public class PrizeCollectResponseData
+    {
+        public PrizeData prize;
+    }
 }

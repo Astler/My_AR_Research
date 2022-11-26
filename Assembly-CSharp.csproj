@@ -148,7 +148,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleDirections.cs" />
      <Compile Include="Assets/Scripts/Assets/AssetsScriptableObject.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Location/ILocationProvider.cs" />
-     <Compile Include="Assets/old_Scripts/ErrorManager/ErrorManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LayerModifierOptions.cs" />
      <Compile Include="Assets/LightshipHUBMockEnviroments/Scripts/MeshMaterial.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/HTTPRequestThreaded.cs" />
@@ -276,7 +275,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/AircraftWarning.cs" />
      <Compile Include="Assets/Mapbox/Examples/3_POIPlacement/POIPlacementScriptExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainDataFetcher.cs" />
-     <Compile Include="Assets/old_Scripts/Prototype/ScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/IReplacementCriteria.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/ObjectAnimation.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSON.cs" />
@@ -607,7 +605,6 @@
      <Compile Include="Assets/Scripts/Utils/StateMachine/IState.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/VectorDataFetcher.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsSavableComponent.cs" />
-     <Compile Include="Assets/old_Scripts/StateWarning/StateWarning.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Interfaces/IFeaturePropertySettable.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsPBR.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/PolylineUtils.cs" />
@@ -639,7 +636,6 @@
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/VectorSubLayerProperties.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarker2DMeshDrawer.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Compression.cs" />
-     <Compile Include="Assets/old_Scripts/StateInstructions/InstructionsScreen.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/AngleSmoothingAbstractBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsDynamicTexture.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsQQSearchResult.cs" />
@@ -822,7 +818,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/InterceptElevationRequestExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/PrefabItemOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryFallback.cs" />
-     <Compile Include="Assets/old_Scripts/Prototype/GameStepsController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsWhat3Words.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Components/ARLocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/TelemetryWebgl.cs" />
@@ -914,6 +909,7 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
+     <Compile Include="Assets/Scripts/Screens/RewardClaimedScreen/RewardClaimedScreenView.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
      <Folder Include="Assets/LightshipHUB/Runtime/Materials/Models" />
@@ -972,7 +968,6 @@
      <None Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Building/CharacterBuildingShader.shader" />
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty" />
      <Folder Include="Assets/Textures/RenderTextures" />
-     <Folder Include="Assets/old_Scripts/UI" />
      <Folder Include="Assets/MapboxAR/Examples/ARTabletop/ARTableMapVisualizer" />
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding" />
@@ -1049,7 +1044,6 @@
      <Folder Include="Assets/LightshipHUBMockEnviroments/Textures" />
      <Folder Include="Assets/Mapbox/Unity/Styling" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-     <Folder Include="Assets/old_Scripts/UI/WarningGUI" />
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35" />
      <Folder Include="Assets/ARLocation/Scripts/Location" />
      <Folder Include="Assets/Modules/Shared/Utilities" />
@@ -1067,9 +1061,7 @@
      <Folder Include="Assets/MapboxAR/Examples/Scenes" />
      <Folder Include="Assets/Audio/Walkabout" />
      <Folder Include="Assets/Mapbox/Examples/7_Globe/Screenshots" />
-     <Folder Include="Assets/SoftMaskForUGUI" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets" />
-     <Folder Include="Assets/old_Scripts/Prototype/States/StatePortalPlacement" />
      <Folder Include="Assets/MapboxAR/Scripts/ManualSync" />
      <Folder Include="Assets/LightshipHUB/Runtime/Textures" />
      <Folder Include="Assets/Mapbox/Unity/Location/LocationSmoothing" />
@@ -1142,7 +1134,6 @@
      <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes/Behaviours" />
      <Folder Include="Assets/Mapbox/Unity/Location/AngleSmoothing" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/JSON" />
-     <Folder Include="Assets/old_Scripts/Prototype/States/StateScanning" />
      <Folder Include="Assets/ARLocation/Samples/Data" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/LanduseLayer" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/TileJSON" />
@@ -1157,7 +1148,6 @@
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/Contour" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform" />
-     <Folder Include="Assets/old_Scripts/StateWarning" />
      <None Include="Assets/ARLocation/GO Map Integration/README.txt" />
      <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/MapboxAccounts" />
      <Folder Include="Assets/ARLocation/Mapbox Routes/Materials" />
@@ -1168,7 +1158,6 @@
      <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes/Features" />
      <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Materials" />
      <Folder Include="Assets/LightshipHUB/Runtime/Shaders" />
-     <Folder Include="Assets/old_Scripts/UI/InstructionsGUI" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite" />
      <Folder Include="Assets/Scripts/ViewModels" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Threading" />
@@ -1270,9 +1259,7 @@
      <Folder Include="Assets/Audio/Shared" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples/Scenes/Controls" />
      <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox" />
-     <Folder Include="Assets/old_Scripts/ErrorManager" />
      <Folder Include="Assets/LightshipHUB/Runtime/Scripts" />
-     <Folder Include="Assets/old_Scripts/StateInstructions" />
      <Folder Include="Assets/Mapbox/Core/Plugins/Android/UniAndroidPermission" />
      <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
      <Folder Include="Assets/Mapbox/Unity/DataContainers" />
@@ -1311,9 +1298,9 @@
      <Folder Include="Assets/LightshipHUBMockEnviroments/Materials/Interior" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Core" />
      <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Materials" />
-     <Folder Include="Assets/old_Scripts" />
      <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Data" />
      <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/RewardClaimed" />
      <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap/Screenshots" />
      <Folder Include="Assets/LightshipHUBMockEnviroments/Materials/Exterior" />
      <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap" />
@@ -1324,7 +1311,6 @@
      <Folder Include="Assets/Settings" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Providers" />
      <Folder Include="Assets/MapboxAR/Examples" />
-     <Folder Include="Assets/old_Scripts/Prototype/States" />
      <Folder Include="Assets/Mapbox/Core" />
      <Folder Include="Assets/Mapbox/Core/Plugins/sqlite" />
      <Folder Include="Assets/LightshipHUB/Samples/Contextual Awareness" />
@@ -1386,7 +1372,6 @@
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets/Materials" />
      <Folder Include="Assets/Scripts/Screens/Transitions" />
      <Folder Include="Assets/QuickOutline/Scripts" />
-     <Folder Include="Assets/old_Scripts/Prototype" />
      <Folder Include="Assets/ARLocation/Scripts" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/SevereTraffic" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/VectorFactory" />
@@ -1433,7 +1418,6 @@
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
      <Folder Include="Assets/Scripts/Infrastructure/GameStateMachine" />
      <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Scripts" />
-     <Folder Include="Assets/MockMeshes" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/LowTraffic" />
      <Folder Include="Assets/Mapbox/Unity/Location" />
      <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android/libs" />
@@ -1447,12 +1431,12 @@
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/ImageFactory" />
      <Folder Include="Assets/Mapbox/Shaders" />
      <None Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/Clip_MapboxStyles.shader" />
-     <Folder Include="Assets/old_Scripts/Prototype/States/LocationDetection" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark/Assets" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples (API usage)" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/Resources" />
      <Folder Include="Assets/_Scenes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets/Scripts/Screens/RewardClaimedScreen" />
      <Folder Include="Assets/ARLocation/Experimental/World Voxel Craft" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples/Models/Materials" />
      <Folder Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi" />

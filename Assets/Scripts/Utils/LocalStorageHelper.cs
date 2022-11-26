@@ -5,6 +5,7 @@ using System.IO;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Networking;
+using Zenject;
 
 namespace Utils
 {
@@ -12,8 +13,8 @@ namespace Utils
     {
         void LoadSprite(string url, Action<Sprite> callback);
     }
-    
-    public class LocalStorageHelper: ILocalStorageHelper
+
+    public class LocalStorageHelper : ILocalStorageHelper, IInitializable
     {
         private readonly Dictionary<string, Sprite> _cacheSpriteDictionary = new();
         private readonly Queue<SpriteRequest> _requestQueue = new();
@@ -113,6 +114,25 @@ namespace Utils
             CheckRequestStack();
         }
 
+        private Texture2D LoadTexture(string FilePath)
+        {
+            // Load a PNG or JPG file from disk to a Texture2D
+            // Returns null if load fails
+
+            Texture2D Tex2D;
+            byte[] FileData;
+
+            if (File.Exists(FilePath))
+            {
+                FileData = File.ReadAllBytes(FilePath);
+                Tex2D = new Texture2D(2, 2); // Create new "empty" texture
+                if (Tex2D.LoadImage(FileData)) // Load the imagedata into the texture (size is set automatically)
+                    return Tex2D; // If data = readable -> return texture
+            }
+
+            return null; // Return null if load failed
+        }
+
         /*public void CheckAllChallengesIconsDownloaded(ChallengesData data, Action onSuccess)
         {
             _compositionRoot.StartCoroutine(CheckAllIconsDownloaded(data, onSuccess));
@@ -126,5 +146,28 @@ namespace Utils
             }
             onSuccess?.Invoke();
         }*/
+
+        public void Initialize()
+        {
+            DirectoryInfo info = new(GlobalConstants.CachePath);
+
+            FileInfo[] files = info.GetFiles();
+
+            foreach (FileInfo file in files)
+            {
+                string filename = file.Name;
+                
+                if (!filename.EndsWith(".png")) continue;
+                
+                Texture2D texture = LoadTexture(GlobalConstants.CachePath + filename);
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(0, 0));
+
+                if (!_cacheSpriteDictionary.ContainsKey(filename))
+                {
+                    _cacheSpriteDictionary.Add(filename, sprite);
+                }
+            }
+        }
     }
 }

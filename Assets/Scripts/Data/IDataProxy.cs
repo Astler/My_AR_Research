@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AR;
 using Data.Objects;
@@ -40,6 +41,6 @@ namespace Data
         void AddEvents(EventsData data);
         IEnumerable<RewardViewInfo> GetRewardsForActiveZone();
         RewardViewInfo GetAvailableRewardForZone();
-        void TryToCollectBeam(BeamData getBeamData);
+        void TryToCollectBeam(BeamData getBeamData, Action<Sprite> success);
     }
 }

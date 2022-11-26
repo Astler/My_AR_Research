@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Screens.PortalsListScreen;
+using Screens.RewardClaimedScreen;
 using Screens.RewardsListScreen;
 using Screens.Views;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace Screens.MainScreen
         [SerializeField] private LocationInfoView locationInfoView;
         [SerializeField] private PlayerBalanceBarView playerBalancesView;
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
+        [SerializeField] private RewardClaimedScreenView rewardClaimedScreenView;
 
         [Space, Header("Steps"), SerializeField]
         private CanvasGroup warningStep;
@@ -57,7 +59,7 @@ namespace Screens.MainScreen
             bool hasZone = zoneName != null;
 
             mapUserInterfaceView.SetIsRewardsButtonActive(hasZone);
-            
+
             locationInfoView.SetActiveZoneName(hasZone
                 ? $"<color=green>{zoneName}</color>"
                 : "<color=red>Go to the portal area!</color>");
@@ -151,6 +153,9 @@ namespace Screens.MainScreen
 
         public void ShowAllZonesList() => zonesListView.SetActive(true);
         public void HideZonesList() => zonesListView.SetActive(false);
+
+        public void ShowRewardPopup(Sprite sprite) => rewardClaimedScreenView.ShowReward(sprite);
+
         public void ShowRewardsList() => rewardsListView.SetActive(true);
         public void HideRewardsList() => rewardsListView.SetActive(false);
 
