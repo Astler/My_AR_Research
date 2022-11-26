@@ -128,7 +128,7 @@ namespace Screens.MainScreen
         }
 
         private void OnRewardsListClicked()
-        {          
+        {
             foreach (RewardCardView rewardView in _rewardsList)
             {
                 rewardView.DestroyCard();
@@ -140,16 +140,15 @@ namespace Screens.MainScreen
             {
                 RewardCardView portalCardView = Object.Instantiate(_view.GetRewardsListView().GetRewardsPrefab(),
                     _view.GetRewardsListView().GetListContainer());
-                    
-                _localStorageHelper.LoadSprite(rewardViewInfo.Url, sprite =>
-                {
-                    portalCardView.SetRewardIcon(sprite);
-                });
-                
+
+                portalCardView.SetupCardData(rewardViewInfo.Name, rewardViewInfo.IsCollected);
+
+                _localStorageHelper.LoadSprite(rewardViewInfo.Url, sprite => { portalCardView.SetRewardIcon(sprite); });
+
                 portalCardView.transform.SetAsLastSibling();
                 //TODO reward configure
                 // portalCardView.ConfigureView(rewardViewInfo);
-                
+
                 _rewardsList.Add(portalCardView);
             }
 
