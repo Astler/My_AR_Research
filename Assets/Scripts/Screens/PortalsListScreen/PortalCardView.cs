@@ -16,7 +16,7 @@ namespace Screens.PortalsListScreen
 
         public event Action<Vector2> MoveToClicked;
 
-        public void ConfigureView(PortalViewInfo viewInfo)
+        public void ConfigureView(ZoneViewInfo viewInfo)
         {
             portalName.text = viewInfo.Name;
             distance.text = viewInfo.Distance;

@@ -1,6 +1,7 @@
 using System;
 using JetBrains.Annotations;
 using Screens.PortalsListScreen;
+using Screens.RewardsListScreen;
 using Screens.Views;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ namespace Screens.MainScreen
         void SetCoins(int coins);
         void SetupActiveZone([CanBeNull] string zoneName);
         void ShowLocationSearchStatus(string status);
-        MapUserInterfaceView GetMapUserInterface();
+        IMapUserInterface GetMapUserInterface();
         void HideInterface();
         void ShowWarningMessage();
         void ShowBaseInterface();
@@ -30,7 +31,10 @@ namespace Screens.MainScreen
         void HideScanningPopup();
         void ShowGameInterface();
         void ShowAllZonesList();
+        void ShowRewardsList();
+        void HideRewardsList();
         IPortalsListScreenView GetZonesListView();
+        IRewardsListScreenView GetRewardsListView();
         void HideZonesList();
     }
 }

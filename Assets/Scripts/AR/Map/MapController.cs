@@ -47,7 +47,7 @@ namespace AR.Map
 
                 CreatePlayerPointer(playerPosition);
 
-                foreach (PortalViewInfo viewInfo in _dataProxy.GetAllActiveZones())
+                foreach (ZoneViewInfo viewInfo in _dataProxy.GetAllActiveZones())
                 {
                     onlineMapsMarker3DManager.Create(viewInfo.Coordinates.y, viewInfo.Coordinates.x,
                         portalPrefab);

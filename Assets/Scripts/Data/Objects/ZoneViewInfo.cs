@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Data.Objects
 {
-    public class PortalViewInfo
+    public class ZoneViewInfo
     {
         public string Name;
         public string Distance;
@@ -12,6 +13,8 @@ namespace Data.Objects
 
         public long StartTime;
         public long FinishTime;
+        
+        public List<RewardViewInfo> Rewards;
 
         public bool IsActive()
         {

@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Screens.PortalsListScreen;
+using Screens.RewardsListScreen;
 using Screens.Views;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,6 @@ namespace Screens.MainScreen
 {
     public class MainScreenView : ScreenView, IMainScreenView
     {
-        [SerializeField] private Button closeZonesList;
         [SerializeField] private Button openMapButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Button restartButton;
@@ -27,8 +27,10 @@ namespace Screens.MainScreen
         [SerializeField] private CanvasGroup scanningStep;
         [SerializeField] private CanvasGroup locationSearchScreen;
 
-        [SerializeField] private GameObject zonesList;
         [SerializeField] private ZonesListView zonesListView;
+        [SerializeField] private Button closeZonesList;
+        [SerializeField] private RewardsListView rewardsListView;
+        [SerializeField] private Button closeRewardsList;
 
         public event Action WarningOkClicked;
         public event Action PlaceRandomBeamClicked;
@@ -42,7 +44,7 @@ namespace Screens.MainScreen
             clearButton.gameObject.SetActive(!isMapActive);
             restartButton.gameObject.SetActive(!isMapActive);
             placeRandomBeamButton.gameObject.SetActive(!isMapActive);
-            mapUserInterfaceView.gameObject.SetActive(isMapActive);
+            mapUserInterfaceView.SetIsMapActive(isMapActive);
         }
 
         public void SetCoins(int coins)
@@ -54,6 +56,8 @@ namespace Screens.MainScreen
         {
             bool hasZone = zoneName != null;
 
+            mapUserInterfaceView.SetIsRewardsButtonActive(hasZone);
+            
             locationInfoView.SetActiveZoneName(hasZone
                 ? $"<color=green>{zoneName}</color>"
                 : "<color=red>Go to the portal area!</color>");
@@ -66,7 +70,7 @@ namespace Screens.MainScreen
             locationInfoView.ShowResponse(status);
         }
 
-        public MapUserInterfaceView GetMapUserInterface() => mapUserInterfaceView;
+        public IMapUserInterface GetMapUserInterface() => mapUserInterfaceView;
 
         public void HideInterface()
         {
@@ -145,17 +149,14 @@ namespace Screens.MainScreen
             playerBalancesView.gameObject.SetActive(true);
         }
 
-        public void ShowAllZonesList()
-        {
-            zonesList.SetActive(true);
-        }
+        public void ShowAllZonesList() => zonesListView.SetActive(true);
+        public void HideZonesList() => zonesListView.SetActive(false);
+        public void ShowRewardsList() => rewardsListView.SetActive(true);
+        public void HideRewardsList() => rewardsListView.SetActive(false);
 
         public IPortalsListScreenView GetZonesListView() => zonesListView;
+        public IRewardsListScreenView GetRewardsListView() => rewardsListView;
 
-        public void HideZonesList()
-        {
-            zonesList.SetActive(false);
-        }
 
         private void Awake()
         {
@@ -165,7 +166,9 @@ namespace Screens.MainScreen
             restartButton.ActionWithThrottle(() => { RestartButtonClicked?.Invoke(); });
             openMapButton.ActionWithThrottle(() => { OpenMapClicked?.Invoke(); });
             closeZonesList.ActionWithThrottle(HideZonesList);
+            closeRewardsList.ActionWithThrottle(HideRewardsList);
             HideZonesList();
+            HideRewardsList();
         }
 
         private void Update()

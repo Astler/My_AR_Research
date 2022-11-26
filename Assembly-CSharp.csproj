@@ -288,7 +288,7 @@
      <Compile Include="Assets/Scripts/SceneManagement/SceneLoader.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Utils/Logger.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ITerrainLayer.cs" />
-     <Compile Include="Assets/Scripts/Data/Objects/PortalViewInfo.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/ZoneViewInfo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Projections/OnlineMapsProjection.cs" />
      <Compile Include="Assets/Scripts/Screens/BackdropView.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/MapboxApiLanguage.cs" />
@@ -908,6 +908,12 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
+     <Compile Include="Assets/Scripts/Utils/LocalStorageHelper.cs" />
+     <Compile Include="Assets/Scripts/Utils/SpriteRequest.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/RewardViewInfo.cs" />
+     <Compile Include="Assets/Scripts/Screens/RewardsListScreen/RewardsListView.cs" />
+     <Compile Include="Assets/Scripts/Screens/RewardsListScreen/RewardCardView.cs" />
+     <Compile Include="Assets/Scripts/AR/World/ArBeam.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
      <Folder Include="Assets/LightshipHUB/Runtime/Materials/Models" />
@@ -1464,6 +1470,7 @@
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer" />
      <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Prefabs/Voxels" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/RewardsList" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Park" />
      <Folder Include="Assets/Materials" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Tiles" />
@@ -1487,6 +1494,7 @@
      <Folder Include="Assets/Mapbox/User/Modifiers" />
      <Folder Include="Assets/Mapbox/Unity/Telemetry" />
      <Folder Include="Assets/ARLocation/Data" />
+     <Folder Include="Assets/Scripts/Screens/RewardsListScreen" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

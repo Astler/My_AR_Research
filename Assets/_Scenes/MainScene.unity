@@ -551,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 1387174004}
   WaitForARTrackingToStart: 1
-  RestartWhenARTrackingIsRestored: 1
+  RestartWhenARTrackingIsRestored: 0
   SetTargetFrameRateTo60Mhz: 1
   DebugMode: 0
   OnTrackingStarted:
@@ -575,12 +575,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5e11077e489453a9cbcfff72c5a9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfUpdates: 6
+  MaxNumberOfUpdates: 4
   AverageCount: 150
   UseRawUntilFirstAverage: 1
   MovementSmoothingFactor: 0.5
   TrueNorthOffset: 0
-  ApplyCompassTiltCompensationOnAndroid: 0
+  ApplyCompassTiltCompensationOnAndroid: 1
   LowPassFilterFactor: 0.9
   OnOrientationUpdated:
     m_PersistentCalls:
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zonePrefab: {fileID: 7488027548320071366, guid: fe393bd33070049b49d9080b8f4ad9d9,
     type: 3}
-  beamPrefab: {fileID: 7488027548320071366, guid: dfab494f40a59453cb28b5c053a0dcae,
+  beamPrefab: {fileID: 1317848389285996464, guid: dfab494f40a59453cb28b5c053a0dcae,
     type: 3}
 --- !u!4 &480410181
 Transform:

@@ -3,26 +3,33 @@ using System.Collections.Generic;
 using Assets;
 using Data;
 using GameCamera;
+using Infrastructure.GameStateMachine;
 using SceneManagement;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
 using UnityEngine;
+using Utils;
 using Zenject;
 
 namespace Screens
 {
     public class ScreensInstaller : MonoBehaviour
     {
-        private readonly Dictionary<string, GameObject> _localScreens = new ();
-        
+        private readonly Dictionary<string, GameObject> _localScreens = new();
+
         private SceneLoader _sceneLoader;
         private IScreenNavigationSystem _screenNavigationSystem;
         private IDataProxy _dataProxy;
+        private ILocalStorageHelper _localStorageHelper;
+        private GameStateMachine _gameStateMachine;
 
         [Inject]
-        public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy)
+        public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
+            IScreenNavigationSystem screenNavigationSystem,
+            IDataProxy dataProxy, ILocalStorageHelper localStorageHelper, GameStateMachine gameStateMachine)
         {
+            _gameStateMachine = gameStateMachine;
+            _localStorageHelper = localStorageHelper;
             _dataProxy = dataProxy;
             _sceneLoader = sceneLoader;
             _screenNavigationSystem = screenNavigationSystem;
@@ -31,11 +38,11 @@ namespace Screens
                 _localScreens.Add(somePrefab.name, somePrefab);
             }
         }
-        
+
         private void InstantiateView<T>(string screenName, Action<T> onSuccess)
         {
             GameObject newScreen;
-     
+
             if (_localScreens.ContainsKey(screenName))
             {
                 newScreen = Instantiate(_localScreens[screenName], transform);
@@ -55,10 +62,7 @@ namespace Screens
                     ScreenView screenView = newScreen.GetComponent<ScreenView>();
                     if (screenView.ShouldDeleteAfterHide)
                     {
-                        screenView.OnHideCallback += () =>
-                        {
-                            
-                        };
+                        screenView.OnHideCallback += () => { };
                     }
                 }
                 else
@@ -67,7 +71,7 @@ namespace Screens
                 }
             }
         }
-        
+
         public void AddScreenToScene(ScreenName name, Action<ScreenView> onSuccess)
         {
             switch (name)
@@ -83,7 +87,8 @@ namespace Screens
                 case ScreenName.MainScreen:
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
-                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy);
+                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy,
+                            _localStorageHelper, _gameStateMachine);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;
@@ -92,7 +97,6 @@ namespace Screens
                     Debug.LogError($"Screen {name} not found in ScreenInstaller");
                     break;
             }
-            
         }
     }
 }

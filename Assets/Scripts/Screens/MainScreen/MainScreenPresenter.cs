@@ -6,9 +6,13 @@ using Data;
 using Data.Objects;
 using GameCamera;
 using Geo;
+using Infrastructure.GameStateMachine;
+using Infrastructure.GameStateMachine.GameStates;
 using Screens.PortalsListScreen;
+using Screens.RewardsListScreen;
 using UniRx;
 using UnityEngine;
+using Utils;
 using Object = UnityEngine.Object;
 
 namespace Screens.MainScreen
@@ -16,17 +20,22 @@ namespace Screens.MainScreen
     public class MainScreenPresenter : IDisposable
     {
         private readonly CompositeDisposable _disposables = new();
-        private readonly List<PortalCardView> _cards = new();
+        private readonly List<PortalCardView> _zonesList = new();
+        private readonly List<RewardCardView> _rewardsList = new();
         private readonly IMainScreenView _view;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly IDataProxy _dataProxy;
+        private readonly ILocalStorageHelper _localStorageHelper;
+        private readonly GameStateMachine _gameStateMachine;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy)
+            IDataProxy dataProxy, ILocalStorageHelper localStorageHelper, GameStateMachine gameStateMachine)
         {
             _view = view;
             _screenNavigationSystem = screenNavigationSystem;
             _dataProxy = dataProxy;
+            _localStorageHelper = localStorageHelper;
+            _gameStateMachine = gameStateMachine;
             Init();
         }
 
@@ -86,7 +95,8 @@ namespace Screens.MainScreen
 
             _dataProxy.Coins.Subscribe(_view.SetCoins).AddTo(_disposables);
 
-            _view.GetMapUserInterface().PortalsListClicked += OnPortalsListClicked;
+            _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
+            _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
             _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
             _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
             _view.GetMapUserInterface().MapCloseClicked += () => _dataProxy.ToggleMap();
@@ -117,30 +127,48 @@ namespace Screens.MainScreen
             }).AddTo(_disposables);
         }
 
-        private void OnOpenMapClicked()
-        {
-            _dataProxy.ToggleMap();
+        private void OnRewardsListClicked()
+        {          
+            foreach (RewardCardView rewardView in _rewardsList)
+            {
+                rewardView.DestroyCard();
+            }
+
+            _rewardsList.Clear();
+
+            foreach (RewardViewInfo rewardViewInfo in _dataProxy.GetRewardsForActiveZone())
+            {
+                RewardCardView portalCardView = Object.Instantiate(_view.GetRewardsListView().GetRewardsPrefab(),
+                    _view.GetRewardsListView().GetListContainer());
+                    
+                _localStorageHelper.LoadSprite(rewardViewInfo.Url, sprite =>
+                {
+                    portalCardView.SetRewardIcon(sprite);
+                });
+                
+                portalCardView.transform.SetAsLastSibling();
+                //TODO reward configure
+                // portalCardView.ConfigureView(rewardViewInfo);
+                
+                _rewardsList.Add(portalCardView);
+            }
+
+            _view.ShowRewardsList();
         }
+
+        private void OnOpenMapClicked() => _dataProxy.ToggleMap();
 
         private void OnRestartButtonClicked()
         {
+            _gameStateMachine.Initialize();
             _dataProxy.ResetScene();
         }
 
-        private void OnClearButtonClicked()
-        {
-            _dataProxy.ClearScene();
-        }
+        private void OnClearButtonClicked() => _dataProxy.ClearScene();
 
-        private void OnWarningOkClicked()
-        {
-            _dataProxy.NextStateStep();
-        }
+        private void OnWarningOkClicked() => _dataProxy.NextStateStep();
 
-        private void OnPlaceRandomBeamClicked()
-        {
-            _dataProxy.PlaceRandomBeam();
-        }
+        private void OnPlaceRandomBeamClicked() => _dataProxy.PlaceRandomBeam();
 
         private void OnNearestPortalClicked()
         {
@@ -154,16 +182,16 @@ namespace Screens.MainScreen
             OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
 
-        private void OnPortalsListClicked()
+        private void OnZonesListClicked()
         {
-            foreach (PortalCardView portalCardView in _cards)
+            foreach (PortalCardView portalCardView in _zonesList)
             {
                 portalCardView.DestroyCard();
             }
 
-            _cards.Clear();
+            _zonesList.Clear();
 
-            foreach (PortalViewInfo portalViewInfo in _dataProxy.GetAllActiveZones())
+            foreach (ZoneViewInfo portalViewInfo in _dataProxy.GetAllActiveZones())
             {
                 PortalCardView portalCardView = Object.Instantiate(_view.GetZonesListView().GetCardPrefab(),
                     _view.GetZonesListView().GetListContainer());
@@ -172,7 +200,7 @@ namespace Screens.MainScreen
 
                 portalCardView.MoveToClicked += OnMoveToClicked;
 
-                _cards.Add(portalCardView);
+                _zonesList.Add(portalCardView);
             }
 
             _view.ShowAllZonesList();
@@ -211,9 +239,13 @@ namespace Screens.MainScreen
                 {
                     Debug.Log($"hit name = {hit.collider.gameObject.name}");
 
-                    if (hit.collider.gameObject.TryGetComponent(out GiftView giftView))
+                    if (hit.collider.gameObject.TryGetComponent(out ArBeam beam))
                     {
-                        giftView.Interact();
+                        if (beam.CanBeCollected(_dataProxy.GetPlayerPosition()))
+                        {
+                            _dataProxy.TryToCollectBeam(beam.GetBeamData());
+                            beam.Collect();
+                        }
                     }
                 }
             }
@@ -229,12 +261,5 @@ namespace Screens.MainScreen
             //
             // Debug.Log("No hits. Clicked nowhere!!");
         }
-
-        // private void SpawnPortalWithRewards()
-        // {
-        //     if (locationController.SelectedPortalZone.Value == null) return;
-        //
-        //     portalController.OpenPortalInPosition(_arController.GetPointerPosition(), _arController.GetCeilPosition());
-        // }
     }
 }

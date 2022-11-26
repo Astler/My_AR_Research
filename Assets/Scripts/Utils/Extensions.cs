@@ -8,6 +8,8 @@ namespace Utils
 {
     public static class Extensions
     {
+        public static bool IsNullOrEmpty(this string self) => string.IsNullOrEmpty(self);
+        
         public static T Next<T>(this T src) where T : struct
         {
             if (!typeof(T).IsEnum) throw new ArgumentException($"Argument {typeof(T).FullName} is not an Enum");

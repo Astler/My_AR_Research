@@ -21,11 +21,11 @@ namespace AR
     public class ZonesController : MonoBehaviour
     {
         [SerializeField] private ARAnchorFollower zonePrefab;
-        [SerializeField] private ARAnchorFollower beamPrefab;
+        [SerializeField] private ArBeam beamPrefab;
 
         private ARAnchorFollower _pointMe;
         private readonly List<ARAnchorFollower> _anchors = new();
-        private readonly List<ARAnchorFollower> _beams = new();
+        private readonly List<ArBeam> _beams = new();
 
         private readonly List<BeamData> _beamsData = new();
         private ARAnchorFollower _zeroAnchor;
@@ -114,7 +114,7 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
+            foreach (ZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
@@ -146,7 +146,7 @@ namespace AR
                 Vector2d.zero).ToUnityVector();
 
             //TODO active check .Where(it => it.isActive)
-            foreach (PortalViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
+            foreach (ZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
@@ -182,16 +182,32 @@ namespace AR
 
         private void CreateNewBeam()
         {
-            PortalViewInfo selectedZone = _dataProxy.SelectedPortalZone.Value;
+            ZoneViewInfo selectedZone = _dataProxy.SelectedPortalZone.Value;
 
             if (selectedZone == null) return;
 
-            _beamsData.Add(new BeamData
+            RewardViewInfo uncollectedReward = _dataProxy.GetAvailableRewardForZone();
+
+            Debug.Log("there is no active rewards!");
+
+            if (uncollectedReward == null)
+            {
+                Debug.Log("there is no active rewards!");
+                return;
+            }
+
+            int totalRewardsInZone = _dataProxy.GetRewardsForActiveZone().Count();
+
+            BeamData beamData = new()
             {
                 Position = CoordinatesUtils.GetRandomWorldPositionInRadius(selectedZone.Coordinates,
                     selectedZone.Radius),
-                Name = "Beam" + _beamsData.Count,
-            });
+                Name = uncollectedReward.Name,
+                ZoneId = uncollectedReward.ZoneId,
+                Id = uncollectedReward.Id
+            };
+
+            _beamsData.Add(beamData);
 
             PlaceBeamsByMap();
         }
@@ -200,7 +216,7 @@ namespace AR
         {
             Vector2d playerPositionRaw = _dataProxy.GetPlayerPosition().ToVector2d();
 
-            foreach (ARAnchorFollower arAnchorFollower in _beams)
+            foreach (ArBeam arAnchorFollower in _beams)
             {
                 arAnchorFollower.gameObject.Destroy();
             }
@@ -215,19 +231,29 @@ namespace AR
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(data.Position.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
 
-                ARAnchorFollower follower =
+                ArBeam follower =
                     Instantiate(beamPrefab, new Vector3(objectPosition.x, 0f, objectPosition.y), Quaternion.identity,
                         _coordinator.GetContentTransform());
+
+                follower.SetBeamData(data);
 
                 follower.WorldCoordinates = data.Position;
                 follower.SetName(data.Name);
 
                 follower.SetupClick(() =>
                 {
-                    _beamsData.Remove(data);
-                    _beams.Remove(follower);
+                    foreach (BeamData beamData in _beamsData.ToList())
+                    {
+                        if (beamData.Id == data.Id)
+                        {
+                            _beamsData.Remove(beamData);
+                        }
+                    }
+
                     follower.gameObject.Destroy();
+
                     _coinsController.SpawnCoinsAtPosition(follower.transform.position);
+                    PlaceBeamsByMap();
                 });
 
                 Location location = new()

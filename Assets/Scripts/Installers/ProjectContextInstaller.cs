@@ -5,6 +5,7 @@ using Geo;
 using Infrastructure.GameStateMachine;
 using SceneManagement;
 using Screens;
+using Utils;
 using Zenject;
 
 namespace Installers
@@ -21,6 +22,7 @@ namespace Installers
             
             Container.BindInterfacesAndSelfTo<DataProxy>().AsSingle().NonLazy();
             
+            Container.BindInterfacesAndSelfTo<LocalStorageHelper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ApiInterface>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WebSocketService>().AsSingle().NonLazy();
         }

@@ -66,11 +66,23 @@ namespace Data
         public long start_time;
         public long finish_time;
         public float radius;
+        public PrizeData[] prizes;
     }
     
     [Serializable]
     public class EventsData
     {
         public EventData[] events;
+    }
+    
+    [Serializable]
+    public class PrizeData
+    {
+        public int id;
+        public int prize_type;
+        public int amount;
+        public string image;
+        public string name;
+        public bool is_claimed;
     }
 }

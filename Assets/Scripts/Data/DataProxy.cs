@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AR;
 using ARLocation;
 using Assets;
+using Core;
 using Data.Objects;
 using Geo;
 using Mapbox.Utils;
@@ -15,25 +17,27 @@ namespace Data
     public class DataProxy : IDataProxy
     {
         private readonly AssetsScriptableObject _assetsScriptableObject;
+        private readonly IApiInterface _apiInterface;
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<bool> _inRewardZone = new();
         private readonly ReactiveProperty<bool> _mapOpened = new();
         private readonly ReactiveProperty<float> _distanceToClosestReward = new();
         private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
-        private readonly ReactiveProperty<PortalViewInfo> _selectedPortalZone = new();
-        private readonly ReactiveProperty<PortalViewInfo> _nearestPortalZone = new();
+        private readonly ReactiveProperty<ZoneViewInfo> _selectedPortalZone = new();
+        private readonly ReactiveProperty<ZoneViewInfo> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
         private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
         private readonly ReactiveProperty<int> _coins = new();
         private readonly PlayerData _playerData;
-        private readonly List<PortalViewInfo> _portalsList = new();
+        private readonly List<ZoneViewInfo> _portalsList = new();
         private EventData[] _eventsData;
 
-        public DataProxy(AssetsScriptableObject assetsScriptableObject)
+        public DataProxy(AssetsScriptableObject assetsScriptableObject, IApiInterface apiInterface)
         {
             _assetsScriptableObject = assetsScriptableObject;
+            _apiInterface = apiInterface;
             _playerData = new PlayerData();
             _coins.Value = _playerData.GetCoins();
         }
@@ -42,8 +46,8 @@ namespace Data
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
         public IReadOnlyReactiveProperty<bool> InRewardZone => _inRewardZone;
         public IReadOnlyReactiveProperty<float> DistanceToClosestReward => _distanceToClosestReward;
-        public IReadOnlyReactiveProperty<PortalViewInfo> SelectedPortalZone => _selectedPortalZone;
-        public IReadOnlyReactiveProperty<PortalViewInfo> NearestPortalZone => _nearestPortalZone;
+        public IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone => _selectedPortalZone;
+        public IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone => _nearestPortalZone;
         public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
         public IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult => _locationDetectResult;
         public System.IObservable<bool> PlaceRandomBeamForSelectedZone => _placeRandomBeamForSelectedZone;
@@ -51,13 +55,13 @@ namespace Data
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
 
-        public void SetActivePortalZone(PortalViewInfo zoneModel)
+        public void SetActivePortalZone(ZoneViewInfo zoneModel)
         {
             _selectedPortalZone.Value = zoneModel;
             SetNearestPortalZone(zoneModel);
         }
 
-        public void SetNearestPortalZone(PortalViewInfo zoneModel)
+        public void SetNearestPortalZone(ZoneViewInfo zoneModel)
         {
             _nearestPortalZone.Value = zoneModel;
         }
@@ -81,15 +85,16 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
-        public IEnumerable<PortalViewInfo> GetAllActiveZones()
+        public IEnumerable<ZoneViewInfo> GetAllActiveZones()
         {
-            List<PortalViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
-            
-            foreach (PortalViewInfo portalViewInfo in activeZones)
+            List<ZoneViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
+
+            foreach (ZoneViewInfo portalViewInfo in activeZones)
             {
-                portalViewInfo.Distance = portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
+                portalViewInfo.Distance =
+                    portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
             }
-            
+
             return activeZones;
         }
 
@@ -116,17 +121,43 @@ namespace Data
 
             foreach (EventData eventData in _eventsData)
             {
-                PortalViewInfo viewInfo = new()
+                ZoneViewInfo viewInfo = new()
                 {
                     Name = eventData.title,
                     Radius = eventData.radius,
                     StartTime = eventData.start_time,
                     FinishTime = eventData.finish_time,
-                    Coordinates = new Vector2d(eventData.latitude, eventData.longitude).ToUnityVector()
+                    Coordinates = new Vector2d(eventData.latitude, eventData.longitude).ToUnityVector(),
+                    Rewards = eventData.prizes.Select(it => new RewardViewInfo
+                    {
+                        Url = it.image,
+                        IsCollected = it.is_claimed,
+                        Id = it.id,
+                        ZoneId = eventData.id,
+                        Name = it.name
+                    }).ToList(),
                 };
-                
+
                 _portalsList.Add(viewInfo);
             }
+        }
+
+        public IEnumerable<RewardViewInfo> GetRewardsForActiveZone()
+        {
+            if (SelectedPortalZone.Value == null) return Array.Empty<RewardViewInfo>();
+            return SelectedPortalZone.Value.Rewards;
+        }
+
+        public RewardViewInfo GetAvailableRewardForZone()
+        {
+            List<RewardViewInfo> rewards = GetRewardsForActiveZone().Where(it => !it.IsCollected).ToList();
+
+            return rewards.Count == 0 ? null : rewards.GetRandomElement();
+        }
+
+        public void TryToCollectBeam(BeamData data)
+        {
+            _apiInterface.CollectReward(data.ZoneId, data.Id, result => { }, error => {});
         }
 
         public Vector2 GetPlayerPosition() => _playerLocationChanged.Value;

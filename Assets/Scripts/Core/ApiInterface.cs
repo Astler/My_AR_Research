@@ -347,6 +347,16 @@ namespace Core
             AddRequestToList(new Request("events", NewRequest));
         }
 
+        public void CollectReward(int zoneId, int rewardId, Action<EventsData> onSuccess, Action<ResponseStatus> onFailure)
+        {
+            WWWForm form = new();
+            form.AddField("event_id", zoneId);
+            form.AddField("prize_id", rewardId);
+            
+            void NewRequest() => Post(GetEndpointUri("events/claim_prize"), form, onSuccess, onFailure, true);
+            AddRequestToList(new Request("events/claim_prize", NewRequest));
+        }
+
         private class Request
         {
             public readonly string Key;

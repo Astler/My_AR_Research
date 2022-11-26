@@ -15,5 +15,7 @@ namespace Screens.PortalsListScreen
 
         public PortalCardView GetCardPrefab() => portalCardPrefab;
         public RectTransform GetListContainer() => listContainer;
+        
+        public void SetActive(bool active) => gameObject.SetActive(active);
     }
 }
