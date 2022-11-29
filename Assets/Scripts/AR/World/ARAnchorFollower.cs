@@ -15,14 +15,16 @@ namespace AR.World
         public Vector2? WorldCoordinates = null;
         private bool _isCollectable;
         private Action _clicked;
+        private Camera _camera;
+        private Transform _transform;
 
         public void Collect()
         {
             _clicked?.Invoke();
         }
-        
+
         public bool IsCollectable => _isCollectable;
-        
+
         public void SetupClick(Action clicked)
         {
             if (!gift) return;
@@ -45,23 +47,22 @@ namespace AR.World
 
         private void Update()
         {
-            if (WorldCoordinates == null) return;
-
-            Vector2 playerPosition = Application.isEditor
-                ? GlobalConstants.MockPosition
-                : new Vector2(Input.location.lastData.latitude,
-                    Input.location.lastData.longitude);
-
-            double worldDistance = CoordinatesUtils.Distance(playerPosition.x,
-                playerPosition.y,
-                WorldCoordinates.Value.x,
-                WorldCoordinates.Value.y);
+            if (!distanceText) return;
             
-            distanceText.text = worldDistance.DistanceToHuman();
+            if (WorldCoordinates == null || !_camera)
+            {
+                distanceText.text = "";
+                return;
+            }
+
+            Vector3 playerPosition = _camera.transform.position;
+
+            double distance = Vector3.Distance(playerPosition, _transform.position);
+            distanceText.text = distance.DistanceToHuman();
 
             if (!gift) return;
 
-            gift.ShowOutline(worldDistance * 1000 <= GlobalConstants.CollectDistance || _isCollectable);
+            gift.ShowOutline(distance <= GlobalConstants.CollectDistance || _isCollectable);
         }
 
         public void Interact()
@@ -74,6 +75,12 @@ namespace AR.World
         public void SetIsArDistanceSelected(bool arCollectable)
         {
             _isCollectable = arCollectable;
+        }
+
+        private void Awake()
+        {
+            _camera = Camera.main;
+            _transform = transform;
         }
     }
 }

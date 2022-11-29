@@ -80,7 +80,7 @@ namespace AR
 
             _anchors.Clear();
 
-            foreach (ARAnchorFollower arAnchorFollower in _beams)
+            foreach (ArBeam arAnchorFollower in _beams)
             {
                 arAnchorFollower.gameObject.Destroy();
             }
@@ -90,6 +90,8 @@ namespace AR
             _beamsData.Clear();
 
             ARLocationManager.Instance.Restart();
+
+            PlaceZonesByMap();
         }
 
         private void OnStateChanged(ARSessionStateChangedEventArgs stateArgs)
@@ -145,7 +147,6 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            //TODO active check .Where(it => it.isActive)
             foreach (ZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),

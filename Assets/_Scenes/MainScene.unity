@@ -2671,6 +2671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 87592415}
     m_Modifications:
+    - target: {fileID: 1809469862153096, guid: fd8a1ea49b1bb463bb0f799cae30cdcb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4893690304070136, guid: fd8a1ea49b1bb463bb0f799cae30cdcb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4329,27 +4333,27 @@ PrefabInstance:
     - target: {fileID: 428736943916782529, guid: d445dadeb7133416d922637de99f8e62,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 977807009735387860, guid: d445dadeb7133416d922637de99f8e62,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1527354343387721800, guid: d445dadeb7133416d922637de99f8e62,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5761368212819463509, guid: d445dadeb7133416d922637de99f8e62,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6552087284673677956, guid: d445dadeb7133416d922637de99f8e62,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745711527234555721, guid: d445dadeb7133416d922637de99f8e62,
         type: 3}
@@ -5741,7 +5745,6 @@ GameObject:
   - component: {fileID: 1616410687}
   - component: {fileID: 1616410688}
   - component: {fileID: 1616410689}
-  - component: {fileID: 1616410690}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -5761,7 +5764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1387174004}
   m_OriginBaseGameObject: {fileID: 1616410684}
   m_CameraFloorOffsetObject: {fileID: 2007499688}
   m_RequestedTrackingOriginMode: 0
@@ -5820,24 +5823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 0}
-  m_DetectionMode: -1
---- !u!114 &1616410690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616410684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b019f0c4dd824101a0a664f35dcb7ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _manageUsingUnityLifecycle: 1
-  _planePrefab: {fileID: 6480449845954088501, guid: 350404c6d121cdd458281a42edcc7ce1,
+  m_PlanePrefab: {fileID: 1976797470762172049, guid: cf5a3582fc7f9497fac7150058e4e159,
     type: 3}
-  _detectedPlaneTypes: 1
+  m_DetectionMode: -1
 --- !u!1 &1659557830
 GameObject:
   m_ObjectHideFlags: 0

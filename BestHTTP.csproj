@@ -1803,8 +1803,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/openssl/PEMUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixAttrCertChecker.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/Collections/ObjectModel/ObservableDictionary.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PKIBody.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TimeStampRequestGenerator.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PKIBody.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ocsp/Request.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/GOST3410KeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT113R1Point.cs" />

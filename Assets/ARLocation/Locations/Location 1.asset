@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635ca3a89b644ab44b888c22da8eae56, type: 3}
   m_Name: Location 1
   m_EditorClassIdentifier: 
-  location:
-    latitude: -23.540606
-    longitude: -46.647159
-    altitude: 0.5
-    altitudeMode: 2
-    label: 
+  Location:
+    Latitude: 48.5089416503906
+    Longitude: 35.077808380127
+    Altitude: 0.5
+    AltitudeMode: 2
+    Label: 

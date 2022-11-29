@@ -18,9 +18,7 @@ namespace AR.World
                 playerPosition.y,
                 WorldCoordinates.Value.x,
                 WorldCoordinates.Value.y);
-
-            Debug.Log($"gift Hit {distance}");
-
+            
             return distance * 1000 < GlobalConstants.CollectDistance || IsCollectable;
         }
     }

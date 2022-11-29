@@ -168,6 +168,9 @@ namespace Data
                 error => { });
         }
 
-        public Vector2 GetPlayerPosition() => _playerLocationChanged.Value;
+        public Vector2 GetPlayerPosition()
+        {
+            return Application.isEditor ? GlobalConstants.MockPosition : _playerLocationChanged.Value;
+        }
     }
 }

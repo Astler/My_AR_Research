@@ -75,7 +75,7 @@ namespace Utils
             // calculate the result
             return (c * r);
         }
-        
+
         public static Vector2 GetRandomWorldPositionInRadius(Vector2 worldCenter, float radiusInMeters)
         {
             Vector2 randomPosition = Random.insideUnitCircle * radiusInMeters;
@@ -83,8 +83,8 @@ namespace Utils
             double earth = 6378.137;
             double meter = (1 / ((2 *  Math.PI / 360) * earth)) / 1000;  //1 meter in degree
 
-            double newLatitude = worldCenter.x + (randomPosition.x * meter);
-            double newLongitude = worldCenter.y + (randomPosition.y * meter);
+            double newLatitude = worldCenter.x + randomPosition.x * meter;
+            double newLongitude = worldCenter.y + randomPosition.y * meter;
 
             return new Vector2d(newLatitude, newLongitude).ToUnityVector();
         }
