@@ -204,6 +204,7 @@ namespace AR
                 Position = CoordinatesUtils.GetRandomWorldPositionInRadius(selectedZone.Coordinates,
                     selectedZone.Radius),
                 Name = uncollectedReward.Name,
+                Url = uncollectedReward.Url,
                 ZoneId = uncollectedReward.ZoneId,
                 Id = uncollectedReward.Id
             };

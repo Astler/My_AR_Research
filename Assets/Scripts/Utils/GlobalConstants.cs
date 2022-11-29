@@ -11,7 +11,7 @@ namespace Utils
         public static EnvironmentType EnvironmentType => EnvironmentType.dev;
         public static string CachePath => Application.persistentDataPath + "/Cache/";
 
-        public const float CollectDistance = 5.0f;
+        public const float CollectDistance = 5.0f / 1000; //meters
         public static readonly Vector2 MockPosition = new(48.5089416503906f, 35.077808380127f);
         
         public static string GetClientId()

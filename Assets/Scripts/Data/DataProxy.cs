@@ -158,14 +158,22 @@ namespace Data
             return rewards.Count == 0 ? null : rewards.GetRandomElement();
         }
 
-        public void TryToCollectBeam(BeamData data, Action<Sprite> success)
+        public void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed)
         {
             _apiInterface.CollectReward(data.ZoneId, data.Id,
                 result =>
                 {
                     _localStorageHelper.LoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
                 },
-                error => { });
+                error =>
+                {
+                    failed?.Invoke();
+                });
+        }
+
+        public void GetSpriteByUrl(string url, Action<Sprite> action)
+        {
+            _localStorageHelper.LoadSprite(url, sprite => { action?.Invoke(sprite); });
         }
 
         public Vector2 GetPlayerPosition()

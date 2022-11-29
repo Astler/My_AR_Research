@@ -1434,6 +1434,7 @@
      <Folder Include="Assets/ARLocation/Scripts" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/SevereTraffic" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/VectorFactory" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/RewardAlreadyClaimed" />
      <None Include="Assets/Mapbox/Fonts/OpenSansLic.txt" />
      <None Include="Assets/ARLocation/Experimental/World Builder/Readme.txt" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/ScreenShots" />

@@ -41,6 +41,7 @@ namespace Data
         void AddEvents(EventsData data);
         IEnumerable<RewardViewInfo> GetRewardsForActiveZone();
         RewardViewInfo GetAvailableRewardForZone();
-        void TryToCollectBeam(BeamData getBeamData, Action<Sprite> success);
+        void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed);
+        void GetSpriteByUrl(string url, Action<Sprite> action);
     }
 }

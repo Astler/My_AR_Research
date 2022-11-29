@@ -24,7 +24,6 @@ namespace GameCamera
             
             if (follower)
             {
-                Debug.Log($"gift is near = {follower.name}");
                 follower.SetIsArDistanceSelected(true);
             }
         }
@@ -35,7 +34,6 @@ namespace GameCamera
             
             if (follower)
             {
-                Debug.Log($"gift is near = {follower.name}");
                 follower.SetIsArDistanceSelected(true);
             }
         }
@@ -45,7 +43,6 @@ namespace GameCamera
             
             if (follower)
             {
-                Debug.Log($"gift is far = {follower.name}");
                 follower.SetIsArDistanceSelected(false);
             }
         }

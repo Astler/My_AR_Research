@@ -22,6 +22,7 @@ namespace Screens.MainScreen
         [SerializeField] private PlayerBalanceBarView playerBalancesView;
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
         [SerializeField] private RewardClaimedScreenView rewardClaimedScreenView;
+        [SerializeField] private RewardClaimedScreenView rewardAlreadyClaimedScreenView;
 
         [Space, Header("Steps"), SerializeField]
         private CanvasGroup warningStep;
@@ -62,7 +63,7 @@ namespace Screens.MainScreen
 
             locationInfoView.SetActiveZoneName(hasZone
                 ? $"<color=green>{zoneName}</color>"
-                : "<color=red>Go to the portal area!</color>");
+                : "<color=red>Go to the event area!</color>");
 
             placementParent.SetActive(hasZone);
         }
@@ -154,15 +155,15 @@ namespace Screens.MainScreen
         public void ShowAllZonesList() => zonesListView.SetActive(true);
         public void HideZonesList() => zonesListView.SetActive(false);
 
-        public void ShowRewardPopup(Sprite sprite) => rewardClaimedScreenView.ShowReward(sprite);
+        public void ShowRewardPopup(Sprite sprite, string itemName) => rewardClaimedScreenView.ShowReward(sprite, itemName);
+        public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) => rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
 
         public void ShowRewardsList() => rewardsListView.SetActive(true);
         public void HideRewardsList() => rewardsListView.SetActive(false);
 
         public IPortalsListScreenView GetZonesListView() => zonesListView;
         public IRewardsListScreenView GetRewardsListView() => rewardsListView;
-
-
+        
         private void Awake()
         {
             warningOkButton.ActionWithThrottle(() => WarningOkClicked?.Invoke());

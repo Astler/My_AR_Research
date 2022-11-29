@@ -353,6 +353,8 @@ namespace Core
             form.AddField("event_id", zoneId);
             form.AddField("prize_id", rewardId);
             
+            Debug.Log($"event = {zoneId} prize = {rewardId}");
+            
             void NewRequest() => Post(GetEndpointUri("events/claim_prize"), form, onSuccess, onFailure, true);
             AddRequestToList(new Request("events/claim_prize", NewRequest));
         }

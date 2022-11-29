@@ -36,6 +36,7 @@ namespace Screens.MainScreen
         IPortalsListScreenView GetZonesListView();
         IRewardsListScreenView GetRewardsListView();
         void HideZonesList();
-        void ShowRewardPopup(Sprite sprite);
+        void ShowRewardPopup(Sprite sprite, string itemName);
+        void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName);
     }
 }

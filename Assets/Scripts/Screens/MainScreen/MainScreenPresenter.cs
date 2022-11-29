@@ -245,7 +245,15 @@ namespace Screens.MainScreen
                             _dataProxy.TryToCollectBeam(beam.GetBeamData(), sprite =>
                             {
                                 beam.Collect();
-                                _view.ShowRewardPopup(sprite);
+                                _view.ShowRewardPopup(sprite, beam.GetBeamData().Name);
+                            }, () =>
+                            {
+                                beam.Collect();
+                                
+                                _dataProxy.GetSpriteByUrl(beam.GetBeamData().Url, sprite =>
+                                {
+                                    _view.ShowAlreadyClaimedRewardPopup(sprite, beam.GetBeamData().Name);
+                                });
                             });
                         }
                     }

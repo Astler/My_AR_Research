@@ -48,7 +48,7 @@ namespace AR.World
         private void Update()
         {
             if (!distanceText) return;
-            
+
             if (WorldCoordinates == null || !_camera)
             {
                 distanceText.text = "";
@@ -57,7 +57,7 @@ namespace AR.World
 
             Vector3 playerPosition = _camera.transform.position;
 
-            double distance = Vector3.Distance(playerPosition, _transform.position);
+            double distance = Vector3.Distance(playerPosition, _transform.position) / 1000;
             distanceText.text = distance.DistanceToHuman();
 
             if (!gift) return;

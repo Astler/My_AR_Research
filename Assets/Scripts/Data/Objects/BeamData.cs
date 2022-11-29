@@ -6,6 +6,7 @@ namespace Data.Objects
     {
         public Vector2 Position;
         public string Name;
+        public string Url;
         public int ZoneId;
         public int Id;
     }
