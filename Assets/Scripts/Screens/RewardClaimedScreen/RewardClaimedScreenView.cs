@@ -35,7 +35,7 @@ namespace Screens.RewardClaimedScreen
 
         private void SetName(string itemName)
         {
-            nameText.name = itemName;
+            nameText.text = itemName;
         }
 
         private void OnOkButtonClicked()

@@ -4,9 +4,9 @@ namespace Data.Objects
     {
         private int _coins = PlayerPrefsHelper.Coins;
 
-        public void AddCoin()
+        public void AddCoins(int amount)
         {
-            _coins += 1;
+            _coins += amount;
             PlayerPrefsHelper.Coins = _coins;
         }
 

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.ms.vr_demo",
-        "processId": 30131,
+        "processId": 5382,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -123,10 +123,34 @@
             "exited": false
         },
         {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 1473,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 3075,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 5382,
+            "exited": false
+        },
+        {
             "deviceId": "2d38b3e",
             "name": "com.ms.vr_demo",
             "processId": 27337,
             "exited": true
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.vr_demo",
+            "processId": 29174,
+            "exited": false
         },
         {
             "deviceId": "R58R933FKRK",
@@ -162,6 +186,18 @@
             "deviceId": "R58R933FKRK",
             "name": "com.ms.vr_demo",
             "processId": 13298,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.vr_demo",
+            "processId": 19178,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.vr_demo",
+            "processId": 20329,
             "exited": false
         }
     ],

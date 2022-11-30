@@ -241,6 +241,7 @@ namespace Screens.MainScreen
                             _dataProxy.TryToCollectBeam(beam.GetBeamData(), sprite =>
                             {
                                 beam.Collect();
+                                _dataProxy.CollectedCoin(5);
                                 _view.ShowRewardPopup(sprite, beam.GetBeamData().Name);
                             }, () =>
                             {
@@ -248,6 +249,7 @@ namespace Screens.MainScreen
                                 
                                 _dataProxy.GetSpriteByUrl(beam.GetBeamData().Url, sprite =>
                                 {
+                                    _dataProxy.CollectedCoin();
                                     _view.ShowAlreadyClaimedRewardPopup(sprite, beam.GetBeamData().Name);
                                 });
                             });

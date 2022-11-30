@@ -32,7 +32,7 @@ namespace Data
         void SetLocationDetectStatus(LocationDetectResult result);
         void PlaceRandomBeam();
         Vector2 GetPlayerPosition();
-        void CollectedCoin();
+        void CollectedCoin(int amount = 1);
         IEnumerable<ZoneViewInfo> GetAllActiveZones();
         void NextStateStep();
         void ClearScene();

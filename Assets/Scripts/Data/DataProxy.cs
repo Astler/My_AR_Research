@@ -78,9 +78,9 @@ namespace Data
 
         public void PlaceRandomBeam() => _placeRandomBeamForSelectedZone.OnNext(true);
 
-        public void CollectedCoin()
+        public void CollectedCoin(int amount = 1)
         {
-            _playerData.AddCoin();
+            _playerData.AddCoins(amount);
             _coins.Value = _playerData.GetCoins();
         }
 

@@ -90,11 +90,20 @@ namespace Utils
                 }
 
                 Debug.Log("Sprite Loaded: " + request.URL +
-                          $"\n cached as {Application.persistentDataPath + $"/Cache/{filename}.png"}");
+                          $"\n cached as {Application.persistentDataPath + $"/Cache/{filename}"}");
 
-                byte[] itemBgBytes = sprite.texture.EncodeToPNG();
-                File.WriteAllBytes(Application.persistentDataPath + $"/Cache/{filename}.png", itemBgBytes);
-
+                try
+                {
+                    byte[] itemBgBytes = sprite.texture.EncodeToPNG();
+                    File.WriteAllBytes(Application.persistentDataPath + $"/Cache/{filename}", itemBgBytes);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log($"error = {e}");
+                    Console.WriteLine(e);
+                    throw;
+                }
+                
                 SetImage(request, sprite);
             }
         }

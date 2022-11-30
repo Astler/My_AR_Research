@@ -225,6 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7217352264064345451}
+  - component: {fileID: 5644265582551195455}
   m_Layer: 16
   m_Name: MapZonePointer
   m_TagString: Untagged
@@ -242,13 +243,25 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.17690131, z: -0, w: 0.9842286}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4014336638770580655}
   - {fileID: 6842068978576455151}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -20.379, z: 0}
+--- !u!114 &5644265582551195455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217352264064345455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7ef3c234bd842cf86eeb6f3de1c7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &593386228993843863
 PrefabInstance:
   m_ObjectHideFlags: 0

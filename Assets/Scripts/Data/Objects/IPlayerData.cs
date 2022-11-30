@@ -2,7 +2,7 @@ namespace Data.Objects
 {
     public interface IPlayerData
     {
-        void AddCoin();
+        void AddCoins(int amount);
         int GetCoins();
     }
 }
