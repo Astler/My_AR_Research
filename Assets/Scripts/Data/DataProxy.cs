@@ -21,6 +21,7 @@ namespace Data
         private readonly LocalStorageHelper _localStorageHelper;
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
+        private readonly ReactiveProperty<int> _availableGifts = new();
         private readonly ReactiveProperty<bool> _inRewardZone = new();
         private readonly ReactiveProperty<bool> _mapOpened = new();
         private readonly ReactiveProperty<float> _distanceToClosestReward = new();
@@ -45,6 +46,7 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
+        public IReadOnlyReactiveProperty<int> AvailableGifts => _availableGifts;
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
         public IReadOnlyReactiveProperty<bool> InRewardZone => _inRewardZone;
@@ -60,27 +62,21 @@ namespace Data
 
         public void SetActivePortalZone(ZoneViewInfo zoneModel)
         {
+            _availableGifts.Value = zoneModel.Rewards.Count(it => !it.IsCollected);
+
             _selectedPortalZone.Value = zoneModel;
             SetNearestPortalZone(zoneModel);
         }
 
-        public void SetNearestPortalZone(ZoneViewInfo zoneModel)
-        {
-            _nearestPortalZone.Value = zoneModel;
-        }
+        public void SetNearestPortalZone(ZoneViewInfo zoneModel) => _nearestPortalZone.Value = zoneModel;
 
-        public void SetPlayerPosition(Vector2 position)
-        {
-            _playerLocationChanged.Value = position;
-        }
+        public void SetPlayerPosition(Vector2 position) => _playerLocationChanged.Value = position;
 
         public LocationDetectResult GetLocationDetectResult() => _locationDetectResult.Value;
+
         public void SetLocationDetectStatus(LocationDetectResult result) => _locationDetectResult.Value = result;
 
-        public void PlaceRandomBeam()
-        {
-            _placeRandomBeamForSelectedZone.OnNext(true);
-        }
+        public void PlaceRandomBeam() => _placeRandomBeamForSelectedZone.OnNext(true);
 
         public void CollectedCoin()
         {
@@ -117,6 +113,11 @@ namespace Data
             _mapOpened.Value = !_mapOpened.Value;
         }
 
+        public void LoadEvents()
+        {
+            _apiInterface.GetEventsList(AddEvents, status => { });
+        }
+
         public void AddEvents(EventsData data)
         {
             _portalsList.Clear();
@@ -140,6 +141,7 @@ namespace Data
                         Name = it.name
                     }).ToList(),
                 };
+
 
                 _portalsList.Add(viewInfo);
             }
@@ -165,10 +167,7 @@ namespace Data
                 {
                     _localStorageHelper.LoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
                 },
-                error =>
-                {
-                    failed?.Invoke();
-                });
+                error => { failed?.Invoke(); });
         }
 
         public void GetSpriteByUrl(string url, Action<Sprite> action)

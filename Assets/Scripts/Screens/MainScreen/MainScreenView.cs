@@ -4,6 +4,7 @@ using Screens.PortalsListScreen;
 using Screens.RewardClaimedScreen;
 using Screens.RewardsListScreen;
 using Screens.Views;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
@@ -18,6 +19,7 @@ namespace Screens.MainScreen
         [SerializeField] private Button placeRandomBeamButton;
         [SerializeField] private Button warningOkButton;
         [SerializeField] private GameObject placementParent;
+        [SerializeField] private TextMeshProUGUI availableGiftsText;
         [SerializeField] private LocationInfoView locationInfoView;
         [SerializeField] private PlayerBalanceBarView playerBalancesView;
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
@@ -155,15 +157,22 @@ namespace Screens.MainScreen
         public void ShowAllZonesList() => zonesListView.SetActive(true);
         public void HideZonesList() => zonesListView.SetActive(false);
 
-        public void ShowRewardPopup(Sprite sprite, string itemName) => rewardClaimedScreenView.ShowReward(sprite, itemName);
-        public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) => rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
+        public void ShowRewardPopup(Sprite sprite, string itemName) =>
+            rewardClaimedScreenView.ShowReward(sprite, itemName);
+
+        public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) =>
+            rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
+
+        public void SetAvailableGifts(int gifts) => availableGiftsText.text = "Available gifts: " + gifts;
 
         public void ShowRewardsList() => rewardsListView.SetActive(true);
+        
         public void HideRewardsList() => rewardsListView.SetActive(false);
 
         public IPortalsListScreenView GetZonesListView() => zonesListView;
-        public IRewardsListScreenView GetRewardsListView() => rewardsListView;
         
+        public IRewardsListScreenView GetRewardsListView() => rewardsListView;
+
         private void Awake()
         {
             warningOkButton.ActionWithThrottle(() => WarningOkClicked?.Invoke());

@@ -49,8 +49,12 @@ namespace AR.Map
 
                 foreach (ZoneViewInfo viewInfo in _dataProxy.GetAllActiveZones())
                 {
-                    onlineMapsMarker3DManager.Create(viewInfo.Coordinates.y, viewInfo.Coordinates.x,
+                    OnlineMapsMarker3D mapItem = onlineMapsMarker3DManager.Create(viewInfo.Coordinates.y,
+                        viewInfo.Coordinates.x,
                         portalPrefab);
+
+                    mapItem.scale = viewInfo.Radius;
+                    // mapItem.instance.transform.localScale = Vector3.one * viewInfo.Radius;
                 }
             }).AddTo(this);
         }

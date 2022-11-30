@@ -7,13 +7,10 @@ using Data.Objects;
 using GameCamera;
 using Geo;
 using Infrastructure.GameStateMachine;
-using Infrastructure.GameStateMachine.GameStates;
-using SceneManagement;
 using Screens.PortalsListScreen;
 using Screens.RewardsListScreen;
 using UniRx;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Utils;
 using Object = UnityEngine.Object;
 
@@ -43,13 +40,22 @@ namespace Screens.MainScreen
 
         private void Init()
         {
+            _view.WarningOkClicked += OnWarningOkClicked;
             _view.PlaceRandomBeamClicked += OnPlaceRandomBeamClicked;
             _view.ClearButtonClicked += OnClearButtonClicked;
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.OpenMapClicked += OnOpenMapClicked;
-
-            _dataProxy.MapOpened.Subscribe(isOpened => { _view.SetIsMapActive(isOpened); }).AddTo(_disposables);
+            
+            _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
+            _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
+            _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
+            _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
+            _view.GetMapUserInterface().MapCloseClicked += () => _dataProxy.ToggleMap();
+            
+            _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableGifts).AddTo(_disposables);
+            _dataProxy.MapOpened.Subscribe(_view.SetIsMapActive).AddTo(_disposables);
+            _dataProxy.Coins.Subscribe(_view.SetCoins).AddTo(_disposables);
 
             _dataProxy.GameState.Subscribe(state =>
             {
@@ -94,17 +100,7 @@ namespace Screens.MainScreen
                         throw new ArgumentOutOfRangeException(nameof(state), state, null);
                 }
             }).AddTo(_disposables);
-
-            _dataProxy.Coins.Subscribe(_view.SetCoins).AddTo(_disposables);
-
-            _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
-            _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
-            _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
-            _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
-            _view.GetMapUserInterface().MapCloseClicked += () => _dataProxy.ToggleMap();
-
-            _view.WarningOkClicked += OnWarningOkClicked;
-
+            
             _dataProxy.SelectedPortalZone.Subscribe(zone => { _view.SetupActiveZone(zone?.Name); }).AddTo(_disposables);
 
             _dataProxy.LocationDetectResult.Subscribe(result =>

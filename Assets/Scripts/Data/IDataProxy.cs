@@ -14,6 +14,7 @@ namespace Data
         IReadOnlyReactiveProperty<GameStates> GameState { get; }
         IReadOnlyReactiveProperty<bool> MapOpened { get; }
         IReadOnlyReactiveProperty<bool> InRewardZone { get; }
+        IReadOnlyReactiveProperty<int> AvailableGifts { get; }
         IReadOnlyReactiveProperty<float> DistanceToClosestReward { get; }
         IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone { get; }
         IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone { get; }
@@ -37,6 +38,7 @@ namespace Data
         void ClearScene();
         void ResetScene();
         void RestartGeoLocation();
+        void LoadEvents();
         void ToggleMap();
         void AddEvents(EventsData data);
         IEnumerable<RewardViewInfo> GetRewardsForActiveZone();
