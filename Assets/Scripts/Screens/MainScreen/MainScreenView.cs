@@ -163,14 +163,18 @@ namespace Screens.MainScreen
         public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) =>
             rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
 
-        public void SetAvailableGifts(int gifts) => availableGiftsText.text = "Available gifts: " + gifts;
+        public void SetAvailableGifts(int gifts)
+        {
+            availableGiftsText.gameObject.SetActive(gifts > 0);
+            availableGiftsText.text = "Available gifts: " + gifts;
+        }
 
         public void ShowRewardsList() => rewardsListView.SetActive(true);
-        
+
         public void HideRewardsList() => rewardsListView.SetActive(false);
 
         public IPortalsListScreenView GetZonesListView() => zonesListView;
-        
+
         public IRewardsListScreenView GetRewardsListView() => rewardsListView;
 
         private void Awake()

@@ -15,6 +15,7 @@ namespace Data.Objects
         public long FinishTime;
         
         public List<RewardViewInfo> Rewards;
+        public int Id;
 
         public bool IsActive()
         {

@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R58R933FKRK",
+    "m_SelectedDeviceId": "8B8X15GYE",
     "m_SelectedPackage": {
-        "deviceId": "R58R933FKRK",
+        "deviceId": "8B8X15GYE",
         "name": "com.ms.vr_demo",
-        "processId": 13298,
+        "processId": 30131,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -96,6 +96,30 @@
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
             "processId": 5687,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 27020,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 28214,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 29398,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.vr_demo",
+            "processId": 30131,
             "exited": false
         },
         {

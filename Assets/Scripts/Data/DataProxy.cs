@@ -127,6 +127,7 @@ namespace Data
             {
                 ZoneViewInfo viewInfo = new()
                 {
+                    Id = eventData.id,
                     Name = eventData.title,
                     Radius = eventData.radius,
                     StartTime = eventData.start_time,
@@ -142,6 +143,10 @@ namespace Data
                     }).ToList(),
                 };
 
+                if (_selectedPortalZone.Value != null && _selectedPortalZone.Value.Id == viewInfo.Id)
+                {
+                    SetActivePortalZone(viewInfo);
+                }
 
                 _portalsList.Add(viewInfo);
             }
@@ -156,7 +161,6 @@ namespace Data
         public RewardViewInfo GetAvailableRewardForZone()
         {
             List<RewardViewInfo> rewards = GetRewardsForActiveZone().Where(it => !it.IsCollected).ToList();
-
             return rewards.Count == 0 ? null : rewards.GetRandomElement();
         }
 
@@ -165,9 +169,14 @@ namespace Data
             _apiInterface.CollectReward(data.ZoneId, data.Id,
                 result =>
                 {
+                    LoadEvents();
                     _localStorageHelper.LoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
                 },
-                error => { failed?.Invoke(); });
+                error =>
+                {
+                    LoadEvents();
+                    failed?.Invoke();
+                });
         }
 
         public void GetSpriteByUrl(string url, Action<Sprite> action)
