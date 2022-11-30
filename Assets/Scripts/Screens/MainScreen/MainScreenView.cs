@@ -61,6 +61,7 @@ namespace Screens.MainScreen
         {
             bool hasZone = zoneName != null;
 
+            availableGiftsText.gameObject.SetActive(hasZone);
             mapUserInterfaceView.SetIsRewardsButtonActive(hasZone);
 
             locationInfoView.SetActiveZoneName(hasZone
@@ -68,6 +69,11 @@ namespace Screens.MainScreen
                 : "<color=red>Go to the event area!</color>");
 
             placementParent.SetActive(hasZone);
+        }
+        
+        public void SetAvailableGifts(int gifts)
+        {
+            availableGiftsText.text = "Available gifts: " + gifts;
         }
 
         public void ShowLocationSearchStatus(string status)
@@ -162,12 +168,6 @@ namespace Screens.MainScreen
 
         public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) =>
             rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
-
-        public void SetAvailableGifts(int gifts)
-        {
-            availableGiftsText.gameObject.SetActive(gifts > 0);
-            availableGiftsText.text = "Available gifts: " + gifts;
-        }
 
         public void ShowRewardsList() => rewardsListView.SetActive(true);
 
