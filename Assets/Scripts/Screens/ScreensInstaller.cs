@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Assets;
 using Data;
+using ExternalTools.ImagesLoader;
 using GameCamera;
 using Infrastructure.GameStateMachine;
 using SceneManagement;
@@ -20,16 +21,16 @@ namespace Screens
         private SceneLoader _sceneLoader;
         private IScreenNavigationSystem _screenNavigationSystem;
         private IDataProxy _dataProxy;
-        private ILocalStorageHelper _localStorageHelper;
+        private IWebImagesLoader _webImagesLoader;
         private GameStateMachine _gameStateMachine;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, ILocalStorageHelper localStorageHelper, GameStateMachine gameStateMachine)
+            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine)
         {
             _gameStateMachine = gameStateMachine;
-            _localStorageHelper = localStorageHelper;
+            _webImagesLoader = webImagesLoader;
             _dataProxy = dataProxy;
             _sceneLoader = sceneLoader;
             _screenNavigationSystem = screenNavigationSystem;
@@ -88,7 +89,7 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
                         new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy,
-                            _localStorageHelper, _gameStateMachine);
+                            _webImagesLoader, _gameStateMachine);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;

@@ -217,7 +217,7 @@
      <Compile Include="Assets/Scripts/Screens/SettingsScreen/SettingsScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarker3DInstance.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/CatmullRomSpline.cs" />
-     <Compile Include="Assets/Scripts/Utils/LocalStorageHelper.cs" />
+     <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/WebImagesLoader.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Interfaces/LayerVisualizerBase.cs" />
      <Compile Include="Assets/Scripts/Infrastructure/Interfaces/Activate/ActivatablesController.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Route.cs" />
@@ -351,6 +351,7 @@
      <Compile Include="Assets/ARLocation/Scripts/Utils/Misc.cs" />
      <Compile Include="Assets/Mapbox/Examples/5_Playground/Scripts/DirectionsExample.cs" />
      <Compile Include="Assets/Scripts/Data/EnvironmentType.cs" />
+     <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/WebImagesLoaderEditorInstance.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/ReplaceFeatureCollectionModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsFingersTouchGesturesConnector.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/SegmentationController.cs" />
@@ -673,6 +674,7 @@
      <Compile Include="Assets/Scripts/AR/World/GiftView.cs" />
      <Compile Include="Assets/_Project/Scripts/ArMenuController.cs" />
      <Compile Include="Assets/Modules/Shared/Rendering/RenderPipelineHelper.cs" />
+     <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/IWebImagesLoader.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerSimpleStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Base/OnlineMapsWebServiceAPI.cs" />
      <Compile Include="Assets/LightshipHUB/Runtime/Scripts/VPSCoverageController.cs" />
@@ -892,6 +894,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsTooltipDrawerBase.cs" />
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/VoxelFetcher.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsVectorTile.cs" />
+     <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/Elements/WebImage.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/QQSearchExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerScaleByZoomExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/CachingWebFileSource.cs" />
@@ -1049,6 +1052,7 @@
      <None Include="Assets/Hovl Studio/Resources/Shaders/SmoothSmoke.shader" />
      <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
      <Folder Include="Assets/Scripts/Screens/Presenters" />
+     <Folder Include="Assets/Scripts/ExternalTools/ImagesLoader/Elements" />
      <None Include="Assets/ARLocation/Data/data.xml" />
      <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap/Scripts" />
      <Folder Include="Assets/Mapbox/Unity/MeshGeneration" />
@@ -1161,6 +1165,7 @@
      <Folder Include="Assets/Mapbox/Examples/3_POIPlacement/Screenshots" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles" />
      <None Include="Assets/Hovl Studio/Resources/Shaders/Blend_TwoSides.shader" />
+     <Folder Include="Assets/Scripts/ExternalTools" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples/Materials" />
      <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Enums" />
      <Folder Include="Assets/Prefabs/Portals/Green" />
@@ -1182,6 +1187,7 @@
      <Folder Include="Assets/ARLocation/Mapbox Routes/Meshes" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetShader.shader" />
      <Folder Include="Assets/MapboxAR/Examples/ARTabletop" />
+     <Folder Include="Assets/Scripts/ExternalTools/ImagesLoader" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetDrawingElement.shader" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Realistic/Assets/Materials" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions" />

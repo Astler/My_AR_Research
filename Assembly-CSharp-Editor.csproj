@@ -201,6 +201,7 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_LonLatToGeoCoordinateConverter.cs" />
      <Compile Include="Assets/ARLocation/Editor/LocationPropertyDataDrawer.cs" />
      <Compile Include="Assets/Mapbox/Unity/Editor/PropertyDrawers/StyleSearchAttributeDrawer.cs" />
+     <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/Editor/WebImageEditor.cs" />
      <Compile Include="Assets/Mapbox/Unity/Editor/MapImageFactoryEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party/OnlineMapsFingersTouchGesturesConnectorEditor.cs" />
      <Compile Include="Assets/Mapbox/Unity/Editor/MergedModifierStackEditor.cs" />
@@ -242,6 +243,7 @@
      <Folder Include="Assets/Mapbox/Unity/Editor" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows" />
      <Folder Include="Assets/RiderFlow.UserData/Editor" />
+     <Folder Include="Assets/Scripts/ExternalTools/ImagesLoader/Editor" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party" />
      <None Include="Assets/LightshipHUB/Editor/Scripts/LightshipWelcomeWindow.uxml" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers" />

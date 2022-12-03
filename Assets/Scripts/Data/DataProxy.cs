@@ -6,6 +6,7 @@ using ARLocation;
 using Assets;
 using Core;
 using Data.Objects;
+using ExternalTools.ImagesLoader;
 using Geo;
 using Mapbox.Utils;
 using UniRx;
@@ -18,7 +19,7 @@ namespace Data
     {
         private readonly AssetsScriptableObject _assetsScriptableObject;
         private readonly IApiInterface _apiInterface;
-        private readonly LocalStorageHelper _localStorageHelper;
+        private readonly WebImagesLoader _webImagesLoader;
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
@@ -37,11 +38,11 @@ namespace Data
         private EventData[] _eventsData;
 
         public DataProxy(AssetsScriptableObject assetsScriptableObject, IApiInterface apiInterface,
-            LocalStorageHelper localStorageHelper)
+            WebImagesLoader webImagesLoader)
         {
             _assetsScriptableObject = assetsScriptableObject;
             _apiInterface = apiInterface;
-            _localStorageHelper = localStorageHelper;
+            _webImagesLoader = webImagesLoader;
             _playerData = new PlayerData();
             _coins.Value = _playerData.GetCoins();
         }
@@ -170,7 +171,7 @@ namespace Data
                 result =>
                 {
                     LoadEvents();
-                    _localStorageHelper.LoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
+                    _webImagesLoader.TryToLoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
                 },
                 error =>
                 {
@@ -181,7 +182,7 @@ namespace Data
 
         public void GetSpriteByUrl(string url, Action<Sprite> action)
         {
-            _localStorageHelper.LoadSprite(url, sprite => { action?.Invoke(sprite); });
+            _webImagesLoader.TryToLoadSprite(url, sprite => { action?.Invoke(sprite); });
         }
 
         public Vector2 GetPlayerPosition()

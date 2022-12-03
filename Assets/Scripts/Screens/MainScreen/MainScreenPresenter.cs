@@ -4,6 +4,7 @@ using AR;
 using AR.World;
 using Data;
 using Data.Objects;
+using ExternalTools.ImagesLoader;
 using GameCamera;
 using Geo;
 using Infrastructure.GameStateMachine;
@@ -24,16 +25,16 @@ namespace Screens.MainScreen
         private readonly IMainScreenView _view;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly IDataProxy _dataProxy;
-        private readonly ILocalStorageHelper _localStorageHelper;
+        private readonly IWebImagesLoader _webImagesLoader;
         private readonly GameStateMachine _gameStateMachine;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, ILocalStorageHelper localStorageHelper, GameStateMachine gameStateMachine)
+            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine)
         {
             _view = view;
             _screenNavigationSystem = screenNavigationSystem;
             _dataProxy = dataProxy;
-            _localStorageHelper = localStorageHelper;
+            _webImagesLoader = webImagesLoader;
             _gameStateMachine = gameStateMachine;
             Init();
         }
@@ -141,7 +142,7 @@ namespace Screens.MainScreen
 
                 portalCardView.SetupCardData(rewardViewInfo.Name, rewardViewInfo.IsCollected);
 
-                _localStorageHelper.LoadSprite(rewardViewInfo.Url, sprite => { portalCardView.SetRewardIcon(sprite); });
+                _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url, sprite => { portalCardView.SetRewardIcon(sprite); });
 
                 portalCardView.transform.SetAsLastSibling();
                 _rewardsList.Add(portalCardView);
