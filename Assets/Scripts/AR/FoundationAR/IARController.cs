@@ -1,10 +1,8 @@
 using GameCamera;
-using Niantic.ARDK.AR;
-using Niantic.ARDK.AR.Anchors;
 using UniRx;
 using UnityEngine;
 
-namespace AR.FoundationAR
+namespace Assets.Scripts.AR.FoundationAR
 {
     public interface IARController
     {
@@ -13,9 +11,7 @@ namespace AR.FoundationAR
         CameraView GetCamera();
         Vector3 GetPointerPosition();
         Vector3 GetCeilPosition();
-        IARAnchor AddAnchor(Vector3 position, Quaternion rotation = default);
         void Reset();
         void ClearAnchors();
-        IARSession GetSession();
     }
 }

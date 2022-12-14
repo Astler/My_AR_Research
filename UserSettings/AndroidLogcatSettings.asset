@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "2d38b3e",
         "name": "com.ms.vr_demo",
-        "processId": 26173,
+        "processId": 29691,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -168,6 +168,12 @@
             "deviceId": "2d38b3e",
             "name": "com.ms.vr_demo",
             "processId": 26173,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.vr_demo",
+            "processId": 29691,
             "exited": false
         },
         {

@@ -1,22 +1,20 @@
 using System.Collections.Generic;
 using System.Linq;
-using AR.FoundationAR;
 using AR.World;
 using ARLocation;
-using Assets;
+using Assets.Scripts.AR.FoundationAR;
 using Data;
 using Data.Objects;
 using Geo;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
-using Niantic.ARDK.LocationService;
 using UniRx;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using Utils;
 using Zenject;
 
-namespace AR
+namespace Assets.Scripts.AR
 {
     public class ZonesController : MonoBehaviour
     {
@@ -30,7 +28,6 @@ namespace AR
         private readonly List<BeamData> _beamsData = new();
         private ARAnchorFollower _zeroAnchor;
         private float _startDeviceRotation;
-        private ILocationService _locationService;
         private double _lastRotation;
         private Vector2d _lastPosition;
 

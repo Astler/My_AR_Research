@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using AR.World;
 using ARLocation;
+using Assets.Scripts.AR.FoundationAR;
 using GameCamera;
 using Geo;
-using Niantic.ARDK.AR;
-using Niantic.ARDK.AR.Anchors;
 using UniRx;
 using Unity.XR.CoreUtils;
 using UnityEngine;
@@ -64,19 +63,9 @@ namespace AR.FoundationAR
             return Vector3.zero;
         }
 
-        public IARAnchor AddAnchor(Vector3 position, Quaternion rotation = default)
-        {
-            return null;
-        }
-
         public void Reset() => arSession.Reset();
         public void ClearAnchors() { }
-
-        public IARSession GetSession()
-        {
-            return null;
-        }
-
+        
         public CameraView GetCamera() => cameraView;
     }
 }

@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using Modules.Shared.ARPlane;
-using Niantic.ARDK.AR;
 using Niantic.ARVoyage;
 using UnityEngine;
 
@@ -14,8 +13,6 @@ namespace AR.Floor
     [RequireComponent(typeof(MeshRenderer), typeof(BoxCollider))]
     public class PlaneFloorFallback : MonoBehaviour
     {
-        private IARSession arSession;
-
         private MeshRenderer meshRenderer;
         private BoxCollider boxCollider;
 
