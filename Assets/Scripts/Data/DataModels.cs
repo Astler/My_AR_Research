@@ -1,5 +1,7 @@
 using System;
 using Data.Objects;
+using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 namespace Data
 {
@@ -71,8 +73,10 @@ namespace Data
         public int initial_boxes;
         public long start_time;
         public long finish_time;
+        public int next_proceed_time;
         public float radius;
         public PrizeData[] prizes;
+        public ActiveBoxData[] active_boxes;
     }
 
     [Serializable]
@@ -114,5 +118,26 @@ namespace Data
     public class CollectedPrizesData
     {
         public PrizeData[] prizes;
+    }
+
+    [Serializable]
+    public class BoxTimerData
+    {
+        public int next_spawn_time;
+    }
+
+    [Serializable]
+    public class ActiveBoxData
+    {
+        public int id;
+        public int spawn_radius;
+        public string point;
+        public int status;
+    }
+
+    [Serializable]
+    public class ShowEventData
+    {
+        [JsonProperty("event")] public EventData event_data;
     }
 }

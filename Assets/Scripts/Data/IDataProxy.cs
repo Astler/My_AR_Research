@@ -23,11 +23,11 @@ namespace Data
         IObservable<bool> Reset { get; }
         IObservable<bool> Clear { get; }
         IReadOnlyReactiveProperty<int> Coins { get; }
-        IReadOnlyReactiveProperty<float> TimeToNextGift { get; }
+        IReadOnlyReactiveProperty<int> TimeToNextGift { get; }
         IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos { get; }
+        IReadOnlyReactiveProperty<EventData> ActiveEventData { get; }
 
         void LoadClaimedRewards();
-        void SetTimeToNextGift(float time);
         void SetActivePortalZone(ZoneViewInfo zoneModel);
         void SetNearestPortalZone(ZoneViewInfo zoneModel);
         void SetPlayerPosition(Vector2 position);

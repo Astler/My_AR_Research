@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AR;
 using ARLocation;
+using BestHTTP.WebSocket;
 using Core;
 using Core.WebSockets;
 using Data.Objects;
@@ -22,7 +23,7 @@ namespace Data
         private readonly IWebSocketService _webSocketService;
         private readonly PlayerData _playerData;
         private EventData[] _eventsData;
-        
+
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
@@ -31,13 +32,14 @@ namespace Data
         private readonly ReactiveProperty<float> _distanceToClosestReward = new();
         private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
         private readonly ReactiveProperty<ZoneViewInfo> _selectedPortalZone = new();
+        private readonly ReactiveProperty<EventData> _activeEventData = new();
         private readonly ReactiveProperty<ZoneViewInfo> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
         private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
         private readonly ReactiveProperty<int> _coins = new();
-        private readonly ReactiveProperty<float> _timeToNextGift = new();
-        
+        private readonly ReactiveProperty<int> _timeToNextGift = new();
+
         private readonly List<ZoneViewInfo> _portalsList = new();
         private readonly List<PrizeData> _collectedPrizes = new();
         private readonly ReactiveCollection<RewardViewInfo> _collectedPrizesInfos = new();
@@ -50,6 +52,23 @@ namespace Data
             _webSocketService = webSocketService;
             _playerData = new PlayerData();
             _coins.Value = _playerData.GetCoins();
+
+            _webSocketService.OnIncomingMessageReceived += OnIncomingMessageReceived;
+        }
+
+        private void OnIncomingMessageReceived(WebSocket socket, IncomingMessage message)
+        {
+            string type = message.GetType();
+
+            if (type == IncomingMessagesTypes.spawn_new_box.ToString())
+            {
+                _placeRandomBeamForSelectedZone.OnNext(true);
+            }
+            else if (type == IncomingMessagesTypes.update_next_spawn_time.ToString())
+            {
+                BoxTimerData timerData = JsonUtility.FromJson<BoxTimerData>(message.GetData());
+                _timeToNextGift.Value = timerData.next_spawn_time - Extensions.GetCurrentUtcTime();
+            }
         }
 
         public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
@@ -60,27 +79,36 @@ namespace Data
         public IReadOnlyReactiveProperty<float> DistanceToClosestReward => _distanceToClosestReward;
         public IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone => _selectedPortalZone;
         public IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone => _nearestPortalZone;
+        public IReadOnlyReactiveProperty<EventData> ActiveEventData => _activeEventData;
         public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
         public IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult => _locationDetectResult;
         public System.IObservable<bool> PlaceRandomBeamForSelectedZone => _placeRandomBeamForSelectedZone;
         public System.IObservable<bool> Reset => _reset;
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
-        public IReadOnlyReactiveProperty<float> TimeToNextGift => _timeToNextGift;
+        public IReadOnlyReactiveProperty<int> TimeToNextGift => _timeToNextGift;
 
-        public void SetTimeToNextGift(float time)
-        {
-            _timeToNextGift.Value = time;
-        }
-        
         public void SetActivePortalZone(ZoneViewInfo zoneModel)
         {
-            _availableGifts.Value = zoneModel.Rewards.Count(it => !it.IsCollected);
-
             _selectedPortalZone.Value = zoneModel;
             SetNearestPortalZone(zoneModel);
-
-            _webSocketService.SubscribeToEventSessionChannel(zoneModel.Id);
+            
+            if (zoneModel == null) return;
+            
+            _availableGifts.Value = zoneModel.Rewards.Count(it => !it.IsCollected);
+            
+            _apiInterface.ShowEventData(zoneModel.Id, data =>
+            {
+                if (data.event_data == null)
+                {
+                    _activeEventData.Value = null;
+                    return;
+                }
+                
+                _activeEventData.Value = data.event_data;
+                _timeToNextGift.Value = data.event_data.next_proceed_time - Extensions.GetCurrentUtcTime();
+                _webSocketService.SubscribeToEventSessionChannel(zoneModel.Id);
+            }, Debug.LogError);
         }
 
         public void SetNearestPortalZone(ZoneViewInfo zoneModel) => _nearestPortalZone.Value = zoneModel;
@@ -137,14 +165,14 @@ namespace Data
         {
             _apiInterface.GetAllCollectedRewardsList(AddClaimedRewards, Debug.LogError);
         }
-        
+
         private void AddClaimedRewards(CollectedPrizesData collectedPrizesData)
         {
             _collectedPrizes.Clear();
             _collectedPrizes.AddRange(collectedPrizesData.prizes);
-            
+
             _collectedPrizesInfos.Clear();
-            
+
             foreach (PrizeData collectedPrize in _collectedPrizes)
             {
                 _collectedPrizesInfos.Add(collectedPrize.ToRewardViewInfo());
@@ -164,6 +192,8 @@ namespace Data
                     Name = eventData.title,
                     MinimumDropDistance = eventData.drop_distance_min,
                     MaximumDropDistance = eventData.drop_distance_max,
+                    InitialBoxes = eventData.initial_boxes,
+                    MaximumBoxes = eventData.simultaneous_boxes,
                     Radius = eventData.radius,
                     StartTime = eventData.start_time,
                     FinishTime = eventData.finish_time,
@@ -177,12 +207,7 @@ namespace Data
                         Name = it.name
                     }).ToList(),
                 };
-
-                if (_selectedPortalZone.Value != null && _selectedPortalZone.Value.Id == viewInfo.Id)
-                {
-                    SetActivePortalZone(viewInfo);
-                }
-
+                
                 _portalsList.Add(viewInfo);
             }
         }
@@ -198,10 +223,10 @@ namespace Data
             List<RewardViewInfo> rewards = GetRewardsForActiveZone().Where(it => !it.IsCollected).ToList();
             return rewards.Count == 0 ? null : rewards.GetRandomElement();
         }
-        
+
         public void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed)
         {
-            _apiInterface.CollectReward(data.ZoneId, data.Id,
+            _apiInterface.CollectReward(_activeEventData.Value?.id ?? 0, data.Id,
                 result =>
                 {
                     LoadEvents();

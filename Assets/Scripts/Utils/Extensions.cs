@@ -9,6 +9,13 @@ namespace Utils
 {
     public static class Extensions
     {
+        public static int GetCurrentUtcTime()
+        {
+            DateTime epochStart = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            int currentEpochTime = (int) (DateTime.UtcNow - epochStart).TotalSeconds;
+            return currentEpochTime;
+        }
+        
         public static bool IsNullOrEmpty(this string self) => string.IsNullOrEmpty(self);
         
         public static T Next<T>(this T src) where T : struct

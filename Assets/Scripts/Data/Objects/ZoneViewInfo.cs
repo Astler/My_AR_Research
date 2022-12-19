@@ -18,6 +18,8 @@ namespace Data.Objects
         public int Id;
         public int MinimumDropDistance;
         public int MaximumDropDistance;
+        public int InitialBoxes;
+        public int MaximumBoxes;
 
         public bool IsActive()
         {

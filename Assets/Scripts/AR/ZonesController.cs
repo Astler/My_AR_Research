@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using AR.World;
 using AR.World.Collectable;
 using ARLocation;
 using Assets;
 using Assets.Scripts.AR.FoundationAR;
-using BestHTTP.SignalR;
 using Data;
 using Data.Objects;
 using GameCamera;
@@ -29,7 +29,6 @@ namespace AR
 {
     public class ZonesController : MonoBehaviour
     {
-        [SerializeField] private float giftSpawnTime = 5f;
         [SerializeField] private ARAnchorFollower zonePrefab;
         [SerializeField] private MannaBoxView beamPrefab;
         [SerializeField] private XROrigin xrOrigin;
@@ -51,7 +50,6 @@ namespace AR
         private ARWorldCoordinator _coordinator;
         private IDataProxy _dataProxy;
         private CoinsController _coinsController;
-        private IDisposable _newBeamTimer;
         private CameraView _cameraView;
 
         [Inject]
@@ -84,8 +82,35 @@ namespace AR
 
             _dataProxy.PlaceRandomBeamForSelectedZone.Subscribe(_ =>
             {
-                _newBeamTimer?.Dispose();
-                _newBeamTimer = CreateNewBeam().ToObservable().Subscribe();
+                int maximumBoxes = _dataProxy.SelectedPortalZone.Value?.MaximumBoxes ?? 0;
+
+                if (_beams.Count >= maximumBoxes)
+                {
+                    MannaBoxView beam = _beams.First();
+                    BeamData data = beam.GetBeamData();
+                    _beamsData.Remove(data);
+                    _beams.Remove(beam);
+                    beam.gameObject.Destroy();
+                }
+
+                // CreateNewBeam();
+            }).AddTo(this);
+
+            _dataProxy.ActiveEventData.Subscribe(zone =>
+            {
+                if (zone == null)
+                {
+                    _anchors.Clear();
+                    _beams.Clear();
+                    _beamsData.Clear();
+                    Clear();
+                    return;
+                }
+
+                foreach (ActiveBoxData boxData in zone.active_boxes)
+                {
+                    CreateNewBeam(boxData);
+                }
             }).AddTo(this);
         }
 
@@ -168,24 +193,22 @@ namespace AR
             }
         }
 
-        private IEnumerator CreateNewBeam()
+        private void CreateNewBeam(ActiveBoxData boxData)
         {
             ZoneViewInfo selectedZone = _dataProxy.SelectedPortalZone.Value;
 
-            if (selectedZone == null) yield break;
-
-            RewardViewInfo uncollectedReward = _dataProxy.GetAvailableRewardForZone();
+            if (selectedZone == null) return;
 
             Debug.Log("there is no active rewards!");
 
-            if (uncollectedReward == null)
+            if (boxData == null)
             {
-                Debug.Log("there is no active rewards!");
-                yield break;
+                Debug.Log("null boxData!");
+                return;
             }
 
-            Vector3 beamPosition = Random.insideUnitCircle * selectedZone.MaximumDropDistance +
-                                   Vector2.one * selectedZone.MinimumDropDistance;
+            Vector3 beamPosition = Random.insideUnitCircle *
+                                   float.Parse(boxData.point, CultureInfo.InvariantCulture.NumberFormat);
 
             IEnumerable<ARRaycastHit> planes = RaycastFallback(xrOrigin, arPlaneManager,
                 new Ray(new Vector3(beamPosition.x, 0f, beamPosition.y), Vector3.down),
@@ -205,19 +228,12 @@ namespace AR
             BeamData beamData = new()
             {
                 Position = beamPosition,
-                Name = uncollectedReward.Name,
-                Url = uncollectedReward.Url,
-                ZoneId = uncollectedReward.EventId,
-                Id = uncollectedReward.Id
+                Name = "beam",
+                Url = "",
+                Id = boxData.id
             };
 
             _beamsData.Add(beamData);
-
-            for (int i = 0; i <= giftSpawnTime; i++)
-            {
-                _dataProxy.SetTimeToNextGift(giftSpawnTime - i);
-                yield return new WaitForSeconds(1f);
-            }
 
             PlaceBeamsByMap();
         }

@@ -55,7 +55,7 @@ namespace Screens.MainScreen
             mapUserInterfaceView.SetIsMapActive(isMapActive);
         }
 
-        public void SetNextGiftTime(float timeToNextGift)
+        public void SetNextGiftTime(int timeToNextGift)
         {
             nextGiftTimerText.gameObject.SetActive(timeToNextGift > 0);
             nextGiftTimerText.text = $"Next gift in: {timeToNextGift}";

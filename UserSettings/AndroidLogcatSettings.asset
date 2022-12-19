@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.vuforia.engine.VuforiaEngine",
-        "processId": 23413,
+        "processId": 30998,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -396,6 +396,18 @@
             "deviceId": "8B8X15GYE",
             "name": "com.vuforia.engine.VuforiaEngine",
             "processId": 23413,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 29463,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 30998,
             "exited": false
         },
         {

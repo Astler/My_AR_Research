@@ -103,17 +103,15 @@ namespace Core.WebSockets
         private void OnMessageReceived(WebSocket webSocket, string message)
         {
             var im = JsonUtility.FromJson<IncomingMessage>(message);
+            string type = im.GetType();
+            
             if (IncomingMessagesTypeNames.Contains(im.GetType()))
             {
                 OnIncomingMessageReceived?.Invoke(webSocket, im);
             }
-            else if (im.GetType() != IncomingMessageType.ping.ToString())
+            else if (type != IncomingMessageType.ping.ToString())
             {
                 Debug.Log("Text Message received from WebSocket server: " + message);
-            }
-            else
-            {
-                Debug.Log($"{im.GetType()} received from WebSocket server: " + message);
             }
         }
 

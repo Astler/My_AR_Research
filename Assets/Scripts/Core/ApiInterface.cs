@@ -8,6 +8,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Networking;
 using Utils;
+using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace Core
 {
@@ -103,7 +104,7 @@ namespace Core
             T res = default;
             try
             {
-                res = JsonUtility.FromJson<T>(results.downloadHandler.text);
+                res = JsonConvert.DeserializeObject<T>(results.downloadHandler.text);
                 response = res as Response;
             }
             catch
@@ -353,16 +354,21 @@ namespace Core
             AddRequestToList(new Request("users/state", NewRequest));
         }
 
-        public void CollectReward(int zoneId, int rewardId, Action<PrizeCollectResponseData> onSuccess, Action<ResponseStatus> onFailure)
+        public void CollectReward(int eventId, int rewardId, Action<PrizeCollectResponseData> onSuccess, Action<ResponseStatus> onFailure)
         {
             WWWForm form = new();
-            form.AddField("event_id", zoneId);
-            form.AddField("prize_id", rewardId);
+            form.AddField("box_id", rewardId);
             
-            Debug.Log($"event = {zoneId} prize = {rewardId}");
+            Debug.Log($"event = {eventId} box_id = {rewardId}");
             
-            void NewRequest() => Post(GetEndpointUri("events/claim_prize"), form, onSuccess, onFailure, true);
-            AddRequestToList(new Request("events/claim_prize", NewRequest));
+            void NewRequest() => Post(GetEndpointUri($"events/{eventId}/claim_prize"), form, onSuccess, onFailure, true);
+            AddRequestToList(new Request($"events/{eventId}/claim_prize", NewRequest));
+        }
+
+        public void ShowEventData(int eventId, Action<ShowEventData> onSuccess, Action<ResponseStatus> onFailure)
+        {
+            void NewRequest() => Get(GetEndpointUri($"events/{eventId}/show"), onSuccess, onFailure, true);
+            AddRequestToList(new Request($"events/{eventId}/show", NewRequest));
         }
 
         private class Request

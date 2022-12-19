@@ -45,13 +45,6 @@ namespace Core.WebSockets
 
     public enum IncomingMessageType
     {
-        ping,
-        changed_info_updated,
-        new_game_request,
-        opponent_finish_match,
-        new_friend_request,
-        store_info_updated,
-        port_timers_updated,
-        new_multiplayer_game_request
+        ping
     }
 }
