@@ -20,6 +20,9 @@ namespace Data
         private readonly IApiInterface _apiInterface;
         private readonly WebImagesLoader _webImagesLoader;
         private readonly IWebSocketService _webSocketService;
+        private readonly PlayerData _playerData;
+        private EventData[] _eventsData;
+        
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
@@ -34,9 +37,10 @@ namespace Data
         private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
         private readonly ReactiveProperty<int> _coins = new();
         private readonly ReactiveProperty<float> _timeToNextGift = new();
-        private readonly PlayerData _playerData;
+        
         private readonly List<ZoneViewInfo> _portalsList = new();
-        private EventData[] _eventsData;
+        private readonly List<PrizeData> _collectedPrizes = new();
+        private readonly ReactiveCollection<RewardViewInfo> _collectedPrizesInfos = new();
 
         public DataProxy(IApiInterface apiInterface, WebImagesLoader webImagesLoader,
             IWebSocketService webSocketService)
@@ -48,6 +52,7 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
         }
 
+        public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
         public IReadOnlyReactiveProperty<int> AvailableGifts => _availableGifts;
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
@@ -125,7 +130,25 @@ namespace Data
 
         public void LoadEvents()
         {
-            _apiInterface.GetEventsList(AddEvents, status => { });
+            _apiInterface.GetEventsList(AddEvents, Debug.LogError);
+        }
+
+        public void LoadClaimedRewards()
+        {
+            _apiInterface.GetAllCollectedRewardsList(AddClaimedRewards, Debug.LogError);
+        }
+        
+        private void AddClaimedRewards(CollectedPrizesData collectedPrizesData)
+        {
+            _collectedPrizes.Clear();
+            _collectedPrizes.AddRange(collectedPrizesData.prizes);
+            
+            _collectedPrizesInfos.Clear();
+            
+            foreach (PrizeData collectedPrize in _collectedPrizes)
+            {
+                _collectedPrizesInfos.Add(collectedPrize.ToRewardViewInfo());
+            }
         }
 
         public void AddEvents(EventsData data)
@@ -150,7 +173,7 @@ namespace Data
                         Url = it.image,
                         IsCollected = it.is_claimed,
                         Id = it.id,
-                        ZoneId = eventData.id,
+                        EventId = eventData.id,
                         Name = it.name
                     }).ToList(),
                 };
@@ -175,7 +198,7 @@ namespace Data
             List<RewardViewInfo> rewards = GetRewardsForActiveZone().Where(it => !it.IsCollected).ToList();
             return rewards.Count == 0 ? null : rewards.GetRandomElement();
         }
-
+        
         public void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed)
         {
             _apiInterface.CollectReward(data.ZoneId, data.Id,
@@ -195,6 +218,8 @@ namespace Data
         {
             _webImagesLoader.TryToLoadSprite(url, sprite => { action?.Invoke(sprite); });
         }
+
+        public void RefreshCollectedRewards() => LoadClaimedRewards();
 
         public Vector2 GetPlayerPosition()
         {

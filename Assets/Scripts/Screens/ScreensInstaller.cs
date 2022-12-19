@@ -6,6 +6,8 @@ using ExternalTools.ImagesLoader;
 using GameCamera;
 using Infrastructure.GameStateMachine;
 using SceneManagement;
+using Screens.CollectedRewards;
+using Screens.Factories;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
 using UnityEngine;
@@ -23,12 +25,15 @@ namespace Screens
         private IDataProxy _dataProxy;
         private IWebImagesLoader _webImagesLoader;
         private GameStateMachine _gameStateMachine;
+        private RewardCardsFactory _rewardCardsFactory;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine)
+            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
+            RewardCardsFactory rewardCardsFactory)
         {
+            _rewardCardsFactory = rewardCardsFactory;
             _gameStateMachine = gameStateMachine;
             _webImagesLoader = webImagesLoader;
             _dataProxy = dataProxy;
@@ -89,10 +94,16 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
                         new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy,
-                            _webImagesLoader, _gameStateMachine);
+                            _webImagesLoader, _gameStateMachine, _rewardCardsFactory);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;
+                case ScreenName.CollectedRewardsScreen:
+                    InstantiateView(name.ToString(), delegate(CollectedRewardsScreenView view)
+                    {
+                        new CollectedRewardsScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
+                        onSuccess.Invoke(view);
+                    });
                     break;
                 default:
                     Debug.LogError($"Screen {name} not found in ScreenInstaller");

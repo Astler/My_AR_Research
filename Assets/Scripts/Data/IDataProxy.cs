@@ -24,7 +24,9 @@ namespace Data
         IObservable<bool> Clear { get; }
         IReadOnlyReactiveProperty<int> Coins { get; }
         IReadOnlyReactiveProperty<float> TimeToNextGift { get; }
+        IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos { get; }
 
+        void LoadClaimedRewards();
         void SetTimeToNextGift(float time);
         void SetActivePortalZone(ZoneViewInfo zoneModel);
         void SetNearestPortalZone(ZoneViewInfo zoneModel);
@@ -46,5 +48,6 @@ namespace Data
         RewardViewInfo GetAvailableRewardForZone();
         void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed);
         void GetSpriteByUrl(string url, Action<Sprite> action);
+        void RefreshCollectedRewards();
     }
 }

@@ -8,6 +8,7 @@ using ExternalTools.ImagesLoader;
 using GameCamera;
 using Geo;
 using Infrastructure.GameStateMachine;
+using Screens.Factories;
 using Screens.PortalsListScreen;
 using Screens.RewardsListScreen;
 using UniRx;
@@ -26,15 +27,17 @@ namespace Screens.MainScreen
         private readonly IDataProxy _dataProxy;
         private readonly IWebImagesLoader _webImagesLoader;
         private readonly GameStateMachine _gameStateMachine;
+        private readonly RewardCardsFactory _rewardCardsFactory;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine)
+            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine, RewardCardsFactory rewardCardsFactory)
         {
             _view = view;
             _screenNavigationSystem = screenNavigationSystem;
             _dataProxy = dataProxy;
             _webImagesLoader = webImagesLoader;
             _gameStateMachine = gameStateMachine;
+            _rewardCardsFactory = rewardCardsFactory;
             Init();
         }
 
@@ -46,6 +49,11 @@ namespace Screens.MainScreen
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.OpenMapClicked += OnOpenMapClicked;
+            _view.CollectedRewardsClicked += () =>
+            {
+                _screenNavigationSystem.ExecuteNavigationCommand(
+                    new NavigationCommand().ShowNextScreen(ScreenName.CollectedRewardsScreen));
+            };
 
             _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
             _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
@@ -130,23 +138,20 @@ namespace Screens.MainScreen
         {
             foreach (RewardCardView rewardView in _rewardsList)
             {
-                rewardView.DestroyCard();
+                rewardView.Dispose();
             }
 
             _rewardsList.Clear();
 
             foreach (RewardViewInfo rewardViewInfo in _dataProxy.GetRewardsForActiveZone())
             {
-                RewardCardView portalCardView = Object.Instantiate(_view.GetRewardsListView().GetRewardsPrefab(),
-                    _view.GetRewardsListView().GetListContainer());
-
-                portalCardView.SetupCardData(rewardViewInfo.Name, rewardViewInfo.IsCollected);
+                rewardViewInfo.Parent = _view.GetRewardsListView().GetListContainer();
+                RewardCardView cardView = _rewardCardsFactory.Create(rewardViewInfo);
 
                 _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url,
-                    sprite => { portalCardView.SetRewardIcon(sprite); });
+                    sprite => { cardView.SetRewardIcon(sprite); });
 
-                portalCardView.transform.SetAsLastSibling();
-                _rewardsList.Add(portalCardView);
+                _rewardsList.Add(cardView);
             }
 
             _view.ShowRewardsList();
@@ -243,9 +248,9 @@ namespace Screens.MainScreen
                         bool collectable = beam.CanBeCollected(cameraView.GetPosition());
 
                         if (!collectable) continue;
-                        
+
                         if (beam is not MannaBoxView mannaBoxView) continue;
-                        
+
                         Debug.Log($"hit MannaBoxView");
                         _dataProxy.TryToCollectBeam(mannaBoxView.GetBeamData(), sprite =>
                         {

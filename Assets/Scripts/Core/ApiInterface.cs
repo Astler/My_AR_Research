@@ -347,6 +347,12 @@ namespace Core
             AddRequestToList(new Request("events", NewRequest));
         }
 
+        public void GetAllCollectedRewardsList(Action<CollectedPrizesData> onSuccess, Action<ResponseStatus> onFailure)
+        {
+            void NewRequest() => Get(GetEndpointUri("users/state"), onSuccess, onFailure, true);
+            AddRequestToList(new Request("users/state", NewRequest));
+        }
+
         public void CollectReward(int zoneId, int rewardId, Action<PrizeCollectResponseData> onSuccess, Action<ResponseStatus> onFailure)
         {
             WWWForm form = new();

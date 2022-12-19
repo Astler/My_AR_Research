@@ -47,9 +47,10 @@ namespace Infrastructure.GameStateMachine.GameStates
             method?.Invoke(new object(), null);
 #endif
             Debug.Log("Loaded BootScene");
-            
-            _screenNavigationSystem.ExecuteNavigationCommand(new NavigationCommand().ShowNextScreen(ScreenName.LoadingScreen).WithoutAnimation());
-            
+
+            _screenNavigationSystem.ExecuteNavigationCommand(new NavigationCommand()
+                .ShowNextScreen(ScreenName.LoadingScreen).WithoutAnimation());
+
             _apiInterface.SignIn(
                 delegate(SignInResponse response)
                 {
@@ -58,11 +59,12 @@ namespace Infrastructure.GameStateMachine.GameStates
 
                     _apiInterface.GetEventsList(data =>
                     {
+                        _dataProxy.LoadClaimedRewards();
                         _dataProxy.AddEvents(data);
                         _gameStateMachine.Enter<LoadLevelState, SceneName>(SceneName.MainScene);
                     }, status => { });
                 }, null);
-            
+
             Initialize();
         }
 

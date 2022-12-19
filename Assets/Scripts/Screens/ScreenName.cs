@@ -2,7 +2,8 @@ namespace Screens
 {
     public enum ScreenName
     {
-        LoadingScreen,
-        MainScreen
+        LoadingScreen = 0,
+        MainScreen = 1,
+        CollectedRewardsScreen = 2
     }
 }

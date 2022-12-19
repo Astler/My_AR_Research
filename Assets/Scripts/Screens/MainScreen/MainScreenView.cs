@@ -18,6 +18,7 @@ namespace Screens.MainScreen
         [SerializeField] private Button restartButton;
         [SerializeField] private Button placeRandomBeamButton;
         [SerializeField] private Button warningOkButton;
+        [SerializeField] private Button collectedRewardsButton;
         [SerializeField] private GameObject placementParent;
         [SerializeField] private TextMeshProUGUI availableGiftsText;
         [SerializeField] private TextMeshProUGUI nextGiftTimerText;
@@ -41,6 +42,7 @@ namespace Screens.MainScreen
         public event Action WarningOkClicked;
         public event Action PlaceRandomBeamClicked;
         public event Action OpenMapClicked;
+        public event Action CollectedRewardsClicked;
         public event Action ClearButtonClicked;
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
@@ -189,6 +191,7 @@ namespace Screens.MainScreen
             warningOkButton.ActionWithThrottle(() => WarningOkClicked?.Invoke());
             placeRandomBeamButton.ActionWithThrottle(() => PlaceRandomBeamClicked?.Invoke());
             clearButton.ActionWithThrottle(() => { ClearButtonClicked?.Invoke(); });
+            collectedRewardsButton.ActionWithThrottle(() => { CollectedRewardsClicked?.Invoke(); });
             restartButton.ActionWithThrottle(() => { RestartButtonClicked?.Invoke(); });
             openMapButton.ActionWithThrottle(() => { OpenMapClicked?.Invoke(); });
             closeZonesList.ActionWithThrottle(HideZonesList);

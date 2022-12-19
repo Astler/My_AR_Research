@@ -7,6 +7,7 @@ using AR.World.Collectable;
 using ARLocation;
 using Assets;
 using Assets.Scripts.AR.FoundationAR;
+using BestHTTP.SignalR;
 using Data;
 using Data.Objects;
 using GameCamera;
@@ -14,12 +15,15 @@ using Geo;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using UniRx;
+using Unity.Collections;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 using Utils;
-using Vuforia;
 using Zenject;
 using Random = UnityEngine.Random;
+using TransformExtensions = UnityEngine.XR.ARFoundation.TransformExtensions;
 
 namespace AR
 {
@@ -28,6 +32,8 @@ namespace AR
         [SerializeField] private float giftSpawnTime = 5f;
         [SerializeField] private ARAnchorFollower zonePrefab;
         [SerializeField] private MannaBoxView beamPrefab;
+        [SerializeField] private XROrigin xrOrigin;
+        [SerializeField] private ARPlaneManager arPlaneManager;
 
         private ARAnchorFollower _pointMe;
         private readonly List<ARAnchorFollower> _anchors = new();
@@ -73,7 +79,7 @@ namespace AR
             }
             else
             {
-                VuforiaApplication.Instance.OnVuforiaStarted += PlaceZonesByMap;
+                ARSession.stateChanged += OnStateChanged;
             }
 
             _dataProxy.PlaceRandomBeamForSelectedZone.Subscribe(_ =>
@@ -81,6 +87,14 @@ namespace AR
                 _newBeamTimer?.Dispose();
                 _newBeamTimer = CreateNewBeam().ToObservable().Subscribe();
             }).AddTo(this);
+        }
+
+        private void OnStateChanged(ARSessionStateChangedEventArgs stateArgs)
+        {
+            if (stateArgs.state != ARSessionState.SessionTracking) return;
+
+            PlaceZonesByMap();
+            ARSession.stateChanged -= OnStateChanged;
         }
 
         private void Clear()
@@ -136,7 +150,7 @@ namespace AR
                     Latitude = portalZoneModel.Coordinates.x,
                     Longitude = portalZoneModel.Coordinates.y,
                     Altitude = 0,
-                    AltitudeMode = AltitudeMode.GroundRelative,
+                    AltitudeMode = AltitudeMode.DeviceRelative,
                 };
 
                 PlaceAtLocation.PlaceAtOptions options = new()
@@ -170,13 +184,30 @@ namespace AR
                 yield break;
             }
 
+            Vector3 beamPosition = Random.insideUnitCircle * selectedZone.MaximumDropDistance +
+                                   Vector2.one * selectedZone.MinimumDropDistance;
+
+            IEnumerable<ARRaycastHit> planes = RaycastFallback(xrOrigin, arPlaneManager,
+                new Ray(new Vector3(beamPosition.x, 0f, beamPosition.y), Vector3.down),
+                TrackableType.PlaneWithinInfinity);
+
+            if (!planes.Any())
+            {
+                Debug.Log("no planes found!");
+                Debug.Log("leave beamPosition = " + beamPosition);
+            }
+            else
+            {
+                beamPosition.y = planes.Last().pose.position.y;
+                Debug.Log("updated beamPosition = " + beamPosition);
+            }
+
             BeamData beamData = new()
             {
-                Position = Random.insideUnitCircle * selectedZone.MaximumDropDistance +
-                           Vector2.one * selectedZone.MinimumDropDistance,
+                Position = beamPosition,
                 Name = uncollectedReward.Name,
                 Url = uncollectedReward.Url,
-                ZoneId = uncollectedReward.ZoneId,
+                ZoneId = uncollectedReward.EventId,
                 Id = uncollectedReward.Id
             };
 
@@ -204,10 +235,10 @@ namespace AR
 
             foreach (BeamData data in _beamsData)
             {
-                Vector3 objectPosition = playerPosition + new Vector3(data.Position.x, 0f, data.Position.y);
+                Vector3 objectPosition = playerPosition + data.Position;
 
                 MannaBoxView follower =
-                    Instantiate(beamPrefab, objectPosition, Quaternion.identity, _coordinator.GetContentTransform());
+                    Instantiate(beamPrefab, objectPosition, Quaternion.identity);
 
                 follower.SetBeamData(data);
 
@@ -226,7 +257,7 @@ namespace AR
                     _coinsController.SpawnCoinsAtPosition(follower.transform.position);
                     PlaceBeamsByMap();
                 });
-                
+
                 // Location location = new()
                 // {
                 //     Latitude = data.Position.x,
@@ -248,6 +279,30 @@ namespace AR
                 _beams.Add(follower);
 
                 Debug.Log("Placed " + data.Name + " at " + objectPosition);
+            }
+        }
+
+        public IEnumerable<ARRaycastHit> RaycastFallback(XROrigin origin, ARPlaneManager planeManager,
+            Ray worldSpaceRay, TrackableType trackableTypeMask)
+        {
+            var trackablesParent = origin.TrackablesParent;
+            var sessionSpaceRay = TransformExtensions.InverseTransformRay(trackablesParent, worldSpaceRay);
+            var hits = planeManager.Raycast(sessionSpaceRay, trackableTypeMask, Allocator.Temp);
+            if (hits.IsCreated)
+            {
+                using (hits)
+                {
+                    return hits.OrderBy(_ => _.distance).Select(hit =>
+                    {
+                        float distanceInWorldSpace = (hit.pose.position - worldSpaceRay.origin).magnitude;
+                        return new ARRaycastHit(hit, distanceInWorldSpace, trackablesParent,
+                            planeManager.GetPlane(hit.trackableId));
+                    });
+                }
+            }
+            else
+            {
+                return Enumerable.Empty<ARRaycastHit>();
             }
         }
     }

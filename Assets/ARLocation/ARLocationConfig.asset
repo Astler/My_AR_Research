@@ -20,5 +20,5 @@ MonoBehaviour:
   MaxGroundHeight: 3
   VuforiaGroundHitTestDistance: 4
   GroundHeightSmoothingFactor: 0.05
-  UseVuforia: 1
+  UseVuforia: 0
   UseCustomGeoCalculator: 0

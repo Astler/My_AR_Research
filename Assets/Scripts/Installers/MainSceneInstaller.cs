@@ -2,7 +2,6 @@ using AR;
 using AR.FoundationAR;
 using AR.Map;
 using AR.World;
-using Assets.Scripts.AR;
 using GameCamera;
 using Geo;
 using Zenject;

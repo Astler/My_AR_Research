@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2021_3_15;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;VUFORIA_ANDROID_SETTINGS;ARGPS_USE_VUFORIA;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_15;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;VUFORIA_ANDROID_SETTINGS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -48,8 +48,8 @@
      <Compile Include="Assets/MapboxAR/Unity/Ar/SimpleAutomaticSynchronizationContext.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerCustomStyleAtlasWithColorPallete.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsWizardControlHelperAttribute.cs" />
-     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response/Feature.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/MemoryCache.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response/Feature.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/MathUtils.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OnHoverExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/ILocationProvider.cs" />
@@ -61,9 +61,9 @@
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCustomStyleAtlas.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/PoiLabelTextSetter.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/ObjectPool.cs" />
+     <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TileProcessFinishedEventArgs.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationServiceGenericBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerCustomStyleTiled.cs" />
-     <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TileProcessFinishedEventArgs.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/FeatureBehaviour.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/Examples/ArMenuController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsEnums.cs" />
@@ -113,8 +113,8 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsQQSearch.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteService.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GoogleAPIHook.cs" />
-     <Compile Include="Assets/Hovl Studio/Resources/Scripts/ParticleCollisionInstance.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.File.cs" />
+     <Compile Include="Assets/Hovl Studio/Resources/Scripts/ParticleCollisionInstance.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/Location.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationService.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/LayerVisualizers/VectorLayerVisualizer.cs" />
@@ -130,8 +130,8 @@
      <Compile Include="Assets/Scripts/Core/WebSockets/WebSocketService.cs" />
      <Compile Include="Assets/Scripts/Screens/LoadingScreen/LoadingScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ChangePositionAndZoomEventsExample.cs" />
-     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/IAsyncRequest.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/TileJSON/TileJSONReponse.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/IAsyncRequest.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ChangeProviderAndTypeExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsDMSConverter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGoogleDirectionsResult.cs" />
@@ -234,11 +234,12 @@
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/RotateOnYTargetTransform.cs" />
      <Compile Include="Assets/Scripts/Utils/DeviceIDGetter.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AbstractLocationProvider.cs" />
+     <Compile Include="Assets/Scripts/Screens/CollectedRewards/CollectedRewardsScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/InertiaExample.cs" />
      <Compile Include="Assets/Mapbox/Examples/6_ZoomableMap/Scripts/SpawnOnMap.cs" />
+     <Compile Include="Assets/Scripts/Screens/CollectedRewards/CollectedRewardsScreenPresenter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsTouchScriptConnector.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarkerBillboard.cs" />
-     <Compile Include="Assets/Scripts/AR/DevicePoseManager.cs" />
      <Compile Include="Assets/Scripts/Screens/UILayerConfigurator.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/VertexDebuggerGizmo.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/SQLiteCache/Tiles.cs" />
@@ -253,8 +254,8 @@
      <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/SnapMapToTargetTransform.cs" />
      <Compile Include="Assets/Scripts/Screens/Views/LocationInfoView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/SQLite/SQLite.cs" />
-     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/IObservable.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/AbstractTileProvider.cs" />
+     <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/IObservable.cs" />
      <Compile Include="Assets/Scripts/Utils/ComponentPool.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/InterpolationUtil.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Filters/FilterBase.cs" />
@@ -269,8 +270,8 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SaveMapStateExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindDirectionExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Vector2d/Vector2d.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/AircraftWarning.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Constants.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/AircraftWarning.cs" />
      <Compile Include="Assets/Mapbox/Examples/3_POIPlacement/POIPlacementScriptExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainDataFetcher.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/IReplacementCriteria.cs" />
@@ -330,8 +331,8 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsArcGISTiledElevationManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsMapboxElevationManager.cs" />
      <Compile Include="Assets/Scripts/Screens/LoadingScreen/LoadingScreenPresenter.cs" />
-     <Compile Include="Assets/Mapbox/Unity/Utilities/VectorEntity.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/UnifiedMapOptions.cs" />
+     <Compile Include="Assets/Mapbox/Unity/Utilities/VectorEntity.cs" />
      <Compile Include="Assets/Hovl Studio/Resources/Scripts/HittedObject.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ResetCameraRotationExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets/OnlineMapsRWTConnector.cs" />
@@ -348,8 +349,8 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/PolygonUtils.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/LinearSpline.cs" />
-     <Compile Include="Assets/Mapbox/Unity/LayerProperties/VectorFilterOptions.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/CustomRoute.cs" />
+     <Compile Include="Assets/Mapbox/Unity/LayerProperties/VectorFilterOptions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/BuildingClickExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSONArray.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsWWW.cs" />
@@ -359,8 +360,9 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsBingMapsLocation.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/RelocateMapByGPS.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/ElevatedTerrainWithSidesStrategy.cs" />
-     <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/AstronautDirections.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/RangeTileProviderOptions.cs" />
+     <Compile Include="Assets/Scripts/Screens/Factories/RewardCardsFactory.cs" />
+     <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/AstronautDirections.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/OpenUrlOnButtonClick.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapScalingOptions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Managers/OnlineMapsDrawingElementManager.cs" />
@@ -386,8 +388,8 @@
      <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/CharacterMovement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CheckAllTilesLoadedExample.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/HighlightFeature.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/UIBubblePopup.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Components/ARLocationManager.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/UIBubblePopup.cs" />
      <Compile Include="Assets/Scripts/AR/World/GiftsPortalView.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/Camera/ManualTouchCamera.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifier.cs" />
@@ -505,8 +507,8 @@
      <Compile Include="Assets/ARLocation/Scripts/Math/Curve.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/FeatureSelectionDetector.cs" />
      <Compile Include="Assets/Scripts/AR/Map/SpawnOnMapAR.cs" />
-     <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/ARTableTopCameraMovement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Projections/OnlineMapsProjectionSphericalMercator.cs" />
+     <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/ARTableTopCameraMovement.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/LonLatToGeoCoordinateConverter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Cache/OnlineMapsCache.Memory.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/FlatSphereTerrainStrategy.cs" />
@@ -594,19 +596,19 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/TileJSON/TileJSON.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/UnityLocationWrappers/IMapboxLocationInfo.cs" />
      <Compile Include="Assets/Hovl Studio/Resources/Scripts/Hovl_LaserDemo.cs" />
-     <Compile Include="Assets/Scripts/Data/Objects/RewardViewInfo.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/DisableMeshRendererModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/TilesetMarkerDepthExample.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsSavableComponent.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsPositionRange.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/RewardViewInfo.cs" />
      <Compile Include="Assets/Scripts/Utils/StateMachine/IState.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/VectorDataFetcher.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsSavableComponent.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Interfaces/IFeaturePropertySettable.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsPBR.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/PolylineUtils.cs" />
+     <Compile Include="Assets/Mapbox/Unity/DataContainers/TileStatsFetcher.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/AngleLowPassFilter.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerDarkStyle.cs" />
-     <Compile Include="Assets/Mapbox/Unity/DataContainers/TileStatsFetcher.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ReverseGeocodeUserInput.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteServiceGeocode.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/PathAnimation.cs" />
@@ -692,9 +694,9 @@
      <Compile Include="Assets/Mapbox/Unity/DataContainers/GeometryMaterialOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerDarkStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGoogleGeocodingResult.cs" />
+     <Compile Include="Assets/Mapbox/Examples/Scripts/DragableDirectionWaypoint.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarkerManager.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/TerrainSideWallOptions.cs" />
-     <Compile Include="Assets/Mapbox/Examples/Scripts/DragableDirectionWaypoint.cs" />
      <Compile Include="Assets/Scripts/Screens/MainScreen/MainScreenView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GetCenterPointOfMarkersExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/Singleton.cs" />
@@ -719,8 +721,8 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/uGUI/uGUICustomTooltipForAllMarkersExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/ITelemetryLibrary.cs" />
      <Compile Include="Assets/Scripts/Screens/LoadingScreen/ILoadingScreenView.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsCache.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ElevationModificationOptions.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsCache.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/AngleSmoothingNoOp.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/QuadTreeTileProvider.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsLog.cs" />
@@ -794,8 +796,8 @@
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerCustomStyleTiled.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Utils/DevCameraController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsAMapSearchResult.cs" />
-     <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/NoiseOffsetModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOSMAPIQuery.cs" />
+     <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/NoiseOffsetModifier.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Components/UI/ARTrackingInfo.cs" />
      <Compile Include="Assets/Modules/Shared/Utilities/Animation/BubbleScaleUtil/BubbleScaleUtil.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Components/WebMapEditor/WebMapLoader.cs" />
@@ -823,13 +825,13 @@
      <Compile Include="Assets/ARLocation/Scripts/Math/LowPassFilter.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Components/TextureSelector.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/AbstractMap.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Threading/OnlineMapsThreadManager.cs" />
      <Compile Include="Assets/_Project/Scripts/DirectionsFactory.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/XML/OnlineMapsXMLList.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Threading/OnlineMapsThreadManager.cs" />
      <Compile Include="Assets/Scripts/Data/PlayerPrefsHelper.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ReloadMap.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsInteractiveElementManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsBingMapsElevationResult.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/XML/OnlineMapsXMLList.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Interfaces/IMapPlacementStrategy.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Drawers/OnlineMapsMarker3DDrawer.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/AMapSearchExample.cs" />
@@ -869,8 +871,8 @@
      <Compile Include="Assets/Mapbox/Examples/6_ZoomableMap/Scripts/SetCameraHeight.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBaseVectorMesh.cs" />
      <Compile Include="Assets/Scripts/Screens/IScreenNavigationSystem.cs" />
-     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsTooltipDrawerBase.cs" />
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/VoxelFetcher.cs" />
+     <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsTooltipDrawerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsVectorTile.cs" />
      <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/Elements/WebImage.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/QQSearchExample.cs" />
@@ -1138,6 +1140,7 @@
      <Folder Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding" />
      <Folder Include="Assets/Common/Icons/iOS" />
      <Folder Include="Assets/Mapbox/Unity/MeshGeneration/LayerVisualizers" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/CollectedRewardsScreen" />
      <Folder Include="Assets/Mapbox/Examples/3_POIPlacement/Screenshots" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles" />
      <None Include="Assets/Hovl Studio/Resources/Shaders/Blend_TwoSides.shader" />
@@ -1201,7 +1204,7 @@
      <Folder Include="Assets/Infinity Code/Online maps" />
      <Folder Include="Assets/Hovl Studio/Magic circles" />
      <Folder Include="Assets/Modules/Art/SnoballToss/PromptScanMesh" />
-     <Folder Include="Assets/Prefabs/Screens" />
+     <Folder Include="Assets/Prefabs/_Screens" />
      <Folder Include="Assets/Mapbox/Examples/_sharedModules" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples" />
@@ -1439,11 +1442,13 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
      <Folder Include="Assets/Scripts/AR/World" />
      <Folder Include="Assets/ARLocation/Prefabs/Sample Assets" />
+     <Folder Include="Assets/Scripts/Screens/Factories" />
      <Folder Include="Assets/SamplesResources/AugmentationAssets/Textures/Astronaut/Materials" />
      <Folder Include="Assets/ARLocation/Mapbox Routes" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Materials" />
      <Folder Include="Assets/Hovl Studio/AAA Projectiles Vol 1/Prefabs/Projectiles(transform)" />
      <None Include="Assets/QuickOutline/Resources/Shaders/OutlineFill.shader" />
+     <Folder Include="Assets/Scripts/Screens/CollectedRewards" />
      <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Prefabs" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response" />
@@ -1772,29 +1777,23 @@
      <Reference Include="Mapbox.IO.Compression">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35/Mapbox.IO.Compression.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Analytics.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Analytics.StandardEvents">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Analytics.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
-     </Reference>
      <Reference Include="DOTween">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
-     </Reference>
-     <Reference Include="Vuforia.Unity.Wrapper">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@778cd30f6ecb/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Wrapper.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -1825,9 +1824,6 @@
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
-     </Reference>
-     <Reference Include="Vuforia.Unity.Engine">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@778cd30f6ecb/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Engine.dll</HintPath>
      </Reference>
      <Reference Include="Mapbox.VectorTile.Geometry">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.Geometry.dll</HintPath>
@@ -2231,8 +2227,11 @@
      <Reference Include="Unity.InternalAPIEngineBridge.007">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.007.dll</HintPath>
      </Reference>
-     <Reference Include="VuforiaEditorScripts">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaEditorScripts.dll</HintPath>
+     <Reference Include="Unity.XR.ARCore.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
@@ -2267,6 +2266,9 @@
      <Reference Include="UnityEngine.Monetization">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.XR.ARCore">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.XR.ARSubsystems">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
      </Reference>
@@ -2284,9 +2286,6 @@
      </Reference>
      <Reference Include="Unity.XR.Management.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -2312,9 +2311,6 @@
      <Reference Include="UnityEngine.Purchasing.SecurityCore">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Services.Core.Environments">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
      </Reference>
@@ -2333,17 +2329,11 @@
      <Reference Include="UnityEditor.SpatialTracking">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
      </Reference>
-     <Reference Include="VuforiaScripts">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/VuforiaScripts.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.Purchasing.SecurityStub">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityStub.dll</HintPath>
@@ -2353,9 +2343,6 @@
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
@@ -2384,8 +2371,11 @@
      <Reference Include="Unity.XR.Management">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <Reference Include="Unity.XR.ARKit.FaceTracking">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.FaceTracking.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.XR.ARKit">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARKit.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
@@ -2414,17 +2404,11 @@
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.XR.MockHMD.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.MockHMD.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Services.Core">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
@@ -2449,9 +2433,6 @@
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Unity.XR.ARFoundation">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>

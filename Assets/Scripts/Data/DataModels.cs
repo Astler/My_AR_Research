@@ -1,4 +1,5 @@
 using System;
+using Data.Objects;
 
 namespace Data
 {
@@ -84,16 +85,34 @@ namespace Data
     public class PrizeData
     {
         public int id;
+        public int event_id;
         public int prize_type;
         public int amount;
         public string image;
         public string name;
         public bool is_claimed;
+
+        public RewardViewInfo ToRewardViewInfo()
+        {
+            return new RewardViewInfo
+            {
+                Id = id,
+                EventId = event_id,
+                Name = name,
+                Url = image
+            };
+        }
     }
 
     [Serializable]
     public class PrizeCollectResponseData
     {
         public PrizeData prize;
+    }
+
+    [Serializable]
+    public class CollectedPrizesData
+    {
+        public PrizeData[] prizes;
     }
 }
