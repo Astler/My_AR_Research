@@ -34,7 +34,7 @@ namespace Data
     }
 
     #endregion
-    
+
     [Serializable]
     public class SignInResponse
     {
@@ -45,7 +45,7 @@ namespace Data
         public long current_server_time;
         public UserData user;
     }
-    
+
     [Serializable]
     public class UserData
     {
@@ -55,7 +55,7 @@ namespace Data
         public string country;
         public string platform;
     }
-    
+
     [Serializable]
     public class EventData
     {
@@ -63,18 +63,23 @@ namespace Data
         public string title;
         public double longitude;
         public double latitude;
+        public int drop_distance_min;
+        public int drop_distance_max;
+        public int drop_frequency;
+        public int simultaneous_boxes;
+        public int initial_boxes;
         public long start_time;
         public long finish_time;
         public float radius;
         public PrizeData[] prizes;
     }
-    
+
     [Serializable]
     public class EventsData
     {
         public EventData[] events;
     }
-    
+
     [Serializable]
     public class PrizeData
     {
@@ -85,7 +90,7 @@ namespace Data
         public string name;
         public bool is_claimed;
     }
-    
+
     [Serializable]
     public class PrizeCollectResponseData
     {

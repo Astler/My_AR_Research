@@ -1,10 +1,15 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AR.World;
+using AR.World.Collectable;
 using ARLocation;
+using Assets;
 using Assets.Scripts.AR.FoundationAR;
 using Data;
 using Data.Objects;
+using GameCamera;
 using Geo;
 using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
@@ -12,18 +17,21 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using Utils;
+using Vuforia;
 using Zenject;
+using Random = UnityEngine.Random;
 
-namespace Assets.Scripts.AR
+namespace AR
 {
     public class ZonesController : MonoBehaviour
     {
+        [SerializeField] private float giftSpawnTime = 5f;
         [SerializeField] private ARAnchorFollower zonePrefab;
-        [SerializeField] private ArBeam beamPrefab;
+        [SerializeField] private MannaBoxView beamPrefab;
 
         private ARAnchorFollower _pointMe;
         private readonly List<ARAnchorFollower> _anchors = new();
-        private readonly List<ArBeam> _beams = new();
+        private readonly List<MannaBoxView> _beams = new();
 
         private readonly List<BeamData> _beamsData = new();
         private ARAnchorFollower _zeroAnchor;
@@ -37,12 +45,15 @@ namespace Assets.Scripts.AR
         private ARWorldCoordinator _coordinator;
         private IDataProxy _dataProxy;
         private CoinsController _coinsController;
+        private IDisposable _newBeamTimer;
+        private CameraView _cameraView;
 
         [Inject]
         public void Construct(IARController arController, LocationController locationController,
             AssetsScriptableObject assetsScriptableObject, ARWorldCoordinator coordinator,
-            IDataProxy dataProxy, CoinsController coinsController)
+            IDataProxy dataProxy, CoinsController coinsController, CameraView cameraView)
         {
+            _cameraView = cameraView;
             _coinsController = coinsController;
             _dataProxy = dataProxy;
             _coordinator = coordinator;
@@ -62,10 +73,14 @@ namespace Assets.Scripts.AR
             }
             else
             {
-                ARSession.stateChanged += OnStateChanged;
+                VuforiaApplication.Instance.OnVuforiaStarted += PlaceZonesByMap;
             }
 
-            _dataProxy.PlaceRandomBeamForSelectedZone.Subscribe(_ => { CreateNewBeam(); }).AddTo(this);
+            _dataProxy.PlaceRandomBeamForSelectedZone.Subscribe(_ =>
+            {
+                _newBeamTimer?.Dispose();
+                _newBeamTimer = CreateNewBeam().ToObservable().Subscribe();
+            }).AddTo(this);
         }
 
         private void Clear()
@@ -77,7 +92,7 @@ namespace Assets.Scripts.AR
 
             _anchors.Clear();
 
-            foreach (ArBeam arAnchorFollower in _beams)
+            foreach (MannaBoxView arAnchorFollower in _beams)
             {
                 arAnchorFollower.gameObject.Destroy();
             }
@@ -89,45 +104,6 @@ namespace Assets.Scripts.AR
             ARLocationManager.Instance.Restart();
 
             PlaceZonesByMap();
-        }
-
-        private void OnStateChanged(ARSessionStateChangedEventArgs stateArgs)
-        {
-            if (stateArgs.state != ARSessionState.SessionTracking) return;
-
-            PlaceZonesByMap();
-            ARSession.stateChanged -= OnStateChanged;
-        }
-
-        private void PlaceObjectsAnchors(Vector2d playerPositionRaw)
-        {
-            float compass = Input.compass.trueHeading;
-
-            foreach (ARAnchorFollower arAnchorFollower in _anchors)
-            {
-                arAnchorFollower.gameObject.Destroy();
-            }
-
-            _anchors.Clear();
-
-            Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
-                Vector2d.zero).ToUnityVector();
-
-            foreach (ZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
-            {
-                Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
-                    playerPosition.ToVector2d()).ToUnityVector();
-
-                ARAnchorFollower follower =
-                    Instantiate(zonePrefab, new Vector3(objectPosition.x, 0f, objectPosition.y), Quaternion.identity,
-                        _coordinator.GetContentTransform());
-                follower.gameObject.AddComponent<ARAnchor>();
-                follower.name = portalZoneModel.Name;
-
-                _anchors.Add(follower);
-
-                Debug.Log("Placed " + portalZoneModel.Name + " at " + objectPosition);
-            }
         }
 
         private void PlaceZonesByMap()
@@ -178,11 +154,11 @@ namespace Assets.Scripts.AR
             }
         }
 
-        private void CreateNewBeam()
+        private IEnumerator CreateNewBeam()
         {
             ZoneViewInfo selectedZone = _dataProxy.SelectedPortalZone.Value;
 
-            if (selectedZone == null) return;
+            if (selectedZone == null) yield break;
 
             RewardViewInfo uncollectedReward = _dataProxy.GetAvailableRewardForZone();
 
@@ -191,15 +167,13 @@ namespace Assets.Scripts.AR
             if (uncollectedReward == null)
             {
                 Debug.Log("there is no active rewards!");
-                return;
+                yield break;
             }
-
-            int totalRewardsInZone = _dataProxy.GetRewardsForActiveZone().Count();
 
             BeamData beamData = new()
             {
-                Position = CoordinatesUtils.GetRandomWorldPositionInRadius(selectedZone.Coordinates,
-                    selectedZone.Radius),
+                Position = Random.insideUnitCircle * selectedZone.MaximumDropDistance +
+                           Vector2.one * selectedZone.MinimumDropDistance,
                 Name = uncollectedReward.Name,
                 Url = uncollectedReward.Url,
                 ZoneId = uncollectedReward.ZoneId,
@@ -208,45 +182,43 @@ namespace Assets.Scripts.AR
 
             _beamsData.Add(beamData);
 
+            for (int i = 0; i <= giftSpawnTime; i++)
+            {
+                _dataProxy.SetTimeToNextGift(giftSpawnTime - i);
+                yield return new WaitForSeconds(1f);
+            }
+
             PlaceBeamsByMap();
         }
 
         private void PlaceBeamsByMap()
         {
-            Vector2d playerPositionRaw = _dataProxy.GetPlayerPosition().ToVector2d();
+            Vector3 playerPosition = _cameraView.transform.position;
 
-            foreach (ArBeam arAnchorFollower in _beams)
+            foreach (MannaBoxView arAnchorFollower in _beams)
             {
                 arAnchorFollower.gameObject.Destroy();
             }
 
             _beams.Clear();
 
-            Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
-                Vector2d.zero).ToUnityVector();
-
             foreach (BeamData data in _beamsData)
             {
-                Vector2 objectPosition = Conversions.GeoToWorldPosition(data.Position.ToVector2d(),
-                    playerPosition.ToVector2d()).ToUnityVector();
+                Vector3 objectPosition = playerPosition + new Vector3(data.Position.x, 0f, data.Position.y);
 
-                ArBeam follower =
-                    Instantiate(beamPrefab, new Vector3(objectPosition.x, 0f, objectPosition.y), Quaternion.identity,
-                        _coordinator.GetContentTransform());
+                MannaBoxView follower =
+                    Instantiate(beamPrefab, objectPosition, Quaternion.identity, _coordinator.GetContentTransform());
 
                 follower.SetBeamData(data);
 
-                follower.WorldCoordinates = data.Position;
-                follower.SetName(data.Name);
+                // follower.WorldCoordinates = data.Position;
+                follower.SetBoxName(data.Name);
 
-                follower.SetupClick(() =>
+                follower.SetupCollectAction(() =>
                 {
-                    foreach (BeamData beamData in _beamsData.ToList())
+                    foreach (BeamData beamData in _beamsData.ToList().Where(beamData => beamData.Id == data.Id))
                     {
-                        if (beamData.Id == data.Id)
-                        {
-                            _beamsData.Remove(beamData);
-                        }
+                        _beamsData.Remove(beamData);
                     }
 
                     follower.gameObject.Destroy();
@@ -254,24 +226,24 @@ namespace Assets.Scripts.AR
                     _coinsController.SpawnCoinsAtPosition(follower.transform.position);
                     PlaceBeamsByMap();
                 });
-
-                Location location = new()
-                {
-                    Latitude = data.Position.x,
-                    Longitude = data.Position.y,
-                    Altitude = 0,
-                    AltitudeMode = AltitudeMode.GroundRelative,
-                };
-
-                PlaceAtLocation.PlaceAtOptions options = new()
-                {
-                    HideObjectUntilItIsPlaced = true,
-                    MaxNumberOfLocationUpdates = 1,
-                    MovementSmoothing = 0.1f,
-                    UseMovingAverage = false
-                };
-
-                PlaceAtLocation.AddPlaceAtComponent(follower.gameObject, location, options);
+                
+                // Location location = new()
+                // {
+                //     Latitude = data.Position.x,
+                //     Longitude = data.Position.y,
+                //     Altitude = 0,
+                //     AltitudeMode = AltitudeMode.GroundRelative,
+                // };
+                //
+                // PlaceAtLocation.PlaceAtOptions options = new()
+                // {
+                //     HideObjectUntilItIsPlaced = true,
+                //     MaxNumberOfLocationUpdates = 1,
+                //     MovementSmoothing = 0.1f,
+                //     UseMovingAverage = false
+                // };
+                //
+                // PlaceAtLocation.AddPlaceAtComponent(follower.gameObject, location, options);
 
                 _beams.Add(follower);
 

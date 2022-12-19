@@ -16,6 +16,8 @@ namespace Data.Objects
         
         public List<RewardViewInfo> Rewards;
         public int Id;
+        public int MinimumDropDistance;
+        public int MaximumDropDistance;
 
         public bool IsActive()
         {

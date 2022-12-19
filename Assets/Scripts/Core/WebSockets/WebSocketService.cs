@@ -9,15 +9,26 @@ using Utils;
 
 namespace Core.WebSockets
 {
-    public class WebSocketService
+    public class WebSocketService : IWebSocketService
     {
         private WebSocket _webSocket;
         private readonly BoolReactiveProperty _isConnectedToSocket = new();
         public IReadOnlyReactiveProperty<bool> IsConnectedToSocket => _isConnectedToSocket;
         public event Action<WebSocket, IncomingMessage> OnIncomingMessageReceived;
         private string _userToken;
-        public static readonly List<string> IncomingMessagesTypeNames =
+
+        private static readonly List<string> IncomingMessagesTypeNames =
             Enum.GetNames(typeof(IncomingMessagesTypes)).ToList();
+
+        public void SubscribeToEventSessionChannel(int eventId)
+        {
+            MessageData data = new()
+            {
+                command = "subscribe",
+                identifier = "{\"channel\":\"EventSessionChannel\", \"event_id\": \"" + eventId + "\"}"
+            };
+            _webSocket.Send(JsonUtility.ToJson(data));
+        }
 
         public void Connect(string userToken)
         {
@@ -100,6 +111,10 @@ namespace Core.WebSockets
             {
                 Debug.Log("Text Message received from WebSocket server: " + message);
             }
+            else
+            {
+                Debug.Log($"{im.GetType()} received from WebSocket server: " + message);
+            }
         }
 
         private void OnWebSocketClosed(WebSocket webSocket, UInt16 code, string message)
@@ -132,9 +147,9 @@ namespace Core.WebSockets
             return GlobalConstants.EnvironmentType switch
             {
                 EnvironmentType.localhost => "http://localhost:3000",
-                EnvironmentType.dev => "https://tiny-guys.themindstudios.com",
-                EnvironmentType.staging => "https://tiny-guys.themindstudios.com",
-                EnvironmentType.prod => "https://tiny-guys.themindstudios.com",
+                EnvironmentType.dev => "https://manna-drops.themindstudios.com",
+                EnvironmentType.staging => "https://manna-drops.themindstudios.com",
+                EnvironmentType.prod => "https://manna-drops.themindstudios.com",
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

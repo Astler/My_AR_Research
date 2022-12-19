@@ -33,5 +33,6 @@ namespace GameCamera
 
         public Vector3 GetFacePosition() => facePosition.position;
 
+        public Vector3 GetPosition() => _camera.transform.position;
     }
 }

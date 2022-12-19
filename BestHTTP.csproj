@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\BestHTTP\</OutputPath>
-    <DefineConstants>UNITY_2021_3_15;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;VUFORIA_ANDROID_SETTINGS;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_15;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;USE_SEARCH_TABLE;USE_SEARCH_MODULE;USE_PROPERTY_DATABASE;USE_SEARCH_EXTENSION_API;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_ANDROID;TEXTCORE_1_0_OR_NEWER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;VUFORIA_ANDROID_SETTINGS;ARGPS_USE_VUFORIA;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -45,7 +45,6 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/Srp6Group.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/ReadOnlyList.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ConstructedILEncoding.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/KCcmBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/DefaultSignedAttributeTableGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cryptopro/CryptoProObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/EncryptedData.cs" />
@@ -55,6 +54,7 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsECDomain.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/gm/SM2P256V1FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/MemoryInputStream.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/KCcmBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/Pkcs8EncryptedPrivateKeyInfoBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DefaultTlsKeyExchangeFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/ZStream.cs" />
@@ -66,10 +66,10 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/SHA3Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/gcm/Tables4kGcmMultiplier.cs" />
      <Compile Include="Assets/Best HTTP/Source/Decompression/InfTree.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/HMac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/PacketTags.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/operators/GenericKey.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/Threading/LockHelpers.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/HMac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DsaKeyGenerationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsStreamVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DLBitString.cs" />
@@ -90,21 +90,21 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/attr/ImageAttrib.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/CryptoHashAlgorithm.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/PasswordRecipientInfoGenerator.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TimeStampToken.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CmpCertificate.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/OCSPReq.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TimeStampToken.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalR/Transports/ServerSentEventsTransport.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ASN1OctetStringParser.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/OCSPReq.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/ReadOnlyCollection.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/ErrorMsgContent.cs" />
      <Compile Include="Assets/Best HTTP/Examples/Server-Sent Events/SimpleSample.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/HandshakeMessageOutput.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IXof.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/ErrorMsgContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSCompressedDataGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/AbstractECLookupTable.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DsaParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO/Interfaces.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat576.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DsaParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DtlsTransport.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP256K1Curve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/qualified/MonetaryValue.cs" />
@@ -113,11 +113,11 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DesEdeParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x9/DHValidationParms.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/OfbBlockCipher.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerGeneralString.cs" />
      <Compile Include="Assets/Best HTTP/Source/WebSocket/Implementations/WebGLBrowser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/endo/GlvTypeAParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/LegacyTls13Verifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/GOST3410ParametersGenerator.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerGeneralString.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x9/KeySpecificInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/tsp/MessageImprint.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/PublicSubkeyPacket.cs" />
@@ -126,20 +126,20 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/AesUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSrpUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT233K1Point.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IStreamCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410PrivateKeyParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509NameEntryConverter.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsStreamVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsClientContext.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/PlainDsaEncoding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PKIFreeText.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/PlainDsaEncoding.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IStreamCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/PKIArchiveOptions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/InvalidCipherTextException.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/SimpleAttributeTableGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/Time.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/AuthEnvelopedData.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/RSABlindingFactorGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalR/Transports/WebSocketTransport.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/RSABlindingFactorGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/HMacDsaKCalculator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DtlsRecordLayer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/endo/ECEndomorphism.cs" />
@@ -192,9 +192,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/ReadOnlyDictionary.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/Ed448PublicKeyParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/ParameterUtilities.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT409R1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/io/CipherStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat128.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT409R1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DatagramReceiver.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/PKIPublicationInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP192R1Curve.cs" />
@@ -214,8 +214,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/Srp6GroupParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AlgorithmIdentifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/Core/ProtocolEvents.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/GOST28147Engine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcX448Domain.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/GOST28147Engine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/KeyAgreeRecipientInformation.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/OCSPUtil.cs" />
      <Compile Include="Assets/Best HTTP/Source/Extensions/Future.cs" />
@@ -228,8 +228,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509SignatureUtil.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/AuthenticatorControl.cs" />
      <Compile Include="Assets/Best HTTP/Examples/SignalRCore/RedirectSample.cs" />
-     <Compile Include="Assets/Best HTTP/Examples/HTTP/StreamingSample.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/ReadOnlySet.cs" />
+     <Compile Include="Assets/Best HTTP/Examples/HTTP/StreamingSample.cs" />
      <Compile Include="Assets/Best HTTP/Source/Extensions/WWWAuthenticateHeaderParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/RecordPreview.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT163FieldElement.cs" />
@@ -238,9 +238,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509Extensions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateStatusRequest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO.3/Parsers/DefaultJsonParser.cs" />
+     <Compile Include="Assets/Best HTTP/Examples/Plugin/AsyncExtensions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/DisplayText.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/Grain128AEADEngine.cs" />
-     <Compile Include="Assets/Best HTTP/Examples/Plugin/AsyncExtensions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/SecretSubkeyPacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ParametersWithRandom.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/teletrust/TeleTrusTNamedCurves.cs" />
@@ -249,8 +249,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsDsaSigner.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/ThreefishEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/KDFCounterParameters.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/SP800SecureRandomBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/isismtt/x509/NamingAuthority.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/SP800SecureRandomBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/kdf/ECDHKekGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/Evidence.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IRsa.cs" />
@@ -271,8 +271,8 @@
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/BurstTables8kGcmMultiplier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/DigestRandomGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT193R1Point.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertifiedKeyPair.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/PasswordRecipientInformation.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertifiedKeyPair.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AccessDescription.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/RsaSecretBcpgKey.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsProtocol.cs" />
@@ -287,11 +287,11 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsEd448Signer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/TwofishEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/PolicyMappings.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/X448KeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/PolicyQualifierId.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/SimulatedTlsSrpIdentityManager.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/RSABlindingEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT283Field.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/X448KeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/RSAPrivateKeyStructure.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/AesEngine_X86.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/sigi/NameOrPseudonym.cs" />
@@ -334,6 +334,7 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/AesWrapEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/djb/Curve25519.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/CertRequest.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/srp/SRP6VerifierGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsECDomain.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509ExtensionsGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/CryptoApiRandomGenerator.cs" />
@@ -341,14 +342,13 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/RipeMD128Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/CcmBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/Cookies/Cookie.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/srp/SRP6VerifierGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/Proxies/HTTPProxy.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/CertificationRequest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSAuthEnvelopedData.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/multiplier/WTauNafPreCompInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/RecipientInformationStore.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsEccUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/smime/SMIMECapabilities.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsEccUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/KeyShareEntry.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalRCore/UploadItemController.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/sig/EmbeddedSignature.cs" />
@@ -360,9 +360,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ocsp/Signature.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x500/style/IetfUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsHeartbeat.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/openssl/PEMReader.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/FastTlsBlockCipherImpl.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/PEMParser.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/openssl/PEMReader.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/Blake2sDigest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/XTEAEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/CryptoServicesRegistrar.cs" />
@@ -429,9 +429,9 @@
      <Compile Include="Assets/Best HTTP/Source/SignalRCore/Transports/WebsocketTransport.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT571FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TSPException.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/X923Padding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ScaleYNegateXPointMap.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/PskTlsClient.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/X923Padding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/X25519Agreement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/AttributeTable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DatagramTransport.cs" />
@@ -459,8 +459,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP224R1Field.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/RsaDigestSigner.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/SignedData.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/edec/EdECObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/OcspResponsesID.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/edec/EdECObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/SignatureSubpacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/RFC3211WrapEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/pem/PemObjectGenerator.cs" />
@@ -481,8 +481,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixPolicyNode.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/MD5Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/Pkcs12ParametersGenerator.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Decompression/ZlibConstants.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/DefaultAuthenticatedAttributeTableGenerator.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Decompression/ZlibConstants.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/sig/PrimaryUserId.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/Pfx.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/ZeroBytePadding.cs" />
@@ -539,8 +539,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CachedInformationType.cs" />
      <Compile Include="Assets/Best HTTP/Source/Authentication/Credentials.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DERSetParser.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Core/HostManager.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/HTTP2/HTTP2Frames.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Core/HostManager.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/PKCS12PBEParams.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/SignatureAlgorithm.cs" />
      <Compile Include="Assets/Best HTTP/Examples/SignalR/Json Encoders/JSonDotnetEncoder.cs" />
@@ -563,9 +563,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/OutputLengthException.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/SymmetricKeyEncSessionPacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/AttributeTypeAndValue.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/SM2Engine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/ISecretWithEncapsulation.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/PublicKeyEncSessionPacket.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/SM2Engine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/WrapperUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ocsp/BasicOCSPResponse.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/CMac.cs" />
@@ -582,8 +582,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PopoDecKeyRespContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/GeneralNames.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT233Field.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/Certificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat512.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/Certificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/EnvelopedDataHelper.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/NaccacheSternKeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/OCSPRespGenerator.cs" />
@@ -607,15 +607,15 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/Salsa20Engine.cs" />
      <Compile Include="Assets/Best HTTP/Examples/SignalRCore/HubWithPreAuthorizationSample.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/AgreementUtilities.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/ElGamalEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AttributeTable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP224K1Curve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertConfirmContent.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/TimeStampedDataParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/endo/EndoUtilities.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/ElGamalEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cryptopro/GOST28147Parameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/SignerInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/MaxFragmentLength.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/TimeStampedDataParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/Proxies/Autodetect/ProxyDetector.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSContentInfoParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/Sha512Digest.cs" />
@@ -651,9 +651,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/srp/SRP6Client.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/jpake/JPakePrimeOrderGroups.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/Ed448Signer.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410KeyGenerationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/KeyAgreeRecipientInfoGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/Core/PluginEvents.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410KeyGenerationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/SCrypt.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSSignedData.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/NamedGroupRole.cs" />
@@ -757,8 +757,8 @@
      <Compile Include="Assets/Best HTTP/Examples/SignalRCore/UploadHubSample.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/anssi/ANSSIObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsCertificate.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/isismtt/x509/Admissions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/StreamOverflowException.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/isismtt/x509/Admissions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/oiw/OIWObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/icao/DataGroupHash.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixNameConstraintValidator.cs" />
@@ -778,6 +778,7 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/CryptoSignatureAlgorithm.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsNoCloseNotifyException.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/X25519KeyGenerationParameters.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/misc/MiscObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/SinglePubInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalRCore/HelperClasses.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/OcspStatusRequest.cs" />
@@ -788,7 +789,6 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsSrp6Server.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ElGamalPublicKeyParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/KeyTransRecipientInformation.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/misc/MiscObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/util/Asn1Dump.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalR/Connection.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/V2AttributeCertificateInfoGenerator.cs" />
@@ -864,10 +864,10 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/RevDetails.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PKIConfirmContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/gcm/Tables64kGcmMultiplier.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ByteQueueInputStream.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/RsaPublicBcpgKey.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/io/MacStream.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/RsaPublicBcpgKey.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/KeyAgreeRecipientIdentifier.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ByteQueueInputStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/encodings/OaepEncoding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/ECDsaPublicBCPGKey.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/Enums.cs" />
@@ -880,8 +880,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/RecordFormat.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/gcm/BasicGcmMultiplier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSAuthenticatedDataParser.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/CertificatePair.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcX25519.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/CertificatePair.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT409Field.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP256K1Field.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/MacData.cs" />
@@ -905,9 +905,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cryptopro/GOST3410NamedParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/SicBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/Ed25519phSigner.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/ISelector.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSSignedDataGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/Attribute.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/ISelector.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsSrp6Client.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSession.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/OCSPReqGenerator.cs" />
@@ -923,12 +923,12 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/SubjectDirectoryAttributes.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ContentType.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSProcessableByteArray.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/PrivateKeyInfoFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509Crl.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/ECMqvBasicAgreement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/Crc24.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SocketIO.3/SocketOptions.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/PrivateKeyInfoFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ParametersWithID.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SocketIO.3/SocketOptions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSrtpUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/nist/KMACwithSHAKE256_params.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/RC2Parameters.cs" />
@@ -937,24 +937,24 @@
      <Compile Include="Assets/Best HTTP/Source/Forms/HTTPFormBase.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/RC2CBCParameter.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/compression/Zip.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/io/SignerStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/Decompression/GZipDecompressor.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/AEADParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/CrlListID.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/io/SignerStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/encoders/BufferedEncoder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateStatusRequestItemV2.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/GcmSivBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/Memory/BufferSegment.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/SubjectPublicKeyInfo.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP384R1FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/HTTPResponse.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP384R1FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/abc/Tnaf.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/VMPCRandomGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/Collections/Specialized/NotifyCollectionChangedEventArgs.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/CertReqMessages.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CounterSignatureDigestCalculator.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsKeyExchangeFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/AbstractTlsKeyExchangeFactory.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsKeyExchangeFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/DHParametersGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/HTTP2/HTTP2SettingsRegistry.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsCertificate.cs" />
@@ -1109,24 +1109,24 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/CMSObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/DHKeyGeneratorHelper.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/TlsBlockCipherImpl.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/RoleSyntax.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/RC4Engine.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/RoleSyntax.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/V3TBSCertificateGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/drbg/CtrSP800Drbg.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/SignaturePolicyIdentifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/BERBitString.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/EdSecretBcpgKey.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/ProofOfPossessionSigningKeyBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/JSON/LitJson/JsonReader.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/ProofOfPossessionSigningKeyBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Examples/Helpers/SampleBase.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerInteger.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Logger/FileOutput.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ElGamalParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/ZDeflaterOutputStream.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Logger/FileOutput.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/FastAesEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerEnumerated.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsCryptoUtilities.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/CertTemplateBuilder.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ElGamalParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/Haraka512_X86.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DefaultTlsServer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AttCertValidityPeriod.cs" />
@@ -1158,8 +1158,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/BerTaggedObject.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO/Transports/ITransport.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/drbg/DrbgUtilities.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509V2AttributeCertificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ParametersWithIV.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509V2AttributeCertificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixCertPathValidatorException.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/Controls.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AttCertIssuer.cs" />
@@ -1205,13 +1205,13 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsClientContextImpl.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/store/X509CrlStoreSelector.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/TlsImplUtilities.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DtlsProtocol.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsCredentialedAgreement.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/DesKeyGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/NamedGroup.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/RsaKeyGenerationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/IssuerAndSerialNumber.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DtlsProtocol.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/DesKeyGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DatagramSender.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/RecipientInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/Ed25519PrivateKeyParameters.cs" />
@@ -1223,8 +1223,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/KeyRecRepContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DefaultTlsSrpConfigVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/IesWithCipherParameters.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/PrivateKeyInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/CompressionAlgorithmTags.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/PrivateKeyInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/gm/SM2P256V1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/HeartbeatMode.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsPskExternal.cs" />
@@ -1236,9 +1236,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DesParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/ecc/MQVuserKeyingMaterial.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/LazyASN1InputStream.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SignalRCore/Extensions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixCertPathBuilderResult.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/RFC3394WrapEngine.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SignalRCore/Extensions.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/RsaPrivateCrtKeyParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/ProofOfPossession.cs" />
      <Compile Include="Assets/Best HTTP/Source/SignalR/Transports/PostSendTransportBase.cs" />
@@ -1290,38 +1290,38 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ByteQueue.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO.3/IncomingPacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/IBlockCipherPadding.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/PBES2Parameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/FpeParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT131R1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DtlsReassembler.cs" />
      <Compile Include="Assets/Best HTTP/Source/Forms/Implementations/HTTPMultiPartForm.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/PBES2Parameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT283R1Curve.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT409K1Curve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerTaggedObject.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/ReasonFlags.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/ZInflaterInputStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/GOST3411_2012_256Digest.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT409K1Curve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/CertificateRequestMessageBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/GeneralSubtree.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/OtherKeyAttribute.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/sig/RevocationReasonTags.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/IDigestCalculator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/EncryptedKey.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/IDigestCalculator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DLBitStringParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsHmac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSEnvelopedDataParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/ServerSentEvents/EventSource.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/XofUtils.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410ValidationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertRepMessage.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410ValidationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/MqvPublicParameters.cs" />
      <Compile Include="Assets/Best HTTP/Examples/Helpers/Components/Cache.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/VMPCMac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IKeyWrapper.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO.3/Error.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IMacDerivationFunction.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/BasicTlsPskIdentity.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IMacDerivationFunction.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsStreamSigner.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/Spans.cs" />
      <Compile Include="Assets/Best HTTP/Source/Caching/HTTPCacheService.cs" />
@@ -1344,11 +1344,11 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/Pkcs8EncryptedPrivateKeyInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/Security.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x9/X9IntegerConverter.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Decompression/GZipStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AuthorityInformationAccess.cs" />
      <Compile Include="Assets/Best HTTP/Examples/SocketIO/SocketIOChatSample.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/TrustPacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/operators/DefaultSignatureResult.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Decompression/GZipStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/drbg/HMacSP800Drbg.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsClientProtocol.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/CommitmentTypeIdentifier.cs" />
@@ -1366,13 +1366,13 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/AlertDescription.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/anssi/ANSSINamedCurves.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsDHConfig.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/Asn1Encodable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/bc/BCObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/nist/KMACwithSHAKE128_params.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/V2Form.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSrpConfigVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/RevocationValues.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/IssuerSerial.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/Asn1Encodable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/DHBasicKeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/AttributeCertificateHolder.cs" />
      <Compile Include="Assets/Best HTTP/Source/Authentication/DigestStore.cs" />
@@ -1401,9 +1401,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/Ed448KeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/Holder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/Pkcs10CertificationRequest.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DLTaggedObject.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/RSAESOAEPparams.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcSsl3Hmac.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DLTaggedObject.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ASN1SetParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/misc/NetscapeCertType.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP256K1Point.cs" />
@@ -1432,8 +1432,8 @@
      <Compile Include="Assets/Best HTTP/Source/Connections/HTTP2/HTTP2Response.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/smime/SMIMECapabilitiesAttribute.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/TlsNullCipher.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/ExtendedKeyUsage.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/DHParametersHelper.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/ExtendedKeyUsage.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/BlockCipherPadding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/ECNRSigner.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IDigest.cs" />
@@ -1458,17 +1458,17 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT193R2Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/SM3Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/Pkcs12Utilities.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x500/AttributeTypeAndValue.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/FastSalsa20Engine.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IRawAgreement.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x500/AttributeTypeAndValue.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/PrivateKeyFactory.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IRawAgreement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/SrpTlsServer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixAttrCertPathBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSSignedHelper.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/Collections/Concurrent/ConcurrentQueue.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ess/ContentHints.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/SkeinMac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/ChaCha7539Engine.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/SkeinMac.cs" />
      <Compile Include="Assets/Best HTTP/Source/Extensions/HeaderParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsFatalAlertReceived.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/ECDHCBasicAgreement.cs" />
@@ -1481,11 +1481,11 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsCloseable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TSPAlgorithms.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DefaultTlsCredentialedSigner.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DHParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/HTTPProtocolFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsCryptoException.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/FastChaChaEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/AsymmetricCipherKeyPair.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DHParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/Longs.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/SkeinEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PKIStatusInfo.cs" />
@@ -1543,8 +1543,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/CamelliaLightEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/HashAlgorithm.cs" />
      <Compile Include="Assets/Best HTTP/Source/Caching/HTTPCacheFileLock.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/mozilla/PublicKeyAndChallenge.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsECDheKeyExchange.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/mozilla/PublicKeyAndChallenge.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/openssl/PEMWriter.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/IesEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/Arrays.cs" />
@@ -1568,10 +1568,10 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/AuthenticatedSafe.cs" />
      <Compile Include="Assets/Best HTTP/Source/WebSocket/Frames/WebSocketFrame.cs" />
      <Compile Include="Assets/Best HTTP/Source/WebSocket/Frames/WebSocketFrameReader.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsServer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/Kdf1BytesGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/Extensions/KeyValuePairList.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/misc/VerisignCzagExtension.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsServer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/NonMemoableDigest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/DHGroup.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/TimeStampTokenEvidence.cs" />
@@ -1581,9 +1581,9 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/CertificateList.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/EcbBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/PbeParametersGenerator.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IAlphabetMapper.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/isismtt/x509/ProcurationSyntax.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/HeartbeatMessage.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IAlphabetMapper.cs" />
      <Compile Include="Assets/Best HTTP/Source/WebSocket/WebSocketStatusCodes.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsPeer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/ICipherParameters.cs" />
@@ -1596,20 +1596,20 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ClientAuthenticationType.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT113Field.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat256.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/RegTokenControl.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ServerOnlyTlsAuthentication.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/KEKRecipientInformation.cs" />
      <Compile Include="Assets/Best HTTP/Source/Cookies/CookieJar.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509NameTokenizer.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/sig/TrustSignature.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/X931Signer.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/RegTokenControl.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/AbstractTls13Client.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/FastBcChaCha20Poly1305.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Decompression/Deflate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/IEncryptedValuePadder.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSEnvelopedData.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/PskTlsServer.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/FileConnection.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Decompression/Deflate.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSEnvelopedData.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/AttributeCertificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerNumericString.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO.3/Transports/PollingTransport.cs" />
@@ -1620,13 +1620,13 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsDssVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkix/PkixNameConstraintValidatorException.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/Cast6Engine.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/iana/IANAObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsVerifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/Ed448KeyGenerationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/OtherSigningCertificate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509V2CRLGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/IRandomGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/gcm/Tables8kGcmMultiplier.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/iana/IANAObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/InfCodes.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/IL2CPP/Il2CppEagerStaticClassConstructionAttribute.cs" />
      <Compile Include="Assets/Best HTTP/Examples/SocketIO/SocketIO Json Encoders/JsonDotNetEncoder.cs" />
@@ -1651,8 +1651,8 @@
      <Compile Include="Assets/Best HTTP/Examples/SignalR/Authentication Providers/SampleHeaderAuthentication.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/LazyDLEnumerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/multiplier/FixedPointPreCompInfo.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/RootCaKeyUpdateContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/fpe/FpeFf1Engine.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/RootCaKeyUpdateContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/Sha224Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/ZOutputStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsECDH.cs" />
@@ -1705,12 +1705,12 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/Streams.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DigestInputBuffer.cs" />
      <Compile Include="Assets/Best HTTP/Source/Logger/UnityOutput.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Caching/HTTPCacheFileInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP192K1Point.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Caching/HTTPCacheFileInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/Blake3Parameters.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerStringBase.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IMacFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509CertificatePair.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerStringBase.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/compression/ZLib.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsHandshakeHash.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/SkipjackEngine.cs" />
@@ -1732,8 +1732,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsException.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/IBasicAgreement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO/Enums.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/Bytes.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/crmf/PopoSigningKey.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/Bytes.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/icao/LDSSecurityObject.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/GOST3411Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/Extensions/StreamList.cs" />
@@ -1755,10 +1755,10 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertOrEncCert.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateStatus.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/AuthenticatedDataParser.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/pem/PemObjectParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/DefaultPKMacPrimitivesProvider.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/ICipherBuilder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/SimpleLookupTable.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/pem/PemObjectParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT233R1Curve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/EncryptedData.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/sig/Exportable.cs" />
@@ -1770,15 +1770,15 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x9/X9ECPoint.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ECPointMap.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ProtocolVersion.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsClient.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/CrmfException.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsClient.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/BasicOCSPResp.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/AbstractTlsSecret.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/PBKDF2Params.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTls13Verifier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT571R1Curve.cs" />
-     <Compile Include="Assets/Best HTTP/Source/Forms/HTTPFormUsage.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/SignatureScheme.cs" />
+     <Compile Include="Assets/Best HTTP/Source/Forms/HTTPFormUsage.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateVerify.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerIA5String.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerObjectIdentifier.cs" />
@@ -1789,8 +1789,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/ec/CustomNamedCurves.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/CertificationRequestInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/prng/IDrbgProvider.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat160.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/kisa/KISAObjectIdentifiers.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat160.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP160K1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/util/AlgorithmIdentifierFactory.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/BaseDigestCalculator.cs" />
@@ -1806,8 +1806,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TimeStampRequestGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/PKIBody.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ocsp/Request.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/GOST3410KeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT113R1Point.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/GOST3410KeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/Asn1Type.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/DSTU7564Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/store/X509AttrCertStoreSelector.cs" />
@@ -1816,8 +1816,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Nat448.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/gcm/BasicGcmExponentiator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/ocsp/ResponseBytes.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/BcpgInputStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/SignerLocation.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/BcpgInputStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/GenRepContent.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/io/pem/PemHeader.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/Pkcs7Padding.cs" />
@@ -1826,16 +1826,16 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509ObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/jpake/JPakeParticipant.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/BERSetParser.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/DSTU7624Mac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/GOST3411_2012Digest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/MemoableResetException.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/DSTU7624Mac.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP192K1FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/security/InvalidParameterException.cs" />
      <Compile Include="Assets/Best HTTP/Source/Forms/Implementations/HTTPUrlEncodedForm.cs" />
      <Compile Include="Assets/Best HTTP/Source/Extensions/PeekableIncomingSegmentStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/OnePassSignaturePacket.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateEntry.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsStreamSigner.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateEntry.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/endo/EndoPreCompInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/RSABlindedEngine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DigitallySigned.cs" />
@@ -1886,8 +1886,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/SM2KeyExchange.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/tsp/TimeStampReq.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/LazyDERSequence.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/UnknownStatus.cs" />
      <Compile Include="Assets/Best HTTP/Source/WebSocket/Extensions/IExtension.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/UnknownStatus.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/SignerAttribute.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/ocsp/CertificateID.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509Utilities.cs" />
@@ -1909,8 +1909,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/PskIdentity.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO/JsonEncoders/IJSonEncoder.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsPskIdentityManager.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ServerNameList.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/Adler32.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/ServerNameList.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/zlib/Deflate.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerUTCTime.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/DsaPrivateKeyParameters.cs" />
@@ -1924,17 +1924,17 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DefaultTlsHeartbeat.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/collections/StoreImpl.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/TlsAeadCipher.cs" />
-     <Compile Include="Assets/Best HTTP/Examples/Helpers/GUIHelper.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/Asn1Object.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/HTTP1Handler.cs" />
+     <Compile Include="Assets/Best HTTP/Examples/Helpers/GUIHelper.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP224R1FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DERSetGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/Core/IProtocol.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/raw/Bits.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/multiplier/WTauNafMultiplier.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT131R2Curve.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSrpLoginParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/DerVisibleString.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSrpLoginParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/Srp6StandardGroups.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/util/encoders/UrlBase64.cs" />
      <Compile Include="Assets/Best HTTP/Source/SocketIO.3/Events/TypedEventTable.cs" />
@@ -1948,8 +1948,8 @@
      <Compile Include="Assets/Best HTTP/Examples/SignalRCore/Authentication Providers/HeaderAuthenticator.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/TLS/Crypto/Impl/FastCbcBlockCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/TlsNonceGenerator.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSCompressedDataStreamGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/abc/SimpleBigDecimal.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSCompressedDataStreamGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/modes/IAeadCipher.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/esf/OtherHashAlgAndValue.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsSessionImpl.cs" />
@@ -1972,17 +1972,17 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsDHDomain.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cryptopro/GOST3410ParamSetParameters.cs" />
      <Compile Include="Assets/Best HTTP/Examples/HTTP/MultipartFormDataStream.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/openssl/Pkcs8Generator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/BcpgObject.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/openssl/Pkcs8Generator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/RsaKeyPairGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/util/FilterStream.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/generators/Pkcs5S1ParametersGenerator.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/signers/GenericSigner.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/CertificateType.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509Extension.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TimeStampRequest.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT131R1Curve.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509AttrCertParser.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/x509/X509Extension.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/bcpg/CompressedDataPacket.cs" />
      <Compile Include="Assets/Best HTTP/Source/Connections/HTTP2/HeaderTable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/Cast5Engine.cs" />
@@ -2504,23 +2504,38 @@
      <Reference Include="Unity.Analytics.Editor">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.17.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.Analytics.StandardEvents">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Plastic.Antlr3.Runtime">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.collab-proxy@1.17.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Unsafe">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.Unsafe.dll</HintPath>
      </Reference>
-     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.TextureAssets">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
+     <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Vuforia.Unity.Editor">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@778cd30f6ecb/Vuforia/Plugins/Managed/Editor/Vuforia.Unity.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="DOTween">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+     </Reference>
+     <Reference Include="Vuforia.Unity.Wrapper">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@778cd30f6ecb/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Wrapper.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.IonicZip">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll</HintPath>
@@ -2536,6 +2551,9 @@
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.YamlDotNet">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
      </Reference>
      <Reference Include="Mapbox.VectorTile.PbfReader">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.PbfReader.dll</HintPath>
@@ -2555,6 +2573,9 @@
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.unity.burst@1.7.3/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
+     <Reference Include="Vuforia.Unity.Engine">
+     <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/PackageCache/com.ptc.vuforia.engine@778cd30f6ecb/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Engine.dll</HintPath>
+     </Reference>
      <Reference Include="Mapbox.VectorTile.Geometry">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46/Mapbox.VectorTile.Geometry.dll</HintPath>
      </Reference>
@@ -2570,371 +2591,380 @@
      <Reference Include="Unity.Android.Gradle">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll</HintPath>
      </Reference>
-     <Reference Include="netstandard">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
-     </Reference>
-     <Reference Include="Microsoft.Win32.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/Microsoft.Win32.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.AppContext">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.AppContext.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Buffers">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Buffers.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections.Concurrent">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Concurrent.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections.NonGeneric">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.NonGeneric.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections.Specialized">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.Specialized.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Collections">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Collections.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.EventBasedAsync">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.TypeConverter">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.TypeConverter.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ComponentModel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Console">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Console.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Data.Common">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Data.Common.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Contracts">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Contracts.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Debug">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Debug.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.FileVersionInfo">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Process">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Process.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.StackTrace">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.StackTrace.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.TextWriterTraceListener">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Tools">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tools.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.TraceSource">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.TraceSource.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Diagnostics.Tracing">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Diagnostics.Tracing.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Drawing.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Drawing.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Dynamic.Runtime">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Dynamic.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Globalization.Calendars">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Calendars.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Globalization.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Globalization">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Globalization.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Compression.ZipFile">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.ZipFile.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Compression">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Compression.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem.DriveInfo">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem.Watcher">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.Watcher.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.FileSystem">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.FileSystem.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.IsolatedStorage">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.IsolatedStorage.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.MemoryMappedFiles">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.MemoryMappedFiles.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Pipes">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.Pipes.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.UnmanagedMemoryStream">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.IO.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq.Expressions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Expressions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq.Parallel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Parallel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq.Queryable">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.Queryable.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Linq">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Linq.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Memory">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Memory.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Http">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Http.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.NameResolution">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NameResolution.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.NetworkInformation">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.NetworkInformation.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Ping">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Ping.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Requests">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Requests.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Security">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Security.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.Sockets">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.Sockets.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.WebHeaderCollection">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebHeaderCollection.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.WebSockets.Client">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.Client.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net.WebSockets">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Net.WebSockets.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Numerics.Vectors">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Numerics.Vectors.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ObjectModel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ObjectModel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.DispatchProxy">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.DispatchProxy.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Emit.ILGeneration">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.ILGeneration.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Emit.Lightweight">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.Lightweight.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Emit">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Emit.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Reflection">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Reflection.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Resources.Reader">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Reader.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Resources.ResourceManager">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.ResourceManager.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Resources.Writer">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Resources.Writer.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.CompilerServices.VisualC">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Handles">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Handles.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.InteropServices">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.InteropServices.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Numerics">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Numerics.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Formatters">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Json">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization.Xml">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.Serialization.Xml.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Claims">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Claims.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Algorithms">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Csp">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Csp.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Encoding">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Encoding.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.Primitives">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.Primitives.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Cryptography.X509Certificates">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.Principal">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.Principal.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Security.SecureString">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Security.SecureString.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Text.Encoding.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Text.Encoding">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.Encoding.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Text.RegularExpressions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Text.RegularExpressions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Overlapped">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Overlapped.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Tasks.Extensions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Extensions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Tasks.Parallel">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.Parallel.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Tasks">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Tasks.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Thread">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Thread.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.ThreadPool">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.ThreadPool.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading.Timer">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.Timer.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Threading">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Threading.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ValueTuple">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.ValueTuple.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.ReaderWriter">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.ReaderWriter.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XDocument">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XDocument.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XPath.XDocument">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.XDocument.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XPath">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XPath.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XmlDocument">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlDocument.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.XmlSerializer">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ComponentModel.Composition">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Core">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Data">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Data.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Drawing">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Drawing.dll</HintPath>
-     </Reference>
-     <Reference Include="System.IO.Compression.FileSystem">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.IO.Compression.FileSystem.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Net">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Net.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Numerics">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Numerics.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Runtime.Serialization">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Runtime.Serialization.dll</HintPath>
-     </Reference>
-     <Reference Include="System.ServiceModel.Web">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.ServiceModel.Web.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Transactions">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Transactions.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Web">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Web.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Windows">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Windows.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.Linq">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Linq.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml.Serialization">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
-     </Reference>
-     <Reference Include="System.Xml">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.Xml.dll</HintPath>
+     <Reference Include="mscorlib">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="System">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/System.dll</HintPath>
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.dll</HintPath>
      </Reference>
-     <Reference Include="mscorlib">
-     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
+     <Reference Include="System.Core">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Core.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Runtime.Serialization.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.Linq">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Numerics">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Numerics.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Numerics.Vectors">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Numerics.Vectors.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Http">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Net.Http.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.IO.Compression.dll</HintPath>
+     </Reference>
+     <Reference Include="Microsoft.CSharp">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Microsoft.CSharp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Data.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data.DataSetExtensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Data.DataSetExtensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Drawing">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Drawing.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression.FileSystem">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.IO.Compression.FileSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Composition">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.ComponentModel.Composition.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Transactions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll</HintPath>
+     </Reference>
+     <Reference Include="Microsoft.Win32.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.AppContext">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.AppContext.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Buffers">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Buffers.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.Concurrent">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.Concurrent.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.NonGeneric">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.NonGeneric.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections.Specialized">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.Specialized.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Collections">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Collections.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Annotations">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.EventBasedAsync">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel.TypeConverter">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ComponentModel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ComponentModel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Console">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Console.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Data.Common">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Data.Common.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Contracts">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Debug">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Debug.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.FileVersionInfo">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Process">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Process.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.StackTrace">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.TextWriterTraceListener">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.Tools">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.Tools.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Diagnostics.TraceSource">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Drawing.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Drawing.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Dynamic.Runtime">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Dynamic.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization.Calendars">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.Calendars.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Globalization">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Globalization.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Compression.ZipFile">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.DriveInfo">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem.Watcher">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.FileSystem">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.FileSystem.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.IsolatedStorage">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.MemoryMappedFiles">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.Pipes">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.Pipes.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO.UnmanagedMemoryStream">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
+     </Reference>
+     <Reference Include="System.IO">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.IO.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Expressions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Expressions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Parallel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Parallel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq.Queryable">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.Queryable.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Linq">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Linq.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Memory">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Memory.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Http.Rtc">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Http.Rtc.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.NameResolution">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.NameResolution.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.NetworkInformation">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.NetworkInformation.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Ping">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Ping.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Requests">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Requests.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Security">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Security.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.Sockets">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.Sockets.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebHeaderCollection">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebSockets.Client">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Net.WebSockets">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Net.WebSockets.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ObjectModel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ObjectModel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.DispatchProxy">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.DispatchProxy.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit.ILGeneration">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit.Lightweight">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Emit">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Emit.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Reflection">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Reflection.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.Reader">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.Reader.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.ResourceManager">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.ResourceManager.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Resources.Writer">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Resources.Writer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.CompilerServices.VisualC">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Handles">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Handles.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.InteropServices">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.InteropServices.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Numerics">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Numerics.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Formatters">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Json">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime.Serialization.Xml">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Runtime">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Claims">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Claims.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Algorithms">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Csp">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Encoding">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Cryptography.X509Certificates">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.Principal">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.Principal.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Security.SecureString">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Security.SecureString.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Duplex">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Http">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Http.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.NetTcp">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Primitives">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ServiceModel.Security">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ServiceModel.Security.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.Encoding.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.Encoding">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.Encoding.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Text.RegularExpressions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Text.RegularExpressions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Overlapped">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Overlapped.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks.Extensions">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.Extensions.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks.Parallel">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Tasks">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Tasks.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Thread">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Thread.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.ThreadPool">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.ThreadPool.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading.Timer">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.Timer.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Threading">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Threading.dll</HintPath>
+     </Reference>
+     <Reference Include="System.ValueTuple">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.ValueTuple.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.ReaderWriter">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XDocument">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XPath.XDocument">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XPath">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XPath.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XmlDocument">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XmlDocument.dll</HintPath>
+     </Reference>
+     <Reference Include="System.Xml.XmlSerializer">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
+     </Reference>
+     <Reference Include="netstandard">
+     <HintPath>/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>/Users/vladislavterentyev/Desktop/MS/AR_Research/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

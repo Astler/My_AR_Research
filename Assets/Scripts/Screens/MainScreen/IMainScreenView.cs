@@ -16,6 +16,7 @@ namespace Screens.MainScreen
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
 
+        void SetNextGiftTime(float timeToNextGift);
         void SetIsMapActive(bool isMapActive);
         void SetCoins(int coins);
         void SetupActiveZone([CanBeNull] string zoneName);

@@ -1,10 +1,11 @@
 using AR.World;
+using AR.World.Collectable;
 using UnityEngine;
 
 namespace GameCamera
 {
     [RequireComponent(typeof(BoxCollider))]
-    public class InteractionDetector: MonoBehaviour
+    public class InteractionDetector : MonoBehaviour
     {
         private BoxCollider _boxCollider;
 
@@ -17,34 +18,20 @@ namespace GameCamera
         {
             _boxCollider.isTrigger = true;
         }
-        
+
         private void OnTriggerEnter(Collider other)
         {
-            ARAnchorFollower follower = other.GetComponent<ARAnchorFollower>();
-            
-            if (follower)
-            {
-                follower.SetIsArDistanceSelected(true);
-            }
+            other.GetComponent<ICollectable>()?.IsInsidePlayerARCollider(true);
         }
-        
+
         private void OnTriggerStay(Collider other)
         {
-            ARAnchorFollower follower = other.GetComponent<ARAnchorFollower>();
-            
-            if (follower)
-            {
-                follower.SetIsArDistanceSelected(true);
-            }
+            other.GetComponent<ICollectable>()?.IsInsidePlayerARCollider(true);
         }
 
         private void OnTriggerExit(Collider other)
-        {            ARAnchorFollower follower = other.GetComponent<ARAnchorFollower>();
-            
-            if (follower)
-            {
-                follower.SetIsArDistanceSelected(false);
-            }
+        {
+            other.GetComponent<ICollectable>()?.IsInsidePlayerARCollider(false);
         }
     }
 }

@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "2d38b3e",
+    "m_SelectedDeviceId": "8B8X15GYE",
     "m_SelectedPackage": {
-        "deviceId": "2d38b3e",
-        "name": "com.ms.vr_demo",
-        "processId": 29691,
+        "deviceId": "8B8X15GYE",
+        "name": "com.vuforia.engine.VuforiaEngine",
+        "processId": 4363,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -138,6 +138,138 @@
             "deviceId": "8B8X15GYE",
             "name": "com.ms.vr_demo",
             "processId": 5382,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 22507,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 1744,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 3014,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 3926,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 5316,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 6383,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 8082,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 12538,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 27657,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 28458,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 1161,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 4628,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 10710,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 21837,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 12189,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 9817,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 21027,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 22093,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 27630,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 30987,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 32616,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.vuforia.engine.VuforiaEngine",
+            "processId": 4363,
             "exited": false
         },
         {

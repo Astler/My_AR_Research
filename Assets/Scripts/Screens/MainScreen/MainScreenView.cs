@@ -20,6 +20,7 @@ namespace Screens.MainScreen
         [SerializeField] private Button warningOkButton;
         [SerializeField] private GameObject placementParent;
         [SerializeField] private TextMeshProUGUI availableGiftsText;
+        [SerializeField] private TextMeshProUGUI nextGiftTimerText;
         [SerializeField] private LocationInfoView locationInfoView;
         [SerializeField] private PlayerBalanceBarView playerBalancesView;
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
@@ -52,6 +53,12 @@ namespace Screens.MainScreen
             mapUserInterfaceView.SetIsMapActive(isMapActive);
         }
 
+        public void SetNextGiftTime(float timeToNextGift)
+        {
+            nextGiftTimerText.gameObject.SetActive(timeToNextGift > 0);
+            nextGiftTimerText.text = $"Next gift in: {timeToNextGift}";
+        }
+
         public void SetCoins(int coins)
         {
             playerBalancesView.SetCoins(coins);
@@ -70,7 +77,7 @@ namespace Screens.MainScreen
 
             placementParent.SetActive(hasZone);
         }
-        
+
         public void SetAvailableGifts(int gifts)
         {
             availableGiftsText.text = "Available gifts: " + gifts;

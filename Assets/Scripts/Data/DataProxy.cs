@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using AR;
 using ARLocation;
-using Assets;
 using Core;
+using Core.WebSockets;
 using Data.Objects;
 using ExternalTools.ImagesLoader;
 using Geo;
@@ -17,9 +17,9 @@ namespace Data
 {
     public class DataProxy : IDataProxy
     {
-        private readonly AssetsScriptableObject _assetsScriptableObject;
         private readonly IApiInterface _apiInterface;
         private readonly WebImagesLoader _webImagesLoader;
+        private readonly IWebSocketService _webSocketService;
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
@@ -33,16 +33,17 @@ namespace Data
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
         private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
         private readonly ReactiveProperty<int> _coins = new();
+        private readonly ReactiveProperty<float> _timeToNextGift = new();
         private readonly PlayerData _playerData;
         private readonly List<ZoneViewInfo> _portalsList = new();
         private EventData[] _eventsData;
 
-        public DataProxy(AssetsScriptableObject assetsScriptableObject, IApiInterface apiInterface,
-            WebImagesLoader webImagesLoader)
+        public DataProxy(IApiInterface apiInterface, WebImagesLoader webImagesLoader,
+            IWebSocketService webSocketService)
         {
-            _assetsScriptableObject = assetsScriptableObject;
             _apiInterface = apiInterface;
             _webImagesLoader = webImagesLoader;
+            _webSocketService = webSocketService;
             _playerData = new PlayerData();
             _coins.Value = _playerData.GetCoins();
         }
@@ -60,13 +61,21 @@ namespace Data
         public System.IObservable<bool> Reset => _reset;
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
+        public IReadOnlyReactiveProperty<float> TimeToNextGift => _timeToNextGift;
 
+        public void SetTimeToNextGift(float time)
+        {
+            _timeToNextGift.Value = time;
+        }
+        
         public void SetActivePortalZone(ZoneViewInfo zoneModel)
         {
             _availableGifts.Value = zoneModel.Rewards.Count(it => !it.IsCollected);
 
             _selectedPortalZone.Value = zoneModel;
             SetNearestPortalZone(zoneModel);
+
+            _webSocketService.SubscribeToEventSessionChannel(zoneModel.Id);
         }
 
         public void SetNearestPortalZone(ZoneViewInfo zoneModel) => _nearestPortalZone.Value = zoneModel;
@@ -130,6 +139,8 @@ namespace Data
                 {
                     Id = eventData.id,
                     Name = eventData.title,
+                    MinimumDropDistance = eventData.drop_distance_min,
+                    MaximumDropDistance = eventData.drop_distance_max,
                     Radius = eventData.radius,
                     StartTime = eventData.start_time,
                     FinishTime = eventData.finish_time,

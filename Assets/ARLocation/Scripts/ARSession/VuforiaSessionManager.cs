@@ -7,60 +7,57 @@ namespace ARLocation.Session
 {
     public class VuforiaSessionManager : IARSessionManager
     {
-        private PositionalDeviceTracker positionalDeviceTracker;
         private string sessionInfoString;
         private bool trackingStarted;
         private Action trackingStartedCallback;
         private Action onAfterReset;
         private Action trackingRestoredCallback;
-        private TrackableBehaviour.Status currentStatus = TrackableBehaviour.Status.NO_POSE;
+        private Status currentStatus = Status.NO_POSE;
         private Action trackingLostCallback;
 
         public bool DebugMode { get; set; }
 
         public VuforiaSessionManager()
         {
-            positionalDeviceTracker = TrackerManager.Instance.GetTracker<PositionalDeviceTracker>();
-
-            if (positionalDeviceTracker == null)
-            {
-                sessionInfoString = "NO POSITIONAL TRACKER";
-            }
-
-            VuforiaARController.Instance.RegisterVuforiaStartedCallback(OnVuforiaStarted);
-            VuforiaARController.Instance.RegisterOnPauseCallback(OnVuforiaPaused);
-            DeviceTrackerARController.Instance.RegisterTrackerStartedCallback(OnTrackerStarted);
-            DeviceTrackerARController.Instance.RegisterDevicePoseStatusChangedCallback(OnDevicePoseStatusChanged);
+            VuforiaApplication.Instance.OnVuforiaStarted += OnVuforiaStarted;
+            VuforiaApplication.Instance.OnVuforiaPaused += OnVuforiaPaused;
+            VuforiaBehaviour.Instance.DevicePoseBehaviour.OnTargetStatusChanged += OnDevicePoseStatusChanged;
         }
 
-        private void OnDevicePoseStatusChanged(TrackableBehaviour.Status arg1, TrackableBehaviour.StatusInfo arg2)
+        private void OnDevicePoseStatusChanged(ObserverBehaviour observerBehaviour, TargetStatus targetStatus)
         {
+            Status arg1 = targetStatus.Status;
+            StatusInfo arg2 = targetStatus.StatusInfo;
+
             sessionInfoString = $"OnDevicePoseStatusChanged: {arg1} - {arg2}";
 
             Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", sessionInfoString, DebugMode);
 
-            if (arg1 != TrackableBehaviour.Status.NO_POSE)
+            if (arg1 != Status.NO_POSE)
             {
                 if (!trackingStarted)
                 {
                     trackingStarted = true;
-                    Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", "Tracking Started!.", DebugMode);
+                    Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", "Tracking Started!.",
+                        DebugMode);
                     trackingStartedCallback?.Invoke();
                 }
-                else if (currentStatus == TrackableBehaviour.Status.NO_POSE)
+                else if (currentStatus == Status.NO_POSE)
                 {
-                    Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", "Tracking Restored!", DebugMode);
+                    Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", "Tracking Restored!",
+                        DebugMode);
                     trackingRestoredCallback?.Invoke();
                 }
 
                 if (onAfterReset != null)
                 {
-                    Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", "Emitting 'OnAfterReset' event.", DebugMode);
+                    Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged",
+                        "Emitting 'OnAfterReset' event.", DebugMode);
                     onAfterReset.Invoke();
                     onAfterReset = null;
                 }
             }
-            else if (currentStatus != TrackableBehaviour.Status.NO_POSE)
+            else if (currentStatus != Status.NO_POSE)
             {
                 Logger.LogFromMethod("VuforiaSessionManager", "OnDevicePoseStatusChanged", "Tracking Lost!", DebugMode);
                 trackingLostCallback?.Invoke();
@@ -87,7 +84,7 @@ namespace ARLocation.Session
 
         public void Reset(Action callback)
         {
-            positionalDeviceTracker?.Reset();
+            VuforiaBehaviour.Instance.DevicePoseBehaviour.Reset();
             onAfterReset += callback;
         }
 
@@ -98,7 +95,7 @@ namespace ARLocation.Session
 
         public string GetProviderString()
         {
-            return "Vuforia (" + VuforiaUnity.GetVuforiaLibraryVersion() + ")";
+            return "Vuforia (" + VuforiaApplication.GetVuforiaLibraryVersion() + ")";
         }
 
         public void OnARTrackingStarted(Action callback)

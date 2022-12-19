@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Allow Splats
-  - BlueGoal
-  - RedGoal
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -14,36 +11,33 @@ TagManager:
   - 
   - Water
   - UI
-  - GeneratedMesh
-  - Coin
-  - ARDK_MockWorld
-  - sky
-  - ground
-  - artificial_ground
-  - water
-  - building
-  - foliage
-  - grass
-  - RealworldMap
-  - MapboxMap
-  - natural_ground
-  - person
-  - flower_experimental
-  - tree_trunk_experimental
-  - pet_experimental
-  - sand_experimental
-  - tv_experimental
-  - dirt_experimental
-  - vehicle_experimental
-  - food_experimental
-  - loungeable_experimental
-  - snow_experimental
-  - AR_WorldMap
-  - Glow
+  - UI Camera
+  - Beam
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Map Points
-    uniqueID: 3172214021
     locked: 0

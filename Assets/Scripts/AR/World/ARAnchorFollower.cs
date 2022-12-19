@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -7,30 +6,14 @@ namespace AR.World
 {
     public class ARAnchorFollower : MonoBehaviour
     {
-        [SerializeField] private GiftView gift;
         [SerializeField] private TMP_Text distanceText;
         [SerializeField] private TMP_Text nameText;
         [SerializeField] private Transform zoneTransform;
 
         public Vector2? WorldCoordinates = null;
-        private bool _isCollectable;
-        private Action _clicked;
         private Camera _camera;
         private Transform _transform;
-
-        public void Collect()
-        {
-            _clicked?.Invoke();
-        }
-
-        public bool IsCollectable => _isCollectable;
-
-        public void SetupClick(Action clicked)
-        {
-            if (!gift) return;
-            _clicked = clicked;
-        }
-
+        
         public void SetZoneScale(float scale)
         {
             zoneTransform.localScale =
@@ -59,24 +42,8 @@ namespace AR.World
 
             double distance = Vector3.Distance(playerPosition, _transform.position) / 1000;
             distanceText.text = distance.DistanceToHuman();
-
-            if (!gift) return;
-
-            gift.ShowOutline(distance <= GlobalConstants.CollectDistance || _isCollectable);
         }
-
-        public void Interact()
-        {
-            if (!gift) return;
-
-            gift.Interact();
-        }
-
-        public void SetIsArDistanceSelected(bool arCollectable)
-        {
-            _isCollectable = arCollectable;
-        }
-
+        
         private void Awake()
         {
             _camera = Camera.main;

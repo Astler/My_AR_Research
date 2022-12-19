@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AR;
-using AR.World;
+using AR.World.Collectable;
 using Data;
 using Data.Objects;
 using ExternalTools.ImagesLoader;
@@ -12,7 +12,6 @@ using Screens.PortalsListScreen;
 using Screens.RewardsListScreen;
 using UniRx;
 using UnityEngine;
-using Utils;
 using Object = UnityEngine.Object;
 
 namespace Screens.MainScreen
@@ -47,16 +46,17 @@ namespace Screens.MainScreen
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.OpenMapClicked += OnOpenMapClicked;
-            
+
             _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
             _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
             _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
             _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
             _view.GetMapUserInterface().MapCloseClicked += () => _dataProxy.ToggleMap();
-            
+
             _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableGifts).AddTo(_disposables);
             _dataProxy.MapOpened.Subscribe(_view.SetIsMapActive).AddTo(_disposables);
             _dataProxy.Coins.Subscribe(_view.SetCoins).AddTo(_disposables);
+            _dataProxy.TimeToNextGift.Subscribe(_view.SetNextGiftTime).AddTo(_disposables);
 
             _dataProxy.GameState.Subscribe(state =>
             {
@@ -101,7 +101,7 @@ namespace Screens.MainScreen
                         throw new ArgumentOutOfRangeException(nameof(state), state, null);
                 }
             }).AddTo(_disposables);
-            
+
             _dataProxy.SelectedPortalZone.Subscribe(zone => { _view.SetupActiveZone(zone?.Name); }).AddTo(_disposables);
 
             _dataProxy.LocationDetectResult.Subscribe(result =>
@@ -142,7 +142,8 @@ namespace Screens.MainScreen
 
                 portalCardView.SetupCardData(rewardViewInfo.Name, rewardViewInfo.IsCollected);
 
-                _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url, sprite => { portalCardView.SetRewardIcon(sprite); });
+                _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url,
+                    sprite => { portalCardView.SetRewardIcon(sprite); });
 
                 portalCardView.transform.SetAsLastSibling();
                 _rewardsList.Add(portalCardView);
@@ -235,26 +236,32 @@ namespace Screens.MainScreen
                 {
                     Debug.Log($"hit name = {hit.collider.gameObject.name}");
 
-                    if (hit.collider.gameObject.TryGetComponent(out ArBeam beam))
+                    if (hit.collider.gameObject.TryGetComponent(out ICollectable beam))
                     {
-                        if (beam.CanBeCollected(_dataProxy.GetPlayerPosition()))
+                        Debug.Log($"hit ICollectable");
+
+                        bool collectable = beam.CanBeCollected(cameraView.GetPosition());
+
+                        if (!collectable) continue;
+                        
+                        if (beam is not MannaBoxView mannaBoxView) continue;
+                        
+                        Debug.Log($"hit MannaBoxView");
+                        _dataProxy.TryToCollectBeam(mannaBoxView.GetBeamData(), sprite =>
                         {
-                            _dataProxy.TryToCollectBeam(beam.GetBeamData(), sprite =>
+                            mannaBoxView.Interact();
+                            _dataProxy.CollectedCoin(5);
+                            _view.ShowRewardPopup(sprite, mannaBoxView.GetBeamData().Name);
+                        }, () =>
+                        {
+                            mannaBoxView.Interact();
+
+                            _dataProxy.GetSpriteByUrl(mannaBoxView.GetBeamData().Url, sprite =>
                             {
-                                beam.Collect();
-                                _dataProxy.CollectedCoin(5);
-                                _view.ShowRewardPopup(sprite, beam.GetBeamData().Name);
-                            }, () =>
-                            {
-                                beam.Collect();
-                                
-                                _dataProxy.GetSpriteByUrl(beam.GetBeamData().Url, sprite =>
-                                {
-                                    _dataProxy.CollectedCoin();
-                                    _view.ShowAlreadyClaimedRewardPopup(sprite, beam.GetBeamData().Name);
-                                });
+                                _dataProxy.CollectedCoin();
+                                _view.ShowAlreadyClaimedRewardPopup(sprite, mannaBoxView.GetBeamData().Name);
                             });
-                        }
+                        });
                     }
                 }
             }

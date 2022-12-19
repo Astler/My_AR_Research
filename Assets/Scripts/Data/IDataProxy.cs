@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using AR;
 using Data.Objects;
 using Geo;
-using Screens.PortalsListScreen;
 using UniRx;
 using UnityEngine;
 
@@ -20,11 +19,13 @@ namespace Data
         IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone { get; }
         IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged { get; }
         IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult { get; }
-        System.IObservable<bool> PlaceRandomBeamForSelectedZone { get; }
-        System.IObservable<bool> Reset { get; }
-        System.IObservable<bool> Clear { get; }
+        IObservable<bool> PlaceRandomBeamForSelectedZone { get; }
+        IObservable<bool> Reset { get; }
+        IObservable<bool> Clear { get; }
         IReadOnlyReactiveProperty<int> Coins { get; }
+        IReadOnlyReactiveProperty<float> TimeToNextGift { get; }
 
+        void SetTimeToNextGift(float time);
         void SetActivePortalZone(ZoneViewInfo zoneModel);
         void SetNearestPortalZone(ZoneViewInfo zoneModel);
         void SetPlayerPosition(Vector2 position);

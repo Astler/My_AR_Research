@@ -17,7 +17,7 @@ namespace Infrastructure.GameStateMachine.GameStates
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly IApiInterface _apiInterface;
-        private readonly WebSocketService _webSocketService;
+        private readonly IWebSocketService _webSocketService;
         private readonly IDataProxy _dataProxy;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
 
