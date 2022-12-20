@@ -44,6 +44,7 @@ namespace Data
         private readonly List<ZoneViewInfo> _portalsList = new();
         private readonly List<PrizeData> _collectedPrizes = new();
         private readonly ReactiveCollection<RewardViewInfo> _collectedPrizesInfos = new();
+        private readonly ReactiveCollection<HistoryStepData> _historyLines = new();
 
         public DataProxy(IApiInterface apiInterface, WebImagesLoader webImagesLoader,
             IWebSocketService webSocketService)
@@ -65,20 +66,47 @@ namespace Data
             {
                 ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
                 _placeRewardBoxInsideZone.OnNext(boxData);
+                _historyLines.Add(new HistoryStepData
+                {
+                    Message = $"New box spawned!",
+                    TimeUtc = Extensions.GetCurrentUtcTime()
+                });
             }
             else if (type == IncomingMessagesTypes.update_next_spawn_time.ToString())
             {
                 BoxTimerData timerData = JsonUtility.FromJson<BoxTimerData>(message.GetData());
+                Debug.Log($"current utc time {Extensions.GetCurrentUtcTime()} and next reward time {timerData.next_spawn_time}");
                 _timeToNextGift.Value = timerData.next_spawn_time - Extensions.GetCurrentUtcTime();
+                _historyLines.Add(new HistoryStepData
+                {
+                    Message = $"Next prize will be available in {_timeToNextGift.Value} seconds",
+                    TimeUtc = Extensions.GetCurrentUtcTime()
+                });
             }
             else if (type == IncomingMessagesTypes.update_box_status.ToString())
             {
                 ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
                 _removeRewardBoxFromZone.OnNext(boxData);
+                _historyLines.Add(new HistoryStepData
+                {
+                    Message = $"Prize with {boxData.id} removed from active boxes",
+                    TimeUtc = Extensions.GetCurrentUtcTime()
+                });
+            }
+            else if (type == IncomingMessagesTypes.prize_claimed.ToString())
+            {
+                ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
+                _removeRewardBoxFromZone.OnNext(boxData);
+                _historyLines.Add(new HistoryStepData
+                {
+                    Message = $"User {boxData.user_id} claimed prize {boxData.id}",
+                    TimeUtc = Extensions.GetCurrentUtcTime()
+                });
             }
         }
 
         public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
+        public IReadOnlyReactiveCollection<HistoryStepData> SessionHistory => _historyLines;
         public IReadOnlyReactiveProperty<int> AvailableGifts => _availableGifts;
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;

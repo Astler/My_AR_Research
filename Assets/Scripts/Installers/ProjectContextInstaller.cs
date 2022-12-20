@@ -8,6 +8,7 @@ using Infrastructure.GameStateMachine;
 using SceneManagement;
 using Screens;
 using Screens.Factories;
+using Screens.HistoryScreen;
 using Screens.RewardsListScreen;
 using UnityEngine;
 using Utils;
@@ -17,8 +18,10 @@ namespace Installers
 {
     public class ProjectContextInstaller : MonoInstaller
     {
-        [SerializeField] private RewardCardView rewardView;
         [SerializeField] private Transform viewsParent;
+        
+        [SerializeField] private RewardCardView rewardView;
+        [SerializeField] private HistoryCardView historyCardView;
 
         public override void InstallBindings()
         {
@@ -45,8 +48,16 @@ namespace Installers
                         .WithInitialSize(30)
                         .FromComponentInNewPrefab(rewardView)
                         .UnderTransform(viewsParent));
+            
+            Container.BindFactory<HistoryStepData, HistoryCardView, HistoryCardsFactory>()
+                .FromPoolableMemoryPool<HistoryStepData, HistoryCardView, HistoryCardsPool>(
+                    poolBinder => poolBinder
+                        .WithInitialSize(30)
+                        .FromComponentInNewPrefab(historyCardView)
+                        .UnderTransform(viewsParent));
         }
 
         private class RewardCardsPool : MonoPoolableMemoryPool<RewardViewInfo, IMemoryPool, RewardCardView> { }
+        private class HistoryCardsPool : MonoPoolableMemoryPool<HistoryStepData, IMemoryPool, HistoryCardView> { }
     }
 }

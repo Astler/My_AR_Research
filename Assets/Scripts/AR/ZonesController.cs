@@ -154,14 +154,14 @@ namespace AR
             if (!_dataProxy.IsInsideEvent() || boxData == null) return;
 
             Vector3 playerPosition = _cameraView.transform.position;
-            Vector3 beamPosition = Random.insideUnitCircle *
+            Vector3 beamPosition = Random.insideUnitSphere *
                                    float.Parse(boxData.point, CultureInfo.InvariantCulture.NumberFormat);
             Vector3 objectPosition = playerPosition + beamPosition;
 
             IEnumerable<ARRaycastHit> planes = RaycastFallback(xrOrigin, arPlaneManager,
                 new Ray(new Vector3(beamPosition.x, 0f, beamPosition.y), Vector3.down),
                 TrackableType.PlaneWithinInfinity);
-            
+
             if (!planes.Any())
             {
                 objectPosition.y = 0;
@@ -200,7 +200,7 @@ namespace AR
             _beamsData.Remove(beamData);
 
             Debug.Log("RemoveReward " + beamData.Id);
-            
+
             if (beam == null) return;
 
             _beams.Remove(beam);
@@ -231,12 +231,15 @@ namespace AR
                         _beamsData.Remove(beamData);
                     }
 
-                    follower.gameObject.Destroy();
+                    if (follower)
+                    {
+                        _coinsController.SpawnCoinsAtPosition(follower.transform.position);
+                        follower.gameObject.Destroy();
+                    }
 
-                    _coinsController.SpawnCoinsAtPosition(follower.transform.position);
                     PlaceBeamsInWorld();
                 });
-                
+
                 _beams.Add(follower);
 
                 Debug.Log("Placed " + data.Name + " at " + data.Position);
@@ -272,7 +275,7 @@ namespace AR
             Transform trackablesParent = origin.TrackablesParent;
             Ray sessionSpaceRay = TransformExtensions.InverseTransformRay(trackablesParent, worldSpaceRay);
             NativeArray<XRRaycastHit> hits = planeManager.Raycast(sessionSpaceRay, trackableTypeMask, Allocator.Temp);
-            
+
             if (hits.IsCreated)
             {
                 using (hits)

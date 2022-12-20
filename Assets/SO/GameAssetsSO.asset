@@ -17,5 +17,6 @@ MonoBehaviour:
     - {fileID: 3489454614547928590, guid: cce0d69c0d58e47d9a15240a6e2969af, type: 3}
     - {fileID: 1775270621865193348, guid: af07603893fc94792a5f93a37e3fd794, type: 3}
     - {fileID: 966443460424321441, guid: 161feb98a08014e8da1cf1a5192caecd, type: 3}
+    - {fileID: 966443460424321441, guid: b9ab5257907da4b9587296387490c0d3, type: 3}
   assetsScriptableObject: {fileID: 11400000, guid: b83a716757760fa4284f112e23cc2366,
     type: 2}

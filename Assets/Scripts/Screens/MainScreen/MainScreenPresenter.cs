@@ -48,10 +48,17 @@ namespace Screens.MainScreen
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.OpenMapClicked += OnOpenMapClicked;
+            
             _view.CollectedRewardsClicked += () =>
             {
                 _screenNavigationSystem.ExecuteNavigationCommand(
                     new NavigationCommand().ShowNextScreen(ScreenName.CollectedRewardsScreen));
+            };
+            
+            _view.HistoryClicked += () =>
+            {
+                _screenNavigationSystem.ExecuteNavigationCommand(
+                    new NavigationCommand().ShowNextScreen(ScreenName.HistoryScreen));
             };
 
             _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;

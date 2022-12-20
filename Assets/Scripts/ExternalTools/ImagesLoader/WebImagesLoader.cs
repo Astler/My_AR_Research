@@ -69,8 +69,11 @@ namespace ExternalTools.ImagesLoader
 
             SpriteRequest request = _requestQueue.Dequeue();
 
+            if (request.URL == null) return;
+            
             _requestInProgress = true;
             string filename = Path.GetFileName(request.URL);
+            
             string[] substr = filename.Split('?');
             filename = substr[0];
 

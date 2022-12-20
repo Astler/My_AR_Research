@@ -4,6 +4,7 @@ namespace Data
     {
         update_next_spawn_time,
         spawn_new_box,
-        update_box_status
+        update_box_status,
+        prize_claimed
     }
 }

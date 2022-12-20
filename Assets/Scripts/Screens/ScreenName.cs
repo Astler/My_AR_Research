@@ -4,6 +4,7 @@ namespace Screens
     {
         LoadingScreen = 0,
         MainScreen = 1,
-        CollectedRewardsScreen = 2
+        CollectedRewardsScreen = 2,
+        HistoryScreen = 3,
     }
 }

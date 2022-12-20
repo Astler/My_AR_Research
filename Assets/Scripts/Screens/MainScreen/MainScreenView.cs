@@ -16,10 +16,9 @@ namespace Screens.MainScreen
         [SerializeField] private Button openMapButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Button restartButton;
-        [SerializeField] private Button placeRandomBeamButton;
         [SerializeField] private Button warningOkButton;
         [SerializeField] private Button collectedRewardsButton;
-        [SerializeField] private GameObject placementParent;
+        [SerializeField] private Button historyButton;
         [SerializeField] private TextMeshProUGUI availableGiftsText;
         [SerializeField] private TextMeshProUGUI nextGiftTimerText;
         [SerializeField] private LocationInfoView locationInfoView;
@@ -42,6 +41,7 @@ namespace Screens.MainScreen
         public event Action WarningOkClicked;
         public event Action OpenMapClicked;
         public event Action CollectedRewardsClicked;
+        public event Action HistoryClicked;
         public event Action ClearButtonClicked;
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
@@ -50,7 +50,6 @@ namespace Screens.MainScreen
         {
             clearButton.gameObject.SetActive(!isMapActive);
             restartButton.gameObject.SetActive(!isMapActive);
-            placeRandomBeamButton.gameObject.SetActive(!isMapActive);
             mapUserInterfaceView.SetIsMapActive(isMapActive);
         }
 
@@ -75,8 +74,6 @@ namespace Screens.MainScreen
             locationInfoView.SetActiveZoneName(hasZone
                 ? $"<color=green>{zoneName}</color>"
                 : "<color=red>Go to the event area!</color>");
-
-            placementParent.SetActive(hasZone);
         }
 
         public void SetAvailableGifts(int gifts)
@@ -96,7 +93,6 @@ namespace Screens.MainScreen
             openMapButton.gameObject.SetActive(false);
             clearButton.gameObject.SetActive(false);
             restartButton.gameObject.SetActive(false);
-            placeRandomBeamButton.gameObject.SetActive(false);
             locationInfoView.gameObject.SetActive(false);
             playerBalancesView.gameObject.SetActive(false);
             mapUserInterfaceView.gameObject.SetActive(false);
@@ -163,7 +159,6 @@ namespace Screens.MainScreen
             openMapButton.gameObject.SetActive(true);
             clearButton.gameObject.SetActive(true);
             restartButton.gameObject.SetActive(true);
-            placeRandomBeamButton.gameObject.SetActive(true);
             locationInfoView.gameObject.SetActive(true);
             playerBalancesView.gameObject.SetActive(true);
         }
@@ -190,6 +185,7 @@ namespace Screens.MainScreen
             warningOkButton.ActionWithThrottle(() => WarningOkClicked?.Invoke());
             clearButton.ActionWithThrottle(() => { ClearButtonClicked?.Invoke(); });
             collectedRewardsButton.ActionWithThrottle(() => { CollectedRewardsClicked?.Invoke(); });
+            historyButton.ActionWithThrottle(() => { HistoryClicked?.Invoke(); });
             restartButton.ActionWithThrottle(() => { RestartButtonClicked?.Invoke(); });
             openMapButton.ActionWithThrottle(() => { OpenMapClicked?.Invoke(); });
             closeZonesList.ActionWithThrottle(HideZonesList);

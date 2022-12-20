@@ -8,6 +8,7 @@ using Infrastructure.GameStateMachine;
 using SceneManagement;
 using Screens.CollectedRewards;
 using Screens.Factories;
+using Screens.HistoryScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
 using UnityEngine;
@@ -26,13 +27,15 @@ namespace Screens
         private IWebImagesLoader _webImagesLoader;
         private GameStateMachine _gameStateMachine;
         private RewardCardsFactory _rewardCardsFactory;
+        private HistoryCardsFactory _historyCardsFactory;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
-            RewardCardsFactory rewardCardsFactory)
+            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory)
         {
+            _historyCardsFactory = historyCardsFactory;
             _rewardCardsFactory = rewardCardsFactory;
             _gameStateMachine = gameStateMachine;
             _webImagesLoader = webImagesLoader;
@@ -102,6 +105,13 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(CollectedRewardsScreenView view)
                     {
                         new CollectedRewardsScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.HistoryScreen:
+                    InstantiateView(name.ToString(), delegate(HistoryScreenView view)
+                    {
+                        new HistoryScreenPresenter(view, _dataProxy, _historyCardsFactory);
                         onSuccess.Invoke(view);
                     });
                     break;

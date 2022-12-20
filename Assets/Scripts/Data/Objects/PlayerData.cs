@@ -1,6 +1,6 @@
 namespace Data.Objects
 {
-    public class PlayerData : IPlayerData
+    public class PlayerData
     {
         private int _coins = PlayerPrefsHelper.Coins;
 

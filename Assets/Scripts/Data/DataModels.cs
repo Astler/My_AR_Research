@@ -133,6 +133,7 @@ namespace Data
         public int spawn_radius;
         public string point;
         public int status;
+        public int user_id;
     }
 
     [Serializable]

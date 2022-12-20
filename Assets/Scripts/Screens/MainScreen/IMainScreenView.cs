@@ -11,11 +11,12 @@ namespace Screens.MainScreen
     {
         public event Action WarningOkClicked;
         public event Action OpenMapClicked;
-        public event Action CollectedRewardsClicked;
         public event Action ClearButtonClicked;
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
-
+        public event Action CollectedRewardsClicked;
+        public event Action HistoryClicked;
+        
         void SetNextGiftTime(int timeToNextGift);
         void SetIsMapActive(bool isMapActive);
         void SetCoins(int coins);

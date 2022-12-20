@@ -26,6 +26,7 @@ namespace Data
         IReadOnlyReactiveProperty<int> Coins { get; }
         IReadOnlyReactiveProperty<int> TimeToNextGift { get; }
         IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos { get; }
+        IReadOnlyReactiveCollection<HistoryStepData> SessionHistory { get; }
         IReadOnlyReactiveProperty<EventData> ActiveEventData { get; }
 
         void LoadClaimedRewards();
