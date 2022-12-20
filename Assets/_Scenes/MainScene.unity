@@ -1450,7 +1450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19d80851d5e4ee49acf94b2082d5675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giftSpawnTime: 5
   zonePrefab: {fileID: 7488027548320071366, guid: fe393bd33070049b49d9080b8f4ad9d9,
     type: 3}
   beamPrefab: {fileID: 1317848389285996464, guid: dfab494f40a59453cb28b5c053a0dcae,
@@ -5860,8 +5859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 1976797470762172049, guid: cf5a3582fc7f9497fac7150058e4e159,
-    type: 3}
+  m_PlanePrefab: {fileID: 0}
   m_DetectionMode: 1
 --- !u!1 &1659557830
 GameObject:

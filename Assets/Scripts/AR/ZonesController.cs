@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -170,10 +169,16 @@ namespace AR
             }
             else
             {
+                foreach (ARRaycastHit arRaycastHit in planes)
+                {
+                    Debug.Log("i found plane! " + arRaycastHit.pose.position);
+                }
+
                 objectPosition.y = planes.Last().pose.position.y;
                 Debug.Log("updated beamPosition = " + objectPosition);
             }
 
+            objectPosition.y -= 1;
             _beamsInThisSession += 1;
 
             BeamData beamData = new()

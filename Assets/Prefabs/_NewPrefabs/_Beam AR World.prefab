@@ -63,6 +63,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 4488068021886761296}
   interactionDistance: 5
+  rewardName: {fileID: 4341667324418226861}
+  distanceToPlayer: {fileID: 8263971786647471921}
 --- !u!1 &5778670174570081413
 GameObject:
   m_ObjectHideFlags: 0
