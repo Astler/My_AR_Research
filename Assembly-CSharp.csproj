@@ -149,6 +149,7 @@
      <Compile Include="Assets/Scripts/Assets/AssetsScriptableObject.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Location/ILocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LayerModifierOptions.cs" />
+     <Compile Include="Assets/Scripts/Screens/HistoryScreen/HistoryScreenView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/HTTPRequestThreaded.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerTexturing.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Location/MockLocationProvider.cs" />
@@ -190,6 +191,7 @@
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/IntervalHeap.cs" />
      <Compile Include="Assets/Scripts/Screens/IScreenView.cs" />
      <Compile Include="Assets/Scripts/Screens/Utils/Pagination.cs" />
+     <Compile Include="Assets/Scripts/Screens/HistoryScreen/HistoryScreenPresenter.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/RouteLoader.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerColliderOptions.cs" />
      <Compile Include="Assets/Scripts/Data/IDataProxy.cs" />
@@ -436,6 +438,7 @@
      <Compile Include="Assets/ARLocation/Scripts/ARLocation.cs" />
      <Compile Include="Assets/Scripts/Data/IncomingMessagesTypes.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/XML/OnlineMapsXML.cs" />
+     <Compile Include="Assets/Scripts/Screens/HistoryScreen/HistoryCardView.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ElevationRequiredOptions.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ExtentOptions.cs" />
      <Compile Include="Assets/Scripts/AR/World/ARWorldCoordinator.cs" />
@@ -648,6 +651,7 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MapMatcher.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Utils/FadeOutTextMesh.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Providers/Traffic/OnlineMapsTrafficProvider.cs" />
+     <Compile Include="Assets/Scripts/Data/Objects/HistoryStepData.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/MapboxDefaultVector.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AbstractEditorLocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapPlacementOptions.cs" />
@@ -842,6 +846,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerClickCountExample.cs" />
      <Compile Include="Assets/Scripts/AR/GameStates.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/CircularBuffer.cs" />
+     <Compile Include="Assets/Scripts/Screens/Factories/HistoryCardsFactory.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/Marker_GPS_Example.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/2D/OnlineMapsNGUITextureControl.cs" />
      <Compile Include="Assets/Mapbox/Core/probe-extractor-cs/Probe.cs" />
@@ -909,11 +914,6 @@
      <Compile Include="Assets/Scripts/ViewModels/NewsViewModel.cs" />
      <Compile Include="Assets/MapObjectSizeControlView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
-     <Compile Include="Assets/Scripts/Data/Objects/HistoryStepData.cs" />
-     <Compile Include="Assets/Scripts/Screens/HistoryScreen/HistoryScreenPresenter.cs" />
-     <Compile Include="Assets/Scripts/Screens/HistoryScreen/HistoryScreenView.cs" />
-     <Compile Include="Assets/Scripts/Screens/HistoryScreen/HistoryCardView.cs" />
-     <Compile Include="Assets/Scripts/Screens/Factories/HistoryCardsFactory.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/SamplesResources" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
@@ -1371,6 +1371,7 @@
      <Folder Include="Assets/Scripts/Data" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Atlas" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/HistoryScreen" />
      <Folder Include="Assets/Hovl Studio/Magic circles/Demo magic circles Vol 1" />
      <None Include="Assets/Mapbox/Core/Plugins/link.xml" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light/Assets" />

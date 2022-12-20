@@ -56,6 +56,14 @@ namespace Data
             _coins.Value = _playerData.GetCoins();
 
             _webSocketService.OnIncomingMessageReceived += OnIncomingMessageReceived;
+
+            Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
+            {
+                if (_timeToNextGift.Value > 0)
+                {
+                    _timeToNextGift.Value--;
+                }
+            });
         }
 
         private void OnIncomingMessageReceived(WebSocket socket, IncomingMessage message)
@@ -76,7 +84,7 @@ namespace Data
             {
                 BoxTimerData timerData = JsonUtility.FromJson<BoxTimerData>(message.GetData());
                 Debug.Log($"current utc time {Extensions.GetCurrentUtcTime()} and next reward time {timerData.next_spawn_time}");
-                _timeToNextGift.Value = timerData.next_spawn_time - Extensions.GetCurrentUtcTime();
+                _timeToNextGift.Value = Extensions.GetCurrentUtcTime() - timerData.next_spawn_time;
                 _historyLines.Add(new HistoryStepData
                 {
                     Message = $"Next prize will be available in {_timeToNextGift.Value} seconds",
@@ -149,7 +157,6 @@ namespace Data
                 }
 
                 _activeEventData.Value = data.event_data;
-                _timeToNextGift.Value = data.event_data.next_proceed_time - Extensions.GetCurrentUtcTime();
                 _webSocketService.SubscribeToEventSessionChannel(zoneModel.Id);
             }, Debug.LogError);
         }
