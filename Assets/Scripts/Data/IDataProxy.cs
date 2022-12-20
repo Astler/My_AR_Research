@@ -19,7 +19,8 @@ namespace Data
         IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone { get; }
         IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged { get; }
         IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult { get; }
-        IObservable<bool> PlaceRandomBeamForSelectedZone { get; }
+        IObservable<ActiveBoxData> PlaceRewardBoxInsideZone { get; }
+        IObservable<ActiveBoxData> RemoveRewardBox { get; }
         IObservable<bool> Reset { get; }
         IObservable<bool> Clear { get; }
         IReadOnlyReactiveProperty<int> Coins { get; }
@@ -33,13 +34,13 @@ namespace Data
         void SetPlayerPosition(Vector2 position);
         LocationDetectResult GetLocationDetectResult();
         void SetLocationDetectStatus(LocationDetectResult result);
-        void PlaceRandomBeam();
         Vector2 GetPlayerPosition();
         void CollectedCoin(int amount = 1);
         IEnumerable<ZoneViewInfo> GetAllActiveZones();
         void NextStateStep();
         void ClearScene();
         void ResetScene();
+        bool IsInsideEvent();
         void RestartGeoLocation();
         void LoadEvents();
         void ToggleMap();

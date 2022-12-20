@@ -3,6 +3,7 @@ namespace Data
     public enum IncomingMessagesTypes
     {
         update_next_spawn_time,
-        spawn_new_box
+        spawn_new_box,
+        update_box_status
     }
 }

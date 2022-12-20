@@ -36,7 +36,8 @@ namespace Data
         private readonly ReactiveProperty<ZoneViewInfo> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
-        private readonly Subject<bool> _placeRandomBeamForSelectedZone = new();
+        private readonly Subject<ActiveBoxData> _placeRewardBoxInsideZone = new();
+        private readonly Subject<ActiveBoxData> _removeRewardBoxFromZone = new();
         private readonly ReactiveProperty<int> _coins = new();
         private readonly ReactiveProperty<int> _timeToNextGift = new();
 
@@ -62,12 +63,18 @@ namespace Data
 
             if (type == IncomingMessagesTypes.spawn_new_box.ToString())
             {
-                _placeRandomBeamForSelectedZone.OnNext(true);
+                ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
+                _placeRewardBoxInsideZone.OnNext(boxData);
             }
             else if (type == IncomingMessagesTypes.update_next_spawn_time.ToString())
             {
                 BoxTimerData timerData = JsonUtility.FromJson<BoxTimerData>(message.GetData());
                 _timeToNextGift.Value = timerData.next_spawn_time - Extensions.GetCurrentUtcTime();
+            }
+            else if (type == IncomingMessagesTypes.update_box_status.ToString())
+            {
+                ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
+                _removeRewardBoxFromZone.OnNext(boxData);
             }
         }
 
@@ -82,7 +89,8 @@ namespace Data
         public IReadOnlyReactiveProperty<EventData> ActiveEventData => _activeEventData;
         public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
         public IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult => _locationDetectResult;
-        public System.IObservable<bool> PlaceRandomBeamForSelectedZone => _placeRandomBeamForSelectedZone;
+        public System.IObservable<ActiveBoxData> PlaceRewardBoxInsideZone => _placeRewardBoxInsideZone;
+        public System.IObservable<ActiveBoxData> RemoveRewardBox => _removeRewardBoxFromZone;
         public System.IObservable<bool> Reset => _reset;
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
@@ -90,13 +98,20 @@ namespace Data
 
         public void SetActivePortalZone(ZoneViewInfo zoneModel)
         {
+            if (zoneModel == null)
+            {
+                _selectedPortalZone.Value = null;
+                return;
+            }
+
+            if (zoneModel.Id == (_activeEventData.Value?.id ?? 0)) return;
+
             _selectedPortalZone.Value = zoneModel;
+
             SetNearestPortalZone(zoneModel);
-            
-            if (zoneModel == null) return;
-            
+
             _availableGifts.Value = zoneModel.Rewards.Count(it => !it.IsCollected);
-            
+
             _apiInterface.ShowEventData(zoneModel.Id, data =>
             {
                 if (data.event_data == null)
@@ -104,7 +119,7 @@ namespace Data
                     _activeEventData.Value = null;
                     return;
                 }
-                
+
                 _activeEventData.Value = data.event_data;
                 _timeToNextGift.Value = data.event_data.next_proceed_time - Extensions.GetCurrentUtcTime();
                 _webSocketService.SubscribeToEventSessionChannel(zoneModel.Id);
@@ -118,8 +133,6 @@ namespace Data
         public LocationDetectResult GetLocationDetectResult() => _locationDetectResult.Value;
 
         public void SetLocationDetectStatus(LocationDetectResult result) => _locationDetectResult.Value = result;
-
-        public void PlaceRandomBeam() => _placeRandomBeamForSelectedZone.OnNext(true);
 
         public void CollectedCoin(int amount = 1)
         {
@@ -148,6 +161,8 @@ namespace Data
         public void ClearScene() => _clear.OnNext(true);
 
         public void ResetScene() => _reset.OnNext(true);
+        
+        public bool IsInsideEvent() => _activeEventData.Value != null;
 
         public void RestartGeoLocation() => ARLocationManager.Instance.Restart();
 
@@ -207,7 +222,7 @@ namespace Data
                         Name = it.name
                     }).ToList(),
                 };
-                
+
                 _portalsList.Add(viewInfo);
             }
         }

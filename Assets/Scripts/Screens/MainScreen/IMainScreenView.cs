@@ -10,7 +10,6 @@ namespace Screens.MainScreen
     public interface IMainScreenView : IScreenView
     {
         public event Action WarningOkClicked;
-        public event Action PlaceRandomBeamClicked;
         public event Action OpenMapClicked;
         public event Action CollectedRewardsClicked;
         public event Action ClearButtonClicked;

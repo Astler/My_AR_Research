@@ -40,7 +40,6 @@ namespace Screens.MainScreen
         [SerializeField] private Button closeRewardsList;
 
         public event Action WarningOkClicked;
-        public event Action PlaceRandomBeamClicked;
         public event Action OpenMapClicked;
         public event Action CollectedRewardsClicked;
         public event Action ClearButtonClicked;
@@ -189,7 +188,6 @@ namespace Screens.MainScreen
         private void Awake()
         {
             warningOkButton.ActionWithThrottle(() => WarningOkClicked?.Invoke());
-            placeRandomBeamButton.ActionWithThrottle(() => PlaceRandomBeamClicked?.Invoke());
             clearButton.ActionWithThrottle(() => { ClearButtonClicked?.Invoke(); });
             collectedRewardsButton.ActionWithThrottle(() => { CollectedRewardsClicked?.Invoke(); });
             restartButton.ActionWithThrottle(() => { RestartButtonClicked?.Invoke(); });

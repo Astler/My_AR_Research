@@ -44,7 +44,6 @@ namespace Screens.MainScreen
         private void Init()
         {
             _view.WarningOkClicked += OnWarningOkClicked;
-            _view.PlaceRandomBeamClicked += OnPlaceRandomBeamClicked;
             _view.ClearButtonClicked += OnClearButtonClicked;
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
@@ -169,9 +168,7 @@ namespace Screens.MainScreen
         private void OnClearButtonClicked() => _dataProxy.ClearScene();
 
         private void OnWarningOkClicked() => _dataProxy.NextStateStep();
-
-        private void OnPlaceRandomBeamClicked() => _dataProxy.PlaceRandomBeam();
-
+        
         private void OnNearestPortalClicked()
         {
             Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;
