@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb09c3f5e0b648299002f2a057811508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gift: {fileID: 0}
   distanceText: {fileID: 0}
   nameText: {fileID: 0}
   zoneTransform: {fileID: 458166643065430890}
@@ -438,6 +437,21 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198181203595706770, guid: 30a2224334c85244595f52a7a83227d1,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198181203595706770, guid: 30a2224334c85244595f52a7a83227d1,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 198181203595706770, guid: 30a2224334c85244595f52a7a83227d1,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199935030968957248, guid: 30a2224334c85244595f52a7a83227d1,
         type: 3}

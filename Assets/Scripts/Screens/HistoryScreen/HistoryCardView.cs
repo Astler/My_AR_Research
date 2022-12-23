@@ -2,6 +2,7 @@ using System;
 using Data.Objects;
 using TMPro;
 using UnityEngine;
+using Utils;
 using Zenject;
 
 namespace Screens.HistoryScreen
@@ -23,7 +24,7 @@ namespace Screens.HistoryScreen
         {
             _transform.parent = data.Parent;
             
-            timeText.text = data.TimeUtc.ToString();
+            timeText.text = data.TimeUtc.ConvertToHumanTime();
             messageText.text = data.Message;
 
             _pool = pool;

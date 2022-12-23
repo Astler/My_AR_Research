@@ -83,7 +83,8 @@ namespace Data
             else if (type == IncomingMessagesTypes.update_next_spawn_time.ToString())
             {
                 BoxTimerData timerData = JsonUtility.FromJson<BoxTimerData>(message.GetData());
-                Debug.Log($"current utc time {Extensions.GetCurrentUtcTime()} and next reward time {timerData.next_spawn_time}");
+                Debug.Log(
+                    $"current utc time {Extensions.GetCurrentUtcTime()} and next reward time {timerData.next_spawn_time}");
                 _timeToNextGift.Value = Extensions.GetCurrentUtcTime() - timerData.next_spawn_time;
                 _historyLines.Add(new HistoryStepData
                 {
@@ -95,16 +96,17 @@ namespace Data
             {
                 ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
                 _removeRewardBoxFromZone.OnNext(boxData);
-                _historyLines.Add(new HistoryStepData
-                {
-                    Message = $"Prize with {boxData.id} removed from active boxes",
-                    TimeUtc = Extensions.GetCurrentUtcTime()
-                });
+                // _historyLines.Add(new HistoryStepData
+                // {
+                //     Message = $"Old sad box was hidden!",
+                //     TimeUtc = Extensions.GetCurrentUtcTime()
+                // });
             }
             else if (type == IncomingMessagesTypes.prize_claimed.ToString())
             {
                 ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
                 _removeRewardBoxFromZone.OnNext(boxData);
+                _availableGifts.Value -= 1;
                 _historyLines.Add(new HistoryStepData
                 {
                     Message = $"User {boxData.user_id} claimed prize {boxData.id}",
@@ -196,7 +198,7 @@ namespace Data
         public void ClearScene() => _clear.OnNext(true);
 
         public void ResetScene() => _reset.OnNext(true);
-        
+
         public bool IsInsideEvent() => _activeEventData.Value != null;
 
         public void RestartGeoLocation() => ARLocationManager.Instance.Restart();

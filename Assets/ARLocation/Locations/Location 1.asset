@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Location 1
   m_EditorClassIdentifier: 
   Location:
-    Latitude: 48.5089416503906
-    Longitude: 35.077808380127
-    Altitude: 0.5
-    AltitudeMode: 2
+    Latitude: 48.4557197
+    Longitude: 35.0503276
+    Altitude: 0
+    AltitudeMode: 1
     Label: 

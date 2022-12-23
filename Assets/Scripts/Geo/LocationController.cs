@@ -84,7 +84,7 @@ namespace Geo
             if (Application.isEditor)
             {
                 _dataProxy.SetActivePortalZone(_dataProxy.GetAllActiveZones()
-                    .FirstOrDefault(it => it.Name == "Dev Portal"));
+                    .FirstOrDefault(it => it.Name == "MS_test_1"));
                 return;
             }
 

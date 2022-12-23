@@ -46,5 +46,10 @@ namespace Utils
             Color imageColor = image.color;
             image.color = new Color(imageColor.r, imageColor.g, imageColor.b, alpha);
         }
+
+        public static string ConvertToHumanTime(this int timeInSeconds)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(timeInSeconds).ToLongDateString();
+        }
     }
 }
