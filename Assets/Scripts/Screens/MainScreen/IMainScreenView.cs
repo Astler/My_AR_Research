@@ -41,5 +41,6 @@ namespace Screens.MainScreen
         void ShowRewardPopup(Sprite sprite, string itemName);
         void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName);
         void SetAvailableGifts(int gifts);
+        void SetScannedProgressValue(float areaCoefficient);
     }
 }

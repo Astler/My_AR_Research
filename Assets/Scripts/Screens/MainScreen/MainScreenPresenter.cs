@@ -28,6 +28,7 @@ namespace Screens.MainScreen
         private readonly IWebImagesLoader _webImagesLoader;
         private readonly GameStateMachine _gameStateMachine;
         private readonly RewardCardsFactory _rewardCardsFactory;
+        private IDisposable _scanningProgress;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine, RewardCardsFactory rewardCardsFactory)
@@ -102,12 +103,20 @@ namespace Screens.MainScreen
                         _view.HideWarningMessage();
                         break;
                     case GameStates.Scanning:
-                        Observable.Timer(TimeSpan.FromSeconds(4f)).Subscribe(_ => { _dataProxy.NextStateStep(); })
-                            .AddTo(_disposables);
+                        _scanningProgress = _dataProxy.ScannedArea.Subscribe(areaCoefficient =>
+                        {
+                            _view.SetScannedProgressValue(areaCoefficient);
+                            if (areaCoefficient >= 1)
+                            {
+                                _dataProxy.NextStateStep();
+                            }
+                        }).AddTo(_disposables);
+                        
                         _view.HideLocationDetectionPopup();
                         _view.ShowScanningPopup();
                         break;
                     case GameStates.Active:
+                        _scanningProgress?.Dispose();
                         _view.HideScanningPopup();
                         _view.ShowGameInterface();
                         break;

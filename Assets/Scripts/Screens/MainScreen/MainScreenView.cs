@@ -19,6 +19,7 @@ namespace Screens.MainScreen
         [SerializeField] private Button warningOkButton;
         [SerializeField] private Button collectedRewardsButton;
         [SerializeField] private Button historyButton;
+        [SerializeField] private TextMeshProUGUI areaText;
         [SerializeField] private TextMeshProUGUI availableGiftsText;
         [SerializeField] private TextMeshProUGUI nextGiftTimerText;
         [SerializeField] private LocationInfoView locationInfoView;
@@ -79,6 +80,12 @@ namespace Screens.MainScreen
         public void SetAvailableGifts(int gifts)
         {
             availableGiftsText.text = "Available gifts: " + gifts;
+        }
+
+        public void SetScannedProgressValue(float areaCoefficient)
+        {
+            areaText.gameObject.SetActive(areaCoefficient < 1 && areaCoefficient >= 0);
+            areaText.text = $"Scanned: {Mathf.RoundToInt(areaCoefficient * 100)}%";
         }
 
         public void ShowLocationSearchStatus(string status)

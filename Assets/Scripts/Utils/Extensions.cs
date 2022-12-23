@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Globalization;
+using System.Runtime.Serialization;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,12 +14,12 @@ namespace Utils
         public static int GetCurrentUtcTime()
         {
             DateTime epochStart = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            int currentEpochTime = (int) (DateTime.UtcNow - epochStart).TotalSeconds;
+            int currentEpochTime = (int)(DateTime.UtcNow - epochStart).TotalSeconds;
             return currentEpochTime;
         }
-        
+
         public static bool IsNullOrEmpty(this string self) => string.IsNullOrEmpty(self);
-        
+
         public static T Next<T>(this T src) where T : struct
         {
             if (!typeof(T).IsEnum) throw new ArgumentException($"Argument {typeof(T).FullName} is not an Enum");
@@ -26,7 +28,7 @@ namespace Utils
             int j = Array.IndexOf(arr, src) + 1;
             return (arr.Length == j) ? arr[0] : arr[j];
         }
-        
+
         public static void BindViewAndPresenter<TView, TPresenter>(this DiContainer container)
         {
             container.BindInterfacesAndSelfTo<TView>().FromComponentInHierarchy().AsSingle().NonLazy();
@@ -35,10 +37,8 @@ namespace Utils
 
         public static void ActionWithThrottle(this Button button, Action action, int throttleMillis = 200)
         {
-            UniRx.ObservableExtensions.Subscribe(button.OnClickAsObservable().ThrottleFirst(TimeSpan.FromMilliseconds(throttleMillis)),_ =>
-            {
-                action?.Invoke();
-            }).AddTo(button);
+            button.OnClickAsObservable().ThrottleFirst(TimeSpan.FromMilliseconds(throttleMillis))
+                .Subscribe(_ => { action?.Invoke(); }).AddTo(button);
         }
 
         public static void SetAlpha(this Image image, float alpha)
@@ -49,7 +49,9 @@ namespace Utils
 
         public static string ConvertToHumanTime(this int timeInSeconds)
         {
-            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(timeInSeconds).ToLongDateString();
+            CultureInfo ci = new("en-GB");
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(timeInSeconds)
+                .ToString("dddd, dd MMMM yyyy HH:mm:ss", ci);
         }
     }
 }

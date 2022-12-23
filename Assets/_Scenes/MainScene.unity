@@ -2800,6 +2800,7 @@ MonoBehaviour:
   targetView: {fileID: 1788943143}
   arSession: {fileID: 743826292}
   content: {fileID: 236684505}
+  planeManager: {fileID: 1616410689}
 --- !u!1 &759088953
 GameObject:
   m_ObjectHideFlags: 0

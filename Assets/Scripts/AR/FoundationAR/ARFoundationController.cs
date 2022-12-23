@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using AR.World;
-using ARLocation;
 using Assets.Scripts.AR.FoundationAR;
+using Data;
 using GameCamera;
 using Geo;
 using UniRx;
@@ -10,7 +10,6 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using Zenject;
-using ARSessionState = UnityEngine.XR.ARFoundation.ARSessionState;
 
 namespace AR.FoundationAR
 {
@@ -21,17 +20,21 @@ namespace AR.FoundationAR
         [SerializeField] private TargetSelectView targetView;
         [SerializeField] private ARSession arSession;
         [SerializeField] private Transform content;
+        [SerializeField] private ARPlaneManager planeManager;
 
         private ARWorldCoordinator _coordinator;
         private LocationController _locationController;
         private XROrigin _origin;
+        private IDataProxy _dataProxy;
 
         [Inject]
-        public void Construct(ARWorldCoordinator coordinator, LocationController locationController)
+        public void Construct(ARWorldCoordinator coordinator, LocationController locationController,
+            IDataProxy dataProxy)
         {
+            _dataProxy = dataProxy;
             _coordinator = coordinator;
             _locationController = locationController;
-            
+
             ARSession.stateChanged += OnStateChanged;
         }
 
@@ -65,7 +68,24 @@ namespace AR.FoundationAR
 
         public void Reset() => arSession.Reset();
         public void ClearAnchors() { }
-        
+
         public CameraView GetCamera() => cameraView;
+
+        private void Update()
+        {
+            if (_dataProxy.SurfaceScanned.Value) return;
+
+            float totalArea = 0f;
+
+            foreach (ARPlane plane in planeManager.trackables)
+            {
+                Vector2 size = plane.size;
+                totalArea += size.x * size.y;
+            }
+
+            Debug.Log($"area size = {totalArea}");
+
+            _dataProxy.SetScannedArea(totalArea);
+        }
     }
 }

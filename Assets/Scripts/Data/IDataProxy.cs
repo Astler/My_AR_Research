@@ -28,6 +28,8 @@ namespace Data
         IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos { get; }
         IReadOnlyReactiveCollection<HistoryStepData> SessionHistory { get; }
         IReadOnlyReactiveProperty<EventData> ActiveEventData { get; }
+        IReadOnlyReactiveProperty<bool> SurfaceScanned { get; }
+        IReadOnlyReactiveProperty<float> ScannedArea { get; }
 
         void LoadClaimedRewards();
         void SetActivePortalZone(ZoneViewInfo zoneModel);
@@ -51,5 +53,6 @@ namespace Data
         void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed);
         void GetSpriteByUrl(string url, Action<Sprite> action);
         void RefreshCollectedRewards();
+        void SetScannedArea(float totalArea);
     }
 }

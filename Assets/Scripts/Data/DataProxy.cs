@@ -39,6 +39,8 @@ namespace Data
         private readonly Subject<ActiveBoxData> _placeRewardBoxInsideZone = new();
         private readonly Subject<ActiveBoxData> _removeRewardBoxFromZone = new();
         private readonly ReactiveProperty<int> _coins = new();
+        private readonly ReactiveProperty<bool> _surfaceScanned = new();
+        private readonly ReactiveProperty<float> _scannedArea = new();
         private readonly ReactiveProperty<int> _timeToNextGift = new();
 
         private readonly List<ZoneViewInfo> _portalsList = new();
@@ -132,6 +134,8 @@ namespace Data
         public System.IObservable<bool> Reset => _reset;
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<int> Coins => _coins;
+        public IReadOnlyReactiveProperty<bool> SurfaceScanned => _surfaceScanned;
+        public IReadOnlyReactiveProperty<float> ScannedArea => _scannedArea;
         public IReadOnlyReactiveProperty<int> TimeToNextGift => _timeToNextGift;
 
         public void SetActivePortalZone(ZoneViewInfo zoneModel)
@@ -197,7 +201,12 @@ namespace Data
 
         public void ClearScene() => _clear.OnNext(true);
 
-        public void ResetScene() => _reset.OnNext(true);
+        public void ResetScene()
+        {
+            _scannedArea.Value = 0;
+            _surfaceScanned.Value = false;
+            _reset.OnNext(true);
+        }
 
         public bool IsInsideEvent() => _activeEventData.Value != null;
 
@@ -297,6 +306,14 @@ namespace Data
         }
 
         public void RefreshCollectedRewards() => LoadClaimedRewards();
+
+        public void SetScannedArea(float totalArea)
+        {
+            _scannedArea.Value = totalArea / AreaScanRequirements;
+            _surfaceScanned.Value = _scannedArea.Value >= 1;
+        }
+
+        private const float AreaScanRequirements = 100;
 
         public Vector2 GetPlayerPosition()
         {

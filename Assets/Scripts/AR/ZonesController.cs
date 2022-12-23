@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -32,7 +33,6 @@ namespace AR
         private ARAnchorFollower _pointMe;
         private readonly List<ARAnchorFollower> _anchors = new();
         private readonly List<MannaBoxView> _beams = new();
-
         private readonly List<BeamData> _beamsData = new();
         private ARAnchorFollower _zeroAnchor;
 
@@ -41,6 +41,7 @@ namespace AR
         private CoinsController _coinsController;
         private CameraView _cameraView;
         private int _beamsInThisSession;
+        private IDisposable _zonesPlacer;
 
         [Inject]
         public void Construct(ARWorldCoordinator coordinator,
@@ -69,22 +70,26 @@ namespace AR
             _dataProxy.PlaceRewardBoxInsideZone.Subscribe(CreateNewReward).AddTo(this);
             _dataProxy.RemoveRewardBox.Subscribe(RemoveReward).AddTo(this);
 
-            _dataProxy.ActiveEventData.Subscribe(zone =>
-            {
-                if (zone == null)
-                {
-                    _anchors.Clear();
-                    _beams.Clear();
-                    _beamsData.Clear();
-                    Clear();
-                    return;
-                }
+            _dataProxy.ActiveEventData
+                .CombineLatest(_dataProxy.SurfaceScanned, (data, scanned) => (data, scanned)).Subscribe(
+                    it =>
+                    {
+                        (EventData zoneData, bool scanned) = it;
 
-                foreach (ActiveBoxData boxData in zone.active_boxes)
-                {
-                    CreateNewReward(boxData);
-                }
-            }).AddTo(this);
+                        if (zoneData == null || !scanned)
+                        {
+                            _anchors.Clear();
+                            _beams.Clear();
+                            _beamsData.Clear();
+                            Clear();
+                            return;
+                        }
+
+                        foreach (ActiveBoxData boxData in zoneData.active_boxes)
+                        {
+                            CreateNewReward(boxData);
+                        }
+                    }).AddTo(this);
         }
 
         private void OnDestroy()
@@ -94,10 +99,15 @@ namespace AR
 
         private void OnStateChanged(ARSessionStateChangedEventArgs stateArgs)
         {
-            if (stateArgs.state != ARSessionState.SessionTracking) return;
+            if (stateArgs.state != ARSessionState.SessionTracking)
+            {
+                _zonesPlacer?.Dispose();
+                Clear();
+                return;
+            }
 
-            PlaceZonesByMap();
-            ARSession.stateChanged -= OnStateChanged;
+            _zonesPlacer = _dataProxy.SurfaceScanned.Where(it => it).Subscribe(it => { PlaceZonesByMap(); })
+                .AddTo(this);
         }
 
         private void PlaceZonesByMap()
@@ -214,6 +224,8 @@ namespace AR
 
         private void PlaceBeamsInWorld()
         {
+            if (!_dataProxy.SurfaceScanned.Value) return;
+
             foreach (MannaBoxView arAnchorFollower in _beams)
             {
                 arAnchorFollower.gameObject.Destroy();
