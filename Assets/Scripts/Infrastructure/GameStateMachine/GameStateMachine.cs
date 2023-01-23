@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Assets;
+using Core;
 using Core.WebSockets;
 using Data;
 using Infrastructure.GameStateMachine.GameStates;
@@ -15,12 +16,13 @@ namespace Infrastructure.GameStateMachine
         private readonly WebSocketService _webSocketService;
 
         public GameStateMachine(SceneLoader sceneLoader, IScreenNavigationSystem screenNavigationSystem,
-            IApiInterface apiInterface, WebSocketService webSocketService, IDataProxy dataProxy)
+            IApiInterface apiInterface, WebSocketService webSocketService, IDataProxy dataProxy,
+            EditorAssets editorAssets)
         {
             _apiInterface = apiInterface;
             _webSocketService = webSocketService;
             AddNewState(new BootstrapState(this, sceneLoader, _apiInterface, _webSocketService, dataProxy,
-                screenNavigationSystem));
+                screenNavigationSystem, editorAssets));
             AddNewState(new LoadLevelState(this, sceneLoader, screenNavigationSystem));
             AddNewState(new GameLoopState());
         }

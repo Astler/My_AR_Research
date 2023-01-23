@@ -5,6 +5,7 @@ using Data.Objects;
 using ExternalTools.ImagesLoader;
 using Geo;
 using Infrastructure.GameStateMachine;
+using Pointers;
 using SceneManagement;
 using Screens;
 using Screens.Factories;
@@ -36,6 +37,8 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<WebImagesLoader>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ApiInterface>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WebSocketService>().AsSingle().NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<PointersController>().AsSingle().NonLazy();
 
             BindFactories();
         }

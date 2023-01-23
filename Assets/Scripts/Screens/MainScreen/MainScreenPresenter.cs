@@ -8,6 +8,7 @@ using ExternalTools.ImagesLoader;
 using GameCamera;
 using Geo;
 using Infrastructure.GameStateMachine;
+using Pointers;
 using Screens.Factories;
 using Screens.PortalsListScreen;
 using Screens.RewardsListScreen;
@@ -28,10 +29,12 @@ namespace Screens.MainScreen
         private readonly IWebImagesLoader _webImagesLoader;
         private readonly GameStateMachine _gameStateMachine;
         private readonly RewardCardsFactory _rewardCardsFactory;
+        private readonly IPointersController _pointersController;
         private IDisposable _scanningProgress;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine, RewardCardsFactory rewardCardsFactory)
+            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
+            RewardCardsFactory rewardCardsFactory, IPointersController pointersController)
         {
             _view = view;
             _screenNavigationSystem = screenNavigationSystem;
@@ -39,6 +42,7 @@ namespace Screens.MainScreen
             _webImagesLoader = webImagesLoader;
             _gameStateMachine = gameStateMachine;
             _rewardCardsFactory = rewardCardsFactory;
+            _pointersController = pointersController;
             Init();
         }
 
@@ -49,13 +53,13 @@ namespace Screens.MainScreen
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.OpenMapClicked += OnOpenMapClicked;
-            
+
             _view.CollectedRewardsClicked += () =>
             {
                 _screenNavigationSystem.ExecuteNavigationCommand(
                     new NavigationCommand().ShowNextScreen(ScreenName.CollectedRewardsScreen));
             };
-            
+
             _view.HistoryClicked += () =>
             {
                 _screenNavigationSystem.ExecuteNavigationCommand(
@@ -111,7 +115,7 @@ namespace Screens.MainScreen
                                 _dataProxy.NextStateStep();
                             }
                         }).AddTo(_disposables);
-                        
+
                         _view.HideLocationDetectionPopup();
                         _view.ShowScanningPopup();
                         break;
@@ -146,6 +150,13 @@ namespace Screens.MainScreen
                     default:
                         throw new ArgumentOutOfRangeException(nameof(result), result, null);
                 }
+            }).AddTo(_disposables);
+            
+            _pointersController.CurrentPointer.Subscribe(target =>
+            {
+                _view.DirectionPointer.SetIsVisible(target != null);
+                _view.DirectionPointer.SetTarget(target);
+
             }).AddTo(_disposables);
         }
 
@@ -184,7 +195,7 @@ namespace Screens.MainScreen
         private void OnClearButtonClicked() => _dataProxy.ClearScene();
 
         private void OnWarningOkClicked() => _dataProxy.NextStateStep();
-        
+
         private void OnNearestPortalClicked()
         {
             Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;

@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Globalization;
-using System.Runtime.Serialization;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,7 +48,7 @@ namespace Utils
         public static string ConvertToHumanTime(this int timeInSeconds)
         {
             CultureInfo ci = new("en-GB");
-            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(timeInSeconds)
+            return new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(timeInSeconds).ToLocalTime()
                 .ToString("dddd, dd MMMM yyyy HH:mm:ss", ci);
         }
     }

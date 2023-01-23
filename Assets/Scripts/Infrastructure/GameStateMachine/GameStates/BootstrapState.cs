@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using Assets;
 using Core;
 using Core.WebSockets;
 using Data;
@@ -20,10 +21,11 @@ namespace Infrastructure.GameStateMachine.GameStates
         private readonly IWebSocketService _webSocketService;
         private readonly IDataProxy _dataProxy;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
+        private readonly EditorAssets _editorAssets;
 
         public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader,
             IApiInterface apiInterface, WebSocketService webSocketService, IDataProxy dataProxy,
-            IScreenNavigationSystem screenNavigationSystem)
+            IScreenNavigationSystem screenNavigationSystem, EditorAssets editorAssets)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
@@ -31,6 +33,7 @@ namespace Infrastructure.GameStateMachine.GameStates
             _webSocketService = webSocketService;
             _dataProxy = dataProxy;
             _screenNavigationSystem = screenNavigationSystem;
+            _editorAssets = editorAssets;
         }
 
         public void Enter()
@@ -51,19 +54,52 @@ namespace Infrastructure.GameStateMachine.GameStates
             _screenNavigationSystem.ExecuteNavigationCommand(new NavigationCommand()
                 .ShowNextScreen(ScreenName.LoadingScreen).WithoutAnimation());
 
-            _apiInterface.SignIn(
-                delegate(SignInResponse response)
+            if (Application.isEditor && _editorAssets.mockStartData)
+            {
+                _dataProxy.LoadClaimedRewards();
+                _dataProxy.AddEvents(new EventsData
                 {
-                    AccessToken = response.access_token;
-                    _webSocketService.Connect(response.access_token);
-
-                    _apiInterface.GetEventsList(data =>
+                    events = new[]
                     {
-                        _dataProxy.LoadClaimedRewards();
-                        _dataProxy.AddEvents(data);
-                        _gameStateMachine.Enter<LoadLevelState, SceneName>(SceneName.MainScene);
-                    }, status => { });
-                }, null);
+                        new EventData
+                        {
+                            title = "Editor Mock Zone",
+                            latitude = 0,
+                            longitude = 0,
+                            radius = 20,
+                            prizes = new[]
+                            {
+                                new PrizeData()
+                                {
+                                    amount = 10,
+                                    event_id = 0,
+                                    id = 10,
+                                    image = "dog.pes",
+                                    is_claimed = false,
+                                    prize_type = 0
+                                }
+                            }
+                        }
+                    }
+                });
+                _gameStateMachine.Enter<LoadLevelState, SceneName>(SceneName.MainScene);
+            }
+            else
+            {
+                _apiInterface.SignIn(
+                    delegate(SignInResponse response)
+                    {
+                        AccessToken = response.access_token;
+                        _webSocketService.Connect(response.access_token);
+
+                        _apiInterface.GetEventsList(data =>
+                        {
+                            _dataProxy.LoadClaimedRewards();
+                            _dataProxy.AddEvents(data);
+                            _gameStateMachine.Enter<LoadLevelState, SceneName>(SceneName.MainScene);
+                        }, status => { });
+                    }, null);
+            }
 
             Initialize();
         }

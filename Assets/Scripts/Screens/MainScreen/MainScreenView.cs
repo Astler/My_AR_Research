@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Pointers;
 using Screens.PortalsListScreen;
 using Screens.RewardClaimedScreen;
 using Screens.RewardsListScreen;
@@ -13,6 +14,12 @@ namespace Screens.MainScreen
 {
     public class MainScreenView : ScreenView, IMainScreenView
     {
+        [SerializeField] private DropLocationDirectionPointer pointer;
+
+        public IDropLocationDirectionPointer DirectionPointer => pointer;
+        
+        //OLD
+        
         [SerializeField] private Button openMapButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Button restartButton;
@@ -47,6 +54,8 @@ namespace Screens.MainScreen
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
 
+        public IDropLocationDirectionPointer GetPointer() => pointer;
+        
         public void SetIsMapActive(bool isMapActive)
         {
             clearButton.gameObject.SetActive(!isMapActive);

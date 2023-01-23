@@ -5,6 +5,7 @@ using Data;
 using ExternalTools.ImagesLoader;
 using GameCamera;
 using Infrastructure.GameStateMachine;
+using Pointers;
 using SceneManagement;
 using Screens.CollectedRewards;
 using Screens.Factories;
@@ -28,13 +29,16 @@ namespace Screens
         private GameStateMachine _gameStateMachine;
         private RewardCardsFactory _rewardCardsFactory;
         private HistoryCardsFactory _historyCardsFactory;
+        private IPointersController _pointersController;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
-            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory)
+            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory,
+            IPointersController pointersController)
         {
+            _pointersController = pointersController;
             _historyCardsFactory = historyCardsFactory;
             _rewardCardsFactory = rewardCardsFactory;
             _gameStateMachine = gameStateMachine;
@@ -97,7 +101,7 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
                         new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy,
-                            _webImagesLoader, _gameStateMachine, _rewardCardsFactory);
+                            _webImagesLoader, _gameStateMachine, _rewardCardsFactory, _pointersController);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;

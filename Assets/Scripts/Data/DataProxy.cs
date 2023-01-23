@@ -203,6 +203,7 @@ namespace Data
 
         public void ResetScene()
         {
+            _gameState.Value = GameStates.WarningMessage;
             _scannedArea.Value = 0;
             _surfaceScanned.Value = false;
             _reset.OnNext(true);

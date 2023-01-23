@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R58R933FKRK",
+    "m_SelectedDeviceId": "8B8X15GYE",
     "m_SelectedPackage": {
-        "deviceId": "R58R933FKRK",
+        "deviceId": "8B8X15GYE",
         "name": "com.ms.manna_drops",
-        "processId": 30770,
+        "processId": 13031,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "8B8X15GYE",
             "name": "com.vuforia.engine.VuforiaEngine",
             "processId": 20114,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 13031,
             "exited": false
         },
         {
@@ -162,6 +168,36 @@
             "deviceId": "R58R933FKRK",
             "name": "com.ms.manna_drops",
             "processId": 30770,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.manna_drops",
+            "processId": 32712,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.manna_drops",
+            "processId": 2710,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.manna_drops",
+            "processId": 3848,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.manna_drops",
+            "processId": 5350,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R933FKRK",
+            "name": "com.ms.manna_drops",
+            "processId": 6583,
             "exited": false
         }
     ],

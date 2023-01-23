@@ -1,5 +1,6 @@
 using System;
 using JetBrains.Annotations;
+using Pointers;
 using Screens.PortalsListScreen;
 using Screens.RewardsListScreen;
 using Screens.Views;
@@ -16,6 +17,8 @@ namespace Screens.MainScreen
         public event Action<Vector2> EmptyScreenClicked;
         public event Action CollectedRewardsClicked;
         public event Action HistoryClicked;
+        
+        IDropLocationDirectionPointer DirectionPointer { get; }
         
         void SetNextGiftTime(int timeToNextGift);
         void SetIsMapActive(bool isMapActive);

@@ -4,6 +4,7 @@ using AR.Map;
 using AR.World;
 using GameCamera;
 using Geo;
+using Pointers;
 using Zenject;
 
 namespace Installers

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cea06d112d94b71b84635d42f5c013f, type: 3}
   m_Name: GameAssetsSO
   m_EditorClassIdentifier: 
+  editorAssets:
+    mockStartData: 1
   screenAssets:
     screenPrefabs:
     - {fileID: 3489454614547928590, guid: cce0d69c0d58e47d9a15240a6e2969af, type: 3}
