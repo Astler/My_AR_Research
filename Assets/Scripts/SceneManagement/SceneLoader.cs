@@ -9,7 +9,7 @@ namespace SceneManagement
 {
     public class SceneLoader
     {
-        private static ReactiveProperty<float> _loadSceneProgress = new ReactiveProperty<float>(0);
+        private static readonly ReactiveProperty<float> _loadSceneProgress = new(0);
         public IReadOnlyReactiveProperty<float> LoadSceneProgress => _loadSceneProgress;
 
         public void Load(SceneName name, Action onLoaded = null)

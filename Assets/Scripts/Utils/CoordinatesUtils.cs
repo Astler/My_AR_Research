@@ -72,7 +72,6 @@ namespace Utils
             // for miles
             double r = 6371;
 
-            // calculate the result
             return (c * r);
         }
 

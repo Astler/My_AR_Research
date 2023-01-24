@@ -15,12 +15,12 @@ namespace AR.World
         private readonly Pool<CoinView> _coinsPool = new();
         
         private IDataProxy _dataProxy;
-        private CameraView _cameraView;
+        private ICameraView _cameraView;
 
         [Inject]
-        public void Construct(IDataProxy dataProxy, CameraView cameraView)
+        public void Construct(IDataProxy dataProxy, ICamerasController camerasController)
         {
-            _cameraView = cameraView;
+            _cameraView = camerasController.GetArCameraView();
             _dataProxy = dataProxy;
         }
         

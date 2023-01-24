@@ -39,15 +39,15 @@ namespace AR
         private ARWorldCoordinator _coordinator;
         private IDataProxy _dataProxy;
         private CoinsController _coinsController;
-        private CameraView _cameraView;
+        private ICameraView _arCameraView;
         private int _beamsInThisSession;
         private IDisposable _zonesPlacer;
 
         [Inject]
         public void Construct(ARWorldCoordinator coordinator,
-            IDataProxy dataProxy, CoinsController coinsController, CameraView cameraView)
+            IDataProxy dataProxy, CoinsController coinsController, CamerasController camerasController)
         {
-            _cameraView = cameraView;
+            _arCameraView = camerasController.GetArCameraView();
             _coinsController = coinsController;
             _dataProxy = dataProxy;
             _coordinator = coordinator;
@@ -162,7 +162,7 @@ namespace AR
         {
             if (!_dataProxy.IsInsideEvent() || boxData == null) return;
 
-            Vector3 playerPosition = _cameraView.transform.position;
+            Vector3 playerPosition = _arCameraView.Transform.position;
             Vector3 beamPosition = Random.insideUnitSphere *
                                    float.Parse(boxData.point, CultureInfo.InvariantCulture.NumberFormat);
             Vector3 objectPosition = playerPosition + beamPosition;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameAssetsSO
   m_EditorClassIdentifier: 
   editorAssets:
-    mockStartData: 1
+    mockStartData: 0
   screenAssets:
     screenPrefabs:
     - {fileID: 3489454614547928590, guid: cce0d69c0d58e47d9a15240a6e2969af, type: 3}

@@ -51,8 +51,9 @@ namespace Screens
                 _nextScreenInfos.Enqueue(navigationCommand);
                 return;
             }
+
             navigationCommand.IsDelayed = false;
-            
+
             if (_navigationStack.Count != 0)
             {
                 if (navigationCommand.IsNextScreenInQueue())
@@ -159,10 +160,10 @@ namespace Screens
             if (!_availableScreens.ContainsKey(screenName))
             {
                 Debug.Log($"Screen {screenName} has not loaded yet. Try to load.");
-                GetNewScreen(screenName, () => Show(screenName,extraData,withAnim,delayed));
+                GetNewScreen(screenName, () => Show(screenName, extraData, withAnim, delayed));
                 return;
             }
-            
+
             if (_currentShowAnimatedScreenView == _availableScreens[screenName])
             {
                 Debug.LogError("You are trying to show the same screen again. " + screenName);
@@ -291,7 +292,7 @@ namespace Screens
         {
             if (!_navigationStack.Contains(screenView)) return;
             if (screenView.ShouldPutInNavStack) RemoveScreenFromStack(screenView, nextScreenInQueue);
-            
+
             if (screenView.OnHideTransitionAnimation == null || !withAnim)
             {
                 screenView.MoveToInitialPosition();
@@ -321,7 +322,7 @@ namespace Screens
                 ForceCloseCurrentScreen();
             }
         }
-        
+
         public void HideScreenInformation(IScreenView screenView)
         {
             List<CanvasGroup> infoBlocks = screenView.InfoBlocks;
@@ -358,11 +359,17 @@ namespace Screens
                 infoBlock.blocksRaycasts = true;
             }
         }
+
         private class NextScreenInfo
         {
             public ScreenName name;
             public object extraData;
             public bool withAnim;
         }
+
+        /**
+         * 1 - cuz MainScreen is always visible and can't be closed, i guess
+         */
+        public bool IsAnyScreensOpened() => _navigationStack.Count > 1;
     }
 }

@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map Player
+    uniqueID: 2282168831
+    locked: 0
+  - name: Map Zone
+    uniqueID: 4151934957
+    locked: 0

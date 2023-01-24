@@ -13,6 +13,7 @@ using Mapbox.Utils;
 using UniRx;
 using UnityEngine;
 using Utils;
+using CameraType = GameCamera.CameraType;
 
 namespace Data
 {
@@ -24,6 +25,11 @@ namespace Data
         private readonly PlayerData _playerData;
         private EventData[] _eventsData;
 
+        private readonly ReactiveProperty<CameraType> _activeCameraType = new(CameraType.ArCamera);
+        private readonly ReactiveProperty<int> _selectedOnMapDropZoneId = new(-1);
+        
+        
+        
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
@@ -116,11 +122,16 @@ namespace Data
                 });
             }
         }
+        
+        public IReadOnlyReactiveProperty<CameraType> ActiveCameraType => _activeCameraType;
+        public IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId => _selectedOnMapDropZoneId;
+        
 
         public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
         public IReadOnlyReactiveCollection<HistoryStepData> SessionHistory => _historyLines;
         public IReadOnlyReactiveProperty<int> AvailableGifts => _availableGifts;
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
+
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
         public IReadOnlyReactiveProperty<bool> InRewardZone => _inRewardZone;
         public IReadOnlyReactiveProperty<float> DistanceToClosestReward => _distanceToClosestReward;
@@ -137,7 +148,12 @@ namespace Data
         public IReadOnlyReactiveProperty<bool> SurfaceScanned => _surfaceScanned;
         public IReadOnlyReactiveProperty<float> ScannedArea => _scannedArea;
         public IReadOnlyReactiveProperty<int> TimeToNextGift => _timeToNextGift;
-
+        
+        public void SetSelectedOnMapDropZone(int id)
+        {
+            _selectedOnMapDropZoneId.Value = id;
+        }
+        
         public void SetActivePortalZone(ZoneViewInfo zoneModel)
         {
             if (zoneModel == null)
@@ -216,6 +232,7 @@ namespace Data
         public void ToggleMap()
         {
             _mapOpened.Value = !_mapOpened.Value;
+            _activeCameraType.Value = MapOpened.Value ? CameraType.MapCamera : CameraType.ArCamera;
         }
 
         public void LoadEvents()

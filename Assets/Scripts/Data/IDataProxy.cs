@@ -5,11 +5,19 @@ using Data.Objects;
 using Geo;
 using UniRx;
 using UnityEngine;
+using CameraType = GameCamera.CameraType;
 
 namespace Data
 {
     public interface IDataProxy
     {
+        IReadOnlyReactiveProperty<CameraType> ActiveCameraType { get; }
+        IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId { get; }
+        
+        void SetSelectedOnMapDropZone(int id);
+
+        //TODO rethink OLD
+
         IReadOnlyReactiveProperty<GameStates> GameState { get; }
         IReadOnlyReactiveProperty<bool> MapOpened { get; }
         IReadOnlyReactiveProperty<bool> InRewardZone { get; }

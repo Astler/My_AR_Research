@@ -18,6 +18,7 @@ namespace Screens.CollectedRewards
         [SerializeField] private Button closeButton;
 
         public event Action RefreshClicked;
+        
         public RectTransform GetListContainer() => listContainer;
 
         private void Awake()

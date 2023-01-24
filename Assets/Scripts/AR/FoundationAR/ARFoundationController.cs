@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using AR.World;
 using Assets.Scripts.AR.FoundationAR;
 using Data;
 using GameCamera;
-using Geo;
 using UniRx;
 using Unity.XR.CoreUtils;
 using UnityEngine;
@@ -19,28 +17,15 @@ namespace AR.FoundationAR
         [SerializeField] private ARRaycastManager raycastManager;
         [SerializeField] private TargetSelectView targetView;
         [SerializeField] private ARSession arSession;
-        [SerializeField] private Transform content;
         [SerializeField] private ARPlaneManager planeManager;
 
-        private ARWorldCoordinator _coordinator;
-        private LocationController _locationController;
         private XROrigin _origin;
         private IDataProxy _dataProxy;
 
         [Inject]
-        public void Construct(ARWorldCoordinator coordinator, LocationController locationController,
-            IDataProxy dataProxy)
+        public void Construct(IDataProxy dataProxy)
         {
             _dataProxy = dataProxy;
-            _coordinator = coordinator;
-            _locationController = locationController;
-
-            ARSession.stateChanged += OnStateChanged;
-        }
-
-        private void OnStateChanged(ARSessionStateChangedEventArgs obj)
-        {
-            Debug.Log("session state changed: " + obj.state);
         }
 
         public IReadOnlyReactiveProperty<bool> Initialized { get; }
@@ -50,23 +35,18 @@ namespace AR.FoundationAR
             List<ARRaycastHit> arHits = new();
             bool hit = raycastManager.Raycast(clickPosition, arHits, TrackableType.Planes);
 
-            if (arHits.Count > 0)
-            {
-                Pose pose = arHits[0].pose;
-                return (hit, pose);
-            }
+            if (arHits.Count <= 0) return (hit, null);
 
-            return (hit, null);
+            Pose pose = arHits[0].pose;
+            return (hit, pose);
         }
 
         public Vector3 GetPointerPosition() => targetView.GetPointerPosition();
 
-        public Vector3 GetCeilPosition()
-        {
-            return Vector3.zero;
-        }
+        public Vector3 GetCeilPosition() => Vector3.zero;
 
         public void Reset() => arSession.Reset();
+        
         public void ClearAnchors() { }
 
         public CameraView GetCamera() => cameraView;
