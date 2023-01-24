@@ -11,5 +11,7 @@ namespace Screens
         ArScanningPopup = 6,
         DropZonesListScreen = 7,
         RewardsListScreen = 8,
+        RewardClaimedScreen = 9,
+        RewardAlreadyClaimedScreen = 10,
     }
 }

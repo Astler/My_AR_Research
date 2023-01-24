@@ -9,10 +9,8 @@ namespace Screens.Views
         event Action PortalsListClicked;
         event Action NearestPortalClicked;
         event Action MyPositionClicked;
-        public event Action MapCloseClicked;
-        public event Action RewardsListClicked;
-
-        void SetIsMapActive(bool isMapActive);
+        event Action MapCloseClicked;
+        event Action RewardsListClicked;
     }
 
     public class MapUserInterfaceView : MonoBehaviour, IMapUserInterface
@@ -23,13 +21,22 @@ namespace Screens.Views
         [SerializeField] private Button rewardsListButton;
         [SerializeField] private Button closeMap;
 
+        [SerializeField] private GameObject mapUIContent;
+        [SerializeField] private GameObject mapUIBottomBar;
+
         public event Action PortalsListClicked;
         public event Action NearestPortalClicked;
         public event Action MyPositionClicked;
         public event Action MapCloseClicked;
         public event Action RewardsListClicked;
 
-        public void SetIsMapActive(bool isMapActive) => gameObject.SetActive(isMapActive);
+        public void SetIsRewardsButtonActive(bool hasZone) => rewardsListButton.gameObject.SetActive(hasZone);
+
+        public void SetActive(bool isMapActive)
+        {
+            mapUIContent.SetActive(isMapActive);
+            mapUIBottomBar.SetActive(isMapActive);
+        }
 
         private void Awake()
         {
@@ -38,11 +45,6 @@ namespace Screens.Views
             zonesListButton.onClick.AddListener(() => PortalsListClicked?.Invoke());
             rewardsListButton.onClick.AddListener(() => RewardsListClicked?.Invoke());
             closeMap.onClick.AddListener(() => MapCloseClicked?.Invoke());
-        }
-
-        public void SetIsRewardsButtonActive(bool hasZone)
-        {
-            rewardsListButton.gameObject.SetActive(hasZone);
         }
     }
 }

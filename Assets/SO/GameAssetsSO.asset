@@ -25,5 +25,7 @@ MonoBehaviour:
     - {fileID: 6859271202167560956, guid: 85578a4d0d5544752b806fa77a6a7647, type: 3}
     - {fileID: 3527117995687422290, guid: 1b9e0cbab70414b3ea21a6ea4cb2afb5, type: 3}
     - {fileID: 4405357858321780333, guid: 13cce33688168494c964939074ee615f, type: 3}
+    - {fileID: 1466088825646740931, guid: 35d294a649c934b809297b4a8b1f15d7, type: 3}
+    - {fileID: 7193246183557557014, guid: 809c3f32145684eec8b9c6c7101dd871, type: 3}
   assetsScriptableObject: {fileID: 11400000, guid: b83a716757760fa4284f112e23cc2366,
     type: 2}

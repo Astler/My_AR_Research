@@ -1,6 +1,4 @@
 using System;
-using Pointers;
-using Screens.RewardClaimedScreen;
 using Screens.Views;
 using TMPro;
 using UnityEngine;
@@ -11,37 +9,44 @@ namespace Screens.MainScreen
 {
     public class MainScreenView : ScreenView, IMainScreenView
     {
-        [SerializeField] private DropLocationDirectionPointer pointer;
-
-        public IDropLocationDirectionPointer DirectionPointer => pointer;
-        
-        //OLD
-        
+        [SerializeField] private RawImage pointerImage;
         [SerializeField] private Button openMapButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button collectedRewardsButton;
         [SerializeField] private Button historyButton;
-        [SerializeField] private TextMeshProUGUI availableGiftsText;
+
+        [Space] [SerializeField] private TextMeshProUGUI availableGiftsText;
         [SerializeField] private TextMeshProUGUI nextGiftTimerText;
         [SerializeField] private LocationInfoView locationInfoView;
         [SerializeField] private PlayerBalanceBarView playerBalancesView;
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
-        [SerializeField] private RewardClaimedScreenView rewardClaimedScreenView;
-        [SerializeField] private RewardClaimedScreenView rewardAlreadyClaimedScreenView;
-        
+
         public event Action OpenMapClicked;
         public event Action CollectedRewardsClicked;
         public event Action HistoryClicked;
         public event Action ClearButtonClicked;
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
-        
-        public void SetIsMapActive(bool isMapActive)
+
+        public IMapUserInterface MapUserInterface => mapUserInterfaceView;
+
+        public void SetUIFlags(MainScreenMode mainScreenUI)
         {
-            clearButton.gameObject.SetActive(!isMapActive);
-            restartButton.gameObject.SetActive(!isMapActive);
-            mapUserInterfaceView.SetIsMapActive(isMapActive);
+            bool uiHidden = mainScreenUI.HasFlag(MainScreenMode.Hide);
+            bool isMap = mainScreenUI.HasFlag(MainScreenMode.Map);
+            bool topBarActive = mainScreenUI.HasFlag(MainScreenMode.TopBar);
+            bool contentVisible = mainScreenUI.HasFlag(MainScreenMode.MidContent);
+            bool bottomBarActive = mainScreenUI.HasFlag(MainScreenMode.BottomBar);
+
+            playerBalancesView.gameObject.SetActive(!uiHidden && topBarActive);
+            locationInfoView.gameObject.SetActive(!uiHidden && contentVisible);
+            pointerImage.gameObject.SetActive(!uiHidden && !isMap && contentVisible);
+            openMapButton.gameObject.SetActive(!uiHidden && bottomBarActive);
+            clearButton.gameObject.SetActive(!uiHidden && !isMap && bottomBarActive);
+            restartButton.gameObject.SetActive(!uiHidden && !isMap && bottomBarActive);
+
+            mapUserInterfaceView.SetActive(!uiHidden && isMap);
         }
 
         public void SetNextGiftTime(int timeToNextGift)
@@ -67,9 +72,9 @@ namespace Screens.MainScreen
                 : "<color=red>Go to the event area!</color>");
         }
 
-        public void SetAvailableGifts(int gifts)
+        public void SetAvailableRewards(int rewards)
         {
-            availableGiftsText.text = "Available gifts: " + gifts;
+            availableGiftsText.text = "Available gifts: " + rewards;
         }
 
         public void ShowLocationSearchStatus(string status)
@@ -79,42 +84,6 @@ namespace Screens.MainScreen
 
         public IMapUserInterface GetMapUserInterface() => mapUserInterfaceView;
 
-        public void HideInterface()
-        {
-            openMapButton.gameObject.SetActive(false);
-            clearButton.gameObject.SetActive(false);
-            restartButton.gameObject.SetActive(false);
-            locationInfoView.gameObject.SetActive(false);
-            playerBalancesView.gameObject.SetActive(false);
-            mapUserInterfaceView.gameObject.SetActive(false);
-        }
-
-        public void ShowBaseInterface()
-        {
-            playerBalancesView.gameObject.SetActive(true);
-        }
-        
-        public void ShowLocationInfo()
-        {
-            locationInfoView.gameObject.SetActive(true);
-        }
-
-        public void ShowGameInterface()
-        {
-            openMapButton.gameObject.SetActive(true);
-            clearButton.gameObject.SetActive(true);
-            restartButton.gameObject.SetActive(true);
-            locationInfoView.gameObject.SetActive(true);
-            playerBalancesView.gameObject.SetActive(true);
-        }
-        
-        public void ShowRewardPopup(Sprite sprite, string itemName) =>
-            rewardClaimedScreenView.ShowReward(sprite, itemName);
-
-        public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) =>
-            rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
-        
-        
         private void Awake()
         {
             clearButton.ActionWithThrottle(() => { ClearButtonClicked?.Invoke(); });

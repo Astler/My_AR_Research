@@ -10,8 +10,6 @@ namespace Pointers
 {
     public interface IPointersController
     {
-        IReadOnlyReactiveProperty<IPointerTarget> CurrentPointer { get; }
-
         void AddTarget(IPointerTarget pointerTarget);
         void RemoveTarget(IPointerTarget pointerTarget);
     }
@@ -23,13 +21,17 @@ namespace Pointers
         private readonly List<IPointerTarget> _targets = new();
         private readonly ReactiveProperty<IPointerTarget> _currentPointer = new();
 
-        public IReadOnlyReactiveProperty<IPointerTarget> CurrentPointer => _currentPointer;
-
-        public PointersController(IDataProxy dataProxy)
+        public PointersController(IDataProxy dataProxy, IDropLocationDirectionPointer pointer)
         {
             _dataProxy = dataProxy;
 
             _dataProxy.PlayerLocationChanged.Subscribe(_ => { UpdateCurrentPointer(); }).AddTo(_compositeDisposable);
+
+            _currentPointer.Subscribe(target =>
+            {
+                pointer.SetIsVisible(target != null);
+                pointer.SetTarget(target);
+            }).AddTo(_compositeDisposable);
         }
 
         public void AddTarget(IPointerTarget pointerTarget)
@@ -69,7 +71,7 @@ namespace Pointers
         {
             IPointerTarget nearest = GetNearestPointerTarget();
 
-            if (CurrentPointer.Value == nearest) return;
+            if (_currentPointer.Value == nearest) return;
 
             _currentPointer.Value = nearest;
         }

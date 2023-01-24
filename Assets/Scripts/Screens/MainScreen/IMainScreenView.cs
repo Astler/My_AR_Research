@@ -1,6 +1,5 @@
 using System;
 using JetBrains.Annotations;
-using Pointers;
 using Screens.Views;
 using UnityEngine;
 
@@ -14,21 +13,15 @@ namespace Screens.MainScreen
         public event Action<Vector2> EmptyScreenClicked;
         public event Action CollectedRewardsClicked;
         public event Action HistoryClicked;
+
+        IMapUserInterface MapUserInterface { get; }
         
-        IDropLocationDirectionPointer DirectionPointer { get; }
-        
+        void SetUIFlags(MainScreenMode mainScreenUI);
+
+        void ShowLocationSearchStatus(string status);
         void SetNextGiftTime(int timeToNextGift);
-        void SetIsMapActive(bool isMapActive);
         void SetCoins(int coins);
         void SetupActiveZone([CanBeNull] string zoneName);
-        void ShowLocationSearchStatus(string status);
-        IMapUserInterface GetMapUserInterface();
-        void HideInterface();
-        void ShowLocationInfo();
-        void ShowBaseInterface();
-        void ShowGameInterface();
-        void ShowRewardPopup(Sprite sprite, string itemName);
-        void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName);
-        void SetAvailableGifts(int gifts);
+        void SetAvailableRewards(int rewards);
     }
 }

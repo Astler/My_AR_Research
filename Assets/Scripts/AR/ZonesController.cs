@@ -224,7 +224,7 @@ namespace AR
 
         private void PlaceBeamsInWorld()
         {
-            if (!_dataProxy.SurfaceScanned.Value) return;
+            if (!_dataProxy.SurfaceScanned.Value && !Application.isEditor) return;
 
             foreach (MannaBoxView arAnchorFollower in _beams)
             {

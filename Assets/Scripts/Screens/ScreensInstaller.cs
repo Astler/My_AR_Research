@@ -15,6 +15,7 @@ using Screens.HistoryScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
 using Screens.PortalsListScreen;
+using Screens.RewardClaimedScreen;
 using Screens.RewardsListScreen;
 using Screens.WarningScreen;
 using UnityEngine;
@@ -34,16 +35,13 @@ namespace Screens
         private GameStateMachine _gameStateMachine;
         private RewardCardsFactory _rewardCardsFactory;
         private HistoryCardsFactory _historyCardsFactory;
-        private IPointersController _pointersController;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
-            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory,
-            IPointersController pointersController)
+            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory)
         {
-            _pointersController = pointersController;
             _historyCardsFactory = historyCardsFactory;
             _rewardCardsFactory = rewardCardsFactory;
             _gameStateMachine = gameStateMachine;
@@ -105,8 +103,7 @@ namespace Screens
                 case ScreenName.MainScreen:
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
-                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy,
-                            _webImagesLoader, _gameStateMachine, _rewardCardsFactory, _pointersController);
+                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy, _gameStateMachine);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;
@@ -156,6 +153,20 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(RewardsListScreenView view)
                     {
                         new RewardsListScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.RewardClaimedScreen:
+                    InstantiateView(name.ToString(), delegate(RewardClaimedScreenView view)
+                    {
+                        new RewardClaimedScreenPresenter(view);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.RewardAlreadyClaimedScreen:
+                    InstantiateView(name.ToString(), delegate(RewardClaimedScreenView view)
+                    {
+                        new RewardClaimedScreenPresenter(view);
                         onSuccess.Invoke(view);
                     });
                     break;

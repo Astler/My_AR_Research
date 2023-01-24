@@ -37,8 +37,6 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<WebImagesLoader>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ApiInterface>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WebSocketService>().AsSingle().NonLazy();
-            
-            Container.BindInterfacesAndSelfTo<PointersController>().AsSingle().NonLazy();
 
             BindFactories();
         }

@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 1466088825646740932}
   - component: {fileID: 9008503290099987219}
   - component: {fileID: 5684929016184306662}
+  - component: {fileID: 8821848153508034264}
+  - component: {fileID: 126604148557199450}
+  - component: {fileID: 2116100357510900200}
   m_Layer: 5
-  m_Name: RewardClaimedPopup
+  m_Name: RewardClaimedScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,10 +76,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50932bf6ea2c4003a8ca0276b4608f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldPutInNavStack: 1
+  shouldDeleteAfterHide: 0
+  infoBlocks: []
   icon: {fileID: 5530575811067792707}
   nameText: {fileID: 6392555216972829636}
   okButton: {fileID: 5462441024877876073}
   defaultIcon: {fileID: 21300000, guid: e1c917b8297334a009b5859eba21e92f, type: 3}
+--- !u!223 &8821848153508034264
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466088825646740931}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &126604148557199450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466088825646740931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &2116100357510900200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466088825646740931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43794302abfa4f9c95f0f52beb629fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 1
 --- !u!1 &1596789861559034259
 GameObject:
   m_ObjectHideFlags: 0

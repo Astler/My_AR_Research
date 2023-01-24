@@ -813,7 +813,7 @@ GameObject:
   - component: {fileID: 761021808088378822}
   - component: {fileID: 4138807645166363955}
   m_Layer: 5
-  m_Name: RewardAlreadyClaimedPopup
+  m_Name: RewardAlreadyClaimedScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

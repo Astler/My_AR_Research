@@ -3,44 +3,35 @@ using System.Collections.Generic;
 using AR;
 using AR.World.Collectable;
 using Data;
-using Data.Objects;
 using ExternalTools.ImagesLoader;
 using GameCamera;
 using Geo;
 using Infrastructure.GameStateMachine;
 using Pointers;
 using Screens.Factories;
-using Screens.PortalsListScreen;
+using Screens.RewardClaimedScreen;
 using Screens.RewardsListScreen;
 using UniRx;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Screens.MainScreen
 {
     public class MainScreenPresenter : IDisposable
     {
         private readonly CompositeDisposable _disposables = new();
-        private readonly List<RewardCardView> _rewardsList = new();
         private readonly IMainScreenView _view;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly IDataProxy _dataProxy;
-        private readonly IWebImagesLoader _webImagesLoader;
         private readonly GameStateMachine _gameStateMachine;
-        private readonly RewardCardsFactory _rewardCardsFactory;
-        private readonly IPointersController _pointersController;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
-            RewardCardsFactory rewardCardsFactory, IPointersController pointersController)
+            IDataProxy dataProxy, GameStateMachine gameStateMachine)
         {
             _view = view;
             _screenNavigationSystem = screenNavigationSystem;
             _dataProxy = dataProxy;
-            _webImagesLoader = webImagesLoader;
             _gameStateMachine = gameStateMachine;
-            _rewardCardsFactory = rewardCardsFactory;
-            _pointersController = pointersController;
+            
             Init();
         }
 
@@ -53,14 +44,21 @@ namespace Screens.MainScreen
             _view.CollectedRewardsClicked += OnCollectedRewardsClicked;
             _view.HistoryClicked += OnHistoryClicked;
 
-            _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
-            _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
-            _view.GetMapUserInterface().MyPositionClicked += OnMyPositionClicked;
-            _view.GetMapUserInterface().NearestPortalClicked += OnNearestPortalClicked;
-            _view.GetMapUserInterface().MapCloseClicked += () => _dataProxy.ToggleMap();
+            _view.MapUserInterface.PortalsListClicked += OnZonesListClicked;
+            _view.MapUserInterface.RewardsListClicked += OnRewardsListClicked;
+            _view.MapUserInterface.MyPositionClicked += OnMyPositionClicked;
+            _view.MapUserInterface.NearestPortalClicked += OnNearestPortalClicked;
+            _view.MapUserInterface.MapCloseClicked += () => _dataProxy.ToggleMap();
 
-            _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableGifts).AddTo(_disposables);
-            _dataProxy.MapOpened.Subscribe(_view.SetIsMapActive).AddTo(_disposables);
+            _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableRewards).AddTo(_disposables);
+
+            _dataProxy.MapOpened
+                .Subscribe(mapOpened =>
+                    _view.SetUIFlags(mapOpened
+                        ? MainScreenMode.Map | MainScreenMode.TopBar
+                        : MainScreenMode.TopBar | MainScreenMode.MidContent | MainScreenMode.BottomBar))
+                .AddTo(_disposables);
+
             _dataProxy.Coins.Subscribe(_view.SetCoins).AddTo(_disposables);
             _dataProxy.TimeToNextGift.Subscribe(_view.SetNextGiftTime).AddTo(_disposables);
 
@@ -69,7 +67,7 @@ namespace Screens.MainScreen
                 switch (state)
                 {
                     case GameStates.Loading:
-                        _view.HideInterface();
+                        _view.SetUIFlags(MainScreenMode.Hide);
                         Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ =>
                             {
                                 _dataProxy.CompleteStateStep(GameStates.Loading);
@@ -83,15 +81,15 @@ namespace Screens.MainScreen
                     case GameStates.LocationDetection:
                         _screenNavigationSystem.ExecuteNavigationCommand(
                             new NavigationCommand().ShowNextScreen(ScreenName.DetectingLocationPopup));
-                        _view.ShowBaseInterface();
+                        _view.SetUIFlags(MainScreenMode.TopBar);
                         break;
                     case GameStates.Scanning:
                         _screenNavigationSystem.ExecuteNavigationCommand(
                             new NavigationCommand().ShowNextScreen(ScreenName.ArScanningPopup));
-                        _view.ShowLocationInfo();
+                        _view.SetUIFlags(MainScreenMode.TopBar | MainScreenMode.MidContent);
                         break;
                     case GameStates.Active:
-                        _view.ShowGameInterface();
+                        _view.SetUIFlags(MainScreenMode.TopBar | MainScreenMode.MidContent | MainScreenMode.BottomBar);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(state), state, null);
@@ -120,14 +118,10 @@ namespace Screens.MainScreen
                         throw new ArgumentOutOfRangeException(nameof(result), result, null);
                 }
             }).AddTo(_disposables);
-
-            _pointersController.CurrentPointer.Subscribe(target =>
-            {
-                _view.DirectionPointer.SetIsVisible(target != null);
-                _view.DirectionPointer.SetTarget(target);
-            }).AddTo(_disposables);
         }
 
+        public void Dispose() => _disposables?.Dispose();
+        
         private void OnZonesListClicked()
         {
             _screenNavigationSystem.ExecuteNavigationCommand(
@@ -140,8 +134,7 @@ namespace Screens.MainScreen
                 new NavigationCommand().ShowNextScreen(ScreenName.HistoryScreen));
         }
 
-        public void Dispose() => _disposables?.Dispose();
-        
+
         private void OnClearButtonClicked() => _dataProxy.ClearScene();
 
         private void OnRestartButtonClicked()
@@ -150,7 +143,7 @@ namespace Screens.MainScreen
             _view.CloseScreen();
             _dataProxy.ResetScene();
         }
-        
+
         private void OnScreenClicked(Vector2 clickPosition)
         {
             if (_dataProxy.MapOpened.Value) return;
@@ -191,7 +184,11 @@ namespace Screens.MainScreen
                         {
                             mannaBoxView.Interact();
                             _dataProxy.CollectedCoin(5);
-                            _view.ShowRewardPopup(sprite, mannaBoxView.GetBeamData().Name);
+                            OnRewardClaimed(new RewardScreenViewInfo
+                            {
+                                ItemName = mannaBoxView.GetBeamData().Name,
+                                Sprite = sprite
+                            }, true);
                         }, () =>
                         {
                             mannaBoxView.Interact();
@@ -199,7 +196,11 @@ namespace Screens.MainScreen
                             _dataProxy.GetSpriteByUrl(mannaBoxView.GetBeamData().Url, sprite =>
                             {
                                 _dataProxy.CollectedCoin();
-                                _view.ShowAlreadyClaimedRewardPopup(sprite, mannaBoxView.GetBeamData().Name);
+                                OnRewardClaimed(new RewardScreenViewInfo
+                                {
+                                    ItemName = mannaBoxView.GetBeamData().Name,
+                                    Sprite = sprite
+                                }, false);
                             });
                         });
                     }
@@ -217,19 +218,27 @@ namespace Screens.MainScreen
             //
             // Debug.Log("No hits. Clicked nowhere!!");
         }
-        
+
         private void OnRewardsListClicked()
         {
             _screenNavigationSystem.ExecuteNavigationCommand(
                 new NavigationCommand().ShowNextScreen(ScreenName.RewardsListScreen));
         }
-        
+
+        private void OnRewardClaimed(RewardScreenViewInfo rewardScreenViewInfo, bool succeed)
+        {
+            _screenNavigationSystem.ExecuteNavigationCommand(
+                new NavigationCommand()
+                    .ShowNextScreen(succeed ? ScreenName.RewardClaimedScreen : ScreenName.RewardAlreadyClaimedScreen)
+                    .WithExtraData(rewardScreenViewInfo));
+        }
+
         private void OnCollectedRewardsClicked()
         {
             _screenNavigationSystem.ExecuteNavigationCommand(
                 new NavigationCommand().ShowNextScreen(ScreenName.CollectedRewardsScreen));
         }
-        
+
         private void OnOpenMapClicked() => _dataProxy.ToggleMap();
 
         private void OnNearestPortalClicked()

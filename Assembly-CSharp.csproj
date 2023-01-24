@@ -927,6 +927,9 @@
      <Compile Include="Assets/Scripts/Screens/ArScanningPopup/ArScanningPopupView.cs" />
      <Compile Include="Assets/Scripts/Screens/PortalsListScreen/ZonesListScreenPresenter.cs" />
      <Compile Include="Assets/Scripts/Screens/RewardsListScreen/RewardsListScreenPresenter.cs" />
+     <Compile Include="Assets/Scripts/Screens/RewardClaimedScreen/RewardClaimedScreenPresenter.cs" />
+     <Compile Include="Assets/Scripts/Screens/RewardClaimedScreen/RewardScreenViewInfo.cs" />
+     <Compile Include="Assets/Scripts/Screens/MainScreen/MainScreenMode.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/SamplesResources" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
