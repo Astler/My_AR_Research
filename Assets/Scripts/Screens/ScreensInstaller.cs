@@ -7,11 +7,16 @@ using GameCamera;
 using Infrastructure.GameStateMachine;
 using Pointers;
 using SceneManagement;
+using Screens.ArScanningPopup;
 using Screens.CollectedRewards;
+using Screens.DetectingLocationPopup;
 using Screens.Factories;
 using Screens.HistoryScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
+using Screens.PortalsListScreen;
+using Screens.RewardsListScreen;
+using Screens.WarningScreen;
 using UnityEngine;
 using Utils;
 using Zenject;
@@ -116,6 +121,41 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(HistoryScreenView view)
                     {
                         new HistoryScreenPresenter(view, _dataProxy, _historyCardsFactory);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.WarningScreen:
+                    InstantiateView(name.ToString(), delegate(WarningScreenView view)
+                    {
+                        new WarningScreenPresenter(view, _dataProxy);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.DetectingLocationPopup:
+                    InstantiateView(name.ToString(), delegate(DetectingLocationPopupView view)
+                    {
+                        new DetectingLocationPopupPresenter(view, _dataProxy);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.ArScanningPopup:
+                    InstantiateView(name.ToString(), delegate(ArScanningPopupView view)
+                    {
+                        new ArScanningPopupPresenter(view, _dataProxy);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.DropZonesListScreen:
+                    InstantiateView(name.ToString(), delegate(ZonesListScreenView view)
+                    {
+                        new ZonesListScreenPresenter(view, _dataProxy);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.RewardsListScreen:
+                    InstantiateView(name.ToString(), delegate(RewardsListScreenView view)
+                    {
+                        new RewardsListScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
                         onSuccess.Invoke(view);
                     });
                     break;

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace Screens.PortalsListScreen
 {
+    //TODO to factory!
     public class PortalCardView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI portalName;

@@ -27,16 +27,13 @@ namespace Data
 
         private readonly ReactiveProperty<CameraType> _activeCameraType = new(CameraType.ArCamera);
         private readonly ReactiveProperty<int> _selectedOnMapDropZoneId = new(-1);
-        
+        private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
         
         
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
-        private readonly ReactiveProperty<bool> _inRewardZone = new();
         private readonly ReactiveProperty<bool> _mapOpened = new();
-        private readonly ReactiveProperty<float> _distanceToClosestReward = new();
-        private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
         private readonly ReactiveProperty<ZoneViewInfo> _selectedPortalZone = new();
         private readonly ReactiveProperty<EventData> _activeEventData = new();
         private readonly ReactiveProperty<ZoneViewInfo> _nearestPortalZone = new();
@@ -130,11 +127,18 @@ namespace Data
         public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
         public IReadOnlyReactiveCollection<HistoryStepData> SessionHistory => _historyLines;
         public IReadOnlyReactiveProperty<int> AvailableGifts => _availableGifts;
+        
+        public void CompleteStateStep(GameStates states)
+        {
+            if (_gameState.Value == states)
+            {
+                _gameState.Value = _gameState.Value.Next();
+            }
+        }
+        
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
 
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
-        public IReadOnlyReactiveProperty<bool> InRewardZone => _inRewardZone;
-        public IReadOnlyReactiveProperty<float> DistanceToClosestReward => _distanceToClosestReward;
         public IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone => _selectedPortalZone;
         public IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone => _nearestPortalZone;
         public IReadOnlyReactiveProperty<EventData> ActiveEventData => _activeEventData;
@@ -209,12 +213,7 @@ namespace Data
 
             return activeZones;
         }
-
-        public void NextStateStep()
-        {
-            _gameState.Value = _gameState.Value.Next();
-        }
-
+        
         public void ClearScene() => _clear.OnNext(true);
 
         public void ResetScene()
@@ -227,6 +226,7 @@ namespace Data
 
         public bool IsInsideEvent() => _activeEventData.Value != null;
 
+        //TODO Find usage
         public void RestartGeoLocation() => ARLocationManager.Instance.Restart();
 
         public void ToggleMap()

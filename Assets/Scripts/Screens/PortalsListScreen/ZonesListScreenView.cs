@@ -1,21 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
+using Utils;
 
 namespace Screens.PortalsListScreen
 {
-    public interface IPortalsListScreenView
+    public interface IZonesListScreenView : IScreenView
     {
         PortalCardView GetCardPrefab();
         RectTransform GetListContainer();
     }
-    
-    public class ZonesListView: MonoBehaviour, IPortalsListScreenView
+
+    public class ZonesListScreenView : ScreenView, IZonesListScreenView
     {
+        [SerializeField] private Button okButton;
         [SerializeField] private PortalCardView portalCardPrefab;
         [SerializeField] private RectTransform listContainer;
 
         public PortalCardView GetCardPrefab() => portalCardPrefab;
         public RectTransform GetListContainer() => listContainer;
-        
-        public void SetActive(bool active) => gameObject.SetActive(active);
+
+        private void Awake()
+        {
+            okButton.ActionWithThrottle(CloseScreen);
+        }
     }
 }

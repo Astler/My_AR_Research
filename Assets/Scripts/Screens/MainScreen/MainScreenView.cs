@@ -1,9 +1,6 @@
 using System;
-using DG.Tweening;
 using Pointers;
-using Screens.PortalsListScreen;
 using Screens.RewardClaimedScreen;
-using Screens.RewardsListScreen;
 using Screens.Views;
 using TMPro;
 using UnityEngine;
@@ -23,10 +20,8 @@ namespace Screens.MainScreen
         [SerializeField] private Button openMapButton;
         [SerializeField] private Button clearButton;
         [SerializeField] private Button restartButton;
-        [SerializeField] private Button warningOkButton;
         [SerializeField] private Button collectedRewardsButton;
         [SerializeField] private Button historyButton;
-        [SerializeField] private TextMeshProUGUI areaText;
         [SerializeField] private TextMeshProUGUI availableGiftsText;
         [SerializeField] private TextMeshProUGUI nextGiftTimerText;
         [SerializeField] private LocationInfoView locationInfoView;
@@ -34,27 +29,13 @@ namespace Screens.MainScreen
         [SerializeField] private MapUserInterfaceView mapUserInterfaceView;
         [SerializeField] private RewardClaimedScreenView rewardClaimedScreenView;
         [SerializeField] private RewardClaimedScreenView rewardAlreadyClaimedScreenView;
-
-        [Space, Header("Steps"), SerializeField]
-        private CanvasGroup warningStep;
-
-        [SerializeField] private CanvasGroup scanningStep;
-        [SerializeField] private CanvasGroup locationSearchScreen;
-
-        [SerializeField] private ZonesListView zonesListView;
-        [SerializeField] private Button closeZonesList;
-        [SerializeField] private RewardsListView rewardsListView;
-        [SerializeField] private Button closeRewardsList;
-
-        public event Action WarningOkClicked;
+        
         public event Action OpenMapClicked;
         public event Action CollectedRewardsClicked;
         public event Action HistoryClicked;
         public event Action ClearButtonClicked;
         public event Action RestartButtonClicked;
         public event Action<Vector2> EmptyScreenClicked;
-
-        public IDropLocationDirectionPointer GetPointer() => pointer;
         
         public void SetIsMapActive(bool isMapActive)
         {
@@ -91,12 +72,6 @@ namespace Screens.MainScreen
             availableGiftsText.text = "Available gifts: " + gifts;
         }
 
-        public void SetScannedProgressValue(float areaCoefficient)
-        {
-            areaText.gameObject.SetActive(areaCoefficient < 1 && areaCoefficient >= 0);
-            areaText.text = $"Scanned: {Mathf.RoundToInt(areaCoefficient * 100)}%";
-        }
-
         public void ShowLocationSearchStatus(string status)
         {
             locationInfoView.ShowResponse(status);
@@ -112,62 +87,16 @@ namespace Screens.MainScreen
             locationInfoView.gameObject.SetActive(false);
             playerBalancesView.gameObject.SetActive(false);
             mapUserInterfaceView.gameObject.SetActive(false);
-
-            warningStep.alpha = 0;
-            scanningStep.alpha = 0;
-            locationSearchScreen.alpha = 0;
-            warningStep.interactable = false;
-            scanningStep.interactable = false;
-            locationSearchScreen.interactable = false;
-            warningStep.blocksRaycasts = false;
-            scanningStep.blocksRaycasts = false;
-            locationSearchScreen.blocksRaycasts = false;
-        }
-
-        public void ShowWarningMessage()
-        {
-            warningStep.DOKill();
-            warningStep.interactable = true;
-            warningStep.blocksRaycasts = true;
-            warningStep.DOFade(1f, 1f);
         }
 
         public void ShowBaseInterface()
         {
             playerBalancesView.gameObject.SetActive(true);
         }
-
-        public void HideWarningMessage()
-        {
-            warningStep.DOKill();
-            warningStep.interactable = false;
-            warningStep.blocksRaycasts = false;
-            warningStep.DOFade(0f, 1f);
-        }
-
-        public void ShowLocationDetectionPopup()
+        
+        public void ShowLocationInfo()
         {
             locationInfoView.gameObject.SetActive(true);
-            locationSearchScreen.DOKill();
-            locationSearchScreen.DOFade(1f, 1f);
-        }
-
-        public void HideLocationDetectionPopup()
-        {
-            locationSearchScreen.DOKill();
-            locationSearchScreen.DOFade(0f, 1f);
-        }
-
-        public void ShowScanningPopup()
-        {
-            scanningStep.DOKill();
-            scanningStep.DOFade(1f, 1f);
-        }
-
-        public void HideScanningPopup()
-        {
-            scanningStep.DOKill();
-            scanningStep.DOFade(0f, 1f);
         }
 
         public void ShowGameInterface()
@@ -178,36 +107,21 @@ namespace Screens.MainScreen
             locationInfoView.gameObject.SetActive(true);
             playerBalancesView.gameObject.SetActive(true);
         }
-
-        public void ShowAllZonesList() => zonesListView.SetActive(true);
-        public void HideZonesList() => zonesListView.SetActive(false);
-
+        
         public void ShowRewardPopup(Sprite sprite, string itemName) =>
             rewardClaimedScreenView.ShowReward(sprite, itemName);
 
         public void ShowAlreadyClaimedRewardPopup(Sprite sprite, string itemName) =>
             rewardAlreadyClaimedScreenView.ShowReward(sprite, itemName);
-
-        public void ShowRewardsList() => rewardsListView.SetActive(true);
-
-        public void HideRewardsList() => rewardsListView.SetActive(false);
-
-        public IPortalsListScreenView GetZonesListView() => zonesListView;
-
-        public IRewardsListScreenView GetRewardsListView() => rewardsListView;
-
+        
+        
         private void Awake()
         {
-            warningOkButton.ActionWithThrottle(() => WarningOkClicked?.Invoke());
             clearButton.ActionWithThrottle(() => { ClearButtonClicked?.Invoke(); });
             collectedRewardsButton.ActionWithThrottle(() => { CollectedRewardsClicked?.Invoke(); });
             historyButton.ActionWithThrottle(() => { HistoryClicked?.Invoke(); });
             restartButton.ActionWithThrottle(() => { RestartButtonClicked?.Invoke(); });
             openMapButton.ActionWithThrottle(() => { OpenMapClicked?.Invoke(); });
-            closeZonesList.ActionWithThrottle(HideZonesList);
-            closeRewardsList.ActionWithThrottle(HideRewardsList);
-            HideZonesList();
-            HideRewardsList();
         }
 
         private void Update()

@@ -11,18 +11,17 @@ namespace Data
 {
     public interface IDataProxy
     {
+        IReadOnlyReactiveProperty<GameStates> GameState { get; }
         IReadOnlyReactiveProperty<CameraType> ActiveCameraType { get; }
         IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId { get; }
         
         void SetSelectedOnMapDropZone(int id);
+        void CompleteStateStep(GameStates states);
 
         //TODO rethink OLD
 
-        IReadOnlyReactiveProperty<GameStates> GameState { get; }
         IReadOnlyReactiveProperty<bool> MapOpened { get; }
-        IReadOnlyReactiveProperty<bool> InRewardZone { get; }
         IReadOnlyReactiveProperty<int> AvailableGifts { get; }
-        IReadOnlyReactiveProperty<float> DistanceToClosestReward { get; }
         IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone { get; }
         IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone { get; }
         IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged { get; }
@@ -48,12 +47,9 @@ namespace Data
         Vector2 GetPlayerPosition();
         void CollectedCoin(int amount = 1);
         IEnumerable<ZoneViewInfo> GetAllActiveZones();
-        void NextStateStep();
         void ClearScene();
         void ResetScene();
         bool IsInsideEvent();
-        void RestartGeoLocation();
-        void LoadEvents();
         void ToggleMap();
         void AddEvents(EventsData data);
         IEnumerable<RewardViewInfo> GetRewardsForActiveZone();

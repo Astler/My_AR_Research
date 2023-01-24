@@ -21,7 +21,6 @@ namespace Screens.MainScreen
     public class MainScreenPresenter : IDisposable
     {
         private readonly CompositeDisposable _disposables = new();
-        private readonly List<PortalCardView> _zonesList = new();
         private readonly List<RewardCardView> _rewardsList = new();
         private readonly IMainScreenView _view;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
@@ -30,7 +29,6 @@ namespace Screens.MainScreen
         private readonly GameStateMachine _gameStateMachine;
         private readonly RewardCardsFactory _rewardCardsFactory;
         private readonly IPointersController _pointersController;
-        private IDisposable _scanningProgress;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
@@ -48,23 +46,12 @@ namespace Screens.MainScreen
 
         private void Init()
         {
-            _view.WarningOkClicked += OnWarningOkClicked;
             _view.ClearButtonClicked += OnClearButtonClicked;
             _view.RestartButtonClicked += OnRestartButtonClicked;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.OpenMapClicked += OnOpenMapClicked;
-
-            _view.CollectedRewardsClicked += () =>
-            {
-                _screenNavigationSystem.ExecuteNavigationCommand(
-                    new NavigationCommand().ShowNextScreen(ScreenName.CollectedRewardsScreen));
-            };
-
-            _view.HistoryClicked += () =>
-            {
-                _screenNavigationSystem.ExecuteNavigationCommand(
-                    new NavigationCommand().ShowNextScreen(ScreenName.HistoryScreen));
-            };
+            _view.CollectedRewardsClicked += OnCollectedRewardsClicked;
+            _view.HistoryClicked += OnHistoryClicked;
 
             _view.GetMapUserInterface().PortalsListClicked += OnZonesListClicked;
             _view.GetMapUserInterface().RewardsListClicked += OnRewardsListClicked;
@@ -83,45 +70,27 @@ namespace Screens.MainScreen
                 {
                     case GameStates.Loading:
                         _view.HideInterface();
-                        Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ => { _dataProxy.NextStateStep(); })
+                        Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ =>
+                            {
+                                _dataProxy.CompleteStateStep(GameStates.Loading);
+                            })
                             .AddTo(_disposables);
                         break;
                     case GameStates.WarningMessage:
-                        _view.ShowWarningMessage();
+                        _screenNavigationSystem.ExecuteNavigationCommand(
+                            new NavigationCommand().ShowNextScreen(ScreenName.WarningScreen));
                         break;
                     case GameStates.LocationDetection:
-                        _dataProxy.LocationDetectResult.Subscribe(result =>
-                        {
-                            if (result == LocationDetectResult.Success || Application.isEditor)
-                            {
-                                _dataProxy.NextStateStep();
-                                _view.HideLocationDetectionPopup();
-                            }
-                            else
-                            {
-                                _view.ShowLocationDetectionPopup();
-                            }
-                        }).AddTo(_disposables);
-
+                        _screenNavigationSystem.ExecuteNavigationCommand(
+                            new NavigationCommand().ShowNextScreen(ScreenName.DetectingLocationPopup));
                         _view.ShowBaseInterface();
-                        _view.HideWarningMessage();
                         break;
                     case GameStates.Scanning:
-                        _scanningProgress = _dataProxy.ScannedArea.Subscribe(areaCoefficient =>
-                        {
-                            _view.SetScannedProgressValue(areaCoefficient);
-                            if (areaCoefficient >= 1)
-                            {
-                                _dataProxy.NextStateStep();
-                            }
-                        }).AddTo(_disposables);
-
-                        _view.HideLocationDetectionPopup();
-                        _view.ShowScanningPopup();
+                        _screenNavigationSystem.ExecuteNavigationCommand(
+                            new NavigationCommand().ShowNextScreen(ScreenName.ArScanningPopup));
+                        _view.ShowLocationInfo();
                         break;
                     case GameStates.Active:
-                        _scanningProgress?.Dispose();
-                        _view.HideScanningPopup();
                         _view.ShowGameInterface();
                         break;
                     default:
@@ -151,39 +120,29 @@ namespace Screens.MainScreen
                         throw new ArgumentOutOfRangeException(nameof(result), result, null);
                 }
             }).AddTo(_disposables);
-            
+
             _pointersController.CurrentPointer.Subscribe(target =>
             {
                 _view.DirectionPointer.SetIsVisible(target != null);
                 _view.DirectionPointer.SetTarget(target);
-
             }).AddTo(_disposables);
         }
 
-        private void OnRewardsListClicked()
+        private void OnZonesListClicked()
         {
-            foreach (RewardCardView rewardView in _rewardsList)
-            {
-                rewardView.Dispose();
-            }
-
-            _rewardsList.Clear();
-
-            foreach (RewardViewInfo rewardViewInfo in _dataProxy.GetRewardsForActiveZone())
-            {
-                rewardViewInfo.Parent = _view.GetRewardsListView().GetListContainer();
-                RewardCardView cardView = _rewardCardsFactory.Create(rewardViewInfo);
-
-                _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url,
-                    sprite => { cardView.SetRewardIcon(sprite); });
-
-                _rewardsList.Add(cardView);
-            }
-
-            _view.ShowRewardsList();
+            _screenNavigationSystem.ExecuteNavigationCommand(
+                new NavigationCommand().ShowNextScreen(ScreenName.DropZonesListScreen));
         }
 
-        private void OnOpenMapClicked() => _dataProxy.ToggleMap();
+        private void OnHistoryClicked()
+        {
+            _screenNavigationSystem.ExecuteNavigationCommand(
+                new NavigationCommand().ShowNextScreen(ScreenName.HistoryScreen));
+        }
+
+        public void Dispose() => _disposables?.Dispose();
+        
+        private void OnClearButtonClicked() => _dataProxy.ClearScene();
 
         private void OnRestartButtonClicked()
         {
@@ -191,55 +150,7 @@ namespace Screens.MainScreen
             _view.CloseScreen();
             _dataProxy.ResetScene();
         }
-
-        private void OnClearButtonClicked() => _dataProxy.ClearScene();
-
-        private void OnWarningOkClicked() => _dataProxy.NextStateStep();
-
-        private void OnNearestPortalClicked()
-        {
-            Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;
-            OnlineMaps.instance.position = new Vector2(target.y, target.x);
-        }
-
-        private void OnMyPositionClicked()
-        {
-            Vector2 target = _dataProxy.GetPlayerPosition();
-            OnlineMaps.instance.position = new Vector2(target.y, target.x);
-        }
-
-        private void OnZonesListClicked()
-        {
-            foreach (PortalCardView portalCardView in _zonesList)
-            {
-                portalCardView.DestroyCard();
-            }
-
-            _zonesList.Clear();
-
-            foreach (ZoneViewInfo portalViewInfo in _dataProxy.GetAllActiveZones())
-            {
-                PortalCardView portalCardView = Object.Instantiate(_view.GetZonesListView().GetCardPrefab(),
-                    _view.GetZonesListView().GetListContainer());
-                portalCardView.transform.SetAsLastSibling();
-                portalCardView.ConfigureView(portalViewInfo);
-
-                portalCardView.MoveToClicked += OnMoveToClicked;
-
-                _zonesList.Add(portalCardView);
-            }
-
-            _view.ShowAllZonesList();
-        }
-
-        private void OnMoveToClicked(Vector2 coordinates)
-        {
-            OnlineMaps.instance.position = new Vector2(coordinates.y, coordinates.x);
-            _view.HideZonesList();
-        }
-
-        public void Dispose() => _disposables?.Dispose();
-
+        
         private void OnScreenClicked(Vector2 clickPosition)
         {
             if (_dataProxy.MapOpened.Value) return;
@@ -305,6 +216,32 @@ namespace Screens.MainScreen
             // }
             //
             // Debug.Log("No hits. Clicked nowhere!!");
+        }
+        
+        private void OnRewardsListClicked()
+        {
+            _screenNavigationSystem.ExecuteNavigationCommand(
+                new NavigationCommand().ShowNextScreen(ScreenName.RewardsListScreen));
+        }
+        
+        private void OnCollectedRewardsClicked()
+        {
+            _screenNavigationSystem.ExecuteNavigationCommand(
+                new NavigationCommand().ShowNextScreen(ScreenName.CollectedRewardsScreen));
+        }
+        
+        private void OnOpenMapClicked() => _dataProxy.ToggleMap();
+
+        private void OnNearestPortalClicked()
+        {
+            Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;
+            OnlineMaps.instance.position = new Vector2(target.y, target.x);
+        }
+
+        private void OnMyPositionClicked()
+        {
+            Vector2 target = _dataProxy.GetPlayerPosition();
+            OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
     }
 }

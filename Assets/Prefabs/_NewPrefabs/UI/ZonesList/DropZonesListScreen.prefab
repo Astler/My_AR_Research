@@ -39,10 +39,10 @@ RectTransform:
   m_Father: {fileID: 3527117995687422291}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -80.52612}
-  m_SizeDelta: {x: 980, y: 1803.9958}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -80}
+  m_SizeDelta: {x: -100, y: 1800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4673698543610147554
 CanvasRenderer:
@@ -497,8 +497,11 @@ GameObject:
   - component: {fileID: 3527117995687422293}
   - component: {fileID: 6462363265545088898}
   - component: {fileID: 8864950049881013000}
+  - component: {fileID: 8037313383947288384}
+  - component: {fileID: 6947975295562117482}
+  - component: {fileID: 9019877929996249935}
   m_Layer: 5
-  m_Name: ZonesListPopup
+  m_Name: DropZonesListScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,9 +561,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ab153895914a7e9d3c28ce782edd95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldPutInNavStack: 1
+  shouldDeleteAfterHide: 0
+  infoBlocks: []
+  okButton: {fileID: 8026595473711960056}
   portalCardPrefab: {fileID: 958548172117145939, guid: b025cf71044d548d9b7f520f44817204,
     type: 3}
   listContainer: {fileID: 7268121601953878211}
+--- !u!223 &8037313383947288384
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527117995687422290}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &6947975295562117482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527117995687422290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &9019877929996249935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527117995687422290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43794302abfa4f9c95f0f52beb629fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 1
 --- !u!1 &3639648259773447426
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +905,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4699299784452627009}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -882,7 +940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1305,3 +1363,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3907034468485819384}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8026595473711960056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6439198762233619456, guid: 70bf69885657d46e6ba44ec02344b97f,
+    type: 3}
+  m_PrefabInstance: {fileID: 3907034468485819384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
