@@ -55,7 +55,7 @@ namespace Screens.CollectedRewards
 
             foreach (RewardViewInfo rewardViewInfo in _dataProxy.CollectedPrizesInfos)
             {
-                rewardViewInfo.Parent = _collectedRewardsScreenView.GetListContainer();
+                rewardViewInfo.Parent = _collectedRewardsScreenView.CardsParent;
                 RewardCardView cardView = _rewardCardsFactory.Create(rewardViewInfo);
 
                 _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url,

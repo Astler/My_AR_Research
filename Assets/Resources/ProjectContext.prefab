@@ -81,6 +81,8 @@ MonoBehaviour:
   viewsParent: {fileID: 235074410968877948}
   rewardView: {fileID: 6674356025154154204, guid: 3cc914345b2ad4970b81741a60dc60c4,
     type: 3}
+  dropZoneCardView: {fileID: 958548172117145939, guid: b025cf71044d548d9b7f520f44817204,
+    type: 3}
   historyCardView: {fileID: 7362956382598942671, guid: 51222610cbf3f4dd2aefade80d60e9ab,
     type: 3}
 --- !u!1 &7138188235015905131

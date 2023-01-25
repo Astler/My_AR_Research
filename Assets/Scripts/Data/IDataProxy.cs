@@ -14,43 +14,42 @@ namespace Data
         IReadOnlyReactiveProperty<GameStates> GameState { get; }
         IReadOnlyReactiveProperty<CameraType> ActiveCameraType { get; }
         IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId { get; }
+        IReadOnlyReactiveCollection<HistoryStepData> SessionHistory { get; }
         
         void SetSelectedOnMapDropZone(int id);
         void CompleteStateStep(GameStates states);
+        void SetActiveCamera(CameraType type);
+        bool IsRequestedAreaScanned();
 
         //TODO rethink OLD
 
         IReadOnlyReactiveProperty<bool> MapOpened { get; }
         IReadOnlyReactiveProperty<int> AvailableGifts { get; }
-        IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone { get; }
-        IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone { get; }
+        IReadOnlyReactiveProperty<DropZoneViewInfo> SelectedPortalZone { get; }
+        IReadOnlyReactiveProperty<DropZoneViewInfo> NearestPortalZone { get; }
         IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged { get; }
         IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult { get; }
         IObservable<ActiveBoxData> PlaceRewardBoxInsideZone { get; }
         IObservable<ActiveBoxData> RemoveRewardBox { get; }
         IObservable<bool> Reset { get; }
         IObservable<bool> Clear { get; }
-        IReadOnlyReactiveProperty<int> Coins { get; }
         IReadOnlyReactiveProperty<int> TimeToNextGift { get; }
         IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos { get; }
-        IReadOnlyReactiveCollection<HistoryStepData> SessionHistory { get; }
         IReadOnlyReactiveProperty<EventData> ActiveEventData { get; }
-        IReadOnlyReactiveProperty<bool> SurfaceScanned { get; }
         IReadOnlyReactiveProperty<float> ScannedArea { get; }
 
         void LoadClaimedRewards();
-        void SetActivePortalZone(ZoneViewInfo zoneModel);
-        void SetNearestPortalZone(ZoneViewInfo zoneModel);
+        void SetActivePortalZone(DropZoneViewInfo dropZoneModel);
+        void SetNearestPortalZone(DropZoneViewInfo dropZoneModel);
         void SetPlayerPosition(Vector2 position);
         LocationDetectResult GetLocationDetectResult();
         void SetLocationDetectStatus(LocationDetectResult result);
         Vector2 GetPlayerPosition();
-        void CollectedCoin(int amount = 1);
-        IEnumerable<ZoneViewInfo> GetAllActiveZones();
+        IEnumerable<DropZoneViewInfo> GetAllActiveZones();
         void ClearScene();
         void ResetScene();
         bool IsInsideEvent();
-        void ToggleMap();
+        void SetIsMapOpened(bool isMapOpened);
         void AddEvents(EventsData data);
         IEnumerable<RewardViewInfo> GetRewardsForActiveZone();
         RewardViewInfo GetAvailableRewardForZone();

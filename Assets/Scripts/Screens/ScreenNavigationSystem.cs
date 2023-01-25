@@ -75,6 +75,17 @@ namespace Screens
                 {
                     ForceCloseAllScreens();
                 }
+
+                if (navigationCommand.ShouldCloseOtherTabs)
+                {
+                    foreach (ScreenView screenView in _navigationStack.ToList())
+                    {
+                        if (screenView.IsTab)
+                        {
+                            screenView.CloseScreen();
+                        }
+                    }
+                }
             }
 
             if (!navigationCommand.IsNextScreenInQueue()) return;

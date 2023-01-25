@@ -7,23 +7,20 @@ namespace Screens.CollectedRewards
     public interface ICollectedRewardsScreenView : IScreenView
     {
         event Action RefreshClicked;
-        
-        RectTransform GetListContainer();
+        RectTransform CardsParent { get; }
     }
 
     public class CollectedRewardsScreenView : ScreenView, ICollectedRewardsScreenView
     {
         [SerializeField] private RectTransform listContainer;
         [SerializeField] private Button refreshButton;
-        [SerializeField] private Button closeButton;
 
         public event Action RefreshClicked;
         
-        public RectTransform GetListContainer() => listContainer;
-
+        public RectTransform CardsParent => listContainer;
+        
         private void Awake()
         {
-            closeButton.onClick.AddListener(() => OnClose?.Invoke());
             refreshButton.onClick.AddListener(() => RefreshClicked?.Invoke());
         }
     }

@@ -90,11 +90,11 @@ namespace Geo
 
             Vector2 playerPosition = _dataProxy.GetPlayerPosition();
 
-            Dictionary<ZoneViewInfo, double> distances = new();
+            Dictionary<DropZoneViewInfo, double> distances = new();
 
             string zonesInfo = "";
 
-            foreach (ZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones().ToList())
+            foreach (DropZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones().ToList())
             {
                 double distance = CoordinatesUtils.Distance(playerPosition.x,
                     playerPosition.y,
@@ -103,12 +103,12 @@ namespace Geo
                 distances.Add(portalZoneModel, distance);
             }
 
-            List<KeyValuePair<ZoneViewInfo, double>> detectAvailableZones =
+            List<KeyValuePair<DropZoneViewInfo, double>> detectAvailableZones =
                 distances.Where(it => it.Value < it.Key.Radius / 1000).ToList();
 
             if (detectAvailableZones.Any())
             {
-                KeyValuePair<ZoneViewInfo, double> closestPoint =
+                KeyValuePair<DropZoneViewInfo, double> closestPoint =
                     detectAvailableZones.OrderBy(it => it.Value).FirstOrDefault();
                 _dataProxy.SetActivePortalZone(closestPoint.Key);
                 return;
@@ -116,14 +116,14 @@ namespace Geo
 
             _dataProxy.SetActivePortalZone(null);
 
-            List<KeyValuePair<ZoneViewInfo, double>> nearZones =
+            List<KeyValuePair<DropZoneViewInfo, double>> nearZones =
                 distances.OrderBy(it => it.Value).ToList();
 
             _dataProxy.SetNearestPortalZone(nearZones.FirstOrDefault().Key);
 
             for (int i = 0; i < (nearZones.Count > 5 ? 5 : nearZones.Count); i++)
             {
-                KeyValuePair<ZoneViewInfo, double> zoneData = nearZones[i];
+                KeyValuePair<DropZoneViewInfo, double> zoneData = nearZones[i];
 
                 zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.Name + " " +
                              zoneData.Key.Coordinates.ToHumanReadableDistanceFromPlayer(_dataProxy.GetPlayerPosition());

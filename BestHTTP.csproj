@@ -801,10 +801,10 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/engines/RC6Engine.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT571K1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertReqTemplateContent.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/EncryptedPrivateKeyInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/field/GF2Polynomial.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/crypto/impl/bc/BcTlsSecret.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/ParametersWithSalt.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/pkcs/EncryptedPrivateKeyInfo.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsECDHKeyExchange.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecP224K1Point.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/TlsCredentialedSigner.cs" />
@@ -1312,8 +1312,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/cms/CMSEnvelopedDataParser.cs" />
      <Compile Include="Assets/Best HTTP/Source/ServerSentEvents/EventSource.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/digests/XofUtils.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410ValidationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cmp/CertRepMessage.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/GOST3410ValidationParameters.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/parameters/MqvPublicParameters.cs" />
      <Compile Include="Assets/Best HTTP/Examples/Helpers/Components/Cache.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/macs/VMPCMac.cs" />

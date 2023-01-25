@@ -7,15 +7,18 @@ namespace GameCamera
         private Transform _transform;
         private Transform _cameraControlTransform;
 
+        private Transform CameraTransform => _cameraControlTransform ??= Camera.main?.transform;
+
         private void Awake()
         {
             _transform = GetComponent<Transform>();
-            if (Camera.main) _cameraControlTransform = Camera.main.transform;
         }
 
         private void LateUpdate()
         {
-            _transform.eulerAngles = _cameraControlTransform.eulerAngles;
+            if (!CameraTransform) return;
+
+            _transform.eulerAngles = CameraTransform.eulerAngles;
         }
     }
 }

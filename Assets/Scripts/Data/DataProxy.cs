@@ -22,34 +22,31 @@ namespace Data
         private readonly IApiInterface _apiInterface;
         private readonly WebImagesLoader _webImagesLoader;
         private readonly IWebSocketService _webSocketService;
-        private readonly PlayerData _playerData;
         private EventData[] _eventsData;
 
         private readonly ReactiveProperty<CameraType> _activeCameraType = new(CameraType.ArCamera);
         private readonly ReactiveProperty<int> _selectedOnMapDropZoneId = new(-1);
         private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
-        
-        
+        private readonly ReactiveCollection<HistoryStepData> _historyLines = new();
+
+        private readonly ReactiveProperty<float> _scannedArea = new();
+
         private readonly Subject<bool> _reset = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
         private readonly ReactiveProperty<bool> _mapOpened = new();
-        private readonly ReactiveProperty<ZoneViewInfo> _selectedPortalZone = new();
+        private readonly ReactiveProperty<DropZoneViewInfo> _selectedPortalZone = new();
         private readonly ReactiveProperty<EventData> _activeEventData = new();
-        private readonly ReactiveProperty<ZoneViewInfo> _nearestPortalZone = new();
+        private readonly ReactiveProperty<DropZoneViewInfo> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
         private readonly ReactiveProperty<LocationDetectResult> _locationDetectResult = new();
         private readonly Subject<ActiveBoxData> _placeRewardBoxInsideZone = new();
         private readonly Subject<ActiveBoxData> _removeRewardBoxFromZone = new();
-        private readonly ReactiveProperty<int> _coins = new();
-        private readonly ReactiveProperty<bool> _surfaceScanned = new();
-        private readonly ReactiveProperty<float> _scannedArea = new();
         private readonly ReactiveProperty<int> _timeToNextGift = new();
 
-        private readonly List<ZoneViewInfo> _portalsList = new();
+        private readonly List<DropZoneViewInfo> _portalsList = new();
         private readonly List<PrizeData> _collectedPrizes = new();
         private readonly ReactiveCollection<RewardViewInfo> _collectedPrizesInfos = new();
-        private readonly ReactiveCollection<HistoryStepData> _historyLines = new();
 
         public DataProxy(IApiInterface apiInterface, WebImagesLoader webImagesLoader,
             IWebSocketService webSocketService)
@@ -57,9 +54,6 @@ namespace Data
             _apiInterface = apiInterface;
             _webImagesLoader = webImagesLoader;
             _webSocketService = webSocketService;
-            _playerData = new PlayerData();
-            _coins.Value = _playerData.GetCoins();
-
             _webSocketService.OnIncomingMessageReceived += OnIncomingMessageReceived;
 
             Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
@@ -81,31 +75,19 @@ namespace Data
                 _placeRewardBoxInsideZone.OnNext(boxData);
                 _historyLines.Add(new HistoryStepData
                 {
-                    Message = $"New box spawned!",
+                    Message = "^new_drop".GetTranslation(),
                     TimeUtc = Extensions.GetCurrentUtcTime()
                 });
             }
             else if (type == IncomingMessagesTypes.update_next_spawn_time.ToString())
             {
                 BoxTimerData timerData = JsonUtility.FromJson<BoxTimerData>(message.GetData());
-                Debug.Log(
-                    $"current utc time {Extensions.GetCurrentUtcTime()} and next reward time {timerData.next_spawn_time}");
                 _timeToNextGift.Value = Extensions.GetCurrentUtcTime() - timerData.next_spawn_time;
-                _historyLines.Add(new HistoryStepData
-                {
-                    Message = $"Next prize will be available in {_timeToNextGift.Value} seconds",
-                    TimeUtc = Extensions.GetCurrentUtcTime()
-                });
             }
             else if (type == IncomingMessagesTypes.update_box_status.ToString())
             {
                 ActiveBoxData boxData = JsonUtility.FromJson<ActiveBoxData>(message.GetData());
                 _removeRewardBoxFromZone.OnNext(boxData);
-                // _historyLines.Add(new HistoryStepData
-                // {
-                //     Message = $"Old sad box was hidden!",
-                //     TimeUtc = Extensions.GetCurrentUtcTime()
-                // });
             }
             else if (type == IncomingMessagesTypes.prize_claimed.ToString())
             {
@@ -114,20 +96,29 @@ namespace Data
                 _availableGifts.Value -= 1;
                 _historyLines.Add(new HistoryStepData
                 {
-                    Message = $"User {boxData.user_id} claimed prize {boxData.id}",
+                    Message = "^drop_collected_by".GetTranslation(boxData.id, boxData.user_id),
                     TimeUtc = Extensions.GetCurrentUtcTime()
                 });
             }
         }
-        
+
         public IReadOnlyReactiveProperty<CameraType> ActiveCameraType => _activeCameraType;
         public IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId => _selectedOnMapDropZoneId;
-        
+        public IReadOnlyReactiveCollection<HistoryStepData> SessionHistory => _historyLines;
+
 
         public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
-        public IReadOnlyReactiveCollection<HistoryStepData> SessionHistory => _historyLines;
         public IReadOnlyReactiveProperty<int> AvailableGifts => _availableGifts;
-        
+
+        #region New
+
+        public void SetScannedArea(float totalArea)
+        {
+            _scannedArea.Value = totalArea / AreaScanRequirements;
+        }
+
+        public bool IsRequestedAreaScanned() => _scannedArea.Value >= 1;
+
         public void CompleteStateStep(GameStates states)
         {
             if (_gameState.Value == states)
@@ -135,12 +126,15 @@ namespace Data
                 _gameState.Value = _gameState.Value.Next();
             }
         }
-        
+
+        #endregion
+
+
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
 
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
-        public IReadOnlyReactiveProperty<ZoneViewInfo> SelectedPortalZone => _selectedPortalZone;
-        public IReadOnlyReactiveProperty<ZoneViewInfo> NearestPortalZone => _nearestPortalZone;
+        public IReadOnlyReactiveProperty<DropZoneViewInfo> SelectedPortalZone => _selectedPortalZone;
+        public IReadOnlyReactiveProperty<DropZoneViewInfo> NearestPortalZone => _nearestPortalZone;
         public IReadOnlyReactiveProperty<EventData> ActiveEventData => _activeEventData;
         public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
         public IReadOnlyReactiveProperty<LocationDetectResult> LocationDetectResult => _locationDetectResult;
@@ -148,33 +142,31 @@ namespace Data
         public System.IObservable<ActiveBoxData> RemoveRewardBox => _removeRewardBoxFromZone;
         public System.IObservable<bool> Reset => _reset;
         public System.IObservable<bool> Clear => _clear;
-        public IReadOnlyReactiveProperty<int> Coins => _coins;
-        public IReadOnlyReactiveProperty<bool> SurfaceScanned => _surfaceScanned;
         public IReadOnlyReactiveProperty<float> ScannedArea => _scannedArea;
         public IReadOnlyReactiveProperty<int> TimeToNextGift => _timeToNextGift;
-        
+
         public void SetSelectedOnMapDropZone(int id)
         {
             _selectedOnMapDropZoneId.Value = id;
         }
-        
-        public void SetActivePortalZone(ZoneViewInfo zoneModel)
+
+        public void SetActivePortalZone(DropZoneViewInfo dropZoneModel)
         {
-            if (zoneModel == null)
+            if (dropZoneModel == null)
             {
                 _selectedPortalZone.Value = null;
                 return;
             }
 
-            if (zoneModel.Id == (_activeEventData.Value?.id ?? 0)) return;
+            if (dropZoneModel.Id == (_activeEventData.Value?.id ?? 0)) return;
 
-            _selectedPortalZone.Value = zoneModel;
+            _selectedPortalZone.Value = dropZoneModel;
 
-            SetNearestPortalZone(zoneModel);
+            SetNearestPortalZone(dropZoneModel);
 
-            _availableGifts.Value = zoneModel.Rewards.Count(it => !it.IsCollected);
+            _availableGifts.Value = dropZoneModel.Rewards.Count(it => !it.IsCollected);
 
-            _apiInterface.ShowEventData(zoneModel.Id, data =>
+            _apiInterface.ShowEventData(dropZoneModel.Id, data =>
             {
                 if (data.event_data == null)
                 {
@@ -183,11 +175,11 @@ namespace Data
                 }
 
                 _activeEventData.Value = data.event_data;
-                _webSocketService.SubscribeToEventSessionChannel(zoneModel.Id);
+                _webSocketService.SubscribeToEventSessionChannel(dropZoneModel.Id);
             }, Debug.LogError);
         }
 
-        public void SetNearestPortalZone(ZoneViewInfo zoneModel) => _nearestPortalZone.Value = zoneModel;
+        public void SetNearestPortalZone(DropZoneViewInfo dropZoneModel) => _nearestPortalZone.Value = dropZoneModel;
 
         public void SetPlayerPosition(Vector2 position) => _playerLocationChanged.Value = position;
 
@@ -195,17 +187,11 @@ namespace Data
 
         public void SetLocationDetectStatus(LocationDetectResult result) => _locationDetectResult.Value = result;
 
-        public void CollectedCoin(int amount = 1)
+        public IEnumerable<DropZoneViewInfo> GetAllActiveZones()
         {
-            _playerData.AddCoins(amount);
-            _coins.Value = _playerData.GetCoins();
-        }
+            List<DropZoneViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
 
-        public IEnumerable<ZoneViewInfo> GetAllActiveZones()
-        {
-            List<ZoneViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
-
-            foreach (ZoneViewInfo portalViewInfo in activeZones)
+            foreach (DropZoneViewInfo portalViewInfo in activeZones)
             {
                 portalViewInfo.Distance =
                     portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
@@ -213,14 +199,13 @@ namespace Data
 
             return activeZones;
         }
-        
+
         public void ClearScene() => _clear.OnNext(true);
 
         public void ResetScene()
         {
             _gameState.Value = GameStates.WarningMessage;
             _scannedArea.Value = 0;
-            _surfaceScanned.Value = false;
             _reset.OnNext(true);
         }
 
@@ -229,10 +214,15 @@ namespace Data
         //TODO Find usage
         public void RestartGeoLocation() => ARLocationManager.Instance.Restart();
 
-        public void ToggleMap()
+        public void SetIsMapOpened(bool isMapOpened)
         {
-            _mapOpened.Value = !_mapOpened.Value;
-            _activeCameraType.Value = MapOpened.Value ? CameraType.MapCamera : CameraType.ArCamera;
+            _mapOpened.Value = isMapOpened;
+            SetActiveCamera(MapOpened.Value ? CameraType.MapCamera : CameraType.Disabled);
+        }
+
+        public void SetActiveCamera(CameraType type)
+        {
+            _activeCameraType.Value = type;
         }
 
         public void LoadEvents()
@@ -265,7 +255,7 @@ namespace Data
 
             foreach (EventData eventData in _eventsData)
             {
-                ZoneViewInfo viewInfo = new()
+                DropZoneViewInfo viewInfo = new()
                 {
                     Id = eventData.id,
                     Name = eventData.title,
@@ -324,12 +314,6 @@ namespace Data
         }
 
         public void RefreshCollectedRewards() => LoadClaimedRewards();
-
-        public void SetScannedArea(float totalArea)
-        {
-            _scannedArea.Value = totalArea / AreaScanRequirements;
-            _surfaceScanned.Value = _scannedArea.Value >= 1;
-        }
 
         private const float AreaScanRequirements = 100;
 

@@ -7,14 +7,15 @@ using GameCamera;
 using Infrastructure.GameStateMachine;
 using Pointers;
 using SceneManagement;
+using Screens.ArModeTab;
 using Screens.ArScanningPopup;
 using Screens.CollectedRewards;
 using Screens.DetectingLocationPopup;
 using Screens.Factories;
+using Screens.FindDropZonesScreen;
 using Screens.HistoryScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
-using Screens.PortalsListScreen;
 using Screens.RewardClaimedScreen;
 using Screens.RewardsListScreen;
 using Screens.WarningScreen;
@@ -35,13 +36,16 @@ namespace Screens
         private GameStateMachine _gameStateMachine;
         private RewardCardsFactory _rewardCardsFactory;
         private HistoryCardsFactory _historyCardsFactory;
+        private DropZonesCardsFactory _dropZonesCardsFactory;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
-            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory)
+            RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory,
+            DropZonesCardsFactory dropZonesCardsFactory)
         {
+            _dropZonesCardsFactory = dropZonesCardsFactory;
             _historyCardsFactory = historyCardsFactory;
             _rewardCardsFactory = rewardCardsFactory;
             _gameStateMachine = gameStateMachine;
@@ -103,7 +107,7 @@ namespace Screens
                 case ScreenName.MainScreen:
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
-                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy, _gameStateMachine);
+                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;
@@ -145,7 +149,7 @@ namespace Screens
                 case ScreenName.DropZonesListScreen:
                     InstantiateView(name.ToString(), delegate(ZonesListScreenView view)
                     {
-                        new ZonesListScreenPresenter(view, _dataProxy);
+                        new ZonesListScreenPresenter(view, _dataProxy, _dropZonesCardsFactory);
                         onSuccess.Invoke(view);
                     });
                     break;
@@ -167,6 +171,13 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(RewardClaimedScreenView view)
                     {
                         new RewardClaimedScreenPresenter(view);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.ArModeTab:
+                    InstantiateView(name.ToString(), delegate(ArModeTabView view)
+                    {
+                        new ArModeTabPresenter(view, _dataProxy, _screenNavigationSystem, _historyCardsFactory);
                         onSuccess.Invoke(view);
                     });
                     break;

@@ -3,16 +3,14 @@ using Core.WebSockets;
 using Data;
 using Data.Objects;
 using ExternalTools.ImagesLoader;
-using Geo;
 using Infrastructure.GameStateMachine;
-using Pointers;
 using SceneManagement;
 using Screens;
 using Screens.Factories;
+using Screens.FindDropZonesScreen;
 using Screens.HistoryScreen;
 using Screens.RewardsListScreen;
 using UnityEngine;
-using Utils;
 using Zenject;
 
 namespace Installers
@@ -22,6 +20,7 @@ namespace Installers
         [SerializeField] private Transform viewsParent;
         
         [SerializeField] private RewardCardView rewardView;
+        [SerializeField] private DropZoneCardView dropZoneCardView;
         [SerializeField] private HistoryCardView historyCardView;
 
         public override void InstallBindings()
@@ -56,9 +55,17 @@ namespace Installers
                         .WithInitialSize(30)
                         .FromComponentInNewPrefab(historyCardView)
                         .UnderTransform(viewsParent));
+            
+            Container.BindFactory<DropZoneViewInfo, DropZoneCardView, DropZonesCardsFactory>()
+                .FromPoolableMemoryPool<DropZoneViewInfo, DropZoneCardView, DropZoneCardsPool>(
+                    poolBinder => poolBinder
+                        .WithInitialSize(30)
+                        .FromComponentInNewPrefab(dropZoneCardView)
+                        .UnderTransform(viewsParent));
         }
 
         private class RewardCardsPool : MonoPoolableMemoryPool<RewardViewInfo, IMemoryPool, RewardCardView> { }
         private class HistoryCardsPool : MonoPoolableMemoryPool<HistoryStepData, IMemoryPool, HistoryCardView> { }
+        private class DropZoneCardsPool : MonoPoolableMemoryPool<DropZoneViewInfo, IMemoryPool, DropZoneCardView> { }
     }
 }

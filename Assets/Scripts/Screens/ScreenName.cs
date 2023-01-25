@@ -13,5 +13,6 @@ namespace Screens
         RewardsListScreen = 8,
         RewardClaimedScreen = 9,
         RewardAlreadyClaimedScreen = 10,
+        ArModeTab = 11,
     }
 }

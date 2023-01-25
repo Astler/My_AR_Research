@@ -21,6 +21,8 @@ namespace Screens
         public bool CanReturnToPreviousScreen => _canReturnToPreviousScreen;
 
         public bool ShouldCloseAfterNextScreenShown => _closeAfterNextScreenShown;
+        
+        public bool ShouldCloseOtherTabs => _closeOtherTabs;
 
         private object _extraData;
         private bool _withAnimation = true;
@@ -31,6 +33,7 @@ namespace Screens
         private ScreenView _screenToClose;
         private bool _canReturnToPreviousScreen;
         private bool _closeAfterNextScreenShown;
+        private bool _closeOtherTabs;
 
         public NavigationCommand CloseCurrentScreen()
         {
@@ -96,6 +99,12 @@ namespace Screens
         public NavigationCommand CloseAfterNextScreenShown()
         {
             _closeAfterNextScreenShown = true;
+            return this;
+        }
+
+        public NavigationCommand CloseOtherTabs()
+        {
+            _closeOtherTabs = true;
             return this;
         }
     }

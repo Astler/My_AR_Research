@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace AR.World.Collectable
 {
@@ -45,6 +44,8 @@ namespace AR.World.Collectable
 
         private void Update()
         {
+            if (!Camera) return;
+            
             bool collectable = Vector3.Distance(Camera.transform.position, _transform.position) <= interactionDistance || _isInsidePlayerARCollider;
             outline.enabled = collectable;
             OnUpdate();

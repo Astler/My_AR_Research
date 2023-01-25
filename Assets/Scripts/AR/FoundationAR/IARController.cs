@@ -2,11 +2,10 @@ using GameCamera;
 using UniRx;
 using UnityEngine;
 
-namespace Assets.Scripts.AR.FoundationAR
+namespace AR.FoundationAR
 {
     public interface IARController
     {
-        IReadOnlyReactiveProperty<bool> Initialized { get; }
         (bool hasHits, Pose? poseTransform) CheckIfRaycastHits(Vector2 clickPosition);
         CameraView GetCamera();
         Vector3 GetPointerPosition();

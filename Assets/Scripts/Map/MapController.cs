@@ -57,7 +57,7 @@ namespace Map
 
             PlacePlayerOnMap(playerPosition);
 
-            foreach (ZoneViewInfo viewInfo in _dataProxy.GetAllActiveZones())
+            foreach (DropZoneViewInfo viewInfo in _dataProxy.GetAllActiveZones())
             {
                 OnlineMapsMarker3D mapItem = onlineMapsMarker3DManager.Create(viewInfo.Coordinates.y,
                     viewInfo.Coordinates.x, mapDropZonePrefab.gameObject);

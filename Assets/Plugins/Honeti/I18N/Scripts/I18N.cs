@@ -204,7 +204,7 @@ namespace Plugins.Honeti.I18N.Scripts
         /// <param name="langCode">Language code</param>
         public void setLanguage(string langCode)
         {
-            setLanguage((LanguageCode) Enum.Parse(typeof(LanguageCode), langCode));
+            setLanguage((LanguageCode)Enum.Parse(typeof(LanguageCode), langCode));
         }
 
         /// <summary>
@@ -272,24 +272,19 @@ namespace Plugins.Honeti.I18N.Scripts
         /// <param name="key">Translation key. String should start with '^' character and can contain params ex. {0} {1}...</param>
         /// <param name="parameters">Additional parameters.</param>
         /// <returns>Translation value</returns>
-        public string GetValue(string key, params string[] parameters)
+        public string GetValue(string key, params object[] parameters)
         {
             Hashtable lang = _langs[_gameLang] as Hashtable;
             string val = lang[key] as String;
 
-            if (val == null || val.Length == 0)
+            if (string.IsNullOrEmpty(val))
             {
-                if (key == "")
-                    return "";
-                return string.Format(_noTranslationText, key);
+                return key == "" ? "" : string.Format(_noTranslationText, key);
             }
 
-            if (parameters != null && parameters.Length > 0)
-            {
-                return string.Format(val.Replace("\\n", Environment.NewLine), parameters);
-            }
-
-            return val.Replace("\\n", Environment.NewLine);
+            return parameters is { Length: > 0 }
+                ? string.Format(val.Replace("\\n", Environment.NewLine), parameters)
+                : val.Replace("\\n", Environment.NewLine);
         }
 
         #endregion
@@ -369,7 +364,8 @@ namespace Plugins.Honeti.I18N.Scripts
                 table[langCode] = new Hashtable();
             }
 
-            string[] lines = lang.text.Split(new string[] {"\r\n", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+            string[] lines =
+                lang.text.Split(new string[] { "\r\n", "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
 
             string[] langCodes = lines[0].Split('\t');
             string[] langNames = Enum.GetNames(typeof(LanguageCode));
@@ -378,7 +374,7 @@ namespace Plugins.Honeti.I18N.Scripts
             {
                 if (Array.IndexOf(langNames, code) >= 0)
                 {
-                    _availableLangs.Add((LanguageCode) Enum.Parse(typeof(LanguageCode), code));
+                    _availableLangs.Add((LanguageCode)Enum.Parse(typeof(LanguageCode), code));
                 }
             }
 

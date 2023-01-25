@@ -38,17 +38,15 @@ namespace AR
 
         private ARWorldCoordinator _coordinator;
         private IDataProxy _dataProxy;
-        private CoinsController _coinsController;
         private ICameraView _arCameraView;
         private int _beamsInThisSession;
         private IDisposable _zonesPlacer;
 
         [Inject]
         public void Construct(ARWorldCoordinator coordinator,
-            IDataProxy dataProxy, CoinsController coinsController, CamerasController camerasController)
+            IDataProxy dataProxy, CamerasController camerasController)
         {
             _arCameraView = camerasController.GetArCameraView();
-            _coinsController = coinsController;
             _dataProxy = dataProxy;
             _coordinator = coordinator;
         }
@@ -71,12 +69,12 @@ namespace AR
             _dataProxy.RemoveRewardBox.Subscribe(RemoveReward).AddTo(this);
 
             _dataProxy.ActiveEventData
-                .CombineLatest(_dataProxy.SurfaceScanned, (data, scanned) => (data, scanned)).Subscribe(
+                .CombineLatest(_dataProxy.ScannedArea, (data, scanned) => (data, scanned)).Subscribe(
                     it =>
                     {
-                        (EventData zoneData, bool scanned) = it;
+                        (EventData zoneData, float _) = it;
 
-                        if (zoneData == null || !scanned)
+                        if (zoneData == null || !_dataProxy.IsRequestedAreaScanned())
                         {
                             _anchors.Clear();
                             _beams.Clear();
@@ -106,7 +104,7 @@ namespace AR
                 return;
             }
 
-            _zonesPlacer = _dataProxy.SurfaceScanned.Where(it => it).Subscribe(it => { PlaceZonesByMap(); })
+            _zonesPlacer = _dataProxy.ScannedArea.Where(it => it >= 1).Subscribe(_ => { PlaceZonesByMap(); })
                 .AddTo(this);
         }
 
@@ -124,7 +122,7 @@ namespace AR
             Vector2 playerPosition = Conversions.GeoToWorldPosition(playerPositionRaw,
                 Vector2d.zero).ToUnityVector();
 
-            foreach (ZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
+            foreach (DropZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones())
             {
                 Vector2 objectPosition = Conversions.GeoToWorldPosition(portalZoneModel.Coordinates.ToVector2d(),
                     playerPosition.ToVector2d()).ToUnityVector();
@@ -224,7 +222,7 @@ namespace AR
 
         private void PlaceBeamsInWorld()
         {
-            if (!_dataProxy.SurfaceScanned.Value && !Application.isEditor) return;
+            if (!_dataProxy.IsRequestedAreaScanned() && !Application.isEditor) return;
 
             foreach (MannaBoxView arAnchorFollower in _beams)
             {
@@ -250,7 +248,6 @@ namespace AR
 
                     if (follower)
                     {
-                        _coinsController.SpawnCoinsAtPosition(follower.transform.position);
                         follower.gameObject.Destroy();
                     }
 

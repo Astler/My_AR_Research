@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Plugins.Honeti.I18N.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,6 +23,16 @@ namespace Utils
         {
             IEnumerable<T> enumerable1 = enumerable as T[] ?? enumerable.ToArray();
             return enumerable1.ElementAt(Random.Range(0, enumerable1.Count()));
+        }
+        
+        public static string GetTranslation(this string key, params object[] parameters)
+        {
+            if (!key.StartsWith("^"))
+            {
+                key = "^" + key;
+            }
+            
+            return I18N.instance.GetValue(key, parameters);
         }
     }
 }

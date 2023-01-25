@@ -1,3 +1,11 @@
 Lang Code	EN	UA	RU
-^loading	Loading	Загрузка	Загрузка
-^version	Version	Версія	Версия
+^loading	Loading	Завантаження	Загрузка
+^find	Find		
+^my_drops	My Drops		
+^camera	Camera		
+^advertisements	Advertisments		
+^ar_games	AR Games		
+^map	Map		
+^list	List		
+^new_drop	New drop spawned!		
+^drop_collected_by	MannaWars NFT: {0} was collected by {1).		

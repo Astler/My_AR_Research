@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using Assets.Scripts.AR.FoundationAR;
 using Data;
 using GameCamera;
-using UniRx;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -27,9 +25,7 @@ namespace AR.FoundationAR
         {
             _dataProxy = dataProxy;
         }
-
-        public IReadOnlyReactiveProperty<bool> Initialized { get; }
-
+        
         public (bool hasHits, Pose? poseTransform) CheckIfRaycastHits(Vector2 clickPosition)
         {
             List<ARRaycastHit> arHits = new();
@@ -46,14 +42,14 @@ namespace AR.FoundationAR
         public Vector3 GetCeilPosition() => Vector3.zero;
 
         public void Reset() => arSession.Reset();
-        
+
         public void ClearAnchors() { }
 
         public CameraView GetCamera() => cameraView;
 
         private void Update()
         {
-            if (_dataProxy.SurfaceScanned.Value) return;
+            if (_dataProxy.IsRequestedAreaScanned()) return;
 
             float totalArea = 0f;
 
@@ -62,9 +58,7 @@ namespace AR.FoundationAR
                 Vector2 size = plane.size;
                 totalArea += size.x * size.y;
             }
-
-            Debug.Log($"area size = {totalArea}");
-
+            
             _dataProxy.SetScannedArea(totalArea);
         }
     }

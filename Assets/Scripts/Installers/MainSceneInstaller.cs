@@ -14,7 +14,6 @@ namespace Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<ZonesController>().FromComponentInHierarchy().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<CoinsController>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ARFoundationController>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<ARWorldCoordinator>().FromComponentInHierarchy().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<LocationController>().FromComponentInHierarchy().AsSingle().NonLazy();

@@ -10,7 +10,8 @@ namespace Screens
     [RequireComponent(typeof(UILayerConfigurator))]
     public class ScreenView : MonoBehaviour, IScreenView
     {
-        [SerializeField] private bool shouldPutInNavStack = true;
+        [SerializeField] private bool isTab;
+        [Space, SerializeField] private bool shouldPutInNavStack = true;
         [SerializeField] private bool shouldDeleteAfterHide = false;
         [SerializeField] private List<CanvasGroup> infoBlocks = new ();
         
@@ -37,6 +38,7 @@ namespace Screens
         public UILayerConfigurator UILayerConfigurator => _uiLayerConfigurator ??= GetComponent<UILayerConfigurator>();
         public bool ShouldPutInNavStack => shouldPutInNavStack;
         public bool ShouldDeleteAfterHide => shouldDeleteAfterHide;
+        public bool IsTab => isTab;
 
         public void PrepareScreenView()
         {
