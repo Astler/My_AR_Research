@@ -5,7 +5,6 @@ namespace Screens
         LoadingScreen = 0,
         MainScreen = 1,
         CollectedRewardsScreen = 2,
-        HistoryScreen = 3,
         WarningScreen = 4,
         DetectingLocationPopup = 5,
         ArScanningPopup = 6,

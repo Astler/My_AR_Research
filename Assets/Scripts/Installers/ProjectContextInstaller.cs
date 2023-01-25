@@ -6,11 +6,12 @@ using ExternalTools.ImagesLoader;
 using Infrastructure.GameStateMachine;
 using SceneManagement;
 using Screens;
+using Screens.ArModeTab;
 using Screens.Factories;
 using Screens.FindDropZonesScreen;
-using Screens.HistoryScreen;
 using Screens.RewardsListScreen;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Installers
@@ -21,7 +22,7 @@ namespace Installers
         
         [SerializeField] private RewardCardView rewardView;
         [SerializeField] private DropZoneCardView dropZoneCardView;
-        [SerializeField] private HistoryCardView historyCardView;
+        [FormerlySerializedAs("historyCardView")] [SerializeField] private HistoryEventCardView historyEventCardView;
 
         public override void InstallBindings()
         {
@@ -49,11 +50,11 @@ namespace Installers
                         .FromComponentInNewPrefab(rewardView)
                         .UnderTransform(viewsParent));
             
-            Container.BindFactory<HistoryStepData, HistoryCardView, HistoryCardsFactory>()
-                .FromPoolableMemoryPool<HistoryStepData, HistoryCardView, HistoryCardsPool>(
+            Container.BindFactory<HistoryStepData, HistoryEventCardView, HistoryCardsFactory>()
+                .FromPoolableMemoryPool<HistoryStepData, HistoryEventCardView, HistoryCardsPool>(
                     poolBinder => poolBinder
                         .WithInitialSize(30)
-                        .FromComponentInNewPrefab(historyCardView)
+                        .FromComponentInNewPrefab(historyEventCardView)
                         .UnderTransform(viewsParent));
             
             Container.BindFactory<DropZoneViewInfo, DropZoneCardView, DropZonesCardsFactory>()
@@ -65,7 +66,7 @@ namespace Installers
         }
 
         private class RewardCardsPool : MonoPoolableMemoryPool<RewardViewInfo, IMemoryPool, RewardCardView> { }
-        private class HistoryCardsPool : MonoPoolableMemoryPool<HistoryStepData, IMemoryPool, HistoryCardView> { }
+        private class HistoryCardsPool : MonoPoolableMemoryPool<HistoryStepData, IMemoryPool, HistoryEventCardView> { }
         private class DropZoneCardsPool : MonoPoolableMemoryPool<DropZoneViewInfo, IMemoryPool, DropZoneCardView> { }
     }
 }

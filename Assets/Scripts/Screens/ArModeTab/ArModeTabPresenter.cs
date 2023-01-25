@@ -6,7 +6,6 @@ using Data;
 using Data.Objects;
 using GameCamera;
 using Screens.Factories;
-using Screens.HistoryScreen;
 using Screens.RewardClaimedScreen;
 using UniRx;
 using UnityEngine;
@@ -21,7 +20,7 @@ namespace Screens.ArModeTab
         private readonly HistoryCardsFactory _historyCardsFactory;
         private readonly IArModeTabView _view;
         private IDisposable _historyEventsListener;
-        private readonly List<HistoryCardView> _eventsList = new();
+        private readonly List<HistoryEventCardView> _eventsList = new();
 
         public ArModeTabPresenter(IArModeTabView view, IDataProxy dataProxy,
             IScreenNavigationSystem screenNavigationSystem, HistoryCardsFactory historyCardsFactory)
@@ -136,7 +135,7 @@ namespace Screens.ArModeTab
 
         private void LoadHistory()
         {
-            foreach (HistoryCardView rewardView in _eventsList)
+            foreach (HistoryEventCardView rewardView in _eventsList)
             {
                 rewardView.Dispose();
             }
@@ -144,8 +143,8 @@ namespace Screens.ArModeTab
             foreach (HistoryStepData stepData in _dataProxy.SessionHistory.Reverse())
             {
                 stepData.Parent = _view.EventsParent;
-                HistoryCardView cardView = _historyCardsFactory.Create(stepData);
-                _eventsList.Add(cardView);
+                HistoryEventCardView eventCardView = _historyCardsFactory.Create(stepData);
+                _eventsList.Add(eventCardView);
             }
         }
     }

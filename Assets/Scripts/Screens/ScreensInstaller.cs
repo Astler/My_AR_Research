@@ -13,7 +13,6 @@ using Screens.CollectedRewards;
 using Screens.DetectingLocationPopup;
 using Screens.Factories;
 using Screens.FindDropZonesScreen;
-using Screens.HistoryScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
 using Screens.RewardClaimedScreen;
@@ -115,13 +114,6 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(CollectedRewardsScreenView view)
                     {
                         new CollectedRewardsScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
-                        onSuccess.Invoke(view);
-                    });
-                    break;
-                case ScreenName.HistoryScreen:
-                    InstantiateView(name.ToString(), delegate(HistoryScreenView view)
-                    {
-                        new HistoryScreenPresenter(view, _dataProxy, _historyCardsFactory);
                         onSuccess.Invoke(view);
                     });
                     break;

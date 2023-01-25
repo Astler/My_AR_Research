@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Plugins/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18N.cs" />
      <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18NSprite.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" />
@@ -54,16 +55,27 @@
      <Compile Include="Assets/Plugins/Honeti/I18N/Scripts/I18NImage.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" />
      <Compile Include="Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" />
+     <Folder Include="Assets/Plugins/QuickOutline/Resources" />
+     <Folder Include="Assets/Plugins/QuickOutline/Resources/Materials" />
      <Folder Include="Assets/Plugins/Honeti/I18N" />
+     <Folder Include="Assets/Plugins/QuickOutline/Samples" />
+     <None Include="Assets/Plugins/QuickOutline/Resources/Shaders/OutlineMask.shader" />
      <Folder Include="Assets/Plugins/Demigiant/DOTween/Modules" />
      <Folder Include="Assets/Plugins" />
      <Folder Include="Assets/Plugins/Honeti" />
      <Folder Include="Assets/Plugins/UniRx" />
      <Folder Include="Assets/Plugins/Honeti/I18N/Scripts" />
+     <Folder Include="Assets/Plugins/QuickOutline/Samples/Scenes" />
+     <None Include="Assets/Plugins/QuickOutline/Readme.txt" />
      <Folder Include="Assets/Plugins/Honeti/I18N/Prefabs" />
      <Folder Include="Assets/Plugins/Android" />
+     <Folder Include="Assets/Plugins/QuickOutline/Resources/Shaders" />
+     <Folder Include="Assets/Plugins/QuickOutline" />
      <Folder Include="Assets/Plugins/Honeti/I18N/Data" />
      <Folder Include="Assets/Plugins/Demigiant" />
+     <Folder Include="Assets/Plugins/QuickOutline/Samples/Materials" />
+     <Folder Include="Assets/Plugins/QuickOutline/Scripts" />
+     <None Include="Assets/Plugins/QuickOutline/Resources/Shaders/OutlineFill.shader" />
      <Folder Include="Assets/Plugins/Demigiant/DOTween" />
      <None Include="Assets/Plugins/Demigiant/DOTween/readme.txt" />
      <Reference Include="UnityEngine">

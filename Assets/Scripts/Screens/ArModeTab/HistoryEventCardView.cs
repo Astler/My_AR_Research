@@ -5,9 +5,9 @@ using UnityEngine;
 using Utils;
 using Zenject;
 
-namespace Screens.HistoryScreen
+namespace Screens.ArModeTab
 {
-    public class HistoryCardView : MonoBehaviour, IPoolable<HistoryStepData, IMemoryPool>, IDisposable
+    public class HistoryEventCardView : MonoBehaviour, IPoolable<HistoryStepData, IMemoryPool>, IDisposable
     {
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI messageText;

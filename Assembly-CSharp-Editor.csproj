@@ -178,7 +178,6 @@
      <Compile Include="Assets/ARLocation/Editor/ConditionalPropertyDrawer.cs" />
      <Compile Include="Assets/ThirdPartyAssets/WoLfulus/LineEnding/Editor/LogEntry.cs" />
      <Compile Include="Assets/Mapbox/Unity/Editor/FeatureTreeElement.cs" />
-     <Compile Include="Assets/Editor/Migration/AddVuforiaEnginePackage.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests/Editor/MapboxUnitTests_TileCover.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/Plugins/OnlineMapsLimitsEditor.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Editor/PropertyDrawers/OnlineMapsMarkerPropertyDrawer.cs" />
@@ -218,9 +217,7 @@
      <Folder Include="Assets/RiderFlow.UserData/Editor" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/Elevations" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/EditorLayout" />
-     <Folder Include="Assets/Editor" />
      <Folder Include="Assets/RiderFlow.UserData/Editor/Scenes/Bookmarks.Map" />
-     <Folder Include="Assets/Editor/Vuforia/ForPrint" />
      <Folder Include="Assets/Infinity Code/Online maps/Icons/Editor" />
      <Folder Include="Assets/ARLocation/Mapbox Routes/Editor" />
      <Folder Include="Assets/Infinity Code/Online maps/Icons/Editor/Components" />
@@ -230,11 +227,9 @@
      <Folder Include="Assets/Mapbox/Unity/Editor/UnitTests" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/Managers" />
      <Folder Include="Assets/Mapbox/Unity/Editor/BuildStuff" />
-     <Folder Include="Assets/Editor/Migration" />
      <Folder Include="Assets/Mapbox/Unity/Editor/PropertyDrawers" />
      <Folder Include="Assets/ARLocation/Editor" />
      <Folder Include="Assets/Mapbox/Unity/Editor" />
-     <Folder Include="Assets/Editor/Vuforia" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/Windows" />
      <Folder Include="Assets/Scripts/ExternalTools/ImagesLoader/Editor" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Editor/Third-Party" />
