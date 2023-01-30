@@ -9,7 +9,7 @@ namespace Screens
         DetectingLocationPopup = 5,
         ArScanningPopup = 6,
         DropZonesListScreen = 7,
-        RewardsListScreen = 8,
+        DropZoneDetailsScreen = 8,
         RewardClaimedScreen = 9,
         RewardAlreadyClaimedScreen = 10,
         ArModeTab = 11,

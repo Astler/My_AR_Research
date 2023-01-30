@@ -22,6 +22,11 @@ namespace Screens.ArScanningPopup
 
         private void Initialize()
         {
+            _screenView.OnShowCallback += OnShowScreen;
+        }
+
+        private void OnShowScreen(object obj)
+        {
             if (Application.isEditor)
             {
                 Observable.Timer(TimeSpan.FromSeconds(5f)).Subscribe(_ =>

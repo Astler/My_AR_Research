@@ -12,11 +12,12 @@ namespace AR.World.Collectable
         private Transform _transform;
         private bool _isInsidePlayerARCollider;
         private Action _action;
-        
+
         public Camera Camera => _camera;
         public Transform Transform => _transform;
 
         public event Action<ICollectable> Interacted;
+        public event Action<(ICollectable collectable, bool canBeCollected)> CollectableStatusChanged;
 
         public void SetupCollectAction(Action action)
         {
@@ -29,9 +30,10 @@ namespace AR.World.Collectable
             Interacted?.Invoke(this);
         }
 
-        public bool CanBeCollected(Vector3 playerPosition)
+        public bool IsCanBeCollected(Vector3 playerPosition)
         {
-            bool collectable = Vector3.Distance(playerPosition, _transform.position) <= interactionDistance || _isInsidePlayerARCollider;
+            bool collectable = Vector3.Distance(playerPosition, _transform.position) <= interactionDistance ||
+                               _isInsidePlayerARCollider;
             outline.enabled = collectable;
 
             return collectable;
@@ -45,13 +47,19 @@ namespace AR.World.Collectable
         private void Update()
         {
             if (!Camera) return;
+
+            bool collectable =
+                Vector3.Distance(Camera.transform.position, _transform.position) <= interactionDistance ||
+                _isInsidePlayerARCollider;
             
-            bool collectable = Vector3.Distance(Camera.transform.position, _transform.position) <= interactionDistance || _isInsidePlayerARCollider;
             outline.enabled = collectable;
+
+            CollectableStatusChanged?.Invoke((this, collectable));
+
             OnUpdate();
         }
 
-        protected virtual void OnUpdate() {}
+        protected virtual void OnUpdate() { }
 
         private void Awake()
         {

@@ -76,9 +76,6 @@ namespace AR
 
                         if (zoneData == null || !_dataProxy.IsRequestedAreaScanned())
                         {
-                            _anchors.Clear();
-                            _beams.Clear();
-                            _beamsData.Clear();
                             Clear();
                             return;
                         }
@@ -239,11 +236,12 @@ namespace AR
                 follower.SetBeamData(data);
                 follower.SetBoxName(data.Name);
 
-                follower.SetupCollectAction(() =>
+                follower.Interacted += collectable =>
                 {
                     foreach (BeamData beamData in _beamsData.ToList().Where(beamData => beamData.Id == data.Id))
                     {
                         _beamsData.Remove(beamData);
+                        _dataProxy.RemoveFromAvailableCollectables(collectable);
                     }
 
                     if (follower)
@@ -252,7 +250,21 @@ namespace AR
                     }
 
                     PlaceBeamsInWorld();
-                });
+                };
+
+                follower.CollectableStatusChanged += tuple =>
+                {
+                    (ICollectable collectable, bool canBeCollected) = tuple;
+
+                    if (canBeCollected)
+                    {
+                        _dataProxy.AddToAvailableCollectables(collectable);
+                    }
+                    else
+                    {
+                        _dataProxy.RemoveFromAvailableCollectables(collectable);
+                    }
+                };
 
                 _beams.Add(follower);
 

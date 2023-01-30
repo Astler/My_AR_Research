@@ -37,9 +37,18 @@ namespace Screens.ArModeTab
         {
             _view.OnShowCallback += OnShowTab;
             _view.OnLostFocusCallback += OnLostFocus;
-
             _view.EmptyScreenClicked += OnScreenClicked;
+            _view.CollectButtonClicked += OnCollectButtonClicked;
+
+            _dataProxy.EnteredPortalZone.Subscribe(zone => { _view.SetDropZoneName(zone?.Name); });
+            
+            _dataProxy.AvailableCollectables.ObserveCountChanged().Subscribe(size =>
+            {
+                _view.SetCollectButtonIsActive(size > 0);
+            });
         }
+
+        private void OnCollectButtonClicked() { }
 
         private void OnLostFocus()
         {
@@ -49,6 +58,15 @@ namespace Screens.ArModeTab
 
         private void OnShowTab(object data)
         {
+            if (_dataProxy.IsRequestedAreaScanned())
+            {
+                Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ =>
+                {
+                    _screenNavigationSystem.ExecuteNavigationCommand(
+                        new NavigationCommand().ShowNextScreen(ScreenName.ArScanningPopup));
+                });
+            }
+
             _dataProxy.SetActiveCamera(CameraType.ArCamera);
             _historyEventsListener = _dataProxy.SessionHistory.ObserveCountChanged().Subscribe(_ => LoadHistory());
             LoadHistory();
@@ -81,7 +99,7 @@ namespace Screens.ArModeTab
                     {
                         Debug.Log($"hit ICollectable");
 
-                        bool collectable = beam.CanBeCollected(cameraView.GetPosition());
+                        bool collectable = beam.IsCanBeCollected(cameraView.GetPosition());
 
                         if (!collectable) continue;
 

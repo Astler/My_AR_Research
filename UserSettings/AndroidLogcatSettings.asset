@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "8B8X15GYE",
+    "m_SelectedDeviceId": "2d38b3e",
     "m_SelectedPackage": {
-        "deviceId": "8B8X15GYE",
+        "deviceId": "2d38b3e",
         "name": "com.ms.manna_drops",
-        "processId": 13031,
+        "processId": 28673,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -51,6 +51,54 @@
             "exited": false
         },
         {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 10152,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 26881,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 28523,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 29476,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 30112,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 31150,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 11866,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 16743,
+            "exited": false
+        },
+        {
             "deviceId": "2d38b3e",
             "name": "com.ms.vr_demo",
             "processId": 27337,
@@ -84,6 +132,30 @@
             "deviceId": "2d38b3e",
             "name": "com.ms.vr_demo",
             "processId": 29691,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.manna_drops",
+            "processId": 17412,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.manna_drops",
+            "processId": 31480,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.manna_drops",
+            "processId": 7047,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.manna_drops",
+            "processId": 28673,
             "exited": false
         },
         {

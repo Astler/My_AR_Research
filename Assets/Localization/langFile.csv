@@ -9,3 +9,17 @@ Lang Code	EN	UA	RU
 ^list	List		
 ^new_drop	New drop spawned!		
 ^drop_collected_by	MannaWars NFT: {0} was collected by {1).		
+^launch_ar_mode	LAUNCH AR MODE		
+^view	View		
+^not_available_yet	Not available yet		
+^go_to_the_event_area	Go to the event area!		
+^back	Back		
+^share	Share		
+^drop_details	Drop details		
+^go_with_google_maps	Go with google maps		
+^open_ar_map	Open ar map		
+^ongoing	Ongoing		
+^in_time	In {0}		
+^collect_drop	Collect drop		
+^start_info	<color=#00FF38>STARTS:</color> {0}		
+^finish_info	<color=#00FF38>ENDS:</color> {0}		

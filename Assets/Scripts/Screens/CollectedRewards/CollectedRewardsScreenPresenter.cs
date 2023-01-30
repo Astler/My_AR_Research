@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Data;
 using Data.Objects;
 using ExternalTools.ImagesLoader;
+using Screens.DropZoneDetailsScreen;
 using Screens.Factories;
-using Screens.RewardsListScreen;
 using UniRx;
 
 namespace Screens.CollectedRewards

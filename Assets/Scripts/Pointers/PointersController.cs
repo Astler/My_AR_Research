@@ -51,7 +51,7 @@ namespace Pointers
         {
             if (_targets.Count == 0) return null;
 
-            bool isInsideZone = _dataProxy.SelectedPortalZone.Value != null;
+            bool isInsideZone = _dataProxy.EnteredPortalZone.Value != null;
 
             List<IPointerTarget> correctPointers = _targets.Where(it =>
                 it.TargetType == (isInsideZone ? TargetType.Present : TargetType.DropZone)).ToList();

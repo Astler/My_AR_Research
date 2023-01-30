@@ -23,6 +23,11 @@ namespace Screens.DetectingLocationPopup
 
         private void Initialize()
         {
+            _screenView.OnShowCallback += OnShowScreen;
+        }
+
+        private void OnShowScreen(object obj)
+        {
             if (Application.isEditor)
             {
                 Observable.Timer(TimeSpan.FromSeconds(5f)).Subscribe(_ =>
@@ -30,16 +35,20 @@ namespace Screens.DetectingLocationPopup
                     _screenView.CloseScreen();
                     _dataProxy.CompleteStateStep(GameStates.LocationDetection);
                 });
-                return;
             }
 
             _locationDetectListener = _dataProxy.LocationDetectResult.Subscribe(result =>
             {
-                if (result != LocationDetectResult.Success && !Application.isEditor) return;
+                Debug.Log($"LOCATION RESULT = {result}");
+                if (result != LocationDetectResult.Success) return;
 
-                _screenView.CloseScreen();
-                _dataProxy.CompleteStateStep(GameStates.LocationDetection);
-                _locationDetectListener?.Dispose();
+                Observable.Timer(TimeSpan.FromSeconds(1f)).Subscribe(_ =>
+                {
+                    Debug.Log($"close location popup");
+                    _screenView.CloseScreen();
+                    _dataProxy.CompleteStateStep(GameStates.LocationDetection);
+                    _locationDetectListener?.Dispose();
+                });
             });
         }
     }

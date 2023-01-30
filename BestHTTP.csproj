@@ -1357,8 +1357,8 @@
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/eac/EACObjectIdentifiers.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/pkcs/Pkcs10CertificationRequestDelaySigned.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/x509/X509Certificate.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/io/MacSink.cs" />
      <Compile Include="Assets/Best HTTP/Examples/SignalRCore/Encoders/JsonDotNetEncoder.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/io/MacSink.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crmf/PkiArchiveControl.cs" />
      <Compile Include="Assets/Best HTTP/Source/PlatformSupport/Threading/ThreadedRunner.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ScaleYPointMap.cs" />

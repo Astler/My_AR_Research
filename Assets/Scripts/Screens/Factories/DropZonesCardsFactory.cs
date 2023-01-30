@@ -1,6 +1,5 @@
 using Data.Objects;
 using Screens.FindDropZonesScreen;
-using Screens.RewardsListScreen;
 using Zenject;
 
 namespace Screens.Factories

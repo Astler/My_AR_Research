@@ -11,14 +11,14 @@ namespace Utils
 
         public static Vector2 ToUnityVector(this Vector2d vector2d) => new((float)vector2d.x, (float)vector2d.y);
 
-        public static string ToHumanReadableDistanceFromPlayer(this Vector2 targetPosition, Vector2 playerPosition)
+        public static (double value, string human) ToHumanReadableDistanceFromPlayer(this Vector2 targetPosition, Vector2 playerPosition)
         {
             double distance = Distance(playerPosition.x,
                 playerPosition.y,
                 targetPosition.x,
                 targetPosition.y);
 
-            return distance.DistanceToHuman();
+            return (distance, distance.DistanceToHuman());
         }
 
         public static string DistanceToHuman(this double distance)

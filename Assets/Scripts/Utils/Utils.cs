@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Plugins.Honeti.I18N.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 namespace Utils
 {
@@ -33,6 +35,44 @@ namespace Utils
             }
             
             return I18N.instance.GetValue(key, parameters);
+        }
+        
+        public static string ToReadableTimeSpan(this TimeSpan value)
+        {
+            string duration = "";
+
+            int totalDays = (int)value.TotalDays;
+            
+            if (totalDays >= 1)
+            {
+                duration = totalDays + " d";
+                value = value.Add(TimeSpan.FromDays(-1 * totalDays));
+            }
+
+            int totalHours = (int)value.TotalHours;
+            
+            if (totalHours >= 1)
+            {
+                if (totalDays >= 1)
+                {
+                    duration += ", ";
+                }
+                duration += totalHours + " h";
+                value = value.Add(TimeSpan.FromHours(-1 * totalHours));
+            }
+
+            int totalMinutes = (int)value.TotalMinutes;
+            
+            if (totalMinutes >= 1)
+            {
+                if (totalHours >= 1)
+                {
+                    duration += ", ";
+                }
+                duration += totalMinutes + " m";
+            }
+
+            return duration;
         }
     }
 }

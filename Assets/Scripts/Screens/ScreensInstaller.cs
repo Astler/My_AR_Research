@@ -11,13 +11,14 @@ using Screens.ArModeTab;
 using Screens.ArScanningPopup;
 using Screens.CollectedRewards;
 using Screens.DetectingLocationPopup;
+using Screens.DropZoneDetailsScreen;
 using Screens.Factories;
 using Screens.FindDropZonesScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
 using Screens.RewardClaimedScreen;
-using Screens.RewardsListScreen;
 using Screens.WarningScreen;
+using Toasts;
 using UnityEngine;
 using Utils;
 using Zenject;
@@ -36,14 +37,16 @@ namespace Screens
         private RewardCardsFactory _rewardCardsFactory;
         private HistoryCardsFactory _historyCardsFactory;
         private DropZonesCardsFactory _dropZonesCardsFactory;
+        private IToastsController _toastsController;
 
         [Inject]
         public void Construct(ScreenAssets screenAssets, SceneLoader sceneLoader,
             IScreenNavigationSystem screenNavigationSystem,
             IDataProxy dataProxy, IWebImagesLoader webImagesLoader, GameStateMachine gameStateMachine,
             RewardCardsFactory rewardCardsFactory, HistoryCardsFactory historyCardsFactory,
-            DropZonesCardsFactory dropZonesCardsFactory)
+            DropZonesCardsFactory dropZonesCardsFactory, IToastsController toastsController)
         {
+            _toastsController = toastsController;
             _dropZonesCardsFactory = dropZonesCardsFactory;
             _historyCardsFactory = historyCardsFactory;
             _rewardCardsFactory = rewardCardsFactory;
@@ -106,7 +109,7 @@ namespace Screens
                 case ScreenName.MainScreen:
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
-                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy);
+                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy, _toastsController);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;
@@ -141,14 +144,14 @@ namespace Screens
                 case ScreenName.DropZonesListScreen:
                     InstantiateView(name.ToString(), delegate(ZonesListScreenView view)
                     {
-                        new ZonesListScreenPresenter(view, _dataProxy, _dropZonesCardsFactory);
+                        new ZonesListScreenPresenter(view, _dataProxy, _dropZonesCardsFactory, _screenNavigationSystem);
                         onSuccess.Invoke(view);
                     });
                     break;
-                case ScreenName.RewardsListScreen:
-                    InstantiateView(name.ToString(), delegate(RewardsListScreenView view)
+                case ScreenName.DropZoneDetailsScreen:
+                    InstantiateView(name.ToString(), delegate(DropZoneDetailsScreenView view)
                     {
-                        new RewardsListScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
+                        new DropZoneDetailsScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
                         onSuccess.Invoke(view);
                     });
                     break;

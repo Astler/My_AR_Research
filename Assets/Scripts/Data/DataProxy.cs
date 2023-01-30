@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AR;
+using AR.World.Collectable;
 using ARLocation;
+using Assets;
 using BestHTTP.WebSocket;
 using Core;
 using Core.WebSockets;
@@ -10,10 +12,12 @@ using Data.Objects;
 using ExternalTools.ImagesLoader;
 using Geo;
 using Mapbox.Utils;
+using Screens.MainScreen;
 using UniRx;
 using UnityEngine;
 using Utils;
 using CameraType = GameCamera.CameraType;
+using Random = UnityEngine.Random;
 
 namespace Data
 {
@@ -22,20 +26,23 @@ namespace Data
         private readonly IApiInterface _apiInterface;
         private readonly WebImagesLoader _webImagesLoader;
         private readonly IWebSocketService _webSocketService;
+        private readonly GameAssets _gameAssets;
         private EventData[] _eventsData;
 
         private readonly ReactiveProperty<CameraType> _activeCameraType = new(CameraType.ArCamera);
         private readonly ReactiveProperty<int> _selectedOnMapDropZoneId = new(-1);
         private readonly ReactiveProperty<GameStates> _gameState = new(GameStates.Loading);
         private readonly ReactiveCollection<HistoryStepData> _historyLines = new();
+        private readonly ReactiveCollection<ICollectable> _collectables = new();
 
         private readonly ReactiveProperty<float> _scannedArea = new();
 
         private readonly Subject<bool> _reset = new();
+        private readonly Subject<(BottomBarButtonType type, object data)> _bottomNavigationAction = new();
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
         private readonly ReactiveProperty<bool> _mapOpened = new();
-        private readonly ReactiveProperty<DropZoneViewInfo> _selectedPortalZone = new();
+        private readonly ReactiveProperty<DropZoneViewInfo> _enteredPortalZone = new();
         private readonly ReactiveProperty<EventData> _activeEventData = new();
         private readonly ReactiveProperty<DropZoneViewInfo> _nearestPortalZone = new();
         private readonly ReactiveProperty<Vector2> _playerLocationChanged = new();
@@ -44,16 +51,18 @@ namespace Data
         private readonly Subject<ActiveBoxData> _removeRewardBoxFromZone = new();
         private readonly ReactiveProperty<int> _timeToNextGift = new();
 
-        private readonly List<DropZoneViewInfo> _portalsList = new();
+        private readonly List<DropZoneViewInfo> _zonesList = new();
         private readonly List<PrizeData> _collectedPrizes = new();
         private readonly ReactiveCollection<RewardViewInfo> _collectedPrizesInfos = new();
+        private UserData _responseUser;
 
         public DataProxy(IApiInterface apiInterface, WebImagesLoader webImagesLoader,
-            IWebSocketService webSocketService)
+            IWebSocketService webSocketService, GameAssets gameAssets)
         {
             _apiInterface = apiInterface;
             _webImagesLoader = webImagesLoader;
             _webSocketService = webSocketService;
+            _gameAssets = gameAssets;
             _webSocketService.OnIncomingMessageReceived += OnIncomingMessageReceived;
 
             Observable.Interval(TimeSpan.FromSeconds(1)).Subscribe(_ =>
@@ -105,6 +114,7 @@ namespace Data
         public IReadOnlyReactiveProperty<CameraType> ActiveCameraType => _activeCameraType;
         public IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId => _selectedOnMapDropZoneId;
         public IReadOnlyReactiveCollection<HistoryStepData> SessionHistory => _historyLines;
+        public IReadOnlyReactiveCollection<ICollectable> AvailableCollectables => _collectables;
 
 
         public IReadOnlyReactiveCollection<RewardViewInfo> CollectedPrizesInfos => _collectedPrizesInfos;
@@ -117,7 +127,40 @@ namespace Data
             _scannedArea.Value = totalArea / AreaScanRequirements;
         }
 
+        public void AddToAvailableCollectables(ICollectable collectable)
+        {
+            if (_collectables.Contains(collectable)) return;
+            
+            _collectables.Add(collectable);
+        }
+
+        public void RemoveFromAvailableCollectables(ICollectable collectable)
+        {
+            _collectables.Remove(collectable);
+        }
+
         public bool IsRequestedAreaScanned() => _scannedArea.Value >= 1;
+
+        public MainScreenViewInfo GetUserInfo() => new()
+        {
+            Username = _responseUser?.username ?? "User",
+            UserIcon = _gameAssets.GetUserIconById(_responseUser?.id ?? Random.Range(0, 1000))
+        };
+
+        public DropZoneViewInfo GetZoneInfoById(int id)
+        {
+            return _zonesList.FirstOrDefault(it => it.Id == id);
+        }
+
+        public void InvokeBottomBarAction(BottomBarButtonType button, object data)
+        {
+            _bottomNavigationAction.OnNext((button, data));
+        }
+
+        public void SetUserData(UserData responseUser)
+        {
+            _responseUser = responseUser;
+        }
 
         public void CompleteStateStep(GameStates states)
         {
@@ -129,11 +172,10 @@ namespace Data
 
         #endregion
 
-
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
-
+        public System.IObservable<(BottomBarButtonType, object)> BottomNavigationAction => _bottomNavigationAction;
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
-        public IReadOnlyReactiveProperty<DropZoneViewInfo> SelectedPortalZone => _selectedPortalZone;
+        public IReadOnlyReactiveProperty<DropZoneViewInfo> EnteredPortalZone => _enteredPortalZone;
         public IReadOnlyReactiveProperty<DropZoneViewInfo> NearestPortalZone => _nearestPortalZone;
         public IReadOnlyReactiveProperty<EventData> ActiveEventData => _activeEventData;
         public IReadOnlyReactiveProperty<Vector2> PlayerLocationChanged => _playerLocationChanged;
@@ -154,13 +196,13 @@ namespace Data
         {
             if (dropZoneModel == null)
             {
-                _selectedPortalZone.Value = null;
+                _enteredPortalZone.Value = null;
                 return;
             }
 
             if (dropZoneModel.Id == (_activeEventData.Value?.id ?? 0)) return;
 
-            _selectedPortalZone.Value = dropZoneModel;
+            _enteredPortalZone.Value = dropZoneModel;
 
             SetNearestPortalZone(dropZoneModel);
 
@@ -189,15 +231,16 @@ namespace Data
 
         public IEnumerable<DropZoneViewInfo> GetAllActiveZones()
         {
-            List<DropZoneViewInfo> activeZones = _portalsList.Where(it => it.IsActive()).ToList();
+            List<DropZoneViewInfo> activeZones = _zonesList.Where(it => it.IsActive()).ToList();
 
             foreach (DropZoneViewInfo portalViewInfo in activeZones)
             {
-                portalViewInfo.Distance =
-                    portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
+                (double value, string human) = portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
+                portalViewInfo.ReadableDistance = human;
+                portalViewInfo.OrderDistance = value;
             }
 
-            return activeZones;
+            return activeZones.OrderBy(it => it.OrderDistance);
         }
 
         public void ClearScene() => _clear.OnNext(true);
@@ -250,7 +293,7 @@ namespace Data
 
         public void AddEvents(EventsData data)
         {
-            _portalsList.Clear();
+            _zonesList.Clear();
             _eventsData = data.events;
 
             foreach (EventData eventData in _eventsData)
@@ -277,20 +320,8 @@ namespace Data
                     }).ToList(),
                 };
 
-                _portalsList.Add(viewInfo);
+                _zonesList.Add(viewInfo);
             }
-        }
-
-        public IEnumerable<RewardViewInfo> GetRewardsForActiveZone()
-        {
-            if (SelectedPortalZone.Value == null) return Array.Empty<RewardViewInfo>();
-            return SelectedPortalZone.Value.Rewards;
-        }
-
-        public RewardViewInfo GetAvailableRewardForZone()
-        {
-            List<RewardViewInfo> rewards = GetRewardsForActiveZone().Where(it => !it.IsCollected).ToList();
-            return rewards.Count == 0 ? null : rewards.GetRandomElement();
         }
 
         public void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed)

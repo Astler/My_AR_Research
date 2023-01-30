@@ -67,6 +67,7 @@
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/Examples/ArMenuController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsEnums.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsOpenRouteServiceGeocodingResult.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/InfoTextViewInfo.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/BboxToGeoCoordinateBoundsConverter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ChangePositionUsingGyro.cs" />
      <Compile Include="Assets/Scripts/Assets/ScreenAssets.cs" />
@@ -147,7 +148,7 @@
      <Compile Include="Assets/Scripts/AR/FoundationAR/IARController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsKeyboardInput.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGoogleDirections.cs" />
-     <Compile Include="Assets/Scripts/Assets/AssetsScriptableObject.cs" />
+     <Compile Include="Assets/Scripts/Assets/GameAssets.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Location/ILocationProvider.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/LayerModifierOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/HTTPRequestThreaded.cs" />
@@ -187,6 +188,7 @@
      <Compile Include="Assets/Mapbox/Unity/Location/EditorLocationProviderLocationLog.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/TileResource.cs" />
      <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/AstronautMouseController.cs" />
+     <Compile Include="Assets/Scripts/Toasts/ToastView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/LowPolyTerrainStrategy.cs" />
      <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/LocationData.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/IntervalHeap.cs" />
@@ -221,9 +223,10 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Route.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/GameObjectExtensions.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindLocationExample.cs" />
+     <Compile Include="Assets/Scripts/Screens/MainScreen/MainScreenViewInfo.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/CoreVectorLayerProperties.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OnDrawTooltipExample.cs" />
-     <Compile Include="Assets/Scripts/Screens/RewardsListScreen/RewardsListScreenPresenter.cs" />
+     <Compile Include="Assets/Scripts/Screens/DropZoneDetailsScreen/DropZoneDetailsScreenPresenter.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/MapboxApi.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/VectorFeatureUnity.cs" />
      <Compile Include="Assets/Scripts/Screens/RewardClaimedScreen/RewardScreenViewInfo.cs" />
@@ -259,7 +262,6 @@
      <Compile Include="Assets/Mapbox/Examples/8_VoxelMap/Scripts/TextureScaler.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/FollowTargetTransform.cs" />
      <Compile Include="Assets/MapboxAR/Examples/ARTabletop/Scripts/SnapMapToTargetTransform.cs" />
-     <Compile Include="Assets/Scripts/Screens/Views/LocationInfoView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/SQLite/SQLite.cs" />
      <Compile Include="Assets/Scripts/Pointers/DropLocationDirectionPointer.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/TileProviders/AbstractTileProvider.cs" />
@@ -275,6 +277,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsGooglePlacePhoto.cs" />
      <Compile Include="Assets/Scripts/Installers/MainSceneInstaller.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/SaveMapStateExample.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/InfoTextView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindDirectionExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Vector2d/Vector2d.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Constants.cs" />
@@ -310,6 +313,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Elevations/OnlineMapsElevationManagerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/LocationService/OnlineMapsLocationServiceBase.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Step.cs" />
+     <Compile Include="Assets/Scripts/Screens/ArModeTab/ArModeTabView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Waypoint.cs" />
      <Compile Include="Assets/Scripts/Utils/XROriginExtensions.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/FeatureUiMarker.cs" />
@@ -376,7 +380,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Managers/OnlineMapsDrawingElementManager.cs" />
      <Compile Include="Assets/Scripts/Screens/WarningScreen/WarningScreenPresenter.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/Response/Geometry.cs" />
-     <Compile Include="Assets/Scripts/Screens/RewardsListScreen/RewardsListScreenView.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/CameraMovement.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/ExtraTypes/OnlineMapsPluginAttribute.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Controls/Base/OnlineMapsControlBaseUI.cs" />
@@ -474,6 +477,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/HorizonWithoutElevation.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Annotation.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/CatmullRomCurve.cs" />
+     <Compile Include="Assets/Scripts/Screens/ArModeTab/ArModeTabPresenter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/ShowMarkerLabelsByZoomExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Managers/OnlineMapsMarkerManagerBase.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/TerrainColliderOptions.cs" />
@@ -497,7 +501,7 @@
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapLocationOptions.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/Map.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/GPXExample.cs" />
-     <Compile Include="Assets/Scripts/Screens/RewardsListScreen/RewardCardView.cs" />
+     <Compile Include="Assets/Scripts/Screens/DropZoneDetailsScreen/RewardCardView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/MapboxStylesColorModifier.cs" />
      <Compile Include="Assets/MapboxAR/Unity/Ar/SimpleAutomaticSynchronizationContextBehaviour.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Utils/ConditionalPropertyAttribute.cs" />
@@ -664,6 +668,7 @@
      <Compile Include="Assets/Mapbox/Unity/Utilities/NodeEditorElementAttribute.cs" />
      <Compile Include="Assets/Scripts/AR/FoundationAR/TargetSelectView.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsAMapSearch.cs" />
+     <Compile Include="Assets/Scripts/Screens/Views/InfoTextType.cs" />
      <Compile Include="Assets/_Project/Scripts/ArMenuController.cs" />
      <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/IWebImagesLoader.cs" />
      <Compile Include="Assets/Scripts/AR/World/Collectable/ICollectable.cs" />
@@ -770,6 +775,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Markers/Instances/OnlineMapsMarkerInstanceBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/Marker3D_GPS_Example.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/MapOptions.cs" />
+     <Compile Include="Assets/Scripts/Screens/Factories/ToastsFactory.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/UnixTimestampUtils.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/ColliderModifier.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Interfaces/IOnlineMapsInteractiveElementManager.cs" />
@@ -837,6 +843,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Threading/OnlineMapsThreadManager.cs" />
      <Compile Include="Assets/Scripts/Data/PlayerPrefsHelper.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ReloadMap.cs" />
+     <Compile Include="Assets/Scripts/Toasts/ToastViewInfo.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsInteractiveElementManager.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsBingMapsElevationResult.cs" />
      <Compile Include="Assets/Mapbox/Unity/Map/Interfaces/IMapPlacementStrategy.cs" />
@@ -886,6 +893,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tooltips/OnlineMapsTooltipDrawerBase.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsVectorTile.cs" />
      <Compile Include="Assets/Scripts/ExternalTools/ImagesLoader/Elements/WebImage.cs" />
+     <Compile Include="Assets/Scripts/Toasts/ToastsController.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/QQSearchExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerScaleByZoomExample.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/Cache/CachingWebFileSource.cs" />
@@ -898,6 +906,7 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/DirectionResource.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/MinHeap.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/JsonConverters/PolylineToGeoCoordinateListConverter.cs" />
+     <Compile Include="Assets/Scripts/Screens/DropZoneDetailsScreen/DropZoneDetailsScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/Logging/LocationLogWriter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingMaterial.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerFantasyStyle.cs" />
@@ -921,8 +930,6 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/MapObjectSizeControlView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
-     <Compile Include="Assets/Scripts/Screens/ArModeTab/ArModeTabView.cs" />
-     <Compile Include="Assets/Scripts/Screens/ArModeTab/ArModeTabPresenter.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/SamplesResources" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
@@ -1216,6 +1223,7 @@
      <Folder Include="Assets/Resources" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Scripts" />
+     <Folder Include="Assets/Scripts/Toasts" />
      <Folder Include="Assets/ARLocation/Prefabs/Debug" />
      <Folder Include="Assets/Prefabs/_NewPrefabs/UI/Elements" />
      <Folder Include="Assets/Hovl Studio/Map track markers VFX" />
@@ -1317,6 +1325,7 @@
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Core" />
      <Folder Include="Assets/Mapbox/Examples/4_ReplaceFeatures/Materials" />
      <Folder Include="Assets/Mapbox/Unity/MeshGeneration/Data" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/DropZoneDetailsScreen" />
      <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs" />
      <Folder Include="Assets/Prefabs/_NewPrefabs/UI/RewardClaimed" />
      <Folder Include="Assets/Mapbox/Examples/6_ZoomableMap/Screenshots" />
@@ -1478,7 +1487,6 @@
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer" />
      <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Prefabs/Voxels" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Third-party Assets" />
-     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/RewardsList" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Park" />
      <Folder Include="Assets/Materials" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Tiles" />
@@ -1505,7 +1513,7 @@
      <Folder Include="Assets/SamplesResources/AugmentationAssets" />
      <Folder Include="Assets/Mapbox/Unity/Telemetry" />
      <Folder Include="Assets/ARLocation/Data" />
-     <Folder Include="Assets/Scripts/Screens/RewardsListScreen" />
+     <Folder Include="Assets/Scripts/Screens/DropZoneDetailsScreen" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.16f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43794302abfa4f9c95f0f52beb629fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: 2
+  layer: 4
 --- !u!114 &167445825298384767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,9 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a625c6765941058c295907748988ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTab: 0
   shouldPutInNavStack: 1
   shouldDeleteAfterHide: 0
   infoBlocks: []
+  areaText: {fileID: 0}
 --- !u!1 &7184157401230222857
 GameObject:
   m_ObjectHideFlags: 0

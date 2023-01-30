@@ -8,13 +8,13 @@ namespace Assets
     {
         [SerializeField] private EditorAssets editorAssets;
         [SerializeField] private ScreenAssets screenAssets;
-        [SerializeField] private AssetsScriptableObject assetsScriptableObject;
+        [SerializeField] private GameAssets gameAssets;
 
         public override void InstallBindings()
         {
             Container.BindInstance(editorAssets);
             Container.BindInstance(screenAssets);
-            Container.BindInstance(assetsScriptableObject);
+            Container.BindInstance(gameAssets);
         }
     }
 }

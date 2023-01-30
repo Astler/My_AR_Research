@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using Data;
 using Data.Objects;
+using Geo;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using Application = UnityEngine.Device.Application;
 
 namespace Map
 {
@@ -31,6 +33,14 @@ namespace Map
             map.Clicked += OnMapClicked;
 
             _dataProxy.PlayerLocationChanged.Subscribe(PlacePlayerOnMap).AddTo(this);
+            _dataProxy.LocationDetectResult.Subscribe(result =>
+            {
+                if (result == LocationDetectResult.Success || Application.isEditor)
+                {
+                    Vector2 playerPosition = _dataProxy.GetPlayerPosition();
+                    OnlineMaps.instance.position = new Vector2(playerPosition.y, playerPosition.x);
+                }
+            }).AddTo(this);
             _dataProxy.MapOpened.Subscribe(SetupMap).AddTo(this);
         }
 
@@ -43,7 +53,6 @@ namespace Map
         private void SetupMap(bool isActive)
         {
             Vector2 playerPosition = _dataProxy.GetPlayerPosition();
-            OnlineMaps.instance.position = new Vector2(playerPosition.y, playerPosition.x);
 
             mapCamera.gameObject.SetActive(isActive);
 

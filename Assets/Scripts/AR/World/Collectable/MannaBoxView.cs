@@ -22,7 +22,7 @@ namespace AR.World.Collectable
 
         public void SetBoxName(string dataName)
         {
-            gameObject.name = dataName;
+            gameObject.name = "";
         }
 
         protected override void OnUpdate()

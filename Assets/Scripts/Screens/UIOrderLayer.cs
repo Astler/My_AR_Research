@@ -3,7 +3,9 @@ namespace Screens
     public enum UIOrderLayer
     {
         Root,
-        Others,
+        Tabs,
+        Bars,
+        Screens,
         Popups,
         Loading,
         Toasts

@@ -23,9 +23,19 @@ MonoBehaviour:
     - {fileID: 6859271202167560956, guid: d3d0ac56b75e1478a8b3a45b96983055, type: 3}
     - {fileID: 6859271202167560956, guid: 85578a4d0d5544752b806fa77a6a7647, type: 3}
     - {fileID: 3527117995687422290, guid: 1b9e0cbab70414b3ea21a6ea4cb2afb5, type: 3}
-    - {fileID: 4405357858321780333, guid: 13cce33688168494c964939074ee615f, type: 3}
+    - {fileID: 1775270621865193348, guid: d3458ddd3e355422ab2bcaa311442c83, type: 3}
     - {fileID: 1466088825646740931, guid: 35d294a649c934b809297b4a8b1f15d7, type: 3}
     - {fileID: 7193246183557557014, guid: 809c3f32145684eec8b9c6c7101dd871, type: 3}
     - {fileID: 966443460424321441, guid: 99c20b7a88b6d419fbcc8b9b1c6c6f52, type: 3}
-  assetsScriptableObject: {fileID: 11400000, guid: b83a716757760fa4284f112e23cc2366,
-    type: 2}
+  gameAssets:
+    userIcons:
+    - {fileID: 21300000, guid: 5b0a783d897e742f397fdba769a8ca78, type: 3}
+    - {fileID: 21300000, guid: 86ec9eecdd5ee47618aef5604c191579, type: 3}
+    - {fileID: 21300000, guid: 37a95977d6b9a41ebae96642711a898c, type: 3}
+    - {fileID: 21300000, guid: 31dc29cc2c37a4007aa92f20a68c3b9d, type: 3}
+    - {fileID: 21300000, guid: 055ea1dd726354254aa904f481022db9, type: 3}
+    - {fileID: 21300000, guid: 43fc436ec646b42d58fd43aa9d59feca, type: 3}
+    - {fileID: 21300000, guid: 7d021938bf79b45a6b43edadd1e3b1f0, type: 3}
+    - {fileID: 21300000, guid: 0d190891fae9b4b1bb54fe763e153353, type: 3}
+    - {fileID: 21300000, guid: 248b79b23f53d46f28a39d0fcde269a1, type: 3}
+    - {fileID: 21300000, guid: c021d7fee09fd4d95a147733db8bcbd6, type: 3}

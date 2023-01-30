@@ -7,7 +7,8 @@ namespace Data.Objects
     public class DropZoneViewInfo
     {
         public string Name;
-        public string Distance;
+        public string ReadableDistance;
+        public double OrderDistance;
         public float Radius;
         public Vector2 Coordinates;
 
@@ -24,7 +25,38 @@ namespace Data.Objects
         public bool IsActive()
         {
             long time = DateTimeOffset.Now.ToUnixTimeSeconds();
+            return time < FinishTime;
+        }
+        
+        public bool IsOngoing()
+        {
+            long time = DateTimeOffset.Now.ToUnixTimeSeconds();
             return StartTime < time && time < FinishTime;
+        }
+
+        public long GetTimeToStart()
+        {
+            long time = DateTimeOffset.Now.ToUnixTimeSeconds();
+            return StartTime - time;
+        }
+        
+        public IEnumerable<RewardViewInfo> GetGroupedRewards()
+        {
+            Dictionary<string, RewardViewInfo> groupedRewards = new();
+
+            foreach (RewardViewInfo rewardViewInfo in Rewards)
+            {
+                if (groupedRewards.ContainsKey(rewardViewInfo.Name))
+                {
+                    groupedRewards[rewardViewInfo.Name].Count += 1;
+                    continue;
+                }
+
+                rewardViewInfo.Count = 1;
+                groupedRewards[rewardViewInfo.Name] = rewardViewInfo;
+            }
+
+            return groupedRewards.Values;
         }
     }
 }

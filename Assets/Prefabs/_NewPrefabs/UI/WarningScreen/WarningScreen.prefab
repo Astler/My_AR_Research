@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43794302abfa4f9c95f0f52beb629fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: 2
+  layer: 4
 --- !u!114 &4128802440432185117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e30c99d6d9456fafc3551cfb356099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTab: 0
   shouldPutInNavStack: 1
   shouldDeleteAfterHide: 1
   infoBlocks: []

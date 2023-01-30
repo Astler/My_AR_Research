@@ -25,7 +25,7 @@ namespace Map
         {
             _interactable = interactable;
         }
-        
+
         private void OnMouseDown()
         {
             _mouseDownTime = Time.time;
@@ -40,11 +40,12 @@ namespace Map
             };
             List<RaycastResult> results = new();
             EventSystem.current.RaycastAll(pointerData, results);
-            
+
             if (results.Count > 0) return;
-            
+
             float duration = Time.time - _mouseDownTime;
-            if (duration <= ClickDuration && !_screenNavigationSystem.IsAnyScreensOpened() && _interactable)
+
+            if (duration <= ClickDuration && _interactable)
             {
                 Clicked?.Invoke();
             }

@@ -7,11 +7,11 @@ using Infrastructure.GameStateMachine;
 using SceneManagement;
 using Screens;
 using Screens.ArModeTab;
+using Screens.DropZoneDetailsScreen;
 using Screens.Factories;
 using Screens.FindDropZonesScreen;
-using Screens.RewardsListScreen;
+using Toasts;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Installers
@@ -19,10 +19,11 @@ namespace Installers
     public class ProjectContextInstaller : MonoInstaller
     {
         [SerializeField] private Transform viewsParent;
-        
+
         [SerializeField] private RewardCardView rewardView;
         [SerializeField] private DropZoneCardView dropZoneCardView;
-        [FormerlySerializedAs("historyCardView")] [SerializeField] private HistoryEventCardView historyEventCardView;
+        [SerializeField] private HistoryEventCardView historyEventCardView;
+        [SerializeField] private ToastView toastView;
 
         public override void InstallBindings()
         {
@@ -38,6 +39,8 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<ApiInterface>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<WebSocketService>().AsSingle().NonLazy();
 
+            Container.BindInterfacesAndSelfTo<ToastsController>().AsSingle().NonLazy();
+            
             BindFactories();
         }
 
@@ -49,24 +52,35 @@ namespace Installers
                         .WithInitialSize(30)
                         .FromComponentInNewPrefab(rewardView)
                         .UnderTransform(viewsParent));
-            
+
             Container.BindFactory<HistoryStepData, HistoryEventCardView, HistoryCardsFactory>()
                 .FromPoolableMemoryPool<HistoryStepData, HistoryEventCardView, HistoryCardsPool>(
                     poolBinder => poolBinder
                         .WithInitialSize(30)
                         .FromComponentInNewPrefab(historyEventCardView)
                         .UnderTransform(viewsParent));
-            
+
             Container.BindFactory<DropZoneViewInfo, DropZoneCardView, DropZonesCardsFactory>()
                 .FromPoolableMemoryPool<DropZoneViewInfo, DropZoneCardView, DropZoneCardsPool>(
                     poolBinder => poolBinder
                         .WithInitialSize(30)
                         .FromComponentInNewPrefab(dropZoneCardView)
                         .UnderTransform(viewsParent));
+
+            Container.BindFactory<ToastViewInfo, ToastView, ToastsFactory>()
+                .FromPoolableMemoryPool<ToastViewInfo, ToastView, ToastsPool>(
+                    poolBinder => poolBinder
+                        .WithInitialSize(30)
+                        .FromComponentInNewPrefab(toastView)
+                        .UnderTransform(viewsParent));
         }
 
         private class RewardCardsPool : MonoPoolableMemoryPool<RewardViewInfo, IMemoryPool, RewardCardView> { }
+
         private class HistoryCardsPool : MonoPoolableMemoryPool<HistoryStepData, IMemoryPool, HistoryEventCardView> { }
+
         private class DropZoneCardsPool : MonoPoolableMemoryPool<DropZoneViewInfo, IMemoryPool, DropZoneCardView> { }
+
+        private class ToastsPool : MonoPoolableMemoryPool<ToastViewInfo, IMemoryPool, ToastView> { }
     }
 }

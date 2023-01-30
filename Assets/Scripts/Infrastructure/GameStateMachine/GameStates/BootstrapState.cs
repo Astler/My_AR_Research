@@ -89,6 +89,7 @@ namespace Infrastructure.GameStateMachine.GameStates
                 _apiInterface.SignIn(
                     delegate(SignInResponse response)
                     {
+                        _dataProxy.SetUserData(response.user);
                         AccessToken = response.access_token;
                         _webSocketService.Connect(response.access_token);
 

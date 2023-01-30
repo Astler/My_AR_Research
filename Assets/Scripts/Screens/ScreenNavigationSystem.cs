@@ -377,10 +377,5 @@ namespace Screens
             public object extraData;
             public bool withAnim;
         }
-
-        /**
-         * 1 - cuz MainScreen is always visible and can't be closed, i guess
-         */
-        public bool IsAnyScreensOpened() => _navigationStack.Count > 1;
     }
 }
