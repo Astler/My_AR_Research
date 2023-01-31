@@ -5,6 +5,7 @@ using Data.Objects;
 using ExternalTools.ImagesLoader;
 using Screens.DropZoneDetailsScreen;
 using Screens.Factories;
+using Screens.RewardClaimedScreen;
 using UniRx;
 
 namespace Screens.CollectedRewards
@@ -59,19 +60,23 @@ namespace Screens.CollectedRewards
             IReadOnlyReactiveCollection<RewardViewInfo> collectedInfos = _dataProxy.CollectedPrizesInfos;
 
             _view.SetIsAnyCollectedDrops(collectedInfos.Count > 0);
-            
+
             foreach (RewardViewInfo rewardViewInfo in collectedInfos)
             {
                 rewardViewInfo.Parent = _view.CardsParent;
-                
+
                 rewardViewInfo.ViewAction += () =>
                 {
                     _screenNavigationSystem.ExecuteNavigationCommand(
                         new NavigationCommand()
                             .ShowNextScreen(ScreenName.RewardClaimedScreen)
-                            .WithExtraData(rewardViewInfo));
+                            .WithExtraData(new RewardScreenViewInfo
+                            {
+                                ImageUrl = rewardViewInfo.Url,
+                                ItemName = rewardViewInfo.Name
+                            }));
                 };
-                
+
                 RewardCardView cardView = _rewardCardsFactory.Create(rewardViewInfo);
 
                 _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url,

@@ -59,7 +59,7 @@ namespace Data
         bool IsInsideEvent();
         void SetIsMapOpened(bool isMapOpened);
         void AddEvents(EventsData data);
-        void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed);
+        void TryToCollectBeam(BeamData data, Action success, Action failed);
         void GetSpriteByUrl(string url, Action<Sprite> action);
         void RefreshCollectedRewards();
         void SetScannedArea(float totalArea);

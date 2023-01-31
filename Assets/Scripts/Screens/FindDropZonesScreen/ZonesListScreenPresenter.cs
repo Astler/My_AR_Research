@@ -39,6 +39,7 @@ namespace Screens.FindDropZonesScreen
             _view.TabBar.ClickedOnTab += OnTabClicked;
             _view.OnShowCallback += OnShow;
             _view.OnLostFocusCallback += OnLostFocus;
+            _view.ClosedScreen += OnClose;
             _view.OnGotFocusCallback += OnGotFocus;
             _view.MapToPlayerPositionClicked += OnMapToMeClicked;
             _view.LaunchArClicked += OnLaunchArClicked;
@@ -80,7 +81,9 @@ namespace Screens.FindDropZonesScreen
             OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
 
-        private void OnLostFocus()
+        private void OnLostFocus() { }
+        
+        private void OnClose()
         {
             _dataProxy.SetIsMapOpened(false);
             _dataProxy.SetActiveCamera(CameraType.Disabled);

@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using Assets;
 using Data;
 using ExternalTools.ImagesLoader;
-using GameCamera;
 using Infrastructure.GameStateMachine;
-using Pointers;
 using SceneManagement;
 using Screens.AchievementsTab;
 using Screens.ArGamesTab;
 using Screens.ArModeTab;
-using Screens.ArScanningPopup;
 using Screens.CollectedRewards;
 using Screens.DetectingLocationPopup;
 using Screens.DropZoneDetailsScreen;
@@ -18,11 +15,11 @@ using Screens.Factories;
 using Screens.FindDropZonesScreen;
 using Screens.LoadingScreen;
 using Screens.MainScreen;
+using Screens.MenuScreen;
 using Screens.RewardClaimedScreen;
 using Screens.WarningScreen;
 using Toasts;
 using UnityEngine;
-using Utils;
 using Zenject;
 
 namespace Screens
@@ -111,7 +108,7 @@ namespace Screens
                 case ScreenName.MainScreen:
                     InstantiateView(name.ToString(), delegate(MainScreenView mainScreenView)
                     {
-                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy, _toastsController);
+                        new MainScreenPresenter(mainScreenView, _screenNavigationSystem, _dataProxy);
                         onSuccess.Invoke(mainScreenView);
                     });
                     break;
@@ -134,13 +131,6 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(DetectingLocationPopupView view)
                     {
                         new DetectingLocationPopupPresenter(view, _dataProxy);
-                        onSuccess.Invoke(view);
-                    });
-                    break;
-                case ScreenName.ArScanningPopup:
-                    InstantiateView(name.ToString(), delegate(ArScanningPopupView view)
-                    {
-                        new ArScanningPopupPresenter(view, _dataProxy);
                         onSuccess.Invoke(view);
                     });
                     break;
@@ -190,6 +180,13 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(ArModeTabView view)
                     {
                         new ArModeTabPresenter(view, _dataProxy, _screenNavigationSystem, _historyCardsFactory);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.MenuScreen:
+                    InstantiateView(name.ToString(), delegate(MenuScreenView view)
+                    {
+                        new MenuScreenPresenter(view, _screenNavigationSystem, _toastsController);
                         onSuccess.Invoke(view);
                     });
                     break;

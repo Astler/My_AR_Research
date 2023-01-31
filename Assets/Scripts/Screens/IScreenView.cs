@@ -10,6 +10,7 @@ namespace Screens
         event Action<object> OnShowCallback;
         event Action OnGotFocusCallback;
         event Action OnLostFocusCallback;
+        event Action ClosedScreen;
         void SetShowTransitionAnimation(IScreenTransitionAnimation animation);
         void SetHideTransitionAnimation(IScreenTransitionAnimation animation);
         void CloseScreen();

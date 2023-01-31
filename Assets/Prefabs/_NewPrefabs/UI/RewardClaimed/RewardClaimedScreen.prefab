@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6447168040615963422}
   - component: {fileID: 6717374472658881566}
-  - component: {fileID: 4355940577153816299}
+  - component: {fileID: 8605310800453279600}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310665471726201971}
   m_CullTransparentMesh: 1
---- !u!114 &4355940577153816299
+--- !u!114 &8605310800453279600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 310665471726201971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7eb8d18ea91c4c1c87954dfbc3a638d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+  url: 
 --- !u!1 &1466088825646740931
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +113,6 @@ RectTransform:
   m_Children:
   - {fileID: 4825802975327458533}
   - {fileID: 4992559181382635652}
-  - {fileID: 5777787288062904964}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,10 +157,11 @@ MonoBehaviour:
   shouldPutInNavStack: 1
   shouldDeleteAfterHide: 0
   infoBlocks: []
-  icon: {fileID: 4355940577153816299}
+  icon: {fileID: 8605310800453279600}
   nameText: {fileID: 8938297499728961218}
   okButton: {fileID: 5000698897329423781}
   defaultIcon: {fileID: 21300000, guid: e1c917b8297334a009b5859eba21e92f, type: 3}
+  confettiParticle: {fileID: 4097181348245994183}
 --- !u!223 &8821848153508034264
 Canvas:
   m_ObjectHideFlags: 0
@@ -519,82 +520,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &6294358607124371754
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5777787288062904964}
-  - component: {fileID: 3130739190553876921}
-  - component: {fileID: 9170597425917980995}
-  m_Layer: 0
-  m_Name: REFERENCE DEL
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &5777787288062904964
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6294358607124371754}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1466088825646740930}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &3130739190553876921
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6294358607124371754}
-  m_CullTransparentMesh: 1
---- !u!114 &9170597425917980995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6294358607124371754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.34901962}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6ca1de3728ee4ce099f139e1e5602f3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7501806716477973802
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,8 +588,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'MannaWars NFT: Skeleton Pistol'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 185ab41cced7c3b47b501cc1e90e1ba8, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 185ab41cced7c3b47b501cc1e90e1ba8,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

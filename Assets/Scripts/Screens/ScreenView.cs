@@ -19,6 +19,8 @@ namespace Screens
         public event Action OnGotFocusCallback;
         public event Action OnLostFocusCallback;
         public event Action OnScreenActivated;
+        public event Action ClosedScreen;
+        
         public Action OnHideCallback;
         public Action OnClose;
         public IScreenTransitionAnimation OnShowTransitionAnimation;
@@ -120,7 +122,11 @@ namespace Screens
         {
             OnShowTransitionAnimation?.KillAnim();
             UILayerConfigurator.SetHideAnimatingOrder();
-            OnHideTransitionAnimation?.PerformAnimation(delegate { callback?.Invoke(); });
+            OnHideTransitionAnimation?.PerformAnimation(delegate
+            {
+                ClosedScreen?.Invoke();
+                callback?.Invoke();
+            });
         }
 
         public void PerformShowAnimationWhenReady(Action callback)

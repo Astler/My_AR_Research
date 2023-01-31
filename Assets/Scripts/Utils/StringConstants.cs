@@ -5,6 +5,8 @@ namespace Utils
 {
     public static class StringConstants
     {
+        public const string TermslURL = "https://xmanna-tech.github.io/policies/eula.html";
+        
         private static readonly Dictionary<RuntimePlatform, string> PlatformName = new()
         {
             [RuntimePlatform.Android] = "android",

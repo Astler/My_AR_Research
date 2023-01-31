@@ -18,7 +18,7 @@ namespace Screens.ArModeTab
         void SetDropZoneName([CanBeNull] string zoneName);
         void SetCollectButtonIsActive(bool isActive);
         void SetActivePlayersInZone(int playersCount);
-        void SetTimeToNextDrop(string time);
+        void SetTimeToNextDrop(int timeToNextGift);
         void SetAvailableRewards(int rewards);
         void IsScanActive(bool isRequestedAreaScanned, float scanned);
     }
@@ -69,9 +69,10 @@ namespace Screens.ArModeTab
             playersText.text = "^players".GetTranslation(playersCount);
         }
 
-        public void SetTimeToNextDrop(string time)
+        public void SetTimeToNextDrop(int timeToNextGift)
         {
-            timerText.text = "^next_drop".GetTranslation(time);
+            timerText.gameObject.SetActive(timeToNextGift > 0);
+            timerText.text = "^next_drop".GetTranslation(timeToNextGift);
         }
 
         public void SetAvailableRewards(int rewards)

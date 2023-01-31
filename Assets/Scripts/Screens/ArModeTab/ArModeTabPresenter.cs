@@ -15,6 +15,7 @@ namespace Screens.ArModeTab
 {
     public class ArModeTabPresenter
     {
+        private readonly CompositeDisposable _compositeDisposable = new();
         private readonly IDataProxy _dataProxy;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly HistoryCardsFactory _historyCardsFactory;
@@ -40,17 +41,21 @@ namespace Screens.ArModeTab
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.CollectButtonClicked += OnCollectButtonClicked;
 
-            _dataProxy.EnteredPortalZone.Subscribe(zone => { _view.SetDropZoneName(zone?.Name); });
-            
+            _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableRewards).AddTo(_compositeDisposable);
+            _dataProxy.TimeToNextGift.Subscribe(_view.SetTimeToNextDrop).AddTo(_compositeDisposable);
+
+            _dataProxy.EnteredPortalZone.Subscribe(zone => { _view.SetDropZoneName(zone?.Name); })
+                .AddTo(_compositeDisposable);
+
             _dataProxy.AvailableCollectables.ObserveCountChanged().Subscribe(size =>
             {
                 _view.SetCollectButtonIsActive(size > 0);
-            });
-            
+            }).AddTo(_compositeDisposable);
+
             _dataProxy.ScannedArea.Subscribe(scanned =>
             {
                 _view.IsScanActive(_dataProxy.IsRequestedAreaScanned(), scanned);
-            });
+            }).AddTo(_compositeDisposable);
         }
 
         private void OnCollectButtonClicked() { }
@@ -63,7 +68,6 @@ namespace Screens.ArModeTab
 
         private void OnShowTab(object data)
         {
-   
             _dataProxy.SetActiveCamera(CameraType.ArCamera);
             _historyEventsListener = _dataProxy.SessionHistory.ObserveCountChanged().Subscribe(_ => LoadHistory());
             LoadHistory();
@@ -102,28 +106,11 @@ namespace Screens.ArModeTab
 
                         if (beam is not MannaBoxView mannaBoxView) continue;
 
-                        Debug.Log($"hit MannaBoxView");
-                        _dataProxy.TryToCollectBeam(mannaBoxView.GetBeamData(), sprite =>
-                        {
-                            mannaBoxView.Interact();
-                            OnRewardClaimed(new RewardScreenViewInfo
-                            {
-                                ItemName = mannaBoxView.GetBeamData().Name,
-                                Sprite = sprite
-                            }, true);
-                        }, () =>
-                        {
-                            mannaBoxView.Interact();
+                        BeamData data = mannaBoxView.GetBeamData();
 
-                            _dataProxy.GetSpriteByUrl(mannaBoxView.GetBeamData().Url, sprite =>
-                            {
-                                OnRewardClaimed(new RewardScreenViewInfo
-                                {
-                                    ItemName = mannaBoxView.GetBeamData().Name,
-                                    Sprite = sprite
-                                }, false);
-                            });
-                        });
+                        Debug.Log($"hit MannaBoxView");
+                        _dataProxy.TryToCollectBeam(data, () => { OnRewardClaimed(mannaBoxView, data, true); },
+                            () => { OnRewardClaimed(mannaBoxView, data, false); });
                     }
                 }
             }
@@ -140,12 +127,17 @@ namespace Screens.ArModeTab
             // Debug.Log("No hits. Clicked nowhere!!");
         }
 
-        private void OnRewardClaimed(RewardScreenViewInfo rewardScreenViewInfo, bool succeed)
+        private void OnRewardClaimed(MannaBoxView view, BeamData data, bool succeed)
         {
+            view.Interact();
             _screenNavigationSystem.ExecuteNavigationCommand(
                 new NavigationCommand()
                     .ShowNextScreen(succeed ? ScreenName.RewardClaimedScreen : ScreenName.RewardAlreadyClaimedScreen)
-                    .WithExtraData(rewardScreenViewInfo));
+                    .WithExtraData(new RewardScreenViewInfo
+                    {
+                        ItemName = data.Name,
+                        ImageUrl = data.Url
+                    }));
         }
 
         private void LoadHistory()

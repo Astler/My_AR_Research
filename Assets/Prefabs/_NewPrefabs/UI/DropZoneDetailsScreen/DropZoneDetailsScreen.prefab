@@ -196,8 +196,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ^go_with_google_maps
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 7fd4a8a6acb2ac04c886d3c9ac5175ff, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 7fd4a8a6acb2ac04c886d3c9ac5175ff,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -747,8 +747,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Unique NFT drop that lasts only 24h!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -898,8 +898,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ^open_ar_map
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 7fd4a8a6acb2ac04c886d3c9ac5175ff, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 7fd4a8a6acb2ac04c886d3c9ac5175ff,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1281,8 +1281,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ---
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1417,8 +1417,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10.37 km
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1645,8 +1645,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ^back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 185ab41cced7c3b47b501cc1e90e1ba8, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 185ab41cced7c3b47b501cc1e90e1ba8,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1797,8 +1797,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ^drop_details
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 185ab41cced7c3b47b501cc1e90e1ba8, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 185ab41cced7c3b47b501cc1e90e1ba8,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2111,8 +2111,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ^share
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 185ab41cced7c3b47b501cc1e90e1ba8, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 185ab41cced7c3b47b501cc1e90e1ba8,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2483,8 +2483,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Unique NFT drop that lasts only 24h!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2633,8 +2633,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10.37 km
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3001,8 +3001,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "This unique NFT drop that lasts only 24 hours! Don\u2019t miss your opportunity!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3455,8 +3455,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Harkham Capital Drop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 185ab41cced7c3b47b501cc1e90e1ba8, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 185ab41cced7c3b47b501cc1e90e1ba8,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3734,7 +3734,7 @@ GameObject:
   - component: {fileID: 789274023203760842}
   - component: {fileID: 7381687465255251150}
   m_Layer: 5
-  m_Name: Name
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3790,8 +3790,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Drops available:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: 7fd4a8a6acb2ac04c886d3c9ac5175ff, type: 2}
+  m_sharedMaterial: {fileID: 1630820389905364524, guid: 7fd4a8a6acb2ac04c886d3c9ac5175ff,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

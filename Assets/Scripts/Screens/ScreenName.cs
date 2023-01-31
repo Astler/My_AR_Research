@@ -7,7 +7,6 @@ namespace Screens
         CollectedRewardsScreen = 2,
         WarningScreen = 4,
         DetectingLocationPopup = 5,
-        ArScanningPopup = 6,
         DropZonesListScreen = 7,
         DropZoneDetailsScreen = 8,
         RewardClaimedScreen = 9,
@@ -15,5 +14,7 @@ namespace Screens
         ArModeTab = 11,
         AchievementsTab = 12,
         ArGamesTab = 13,
+        ContactUsScreen = 14,
+        MenuScreen = 15,
     }
 }

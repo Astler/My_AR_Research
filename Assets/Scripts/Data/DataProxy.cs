@@ -332,13 +332,13 @@ namespace Data
             }
         }
 
-        public void TryToCollectBeam(BeamData data, Action<Sprite> success, Action failed)
+        public void TryToCollectBeam(BeamData data, Action success, Action failed)
         {
             _apiInterface.CollectReward(_activeEventData.Value?.id ?? 0, data.Id,
                 result =>
                 {
                     LoadEvents();
-                    _webImagesLoader.TryToLoadSprite(result.prize.image, sprite => { success?.Invoke(sprite); });
+                    success?.Invoke();
                 },
                 error =>
                 {

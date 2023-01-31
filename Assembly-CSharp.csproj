@@ -137,7 +137,6 @@
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Core/OnlineMapsDMSConverter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/Results/OnlineMapsGoogleDirectionsResult.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/MapMatching/MapMatchingParameters.cs" />
-     <Compile Include="Assets/Scripts/Screens/ArScanningPopup/ArScanningPopupView.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/DVector3.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/TileCover.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/ManualSync/UpdateMapPosByARPlaneY.cs" />
@@ -294,7 +293,6 @@
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/GameObjectModifiers/LayerModifier.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/GeometryExtrusionOptions.cs" />
      <Compile Include="Assets/Scripts/SceneManagement/SceneLoader.cs" />
-     <Compile Include="Assets/Scripts/Screens/ArScanningPopup/ArScanningPopupPresenter.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Utils/Logger.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ITerrainLayer.cs" />
      <Compile Include="Assets/Scripts/Data/Objects/DropZoneViewInfo.cs" />
@@ -934,6 +932,10 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/MapObjectSizeControlView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
+     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenView.cs" />
+     <Compile Include="Assets/Scripts/Screens/Transitions/RightToFrontAnimation.cs" />
+     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenViewInfo.cs" />
+     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenPresenter.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/SamplesResources" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
@@ -1077,6 +1079,7 @@
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35" />
      <Folder Include="Assets/ARLocation/Scripts/Location" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/MenuScreen" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Interfaces" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/WaterwayLayer" />
      <Folder Include="Assets/References" />
@@ -1091,7 +1094,6 @@
      <Folder Include="Assets/Audio/Walkabout" />
      <Folder Include="Assets/Mapbox/Examples/7_Globe/Screenshots" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Fantasy/Assets" />
-     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/ArScanningPopup" />
      <Folder Include="Assets/MapboxAR/Scripts/ManualSync" />
      <Folder Include="Assets/Mapbox/Unity/Location/LocationSmoothing" />
      <Folder Include="Assets/Fonts/Noto_Sans_JP" />
@@ -1125,6 +1127,7 @@
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/AdminLayer" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/x86" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/LoadingScreen" />
      <Folder Include="Assets/VFX/TransparentDepthHelper" />
      <Folder Include="Assets/ARLocation/Plugins" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles" />
@@ -1319,7 +1322,6 @@
      <Folder Include="Assets/Models" />
      <Folder Include="Assets/Prefabs/Presents" />
      <Folder Include="Assets/Mapbox/Core/probe-extractor-cs/Tests" />
-     <Folder Include="Assets/Scripts/Screens/ArScanningPopup" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples (API usage)/uGUI" />
      <Folder Include="Assets/MapboxAR/Scripts" />
      <Folder Include="Assets/Mapbox/Examples/8_VoxelMap/Textures" />
@@ -1513,13 +1515,13 @@
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Drawing/Instances" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Palettes" />
      <Folder Include="Assets/Hovl Studio/3D Lasers Pack" />
+     <Folder Include="Assets/Scripts/Screens/MenuScreen" />
      <Folder Include="Assets/ARLocation/Scripts/Math" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
      <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/net46" />
      <Folder Include="Assets/Hovl Studio/Resources/Sounds" />
      <Folder Include="Assets/SamplesResources/AugmentationAssets/Animation/Astronaut" />
      <Folder Include="Assets/Mapbox/User/Modifiers" />
-     <Folder Include="Assets/Prefabs/ScreensPrefabs" />
      <Folder Include="Assets/Scripts/Screens/WarningScreen" />
      <Folder Include="Assets/SamplesResources/AugmentationAssets" />
      <Folder Include="Assets/Mapbox/Unity/Telemetry" />

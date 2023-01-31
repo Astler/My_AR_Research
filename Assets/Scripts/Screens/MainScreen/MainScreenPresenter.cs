@@ -2,7 +2,6 @@ using System;
 using AR;
 using Data;
 using Geo;
-using Toasts;
 using UniRx;
 using UnityEngine;
 using static Screens.MainScreen.BottomBarButtonType;
@@ -15,19 +14,17 @@ namespace Screens.MainScreen
         private readonly IMainScreenView _view;
         private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly IDataProxy _dataProxy;
-        private readonly IToastsController _toastsController;
 
         private readonly BottomBarButtonType _startTab = Find;
 
         private BottomBarButtonType? _selectedTab;
 
         public MainScreenPresenter(IMainScreenView view, IScreenNavigationSystem screenNavigationSystem,
-            IDataProxy dataProxy, IToastsController toastsController)
+            IDataProxy dataProxy)
         {
             _view = view;
             _screenNavigationSystem = screenNavigationSystem;
             _dataProxy = dataProxy;
-            _toastsController = toastsController;
 
             Init();
         }
@@ -40,38 +37,42 @@ namespace Screens.MainScreen
             _view.BottomNavigationBar.ClickedNavigationBarButton += type => ConfigureBySelectedTab(type);
             _view.MapUserInterface.NearestPortalClicked += OnNearestPortalClicked;
 
-            _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableRewards).AddTo(_disposables);
-            _dataProxy.TimeToNextGift.Subscribe(_view.SetNextGiftTime).AddTo(_disposables);
             _dataProxy.BottomNavigationAction.Subscribe(tuple => { ConfigureBySelectedTab(tuple.type, tuple.data); })
                 .AddTo(_disposables);
 
             _view.ConfigureView(_dataProxy.GetUserInfo());
 
-            _dataProxy.GameState.Subscribe(state =>
+            _view.MenuClicked += () =>
             {
-                switch (state)
-                {
-                    case GameStates.Loading:
-                        Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ =>
-                            {
-                                _dataProxy.CompleteStateStep(GameStates.Loading);
-                            })
-                            .AddTo(_disposables);
-                        break;
-                    case GameStates.WarningMessage:
-                        _screenNavigationSystem.ExecuteNavigationCommand(
-                            new NavigationCommand().ShowNextScreen(ScreenName.WarningScreen));
-                        break;
-                    case GameStates.LocationDetection:
-                        if (_dataProxy.LocationDetectResult.Value != LocationDetectResult.Success)
-                        {
-                            _screenNavigationSystem.ExecuteNavigationCommand(
-                                new NavigationCommand().ShowNextScreen(ScreenName.DetectingLocationPopup));
-                        }
+                _screenNavigationSystem.ExecuteNavigationCommand(
+                    new NavigationCommand().ShowNextScreen(ScreenName.MenuScreen).WithAnimation());
+            };
 
-                        break;
-                }
-            }).AddTo(_disposables);
+            // _dataProxy.GameState.Subscribe(state =>
+            // {
+            //     switch (state)
+            //     {
+            //         case GameStates.Loading:
+            //             Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ =>
+            //                 {
+            //                     _dataProxy.CompleteStateStep(GameStates.Loading);
+            //                 })
+            //                 .AddTo(_disposables);
+            //             break;
+            //         case GameStates.WarningMessage:
+            //             _screenNavigationSystem.ExecuteNavigationCommand(
+            //                 new NavigationCommand().ShowNextScreen(ScreenName.WarningScreen));
+            //             break;
+            //         case GameStates.LocationDetection:
+            //             if (_dataProxy.LocationDetectResult.Value != LocationDetectResult.Success)
+            //             {
+            //                 _screenNavigationSystem.ExecuteNavigationCommand(
+            //                     new NavigationCommand().ShowNextScreen(ScreenName.DetectingLocationPopup));
+            //             }
+            //
+            //             break;
+            //     }
+            // }).AddTo(_disposables);
 
             // _dataProxy.LocationDetectResult.Subscribe(result =>
             // {
@@ -135,9 +136,9 @@ namespace Screens.MainScreen
         #region New
 
         private void OnGamesClicked(object data) => ChangeTab(ScreenName.ArGamesTab, data);
-        
+
         private void OnAchievementsClicked(object data) => ChangeTab(ScreenName.AchievementsTab, data);
-        
+
         private void OnFindDropZonesClicked(object data) => ChangeTab(ScreenName.DropZonesListScreen, data);
 
         private void OnMyDropsClicked(object data) => ChangeTab(ScreenName.CollectedRewardsScreen, data);

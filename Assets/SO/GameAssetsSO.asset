@@ -21,7 +21,6 @@ MonoBehaviour:
     - {fileID: 966443460424321441, guid: 161feb98a08014e8da1cf1a5192caecd, type: 3}
     - {fileID: 6859271202167560956, guid: 2e88c017535c1413a944ac92be373ed3, type: 3}
     - {fileID: 6859271202167560956, guid: d3d0ac56b75e1478a8b3a45b96983055, type: 3}
-    - {fileID: 6859271202167560956, guid: 85578a4d0d5544752b806fa77a6a7647, type: 3}
     - {fileID: 3527117995687422290, guid: 1b9e0cbab70414b3ea21a6ea4cb2afb5, type: 3}
     - {fileID: 1775270621865193348, guid: d3458ddd3e355422ab2bcaa311442c83, type: 3}
     - {fileID: 1466088825646740931, guid: 35d294a649c934b809297b4a8b1f15d7, type: 3}
@@ -29,6 +28,7 @@ MonoBehaviour:
     - {fileID: 966443460424321441, guid: 99c20b7a88b6d419fbcc8b9b1c6c6f52, type: 3}
     - {fileID: 966443460424321441, guid: 844ef28ddb6af46a3bc15dc904afd332, type: 3}
     - {fileID: 966443460424321441, guid: f6a935d70a1f749029fd2e6888faa2b6, type: 3}
+    - {fileID: 7487783386810424215, guid: 7af55283418e2324a834031b095d7e89, type: 3}
   gameAssets:
     userIcons:
     - {fileID: 21300000, guid: 5b0a783d897e742f397fdba769a8ca78, type: 3}
