@@ -19,6 +19,8 @@ namespace AR.FoundationAR
 
         private XROrigin _origin;
         private IDataProxy _dataProxy;
+        private float _editorScanSpeed = 2f;
+        private float _editorScanProgress;
 
         [Inject]
         public void Construct(IDataProxy dataProxy)
@@ -50,7 +52,14 @@ namespace AR.FoundationAR
         private void Update()
         {
             if (_dataProxy.IsRequestedAreaScanned()) return;
-
+            
+            if (Application.isEditor)
+            {
+                _editorScanProgress += Time.deltaTime * _editorScanSpeed;
+                _dataProxy.SetScannedArea(_editorScanProgress);
+                return;
+            }
+            
             float totalArea = 0f;
 
             foreach (ARPlane plane in planeManager.trackables)
@@ -59,7 +68,6 @@ namespace AR.FoundationAR
                 totalArea += size.x * size.y;
             }
             
-            _dataProxy.SetScannedArea(totalArea);
         }
     }
 }

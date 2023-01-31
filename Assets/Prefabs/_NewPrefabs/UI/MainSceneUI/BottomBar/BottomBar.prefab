@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4411525812983918663}
   - component: {fileID: 1499784543278837890}
   - component: {fileID: 4520086613240034456}
+  - component: {fileID: 4857765723371573055}
   m_Layer: 0
   m_Name: BottomBar
   m_TagString: Untagged
@@ -78,6 +79,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4857765723371573055
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730977609062987470}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6279046081255444704
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +102,7 @@ GameObject:
   - component: {fileID: 4753194763709764143}
   - component: {fileID: 4935213921737540242}
   - component: {fileID: 390565776870347664}
+  - component: {fileID: 1236329326826157425}
   m_Layer: 0
   m_Name: TabButtons
   m_TagString: Untagged
@@ -165,8 +179,21 @@ MonoBehaviour:
   - {fileID: 4808297860158736165}
   - {fileID: 2399900274305087368}
   - {fileID: 1520689412051236098}
+  barBackgroundCanvasGroup: {fileID: 4857765723371573055}
   selectedButtonColor: {r: 0.9254902, g: 0.3019608, b: 0.15294118, a: 1}
   unselectedButtonColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+--- !u!225 &1236329326826157425
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279046081255444704}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 1
 --- !u!1 &9018576761861991485
 GameObject:
   m_ObjectHideFlags: 0

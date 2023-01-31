@@ -7,6 +7,8 @@ using GameCamera;
 using Infrastructure.GameStateMachine;
 using Pointers;
 using SceneManagement;
+using Screens.AchievementsTab;
+using Screens.ArGamesTab;
 using Screens.ArModeTab;
 using Screens.ArScanningPopup;
 using Screens.CollectedRewards;
@@ -116,7 +118,8 @@ namespace Screens
                 case ScreenName.CollectedRewardsScreen:
                     InstantiateView(name.ToString(), delegate(CollectedRewardsScreenView view)
                     {
-                        new CollectedRewardsScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory);
+                        new CollectedRewardsScreenPresenter(view, _dataProxy, _webImagesLoader, _rewardCardsFactory,
+                            _screenNavigationSystem);
                         onSuccess.Invoke(view);
                     });
                     break;
@@ -159,6 +162,20 @@ namespace Screens
                     InstantiateView(name.ToString(), delegate(RewardClaimedScreenView view)
                     {
                         new RewardClaimedScreenPresenter(view);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.AchievementsTab:
+                    InstantiateView(name.ToString(), delegate(AchievementsTabView view)
+                    {
+                        new AchievementsTabPresenter(view);
+                        onSuccess.Invoke(view);
+                    });
+                    break;
+                case ScreenName.ArGamesTab:
+                    InstantiateView(name.ToString(), delegate(ArGamesTabView view)
+                    {
+                        new ArGamesTabPresenter(view);
                         onSuccess.Invoke(view);
                     });
                     break;

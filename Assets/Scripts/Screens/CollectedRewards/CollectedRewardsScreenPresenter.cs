@@ -11,29 +11,32 @@ namespace Screens.CollectedRewards
 {
     public class CollectedRewardsScreenPresenter
     {
-        private readonly ICollectedRewardsScreenView _collectedRewardsScreenView;
+        private readonly ICollectedRewardsScreenView _view;
         private readonly IDataProxy _dataProxy;
         private readonly IWebImagesLoader _webImagesLoader;
         private readonly RewardCardsFactory _rewardCardsFactory;
+        private readonly IScreenNavigationSystem _screenNavigationSystem;
         private readonly List<RewardCardView> _rewardsList = new();
         private IDisposable _rewardsListener;
 
-        public CollectedRewardsScreenPresenter(ICollectedRewardsScreenView collectedRewardsScreenView,
-            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, RewardCardsFactory rewardCardsFactory)
+        public CollectedRewardsScreenPresenter(ICollectedRewardsScreenView view,
+            IDataProxy dataProxy, IWebImagesLoader webImagesLoader, RewardCardsFactory rewardCardsFactory,
+            IScreenNavigationSystem screenNavigationSystem)
         {
-            _collectedRewardsScreenView = collectedRewardsScreenView;
+            _view = view;
             _dataProxy = dataProxy;
             _webImagesLoader = webImagesLoader;
             _rewardCardsFactory = rewardCardsFactory;
+            _screenNavigationSystem = screenNavigationSystem;
 
             Initialize();
         }
 
         private void Initialize()
         {
-            _collectedRewardsScreenView.OnShowCallback += OnShow;
-            _collectedRewardsScreenView.OnLostFocusCallback += OnLostFocus;
-            _collectedRewardsScreenView.RefreshClicked += OnRefreshClicked;
+            _view.OnShowCallback += OnShow;
+            _view.OnLostFocusCallback += OnLostFocus;
+            _view.RefreshClicked += OnRefreshClicked;
         }
 
         private void OnRefreshClicked() => _dataProxy.RefreshCollectedRewards();
@@ -53,9 +56,22 @@ namespace Screens.CollectedRewards
                 rewardView.Dispose();
             }
 
-            foreach (RewardViewInfo rewardViewInfo in _dataProxy.CollectedPrizesInfos)
+            IReadOnlyReactiveCollection<RewardViewInfo> collectedInfos = _dataProxy.CollectedPrizesInfos;
+
+            _view.SetIsAnyCollectedDrops(collectedInfos.Count > 0);
+            
+            foreach (RewardViewInfo rewardViewInfo in collectedInfos)
             {
-                rewardViewInfo.Parent = _collectedRewardsScreenView.CardsParent;
+                rewardViewInfo.Parent = _view.CardsParent;
+                
+                rewardViewInfo.ViewAction += () =>
+                {
+                    _screenNavigationSystem.ExecuteNavigationCommand(
+                        new NavigationCommand()
+                            .ShowNextScreen(ScreenName.RewardClaimedScreen)
+                            .WithExtraData(rewardViewInfo));
+                };
+                
                 RewardCardView cardView = _rewardCardsFactory.Create(rewardViewInfo);
 
                 _webImagesLoader.TryToLoadSprite(rewardViewInfo.Url,

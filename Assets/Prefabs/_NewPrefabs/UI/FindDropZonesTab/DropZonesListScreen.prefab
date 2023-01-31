@@ -2203,6 +2203,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4159088387607905729}
     m_Modifications:
+    - target: {fileID: 1085367701007255, guid: e0bbbed3956834201a4ecaab802cf60f, type: 3}
+      propertyPath: m_fontSize
+      value: 42
+      objectReference: {fileID: 0}
     - target: {fileID: 755202917178694136, guid: e0bbbed3956834201a4ecaab802cf60f,
         type: 3}
       propertyPath: m_Name
@@ -2626,6 +2630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TimeBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604005398593083187, guid: 5f61aa8e4820941a2a85e81c6710b8c0,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f61aa8e4820941a2a85e81c6710b8c0, type: 3}
@@ -3326,6 +3335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DropsBlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379304998023915667, guid: a1a9ac74aaf244638a990491d9ab8933,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 42
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1a9ac74aaf244638a990491d9ab8933, type: 3}

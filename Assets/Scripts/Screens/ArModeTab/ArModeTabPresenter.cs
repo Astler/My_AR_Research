@@ -46,6 +46,11 @@ namespace Screens.ArModeTab
             {
                 _view.SetCollectButtonIsActive(size > 0);
             });
+            
+            _dataProxy.ScannedArea.Subscribe(scanned =>
+            {
+                _view.IsScanActive(_dataProxy.IsRequestedAreaScanned(), scanned);
+            });
         }
 
         private void OnCollectButtonClicked() { }
@@ -58,15 +63,7 @@ namespace Screens.ArModeTab
 
         private void OnShowTab(object data)
         {
-            if (_dataProxy.IsRequestedAreaScanned())
-            {
-                Observable.Timer(TimeSpan.FromSeconds(0.1f)).Subscribe(_ =>
-                {
-                    _screenNavigationSystem.ExecuteNavigationCommand(
-                        new NavigationCommand().ShowNextScreen(ScreenName.ArScanningPopup));
-                });
-            }
-
+   
             _dataProxy.SetActiveCamera(CameraType.ArCamera);
             _historyEventsListener = _dataProxy.SessionHistory.ObserveCountChanged().Subscribe(_ => LoadHistory());
             LoadHistory();

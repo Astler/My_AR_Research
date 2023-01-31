@@ -8,7 +8,7 @@ Lang Code	EN	UA	RU
 ^map	Map		
 ^list	List		
 ^new_drop	New drop spawned!		
-^drop_collected_by	MannaWars NFT: {0} was collected by {1).		
+^drop_collected_by	<b><color=#EC4D27>{0}</color></b>\nwas collected by <b>{1}</b>		
 ^launch_ar_mode	LAUNCH AR MODE		
 ^view	View		
 ^not_available_yet	Not available yet		
@@ -23,3 +23,11 @@ Lang Code	EN	UA	RU
 ^collect_drop	Collect drop		
 ^start_info	<color=#00FF38>STARTS:</color> {0}		
 ^finish_info	<color=#00FF38>ENDS:</color> {0}		
+^players	Players: <b>{0}</.b>		
+^drops	Drops: <b>{0}</.b>		
+^next_drop	Next drop: <b>{0}</.b>		
+^no_collected_drops	You don’t any drops collected yet.		
+^close	Close		
+^coming_soon	COMING SOON		
+^scan_surroundings	Scan your surroundings!		
+^scanned_progress	Scanned: <b>{0}%</b>		

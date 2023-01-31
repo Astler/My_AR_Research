@@ -284,6 +284,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/AircraftWarning.cs" />
      <Compile Include="Assets/Mapbox/Examples/3_POIPlacement/POIPlacementScriptExample.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainDataFetcher.cs" />
+     <Compile Include="Assets/Scripts/Screens/AchievementsTab/AchievementsTabPresenter.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/IReplacementCriteria.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/JSON/OnlineMapsJSON.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/HereRoutingAPIExample.cs" />
@@ -568,6 +569,7 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/ForwardGeocodeResource.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/ISubLayerSimpleStyle.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Tiles/OnlineMapsTile.cs" />
+     <Compile Include="Assets/Scripts/Screens/ArGamesTab/ArGamesTabView.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/Response/Intersection.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/CalcAreaExample.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/MarkerCustomDataExample.cs" />
@@ -624,6 +626,7 @@
      <Compile Include="Assets/ARLocation/Scripts/Math/AngleLowPassFilter.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/SubLayerDarkStyle.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ReverseGeocodeUserInput.cs" />
+     <Compile Include="Assets/Scripts/Screens/ArGamesTab/ArGamesTabPresenter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/WebServices/OnlineMapsOpenRouteServiceGeocode.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ChangeShadowDistance.cs" />
      <Compile Include="Assets/Hovl Studio/Magic circles/Demo magic circles Vol 1/CameraHolder.cs" />
@@ -790,6 +793,7 @@
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifiers/SmoothLineModifier.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/DefaultOnScreenTargetIndicator.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTree/KDTree.cs" />
+     <Compile Include="Assets/Scripts/Screens/AchievementsTab/AchievementsTabView.cs" />
      <Compile Include="Assets/Mapbox/Unity/Location/AngleSmoothing/IAngleSmoothing.cs" />
      <Compile Include="Assets/Scripts/Data/Objects/SpriteRequest.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/FlatTerrainStrategy.cs" />
@@ -939,7 +943,6 @@
      <Folder Include="Assets/ARLocation/Textures" />
      <Folder Include="Assets/XR/UserSimulationSettings/Resources" />
      <Folder Include="Assets/Infinity Code/Online maps/Examples (API usage)/NGUI" />
-     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/UI/Icons" />
      <Folder Include="Assets/Hovl Studio/Resources/Materials" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/XML" />
@@ -961,6 +964,7 @@
      <Folder Include="Assets/Scripts/Infrastructure/MockApi" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut" />
      <Folder Include="Assets/Infinity Code/Online maps/Textures/Markers" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <Folder Include="Assets/Mapbox/Unity/Location/Plugins/Android" />
      <Folder Include="Assets/Mapbox/Examples/Textures" />
      <Folder Include="Assets/Audio/VPS" />
@@ -991,6 +995,7 @@
      <Folder Include="Assets/Models/ManaBox" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Utils/Vector2d" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Screenshots" />
+     <Folder Include="Assets/Scripts/Screens/AchievementsTab" />
      <Folder Include="Assets/Scripts/AR/World/Collectable" />
      <Folder Include="Assets/AR_Occlusion_assets" />
      <None Include="Assets/Mapbox/Shaders/MapboxStylesPerRenderer.shader" />
@@ -1068,6 +1073,7 @@
      <None Include="Assets/Hovl Studio/Resources/Shaders/DissolveNoise.shader" />
      <Folder Include="Assets/Mapbox/Unity/Styling" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/ArGamesTab" />
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.IO.Compression/net35" />
      <Folder Include="Assets/ARLocation/Scripts/Location" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
@@ -1197,10 +1203,12 @@
      <Folder Include="Assets/Mapbox/Core/Plugins/Mapbox/vector-tile-cs/portable-net45+uap10" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Dark" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Controls/3D" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Building" />
      <Folder Include="Assets/Mapbox/Materials" />
      <Folder Include="Assets/_Scenes/MainScene" />
      <None Include="Assets/Hovl Studio/AOE Magic spells Vol.1/Prefabs/Readme.txt" />
+     <Folder Include="Assets/UI/Buttons" />
      <Folder Include="Assets/Hovl Studio/Resources/Shaders" />
      <Folder Include="Assets/Infinity Code/Online maps" />
      <Folder Include="Assets/Hovl Studio/Magic circles" />
@@ -1211,6 +1219,7 @@
      <Folder Include="Assets/Mapbox/Core/Plugins/sqlite/Android/libs/armeabi-v7a" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Markers" />
      <Folder Include="Assets/Sprites" />
+     <Folder Include="Assets/Scripts/Screens/ArGamesTab" />
      <Folder Include="Assets/MapboxAR/Scripts/Camera" />
      <None Include="Assets/Hovl Studio/3D Lasers Pack/Demo scene lasers/Readme.txt" />
      <Folder Include="Assets/Textures" />
@@ -1221,7 +1230,6 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Assets/Hovl Studio/Magic circles/Prefabs" />
      <Folder Include="Assets/Resources" />
-     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Scripts" />
      <Folder Include="Assets/Scripts/Toasts" />
      <Folder Include="Assets/ARLocation/Prefabs/Debug" />
@@ -1239,7 +1247,6 @@
      <Folder Include="Assets/ARLocation/Scripts/Components/UI" />
      <None Include="Assets/MapboxAR/Examples/ARTabletop/Shaders/ClipBox/Clip_Box.shader" />
      <Folder Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Road" />
-     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts" />
      <Folder Include="Assets/Prefabs/_NewPrefabs/UI/ArModeTab" />
      <Folder Include="Assets/Mapbox/Core/cheap-ruler-cs" />
@@ -1266,6 +1273,7 @@
      <Folder Include="Assets/ARLocation/Mapbox Routes/Scripts" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Satellite/Assets/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <Folder Include="Assets/UI/Buttons/CryptoModeSwitcher" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets" />
      <None Include="Assets/Infinity Code/Online maps/Shaders/TilesetCutoutShader.shader" />
      <None Include="Assets/ARLocation/Third-Party-Notices.txt" />
@@ -1358,6 +1366,7 @@
      <Folder Include="Assets/Scripts/Data" />
      <Folder Include="Assets/Prefabs/_NewPrefabs/UI/WarningScreen" />
      <Folder Include="Assets/Scripts/Screens/DetectingLocationPopup" />
+     <Folder Include="Assets/Prefabs/_NewPrefabs/UI/AchievementsTab" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Color/Assets/Atlas" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/Styles/MapboxSampleStyles/Light" />
      <Folder Include="Assets/Hovl Studio/Magic circles/Demo magic circles Vol 1" />
@@ -1371,6 +1380,7 @@
      <Folder Include="Assets/Mapbox/Resources/Mapbox" />
      <Folder Include="Assets/Mapbox/Examples/1_DataExplorer/Modules/TrafficLayer/ModerateTraffic" />
      <Folder Include="Assets/Scripts/Screens/Views" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <Folder Include="Assets/Hovl Studio/Magic circles/Prefabs/Loop version" />
      <Folder Include="Assets/Mapbox/Resources/MapboxStyles/DefaultStyleAssets/Materials" />
      <Folder Include="Assets/Infinity Code/Online maps/Scripts/Providers/Tiles" />
@@ -1509,6 +1519,7 @@
      <Folder Include="Assets/Hovl Studio/Resources/Sounds" />
      <Folder Include="Assets/SamplesResources/AugmentationAssets/Animation/Astronaut" />
      <Folder Include="Assets/Mapbox/User/Modifiers" />
+     <Folder Include="Assets/Prefabs/ScreensPrefabs" />
      <Folder Include="Assets/Scripts/Screens/WarningScreen" />
      <Folder Include="Assets/SamplesResources/AugmentationAssets" />
      <Folder Include="Assets/Mapbox/Unity/Telemetry" />
@@ -2448,6 +2459,10 @@
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
       <Project>{74d50c33-ae83-f141-18f3-e56728d861bf}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Coffee.UIParticle.csproj">
+      <Project>{320d07f1-38e1-0adf-0d7a-6f5e44015639}</Project>
+      <Name>Coffee.UIParticle</Name>
     </ProjectReference>
     <ProjectReference Include="BestHTTP.csproj">
       <Project>{d8e7336e-b30f-da7d-fd5a-bf82757993b9}</Project>

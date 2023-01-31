@@ -5,7 +5,6 @@ using Geo;
 using Toasts;
 using UniRx;
 using UnityEngine;
-using Utils;
 using static Screens.MainScreen.BottomBarButtonType;
 
 namespace Screens.MainScreen
@@ -98,16 +97,6 @@ namespace Screens.MainScreen
 
         private void ConfigureBySelectedTab(BottomBarButtonType type, object data = null)
         {
-            if (type is Ball or Games)
-            {
-                _toastsController.ShowToast(new ToastViewInfo
-                {
-                    Duration = 1f,
-                    Text = "^not_available_yet".GetTranslation()
-                });
-                return;
-            }
-
             if (_selectedTab == type && data == null)
             {
                 Debug.Log("already selected");
@@ -117,6 +106,7 @@ namespace Screens.MainScreen
             _selectedTab = type;
 
             _view.BottomNavigationBar.SetSelectedButton(_selectedTab ?? _startTab);
+            _view.BottomNavigationBar.SetIsTransparentBar(_selectedTab == ArCamera);
 
             switch (type)
             {
@@ -129,6 +119,12 @@ namespace Screens.MainScreen
                 case ArCamera:
                     OnArCameraClicked(data);
                     break;
+                case Ball:
+                    OnAchievementsClicked(data);
+                    break;
+                case Games:
+                    OnGamesClicked(data);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
@@ -138,6 +134,10 @@ namespace Screens.MainScreen
 
         #region New
 
+        private void OnGamesClicked(object data) => ChangeTab(ScreenName.ArGamesTab, data);
+        
+        private void OnAchievementsClicked(object data) => ChangeTab(ScreenName.AchievementsTab, data);
+        
         private void OnFindDropZonesClicked(object data) => ChangeTab(ScreenName.DropZonesListScreen, data);
 
         private void OnMyDropsClicked(object data) => ChangeTab(ScreenName.CollectedRewardsScreen, data);

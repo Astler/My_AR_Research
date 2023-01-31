@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Data.Objects
@@ -11,5 +12,7 @@ namespace Data.Objects
         public bool IsCollected;
         public string Name;
         public Transform Parent;
+
+        public Action ViewAction;
     }
 }

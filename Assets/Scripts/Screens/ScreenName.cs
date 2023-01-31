@@ -13,5 +13,7 @@ namespace Screens
         RewardClaimedScreen = 9,
         RewardAlreadyClaimedScreen = 10,
         ArModeTab = 11,
+        AchievementsTab = 12,
+        ArGamesTab = 13,
     }
 }

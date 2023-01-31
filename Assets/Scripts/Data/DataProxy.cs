@@ -55,10 +55,12 @@ namespace Data
         private readonly List<PrizeData> _collectedPrizes = new();
         private readonly ReactiveCollection<RewardViewInfo> _collectedPrizesInfos = new();
         private UserData _responseUser;
+        private readonly EditorAssets _editorAssets;
 
         public DataProxy(IApiInterface apiInterface, WebImagesLoader webImagesLoader,
-            IWebSocketService webSocketService, GameAssets gameAssets)
+            IWebSocketService webSocketService, GameAssets gameAssets, EditorAssets editorAssets)
         {
+            _editorAssets = editorAssets;
             _apiInterface = apiInterface;
             _webImagesLoader = webImagesLoader;
             _webSocketService = webSocketService;
@@ -130,7 +132,7 @@ namespace Data
         public void AddToAvailableCollectables(ICollectable collectable)
         {
             if (_collectables.Contains(collectable)) return;
-            
+
             _collectables.Add(collectable);
         }
 
@@ -235,7 +237,8 @@ namespace Data
 
             foreach (DropZoneViewInfo portalViewInfo in activeZones)
             {
-                (double value, string human) = portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
+                (double value, string human) =
+                    portalViewInfo.Coordinates.ToHumanReadableDistanceFromPlayer(GetPlayerPosition());
                 portalViewInfo.ReadableDistance = human;
                 portalViewInfo.OrderDistance = value;
             }
@@ -275,6 +278,11 @@ namespace Data
 
         public void LoadClaimedRewards()
         {
+            if (_editorAssets.mockStartData)
+            {
+                return;
+            }
+
             _apiInterface.GetAllCollectedRewardsList(AddClaimedRewards, Debug.LogError);
         }
 

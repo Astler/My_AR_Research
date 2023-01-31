@@ -46,6 +46,8 @@ namespace Data.Objects
 
             foreach (RewardViewInfo rewardViewInfo in Rewards)
             {
+                if (rewardViewInfo.IsCollected) continue;
+                
                 if (groupedRewards.ContainsKey(rewardViewInfo.Name))
                 {
                     groupedRewards[rewardViewInfo.Name].Count += 1;

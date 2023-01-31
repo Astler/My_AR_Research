@@ -8,15 +8,22 @@ namespace Screens.MainScreen
         event Action<BottomBarButtonType> ClickedNavigationBarButton;
 
         void SetSelectedButton(BottomBarButtonType type);
+        void SetIsTransparentBar(bool isTransparent);
     }
 
     public class BottomNavigationBar : MonoBehaviour, IBottomNavigationBar
     {
         [SerializeField] private BottomNavigationButton[] buttons;
+        [SerializeField] private CanvasGroup barBackgroundCanvasGroup;
         [Space] [SerializeField] private Color selectedButtonColor, unselectedButtonColor;
 
         public event Action<BottomBarButtonType> ClickedNavigationBarButton;
 
+        public void SetIsTransparentBar(bool isTransparent)
+        {
+            barBackgroundCanvasGroup.alpha = isTransparent ? 0.6f : 1f;
+        }
+        
         public void SetSelectedButton(BottomBarButtonType type)
         {
             foreach (BottomNavigationButton bottomNavigationButton in buttons)

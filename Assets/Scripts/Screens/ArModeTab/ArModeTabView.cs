@@ -20,6 +20,7 @@ namespace Screens.ArModeTab
         void SetActivePlayersInZone(int playersCount);
         void SetTimeToNextDrop(string time);
         void SetAvailableRewards(int rewards);
+        void IsScanActive(bool isRequestedAreaScanned, float scanned);
     }
 
     public class ArModeTabView : ScreenView, IArModeTabView
@@ -27,7 +28,10 @@ namespace Screens.ArModeTab
         [SerializeField] private RectTransform eventsParent;
         [SerializeField] private InfoTextView dropZoneInfo;
         [SerializeField] private Button collectButton;
-        [SerializeField] private TextMeshProUGUI playersText, timerText, rewardsText;
+        [SerializeField] private TextMeshProUGUI playersText, timerText, rewardsText, scannedText;
+        [SerializeField] private Slider scannedSlider;
+        [SerializeField] private GameObject scanModeUi;
+        [SerializeField] private GameObject baseModeUi;
         
         private RectTransform _collectButtonRect;
 
@@ -73,6 +77,15 @@ namespace Screens.ArModeTab
         public void SetAvailableRewards(int rewards)
         {
             rewardsText.text = "^drops".GetTranslation(rewards);
+        }
+
+        public void IsScanActive(bool isRequestedAreaScanned, float scanned)
+        {
+            scanModeUi.SetActive(!isRequestedAreaScanned);
+            baseModeUi.SetActive(isRequestedAreaScanned);
+            
+            scannedText.text = "^scanned_progress".GetTranslation(Mathf.RoundToInt(scanned * 100));
+            scannedSlider.value = scanned;
         }
 
         private void HideCollectButton()

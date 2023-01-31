@@ -12,10 +12,9 @@ namespace Screens.LoadingScreen
 {
     public class LoadingScreenView : ScreenView, ILoadingScreenView
     {
-        [SerializeField] private TextMeshProUGUI playerIdText;
-        [SerializeField] private TextMeshProUGUI appVersionText;
         [SerializeField] private TextMeshProUGUI loadingText;
         [SerializeField] private Slider loadingProgress;
+        
         public event Action OnLoadingAnimationFinish;
 
         private const string _Loading = "^loading";
@@ -32,8 +31,6 @@ namespace Screens.LoadingScreen
 
         public void SetViewModel(string appVersion)
         {
-            Debug.Log(I18N.instance.GetValue(Version));
-            appVersionText.text = $"{I18N.instance.GetValue(Version)}: {appVersion}";
             StartCoroutine(BlinkText(0.3f));
         }
 
