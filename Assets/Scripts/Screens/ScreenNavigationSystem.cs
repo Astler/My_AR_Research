@@ -303,14 +303,14 @@ namespace Screens
         {
             if (!_navigationStack.Contains(screenView)) return;
             if (screenView.ShouldPutInNavStack) RemoveScreenFromStack(screenView, nextScreenInQueue);
-
+            
             if (screenView.OnHideTransitionAnimation == null || !withAnim)
             {
                 screenView.MoveToInitialPosition();
             }
             else
             {
-                screenView.PerformHideAnimation(delegate { screenView.MoveToInitialPosition(); });
+                screenView.PerformHideAnimation(screenView.MoveToInitialPosition);
             }
         }
 

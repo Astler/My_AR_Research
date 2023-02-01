@@ -5960,10 +5960,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6922619047532097904, guid: 71a1d6174eea9431b81ad30c02b1bd27,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363454495921797272, guid: 71a1d6174eea9431b81ad30c02b1bd27,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8891652305185068754, guid: 71a1d6174eea9431b81ad30c02b1bd27,
         type: 3}
       propertyPath: m_Name
       value: ArrowPointerWithRenderCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114024577274191450, guid: 71a1d6174eea9431b81ad30c02b1bd27,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a1d6174eea9431b81ad30c02b1bd27, type: 3}

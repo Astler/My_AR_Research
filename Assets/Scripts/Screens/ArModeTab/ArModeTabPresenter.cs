@@ -37,7 +37,7 @@ namespace Screens.ArModeTab
         private void Initialize()
         {
             _view.OnShowCallback += OnShowTab;
-            _view.OnLostFocusCallback += OnLostFocus;
+            _view.OnHideCallback += OnLostFocus;
             _view.EmptyScreenClicked += OnScreenClicked;
             _view.CollectButtonClicked += OnCollectButtonClicked;
 
@@ -58,7 +58,17 @@ namespace Screens.ArModeTab
             }).AddTo(_compositeDisposable);
         }
 
-        private void OnCollectButtonClicked() { }
+        private void OnCollectButtonClicked()
+        {
+            ICollectable view = _dataProxy.AvailableCollectables.FirstOrDefault();
+
+            if (view is not MannaBoxView mannaBoxView) return;
+
+            BeamData data = mannaBoxView.GetBeamData();
+
+            _dataProxy.TryToCollectBeam(data, () => { OnRewardClaimed(mannaBoxView, data, true); },
+                () => { OnRewardClaimed(mannaBoxView, data, false); });
+        }
 
         private void OnLostFocus()
         {

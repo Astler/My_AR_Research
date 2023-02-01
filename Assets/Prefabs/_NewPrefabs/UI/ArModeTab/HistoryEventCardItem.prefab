@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 336.615, y: 0}
+  m_AnchoredPosition: {x: 311.63, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6494979997614020149
@@ -70,8 +70,8 @@ MonoBehaviour:
   m_text: '<b><color=#EC4D27>MannaWars NFT: Skeleton Pistol</color></b>\nwas collected
     by <b>Ivanmind</b>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf, type: 2}
-  m_sharedMaterial: {fileID: -3016444724851962662, guid: 3e0bdd68d685e2e4bb878ba029cdb0cf,
+  m_fontAsset: {fileID: 11400000, guid: dbeda1d966af4624092be32b29c55375, type: 2}
+  m_sharedMaterial: {fileID: 7528607820806069187, guid: dbeda1d966af4624092be32b29c55375,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -330,7 +330,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6710201798046859768
 CanvasRenderer:
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 2
   m_VerticalFit: 2
 --- !u!1 &8209902031285488726
 GameObject:

@@ -18,15 +18,14 @@ namespace Screens.LoadingScreen
         public event Action OnLoadingAnimationFinish;
 
         private const string _Loading = "^loading";
-        private const string Version = "^version";
 
         private Coroutine _loadingCoroutine;
         private float _currentProgress;
 
         private void Awake()
         {
-            SetShowTransitionAnimation(new AlphaAndScaleTransition(CanvasGroup, 0f, 1f, 1f, 1f, 0.5f));
-            SetHideTransitionAnimation(new AlphaAndScaleTransition(CanvasGroup, 1f, 0f, 1f, 1f, 0.5f));
+            SetShowTransitionAnimation(new AlphaAndScaleTransition(CanvasGroup, 0f, 1f, 1f, 1f, 1f));
+            SetHideTransitionAnimation(new AlphaAndScaleTransition(CanvasGroup, 1f, 0f, 1f, 1f, 1f));
         }
 
         public void SetViewModel(string appVersion)

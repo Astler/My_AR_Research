@@ -76,7 +76,9 @@ namespace Screens.FindDropZonesScreen
 
             dropZoneInfo.SetText(new InfoTextViewInfo
             {
-                Text = hasZone ? zoneName : "^go_to_the_event_area".GetTranslation(),
+                Text = hasZone
+                    ? "<sprite=\"DropSprites\" index=0> " + zoneName
+                    : "^go_to_the_event_area".GetTranslation(),
                 TextType = hasZone ? InfoTextType.Title : InfoTextType.Hint
             });
         }

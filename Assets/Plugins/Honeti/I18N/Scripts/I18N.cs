@@ -15,46 +15,6 @@ namespace Plugins.Honeti.I18N.Scripts
         /// English
         /// </summary>
         EN = 0,
-
-        /// <summary>
-        /// Polish
-        /// </summary>
-        PL = 1,
-
-        /// <summary>
-        /// German
-        /// </summary>
-        DE = 2,
-
-        /// <summary>
-        /// French
-        /// </summary>
-        FR = 3,
-
-        /// <summary>
-        /// Spanish
-        /// </summary>
-        ES = 4,
-
-        /// <summary>
-        /// Japanese
-        /// </summary>
-        JP = 5,
-
-        /// <summary>
-        /// Korean
-        /// </summary>
-        KO = 6,
-
-        /// <summary>
-        /// Russian
-        /// </summary>
-        RU = 7,
-
-        /// <summary>
-        /// Ukraine
-        /// </summary>
-        UA = 8,
     }
 
     /// <summary>

@@ -1,3 +1,4 @@
+using System;
 using Data;
 using SceneManagement;
 using UniRx;
@@ -35,8 +36,9 @@ namespace Screens.LoadingScreen
             _view.OnLoadingAnimationFinish += () =>
             {
                 _screenNavigationSystem.ExecuteNavigationCommand(
-                    new NavigationCommand().ShowNextScreen(ScreenName.MainScreen).WithoutAnimation()
-                        .CloseCurrentScreen());
+                    new NavigationCommand().ShowNextScreen(ScreenName.MainScreen).WithoutAnimation());
+
+                Observable.Interval(TimeSpan.FromSeconds(0.5f)).Subscribe(_ => { _view.CloseScreen(); });
             };
 
             _sceneLoader.LoadSceneProgress.Subscribe((sceneProgress) =>

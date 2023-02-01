@@ -57,7 +57,7 @@ namespace AR
 
             if (Application.isEditor)
             {
-                _dataProxy.PlayerLocationChanged.Subscribe(delegate(Vector2 position) { PlaceZonesByMap(); })
+                _dataProxy.PlayerLocationChanged.Take(1).Subscribe(delegate(Vector2 position) { PlaceZonesByMap(); })
                     .AddTo(this);
             }
             else
@@ -97,11 +97,10 @@ namespace AR
             if (stateArgs.state != ARSessionState.SessionTracking)
             {
                 _zonesPlacer?.Dispose();
-                Clear();
                 return;
             }
 
-            _zonesPlacer = _dataProxy.ScannedArea.Where(it => it >= 1).Subscribe(_ => { PlaceZonesByMap(); })
+            _zonesPlacer = _dataProxy.ScannedArea.Where(it => it >= 1).Take(1).Subscribe(_ => { PlaceZonesByMap(); })
                 .AddTo(this);
         }
 

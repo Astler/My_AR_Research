@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
 using Data.Objects;
+using UniRx;
 using UnityEngine;
 using Utils;
 using Zenject;
@@ -37,6 +39,10 @@ namespace Geo
             if (Application.isEditor)
             {
                 StartZonesLocator();
+
+                Observable.Interval(TimeSpan.FromSeconds(1f))
+                    .Subscribe(_ => _dataProxy.SetPlayerPosition(GlobalConstants.MockPosition))
+                    .AddTo(this);
                 yield break;
             }
 
@@ -84,7 +90,7 @@ namespace Geo
             if (Application.isEditor)
             {
                 _dataProxy.SetActivePortalZone(_dataProxy.GetAllActiveZones()
-                    .FirstOrDefault(it => it.Name == "Dev Portal"));
+                    .FirstOrDefault(it => it.Name == "MS Test"));
                 return;
             }
 
@@ -128,7 +134,7 @@ namespace Geo
                 zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.Name + " " +
                              zoneData.Key.Coordinates.ToHumanReadableDistanceFromPlayer(_dataProxy.GetPlayerPosition());
             }
-            
+
             //TODO Restore
             // locationInfoView.ShowAllZones($"Nearest zones:\n{zonesInfo}");
         }

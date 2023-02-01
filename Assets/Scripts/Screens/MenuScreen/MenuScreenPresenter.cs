@@ -29,7 +29,7 @@ namespace Screens.MenuScreen
             {
                 _toastsController.ShowToast(new ToastViewInfo
                 {
-                    Text = "^change_username_not_available",
+                    Text = "^change_username_not_available".GetTranslation(),
                     Duration = 1
                 });
             };
@@ -38,7 +38,7 @@ namespace Screens.MenuScreen
             {
                 _toastsController.ShowToast(new ToastViewInfo
                 {
-                    Text = "^logout_not_available",
+                    Text = "^logout_not_available".GetTranslation(),
                     Duration = 1
                 });
             };

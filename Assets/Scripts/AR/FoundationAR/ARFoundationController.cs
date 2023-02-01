@@ -19,7 +19,7 @@ namespace AR.FoundationAR
 
         private XROrigin _origin;
         private IDataProxy _dataProxy;
-        private float _editorScanSpeed = 2f;
+        private float _editorScanSpeed = 4f;
         private float _editorScanProgress;
 
         [Inject]
@@ -67,6 +67,8 @@ namespace AR.FoundationAR
                 Vector2 size = plane.size;
                 totalArea += size.x * size.y;
             }
+            
+            _dataProxy.SetScannedArea(totalArea);
             
         }
     }

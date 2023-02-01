@@ -1,101 +1,59 @@
 {
-    "m_SelectedDeviceId": "2d38b3e",
+    "m_SelectedDeviceId": "8B8X15GYE",
     "m_SelectedPackage": {
-        "deviceId": "2d38b3e",
+        "deviceId": "8B8X15GYE",
         "name": "com.ms.manna_drops",
-        "processId": 28673,
+        "processId": 17017,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.vuforia.engine.VuforiaEngine",
-            "processId": 16458,
+            "name": "com.ms.manna_drops",
+            "processId": 21731,
             "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.vuforia.engine.VuforiaEngine",
-            "processId": 17406,
+            "name": "com.ms.manna_drops",
+            "processId": 24603,
             "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.vuforia.engine.VuforiaEngine",
-            "processId": 18324,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.vuforia.engine.VuforiaEngine",
-            "processId": 19178,
+            "name": "com.ms.manna_drops",
+            "processId": 27363,
             "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.google.android.apps.nexuslauncher",
-            "processId": 12807,
+            "processId": 2941,
             "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.vuforia.engine.VuforiaEngine",
-            "processId": 20114,
-            "exited": false
+            "name": "idler.rocket.building.manager",
+            "processId": 7232,
+            "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 13031,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 10152,
+            "name": "idler.rocket.building.manager",
+            "processId": 7933,
             "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.manna_drops",
-            "processId": 26881,
+            "processId": 16382,
             "exited": false
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.manna_drops",
-            "processId": 28523,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 29476,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 30112,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 31150,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 11866,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 16743,
+            "processId": 17017,
             "exited": false
         },
         {
@@ -156,6 +114,18 @@
             "deviceId": "2d38b3e",
             "name": "com.ms.manna_drops",
             "processId": 28673,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.manna_drops",
+            "processId": 19456,
+            "exited": false
+        },
+        {
+            "deviceId": "2d38b3e",
+            "name": "com.ms.manna_drops",
+            "processId": 21422,
             "exited": false
         },
         {

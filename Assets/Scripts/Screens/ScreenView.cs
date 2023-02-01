@@ -21,7 +21,7 @@ namespace Screens
         public event Action OnScreenActivated;
         public event Action ClosedScreen;
         
-        public Action OnHideCallback;
+        public event Action OnHideCallback;
         public Action OnClose;
         public IScreenTransitionAnimation OnShowTransitionAnimation;
         public IScreenTransitionAnimation OnHideTransitionAnimation;
@@ -78,6 +78,7 @@ namespace Screens
         public void MoveToInitialPosition()
         {
             _isOnPosition = false;
+            ClosedScreen?.Invoke();
             OnHideCallback?.Invoke();
             DeactivateScreen();
         }

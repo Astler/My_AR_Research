@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Data;
+using GameCamera;
 using JetBrains.Annotations;
 using UniRx;
 using UnityEngine;
@@ -20,12 +21,18 @@ namespace Pointers
         private readonly IDataProxy _dataProxy;
         private readonly List<IPointerTarget> _targets = new();
         private readonly ReactiveProperty<IPointerTarget> _currentPointer = new();
+        private readonly ICamerasController _camerasController;
 
-        public PointersController(IDataProxy dataProxy, IDropLocationDirectionPointer pointer)
+        public PointersController(IDataProxy dataProxy, IDropLocationDirectionPointer pointer,
+            ICamerasController camerasController)
         {
+            _camerasController = camerasController;
             _dataProxy = dataProxy;
 
-            _dataProxy.PlayerLocationChanged.Subscribe(_ => { UpdateCurrentPointer(); }).AddTo(_compositeDisposable);
+            // _dataProxy.PlayerLocationChanged.Subscribe(_ => { UpdateCurrentPointer(); }).AddTo(_compositeDisposable);
+
+            Observable.Interval(TimeSpan.FromSeconds(0.1f)).Subscribe(_ => { UpdateCurrentPointer(); })
+                .AddTo(_compositeDisposable);
 
             _currentPointer.Subscribe(target =>
             {
@@ -47,7 +54,7 @@ namespace Pointers
         }
 
         [CanBeNull]
-        public IPointerTarget GetNearestPointerTarget()
+        private IPointerTarget GetNearestPointerTarget()
         {
             if (_targets.Count == 0) return null;
 
@@ -58,8 +65,11 @@ namespace Pointers
 
             if (correctPointers.Count == 0) return null;
 
-            Vector2 rawPosition = _dataProxy.GetPlayerPosition();
-            Vector3 playerPosition = new(rawPosition.x, 0f, rawPosition.y);
+            ICameraView camera = _camerasController.GetArCameraView();
+
+            if (camera == null) return null;
+
+            Vector3 playerPosition = _camerasController.GetArCameraView().Transform.position;
 
             IPointerTarget pointer = correctPointers.OrderBy(it => Vector3.Distance(playerPosition, it.GetPosition()))
                 .FirstOrDefault();

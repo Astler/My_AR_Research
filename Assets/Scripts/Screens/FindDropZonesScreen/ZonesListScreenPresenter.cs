@@ -39,7 +39,7 @@ namespace Screens.FindDropZonesScreen
             _view.TabBar.ClickedOnTab += OnTabClicked;
             _view.OnShowCallback += OnShow;
             _view.OnLostFocusCallback += OnLostFocus;
-            _view.ClosedScreen += OnClose;
+            _view.OnHideCallback += OnClose;
             _view.OnGotFocusCallback += OnGotFocus;
             _view.MapToPlayerPositionClicked += OnMapToMeClicked;
             _view.LaunchArClicked += OnLaunchArClicked;

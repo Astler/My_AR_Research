@@ -32,7 +32,7 @@ namespace Screens.ArModeTab
         [SerializeField] private Slider scannedSlider;
         [SerializeField] private GameObject scanModeUi;
         [SerializeField] private GameObject baseModeUi;
-        
+
         private RectTransform _collectButtonRect;
 
         public event Action<Vector2> EmptyScreenClicked;
@@ -45,7 +45,9 @@ namespace Screens.ArModeTab
             bool hasZone = zoneName != null;
             dropZoneInfo.SetText(new InfoTextViewInfo
             {
-                Text = hasZone ? zoneName : "^go_to_the_event_area".GetTranslation(),
+                Text = hasZone
+                    ? "<sprite=\"DropSprites\" index=0> " + zoneName
+                    : "^go_to_the_event_area".GetTranslation(),
                 TextType = hasZone ? InfoTextType.Title : InfoTextType.Hint
             });
         }
@@ -84,7 +86,7 @@ namespace Screens.ArModeTab
         {
             scanModeUi.SetActive(!isRequestedAreaScanned);
             baseModeUi.SetActive(isRequestedAreaScanned);
-            
+
             scannedText.text = "^scanned_progress".GetTranslation(Mathf.RoundToInt(scanned * 100));
             scannedSlider.value = scanned;
         }
@@ -102,7 +104,7 @@ namespace Screens.ArModeTab
             _collectButtonRect.gameObject.SetActive(true);
             _collectButtonRect.DOAnchorPosY(0f, 0.5f);
         }
-        
+
         private void Awake()
         {
             collectButton.ActionWithThrottle(() => CollectButtonClicked?.Invoke());

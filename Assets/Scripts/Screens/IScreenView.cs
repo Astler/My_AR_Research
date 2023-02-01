@@ -8,9 +8,9 @@ namespace Screens
     public interface IScreenView
     {
         event Action<object> OnShowCallback;
+        event Action OnHideCallback;
         event Action OnGotFocusCallback;
         event Action OnLostFocusCallback;
-        event Action ClosedScreen;
         void SetShowTransitionAnimation(IScreenTransitionAnimation animation);
         void SetHideTransitionAnimation(IScreenTransitionAnimation animation);
         void CloseScreen();

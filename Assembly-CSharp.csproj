@@ -187,6 +187,7 @@
      <Compile Include="Assets/Mapbox/Unity/Location/EditorLocationProviderLocationLog.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Map/TileResource.cs" />
      <Compile Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Astronaut/AstronautMouseController.cs" />
+     <Compile Include="Assets/Scripts/Screens/Transitions/RightToFrontAnimation.cs" />
      <Compile Include="Assets/Scripts/Toasts/ToastView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/TerrainStrategies/LowPolyTerrainStrategy.cs" />
      <Compile Include="Assets/ARLocation/Scripts/ScriptableObjects/LocationData.cs" />
@@ -224,6 +225,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/FindLocationExample.cs" />
      <Compile Include="Assets/Scripts/Screens/MainScreen/MainScreenViewInfo.cs" />
      <Compile Include="Assets/Mapbox/Unity/LayerProperties/CoreVectorLayerProperties.cs" />
+     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenPresenter.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/OnDrawTooltipExample.cs" />
      <Compile Include="Assets/Scripts/Screens/DropZoneDetailsScreen/DropZoneDetailsScreenPresenter.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/MapboxApi/MapboxApi.cs" />
@@ -357,6 +359,7 @@
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Platform/IResource.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Directions/RoutingProfile.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Buildings/OnlineMapsBuildingBase.cs" />
+     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenViewInfo.cs" />
      <Compile Include="Assets/Mapbox/Unity/Utilities/PolygonUtils.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Math/LinearSpline.cs" />
      <Compile Include="Assets/ARLocation/Mapbox Routes/Scripts/CustomRoute.cs" />
@@ -733,6 +736,7 @@
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/Aircraft.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Components/Hotspot.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples (API usage)/uGUI/uGUICustomTooltipForAllMarkersExample.cs" />
+     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/Telemetry/ITelemetryLibrary.cs" />
      <Compile Include="Assets/Scripts/Screens/LoadingScreen/ILoadingScreenView.cs" />
      <Compile Include="Assets/Mapbox/Unity/DataContainers/ElevationModificationOptions.cs" />
@@ -932,10 +936,6 @@
      <Compile Include="Assets/ARLocation/Experimental/World Builder/WorldBuilder.cs" />
      <Compile Include="Assets/MapObjectSizeControlView.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Factories/ImageDataFetcher.cs" />
-     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenView.cs" />
-     <Compile Include="Assets/Scripts/Screens/Transitions/RightToFrontAnimation.cs" />
-     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenViewInfo.cs" />
-     <Compile Include="Assets/Scripts/Screens/MenuScreen/MenuScreenPresenter.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/SamplesResources" />
      <None Include="Assets/ARLocation/Samples/Data/pois.xml" />
@@ -987,7 +987,6 @@
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Tests/UnitTests" />
      <None Include="Assets/Mapbox/Examples/2_AstronautGame/AstronautGame/Building/CharacterBuildingShader.shader" />
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty" />
-     <Folder Include="Assets/Textures/RenderTextures" />
      <Folder Include="Assets/MapboxAR/Examples/ARTabletop/ARTableMapVisualizer" />
      <Folder Include="Assets/Mapbox/Core/Plugins/ThirdParty/Mapbox.Json/Net35" />
      <Folder Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding" />

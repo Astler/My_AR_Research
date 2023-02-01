@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6447168040615963422}
   - component: {fileID: 6717374472658881566}
   - component: {fileID: 8605310800453279600}
+  - component: {fileID: 5231587412669931711}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   url: 
+--- !u!114 &5231587412669931711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310665471726201971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
 --- !u!1 &1466088825646740931
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +174,7 @@ MonoBehaviour:
   icon: {fileID: 8605310800453279600}
   nameText: {fileID: 8938297499728961218}
   okButton: {fileID: 5000698897329423781}
-  defaultIcon: {fileID: 21300000, guid: e1c917b8297334a009b5859eba21e92f, type: 3}
+  defaultIcon: {fileID: 21300000, guid: 5e612d76ff0bc4065ba07258a322e6c9, type: 3}
   confettiParticle: {fileID: 4097181348245994183}
 --- !u!223 &8821848153508034264
 Canvas:

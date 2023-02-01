@@ -225,7 +225,7 @@ namespace Data
 
         public void SetNearestPortalZone(DropZoneViewInfo dropZoneModel) => _nearestPortalZone.Value = dropZoneModel;
 
-        public void SetPlayerPosition(Vector2 position) => _playerLocationChanged.Value = position;
+        public void SetPlayerPosition(Vector2 position) => _playerLocationChanged.SetValueAndForceNotify(position);
 
         public LocationDetectResult GetLocationDetectResult() => _locationDetectResult.Value;
 

@@ -428,9 +428,9 @@
      <Compile Include="Assets/Best HTTP/Source/SignalRCore/Transports/WebsocketTransport.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/custom/sec/SecT571FieldElement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tsp/TSPException.cs" />
-     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/X923Padding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/math/ec/ScaleYNegateXPointMap.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/PskTlsClient.cs" />
+     <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/paddings/X923Padding.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/crypto/agreement/X25519Agreement.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/asn1/cms/AttributeTable.cs" />
      <Compile Include="Assets/Best HTTP/Source/SecureProtocol/tls/DatagramTransport.cs" />
