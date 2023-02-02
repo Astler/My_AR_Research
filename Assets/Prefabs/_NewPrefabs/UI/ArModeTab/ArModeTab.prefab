@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Spacing: 60
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -575,8 +575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseTextColor: {r: 1, g: 1, b: 1, a: 1}
-  hintTextColor: {r: 0.9254902, g: 0.3019608, b: 0.15294118, a: 1}
-  titleTextColor: {r: 0, g: 1, b: 0.21960784, a: 1}
+  hintTextColor: {r: 0.4392157, g: 0.72156864, b: 1, a: 1}
+  titleTextColor: {r: 0.9254902, g: 0.3019608, b: 0.15294118, a: 1}
 --- !u!1 &966443460424321441
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +708,7 @@ MonoBehaviour:
   shouldPutInNavStack: 1
   shouldDeleteAfterHide: 0
   infoBlocks: []
+  infoBlocksParent: {fileID: 8790435065115609524}
   eventsParent: {fileID: 4688377737204452016}
   dropZoneInfo: {fileID: 2135711924393665429}
   collectButton: {fileID: 1835228849574002647}

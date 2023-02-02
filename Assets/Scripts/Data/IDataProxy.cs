@@ -4,6 +4,7 @@ using AR;
 using AR.World.Collectable;
 using Data.Objects;
 using Geo;
+using Screens;
 using Screens.MainScreen;
 using UniRx;
 using UnityEngine;
@@ -19,11 +20,14 @@ namespace Data
         IReadOnlyReactiveProperty<int> SelectedOnMapDropZoneId { get; }
         IReadOnlyReactiveCollection<HistoryStepData> SessionHistory { get; }
         IReadOnlyReactiveCollection<ICollectable> AvailableCollectables { get; }
+        IReadOnlyReactiveProperty<bool> HasNewCollectedDrops { get; }
         
         // IReadOnlyReactiveProperty<DropZoneViewInfo> SelectedPortalZone { get; }
         IReadOnlyReactiveProperty<DropZoneViewInfo> EnteredPortalZone { get; }
         IReadOnlyReactiveProperty<DropZoneViewInfo> NearestPortalZone { get; }
         
+        void ClearNewDropNotification();
+        void SetNewDropNotification(bool succeed);
         void SetSelectedOnMapDropZone(int id);
         void CompleteStateStep(GameStates states);
         void SetActiveCamera(CameraType type);

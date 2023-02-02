@@ -9,6 +9,7 @@ namespace Screens.MainScreen
 
         void SetSelectedButton(BottomBarButtonType type);
         void SetIsTransparentBar(bool isTransparent);
+        void SetIsHasNewDrops(bool has);
     }
 
     public class BottomNavigationBar : MonoBehaviour, IBottomNavigationBar
@@ -23,7 +24,18 @@ namespace Screens.MainScreen
         {
             barBackgroundCanvasGroup.alpha = isTransparent ? 0.6f : 1f;
         }
-        
+
+        public void SetIsHasNewDrops(bool has)
+        {
+            foreach (BottomNavigationButton bottomNavigationButton in buttons)
+            {
+                if (bottomNavigationButton.Type == BottomBarButtonType.MyDrops)
+                {
+                    bottomNavigationButton.SetIsHasNewDrops(has);
+                }
+            }
+        }
+
         public void SetSelectedButton(BottomBarButtonType type)
         {
             foreach (BottomNavigationButton bottomNavigationButton in buttons)

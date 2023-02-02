@@ -22,11 +22,8 @@ namespace Screens.RewardClaimedScreen
         {
             nameText.text = rewardScreenViewInfo.ItemName;
 
-            if (rewardScreenViewInfo.ImageUrl == null)
-            {
-                icon.sprite = defaultIcon;
-            }
-            else
+            icon.sprite = defaultIcon;
+            if (rewardScreenViewInfo.ImageUrl != null)
             {
                 icon.SetImageUrl(rewardScreenViewInfo.ImageUrl);
             }

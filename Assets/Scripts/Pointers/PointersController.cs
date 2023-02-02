@@ -31,7 +31,7 @@ namespace Pointers
 
             // _dataProxy.PlayerLocationChanged.Subscribe(_ => { UpdateCurrentPointer(); }).AddTo(_compositeDisposable);
 
-            Observable.Interval(TimeSpan.FromSeconds(0.1f)).Subscribe(_ => { UpdateCurrentPointer(); })
+            Observable.Interval(TimeSpan.FromSeconds(0.25f)).Subscribe(_ => { UpdateCurrentPointer(); })
                 .AddTo(_compositeDisposable);
 
             _currentPointer.Subscribe(target =>
@@ -44,13 +44,11 @@ namespace Pointers
         public void AddTarget(IPointerTarget pointerTarget)
         {
             _targets.Add(pointerTarget);
-            UpdateCurrentPointer();
         }
 
         public void RemoveTarget(IPointerTarget pointerTarget)
         {
             _targets.Remove(pointerTarget);
-            UpdateCurrentPointer();
         }
 
         [CanBeNull]

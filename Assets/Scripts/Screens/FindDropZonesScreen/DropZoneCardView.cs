@@ -33,7 +33,9 @@ namespace Screens.FindDropZonesScreen
             _id = viewInfo.Id;
 
             zoneTitle.text = viewInfo.Name;
-            distanceToText.text = "<b>" + viewInfo.ReadableDistance + "</b>";
+            distanceToText.text = viewInfo.OrderDistance * 1000 < viewInfo.Radius
+                ? "^in_zone".GetTranslation()
+                : "<b>" + viewInfo.ReadableDistance + "</b>";
             durationText.text = viewInfo.IsOngoing()
                 ? "^ongoing".GetTranslation()
                 : "^in_time".GetTranslation(TimeSpan.FromSeconds(viewInfo.GetTimeToStart()).ToReadableTimeSpan());

@@ -42,6 +42,7 @@ namespace Data
         private readonly Subject<bool> _clear = new();
         private readonly ReactiveProperty<int> _availableGifts = new();
         private readonly ReactiveProperty<bool> _mapOpened = new();
+        private readonly ReactiveProperty<bool> _hasNewCollectedDrops = new();
         private readonly ReactiveProperty<DropZoneViewInfo> _enteredPortalZone = new();
         private readonly ReactiveProperty<EventData> _activeEventData = new();
         private readonly ReactiveProperty<DropZoneViewInfo> _nearestPortalZone = new();
@@ -175,6 +176,7 @@ namespace Data
         #endregion
 
         public IReadOnlyReactiveProperty<bool> MapOpened => _mapOpened;
+        public IReadOnlyReactiveProperty<bool> HasNewCollectedDrops => _hasNewCollectedDrops;
         public System.IObservable<(BottomBarButtonType, object)> BottomNavigationAction => _bottomNavigationAction;
         public IReadOnlyReactiveProperty<GameStates> GameState => _gameState;
         public IReadOnlyReactiveProperty<DropZoneViewInfo> EnteredPortalZone => _enteredPortalZone;
@@ -188,6 +190,16 @@ namespace Data
         public System.IObservable<bool> Clear => _clear;
         public IReadOnlyReactiveProperty<float> ScannedArea => _scannedArea;
         public IReadOnlyReactiveProperty<int> TimeToNextGift => _timeToNextGift;
+
+        public void ClearNewDropNotification()
+        {
+            _hasNewCollectedDrops.Value = false;
+        }
+
+        public void SetNewDropNotification(bool succeed)
+        {
+            _hasNewCollectedDrops.Value = succeed || _hasNewCollectedDrops.Value;
+        }
 
         public void SetSelectedOnMapDropZone(int id)
         {

@@ -25,6 +25,7 @@ namespace Screens.ArModeTab
 
     public class ArModeTabView : ScreenView, IArModeTabView
     {
+        [SerializeField] private RectTransform infoBlocksParent;
         [SerializeField] private RectTransform eventsParent;
         [SerializeField] private InfoTextView dropZoneInfo;
         [SerializeField] private Button collectButton;
@@ -69,17 +70,20 @@ namespace Screens.ArModeTab
         public void SetActivePlayersInZone(int playersCount)
         {
             playersText.text = "^players".GetTranslation(playersCount);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(infoBlocksParent);
         }
 
         public void SetTimeToNextDrop(int timeToNextGift)
         {
             timerText.gameObject.SetActive(timeToNextGift > 0);
             timerText.text = "^next_drop".GetTranslation(timeToNextGift);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(infoBlocksParent);
         }
 
         public void SetAvailableRewards(int rewards)
         {
             rewardsText.text = "^drops".GetTranslation(rewards);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(infoBlocksParent);
         }
 
         public void IsScanActive(bool isRequestedAreaScanned, float scanned)
@@ -93,6 +97,7 @@ namespace Screens.ArModeTab
 
         private void HideCollectButton()
         {
+            _collectButtonRect.DOKill();
             _collectButtonRect.DOAnchorPosY(-_collectButtonRect.sizeDelta.y, 0.5f).OnComplete(() =>
             {
                 _collectButtonRect.gameObject.SetActive(false);
@@ -101,6 +106,7 @@ namespace Screens.ArModeTab
 
         private void ShowCollectButton()
         {
+            _collectButtonRect.DOKill();
             _collectButtonRect.gameObject.SetActive(true);
             _collectButtonRect.DOAnchorPosY(0f, 0.5f);
         }
@@ -109,6 +115,7 @@ namespace Screens.ArModeTab
         {
             collectButton.ActionWithThrottle(() => CollectButtonClicked?.Invoke());
             _collectButtonRect = (RectTransform)collectButton.transform;
+            HideCollectButton();
         }
 
         private void Update()

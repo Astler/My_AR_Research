@@ -66,10 +66,12 @@ namespace Screens.ArModeTab
 
             BeamData data = mannaBoxView.GetBeamData();
 
-            _dataProxy.TryToCollectBeam(data, prizeData => { OnRewardClaimed(mannaBoxView, prizeData, true); },
+            view.Interact();
+            _dataProxy.RemoveFromAvailableCollectables(view);
+            _dataProxy.TryToCollectBeam(data, prizeData => { OnRewardClaimed(prizeData, true); },
                 () =>
                 {
-                    OnRewardClaimed(mannaBoxView, new PrizeData()
+                    OnRewardClaimed(new PrizeData()
                     {
                         name = "Claimed!"
                     }, false);
@@ -124,11 +126,13 @@ namespace Screens.ArModeTab
 
                         BeamData data = mannaBoxView.GetBeamData();
 
+                        mannaBoxView.Interact();
+                        _dataProxy.RemoveFromAvailableCollectables(mannaBoxView);
                         _dataProxy.TryToCollectBeam(data,
-                            prizeData => { OnRewardClaimed(mannaBoxView, prizeData, true); },
+                            prizeData => { OnRewardClaimed(prizeData, true); },
                             () =>
                             {
-                                OnRewardClaimed(mannaBoxView, new PrizeData()
+                                OnRewardClaimed(new PrizeData()
                                 {
                                     name = "Claimed!"
                                 }, false);
@@ -149,9 +153,9 @@ namespace Screens.ArModeTab
             // Debug.Log("No hits. Clicked nowhere!!");
         }
 
-        private void OnRewardClaimed(MannaBoxView view, PrizeData data, bool succeed)
+        private void OnRewardClaimed(PrizeData data, bool succeed)
         {
-            view.Interact();
+            _dataProxy.SetNewDropNotification(succeed);
             _screenNavigationSystem.ExecuteNavigationCommand(
                 new NavigationCommand()
                     .ShowNextScreen(succeed ? ScreenName.RewardClaimedScreen : ScreenName.RewardAlreadyClaimedScreen)

@@ -47,6 +47,7 @@ namespace Screens.CollectedRewards
         private void OnShow(object _)
         {
             _rewardsListener = _dataProxy.CollectedPrizesInfos.ObserveCountChanged().Subscribe(_ => LoadRewards());
+            _dataProxy.ClearNewDropNotification();
             LoadRewards();
         }
 

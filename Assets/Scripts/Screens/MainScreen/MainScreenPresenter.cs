@@ -39,6 +39,9 @@ namespace Screens.MainScreen
 
             _dataProxy.BottomNavigationAction.Subscribe(tuple => { ConfigureBySelectedTab(tuple.type, tuple.data); })
                 .AddTo(_disposables);
+            
+            _dataProxy.HasNewCollectedDrops.Subscribe(has => { _view.BottomNavigationBar.SetIsHasNewDrops(has); })
+                .AddTo(_disposables);
 
             _view.ConfigureView(_dataProxy.GetUserInfo());
 
