@@ -33,11 +33,11 @@ namespace Screens.FindDropZonesScreen
             _id = viewInfo.Id;
 
             zoneTitle.text = viewInfo.Name;
-            distanceToText.text = viewInfo.ReadableDistance;
+            distanceToText.text = "<b>" + viewInfo.ReadableDistance + "</b>";
             durationText.text = viewInfo.IsOngoing()
                 ? "^ongoing".GetTranslation()
                 : "^in_time".GetTranslation(TimeSpan.FromSeconds(viewInfo.GetTimeToStart()).ToReadableTimeSpan());
-            availableDropsText.text = viewInfo.Rewards.Count(it => !it.IsCollected).ToString();
+            availableDropsText.text = "^card_drops".GetTranslation(viewInfo.Rewards.Count(it => !it.IsCollected));
         }
 
         public void Dispose()

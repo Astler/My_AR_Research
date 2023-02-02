@@ -18,7 +18,7 @@ Lang Code	EN	UA	RU
 ^drop_details	Drop details		
 ^go_with_google_maps	Go with google maps		
 ^open_ar_map	Open ar map		
-^ongoing	Ongoing		
+^ongoing	<b>Ongoing</b>		
 ^in_time	In {0}		
 ^collect_drop	Collect drop		
 ^start_info	<color=#00FF38>STARTS:</color> {0}		
@@ -39,3 +39,4 @@ Lang Code	EN	UA	RU
 ^close_menu	Close menu		
 ^change_username_not_available	Username change is not available yet		
 ^logout_not_available	Logout is not available yet		
+^card_drops	<b>{0}</b> drops		

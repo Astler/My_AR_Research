@@ -66,8 +66,14 @@ namespace Screens.ArModeTab
 
             BeamData data = mannaBoxView.GetBeamData();
 
-            _dataProxy.TryToCollectBeam(data, () => { OnRewardClaimed(mannaBoxView, data, true); },
-                () => { OnRewardClaimed(mannaBoxView, data, false); });
+            _dataProxy.TryToCollectBeam(data, prizeData => { OnRewardClaimed(mannaBoxView, prizeData, true); },
+                () =>
+                {
+                    OnRewardClaimed(mannaBoxView, new PrizeData()
+                    {
+                        name = "Claimed!"
+                    }, false);
+                });
         }
 
         private void OnLostFocus()
@@ -118,9 +124,15 @@ namespace Screens.ArModeTab
 
                         BeamData data = mannaBoxView.GetBeamData();
 
-                        Debug.Log($"hit MannaBoxView");
-                        _dataProxy.TryToCollectBeam(data, () => { OnRewardClaimed(mannaBoxView, data, true); },
-                            () => { OnRewardClaimed(mannaBoxView, data, false); });
+                        _dataProxy.TryToCollectBeam(data,
+                            prizeData => { OnRewardClaimed(mannaBoxView, prizeData, true); },
+                            () =>
+                            {
+                                OnRewardClaimed(mannaBoxView, new PrizeData()
+                                {
+                                    name = "Claimed!"
+                                }, false);
+                            });
                     }
                 }
             }
@@ -137,7 +149,7 @@ namespace Screens.ArModeTab
             // Debug.Log("No hits. Clicked nowhere!!");
         }
 
-        private void OnRewardClaimed(MannaBoxView view, BeamData data, bool succeed)
+        private void OnRewardClaimed(MannaBoxView view, PrizeData data, bool succeed)
         {
             view.Interact();
             _screenNavigationSystem.ExecuteNavigationCommand(
@@ -145,8 +157,8 @@ namespace Screens.ArModeTab
                     .ShowNextScreen(succeed ? ScreenName.RewardClaimedScreen : ScreenName.RewardAlreadyClaimedScreen)
                     .WithExtraData(new RewardScreenViewInfo
                     {
-                        ItemName = data.Name,
-                        ImageUrl = data.Url
+                        ItemName = data.name,
+                        ImageUrl = data.image
                     }));
         }
 
