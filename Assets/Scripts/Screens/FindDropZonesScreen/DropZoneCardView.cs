@@ -33,9 +33,7 @@ namespace Screens.FindDropZonesScreen
             _id = viewInfo.Id;
 
             zoneTitle.text = viewInfo.Name;
-            distanceToText.text = viewInfo.OrderDistance * 1000 < viewInfo.Radius
-                ? "^in_zone".GetTranslation()
-                : "<b>" + viewInfo.ReadableDistance + "</b>";
+            SetDistance(viewInfo.OrderDistance, viewInfo.Radius);
             durationText.text = viewInfo.IsOngoing()
                 ? "^ongoing".GetTranslation()
                 : "^in_time".GetTranslation(TimeSpan.FromSeconds(viewInfo.GetTimeToStart()).ToReadableTimeSpan());
@@ -50,6 +48,13 @@ namespace Screens.FindDropZonesScreen
         private void Awake()
         {
             viewZoneInfo.onClick.AddListener(() => ViewZoneInfoClicked?.Invoke(_id));
+        }
+
+        public void SetDistance(double distance, double radius)
+        {
+            distanceToText.text = distance * 1000 < radius
+                ? "^in_zone".GetTranslation()
+                : "<b>" + distance.DistanceToHuman() + "</b>";
         }
     }
 }

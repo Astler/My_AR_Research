@@ -404,7 +404,6 @@
      <Compile Include="Assets/Mapbox/Examples/Scripts/HighlightFeature.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Examples/Scripts/UIBubblePopup.cs" />
      <Compile Include="Assets/ARLocation/Scripts/Components/ARLocationManager.cs" />
-     <Compile Include="Assets/Scripts/AR/World/GiftsPortalView.cs" />
      <Compile Include="Assets/MapboxAR/Scripts/Camera/ManualTouchCamera.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Modifiers/MeshModifier.cs" />
      <Compile Include="Assets/Mapbox/Unity/SourceLayers/AbstractLayer.cs" />
@@ -458,7 +457,6 @@
      <Compile Include="Assets/Mapbox/Examples/Scripts/LoadingPanelController.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/LayerVisualizers/LocationPrefabsLayerVisualizer.cs" />
      <Compile Include="Assets/Mapbox/Core/mapbox-sdk-cs/Geocoding/GeocodeResource.cs" />
-     <Compile Include="Assets/Scripts/Data/Objects/BeamData.cs" />
      <Compile Include="Assets/Infinity Code/Online maps/Scripts/Plugins/OnlineMapsLimits.cs" />
      <Compile Include="Assets/Mapbox/Examples/Scripts/ForwardGeocodeUserInput.cs" />
      <Compile Include="Assets/Mapbox/Unity/MeshGeneration/Data/KdTreeCollection.cs" />

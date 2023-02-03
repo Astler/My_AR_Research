@@ -30,16 +30,12 @@ namespace AR
         [SerializeField] private XROrigin xrOrigin;
         [SerializeField] private ARPlaneManager arPlaneManager;
 
-        private ARAnchorFollower _pointMe;
-        private readonly List<ARAnchorFollower> _anchors = new();
         private readonly List<MannaBoxView> _beams = new();
-        private readonly List<BeamData> _beamsData = new();
-        private ARAnchorFollower _zeroAnchor;
+        private readonly List<ARAnchorFollower> _anchors = new();
 
         private ARWorldCoordinator _coordinator;
         private IDataProxy _dataProxy;
         private ICameraView _arCameraView;
-        private int _beamsInThisSession;
         private IDisposable _zonesPlacer;
 
         [Inject]
@@ -53,38 +49,61 @@ namespace AR
 
         private void Start()
         {
-            _dataProxy.Clear.Subscribe(_ => Clear());
-
             if (Application.isEditor)
             {
-                _dataProxy.PlayerLocationChanged.Take(1).Subscribe(delegate(Vector2 position) { PlaceZonesByMap(); })
-                    .AddTo(this);
+                _dataProxy.DropZones.ObserveCountChanged().Subscribe(_ => PlaceZonesByMap()).AddTo(this);
             }
             else
             {
                 ARSession.stateChanged += OnStateChanged;
             }
 
-            _dataProxy.PlaceRewardBoxInsideZone.Subscribe(CreateNewReward).AddTo(this);
-            _dataProxy.RemoveRewardBox.Subscribe(RemoveReward).AddTo(this);
+            _dataProxy.ActiveBoxes.ObserveCountChanged().Subscribe(_ => TryToUpdateBoxes()).AddTo(this);
 
             _dataProxy.ActiveEventData
                 .CombineLatest(_dataProxy.ScannedArea, (data, scanned) => (data, scanned)).Subscribe(
-                    it =>
-                    {
-                        (EventData zoneData, float _) = it;
+                    _ => TryToUpdateBoxes()).AddTo(this);
+        }
 
-                        if (zoneData == null || !_dataProxy.IsRequestedAreaScanned())
-                        {
-                            Clear();
-                            return;
-                        }
+        private void TryToUpdateBoxes()
+        {
+            if (_dataProxy.ActiveEventData.Value == null)
+            {
+                Clear();
+                return;
+            }
 
-                        foreach (ActiveBoxData boxData in zoneData.active_boxes)
-                        {
-                            CreateNewReward(boxData);
-                        }
-                    }).AddTo(this);
+            if (!_dataProxy.IsRequestedAreaScanned())
+            {
+                return;
+            }
+
+            UpdateDropBoxes();
+        }
+
+        private void UpdateDropBoxes()
+        {
+            List<ActiveBoxData> activeBoxes = _dataProxy.ActiveBoxes.ToList();
+
+            foreach (MannaBoxView mannaBoxView in _beams.ToList())
+            {
+                ActiveBoxData correspondingBox = activeBoxes.FirstOrDefault(it => it.id == mannaBoxView.DropId);
+
+                if (correspondingBox == null)
+                {
+                    mannaBoxView.gameObject.Destroy();
+                    _beams.Remove(mannaBoxView);
+                }
+                else
+                {
+                    activeBoxes.Remove(correspondingBox);
+                }
+            }
+
+            foreach (ActiveBoxData activeBoxData in activeBoxes)
+            {
+                CreateNewDropBox(activeBoxData);
+            }
         }
 
         private void OnDestroy()
@@ -152,24 +171,24 @@ namespace AR
             }
         }
 
-        private void CreateNewReward(ActiveBoxData boxData)
+        private void CreateNewDropBox(ActiveBoxData boxData)
         {
             if (!_dataProxy.IsInsideEvent() || boxData == null) return;
 
             Vector3 playerPosition = _arCameraView.Transform.position;
-            Vector3 beamPosition = Random.insideUnitSphere *
-                                   float.Parse(boxData.point, CultureInfo.InvariantCulture.NumberFormat);
-            Vector3 objectPosition = playerPosition + beamPosition;
+            Vector3 shiftPosition = Random.insideUnitSphere *
+                                    float.Parse(boxData.point, CultureInfo.InvariantCulture.NumberFormat);
+            Vector3 dropPosition = playerPosition + shiftPosition;
 
-            IEnumerable<ARRaycastHit> planes = RaycastFallback(xrOrigin, arPlaneManager,
-                new Ray(new Vector3(beamPosition.x, 0f, beamPosition.y), Vector3.down),
-                TrackableType.PlaneWithinInfinity);
+            List<ARRaycastHit> planes = RaycastFallback(xrOrigin, arPlaneManager,
+                new Ray(new Vector3(shiftPosition.x, 0f, shiftPosition.y), Vector3.down),
+                TrackableType.PlaneWithinInfinity).ToList();
 
             if (!planes.Any())
             {
-                objectPosition.y = 0;
+                dropPosition.y = 0;
                 Debug.Log("no planes found!");
-                Debug.Log("leave beamPosition = " + objectPosition);
+                Debug.Log("leave beamPosition = " + dropPosition);
             }
             else
             {
@@ -178,99 +197,44 @@ namespace AR
                     Debug.Log("i found plane! " + arRaycastHit.pose.position);
                 }
 
-                objectPosition.y = planes.Last().pose.position.y;
-                Debug.Log("updated beamPosition = " + objectPosition);
+                dropPosition.y = planes.Last().pose.position.y;
+                Debug.Log("updated beamPosition = " + dropPosition);
             }
 
-            objectPosition.y -= 1;
-            _beamsInThisSession += 1;
+            dropPosition.y -= 1;
 
-            BeamData beamData = new()
+            PlaceDropBoxInWorld(boxData, dropPosition);
+        }
+
+        private void PlaceDropBoxInWorld(ActiveBoxData boxData, Vector3 position)
+        {
+            MannaBoxView mannaBox = Instantiate(beamPrefab, position, Quaternion.identity);
+
+            mannaBox.SetBeamData(boxData.id);
+
+            mannaBox.Interacted += collectable =>
             {
-                Position = objectPosition,
-                Name = "beam " + _beamsInThisSession,
-                Url = "",
-                Id = boxData.id
+                _dataProxy.RemoveFromAvailableBoxes(mannaBox.DropId);
+                _dataProxy.RemoveFromAvailableToCollectDrops(collectable);
             };
 
-            _beamsData.Add(beamData);
-
-            PlaceBeamsInWorld();
-        }
-
-        private void RemoveReward(ActiveBoxData boxData)
-        {
-            BeamData beamData = _beamsData.FirstOrDefault(it => it.Id == boxData.id);
-
-            if (beamData == null) return;
-
-            MannaBoxView beam = _beams.FirstOrDefault(it => it.GetBeamData() == beamData);
-
-            _beamsData.Remove(beamData);
-
-            Debug.Log("RemoveReward " + beamData.Id);
-
-            if (beam == null) return;
-
-            _beams.Remove(beam);
-            beam.gameObject.Destroy();
-        }
-
-        private void PlaceBeamsInWorld()
-        {
-            if (!_dataProxy.IsRequestedAreaScanned() && !Application.isEditor) return;
-
-            foreach (MannaBoxView arAnchorFollower in _beams)
+            mannaBox.CollectableStatusChanged += tuple =>
             {
-                arAnchorFollower.gameObject.Destroy();
-            }
+                (ICollectable collectable, bool canBeCollected) = tuple;
 
-            _beams.Clear();
-
-            _dataProxy.ClearAvailableDrops();
-
-            foreach (BeamData data in _beamsData)
-            {
-                MannaBoxView follower =
-                    Instantiate(beamPrefab, data.Position, Quaternion.identity);
-
-                follower.SetBeamData(data);
-                follower.SetBoxName(data.Name);
-
-                follower.Interacted += collectable =>
+                if (canBeCollected)
                 {
-                    foreach (BeamData beamData in _beamsData.ToList().Where(beamData => beamData.Id == data.Id))
-                    {
-                        _beamsData.Remove(beamData);
-                        _dataProxy.RemoveFromAvailableCollectables(collectable);
-                    }
-
-                    if (follower)
-                    {
-                        follower.gameObject.Destroy();
-                    }
-
-                    PlaceBeamsInWorld();
-                };
-
-                follower.CollectableStatusChanged += tuple =>
+                    _dataProxy.AddToAvailableToCollectDrops(collectable);
+                }
+                else
                 {
-                    (ICollectable collectable, bool canBeCollected) = tuple;
+                    _dataProxy.RemoveFromAvailableToCollectDrops(collectable);
+                }
+            };
 
-                    if (canBeCollected)
-                    {
-                        _dataProxy.AddToAvailableCollectables(collectable);
-                    }
-                    else
-                    {
-                        _dataProxy.RemoveFromAvailableCollectables(collectable);
-                    }
-                };
+            _beams.Add(mannaBox);
 
-                _beams.Add(follower);
-
-                Debug.Log("Placed " + data.Name + " at " + data.Position);
-            }
+            Debug.Log("Placed " + boxData.id + " at " + position);
         }
 
         private void Clear()
@@ -282,14 +246,12 @@ namespace AR
 
             _anchors.Clear();
 
-            foreach (MannaBoxView arAnchorFollower in _beams)
+            foreach (MannaBoxView mannaBoxView in _beams)
             {
-                arAnchorFollower.gameObject.Destroy();
+                mannaBoxView.gameObject.Destroy();
             }
 
             _beams.Clear();
-
-            _beamsData.Clear();
 
             ARLocationManager.Instance.Restart();
 
@@ -303,21 +265,16 @@ namespace AR
             Ray sessionSpaceRay = TransformExtensions.InverseTransformRay(trackablesParent, worldSpaceRay);
             NativeArray<XRRaycastHit> hits = planeManager.Raycast(sessionSpaceRay, trackableTypeMask, Allocator.Temp);
 
-            if (hits.IsCreated)
+            if (!hits.IsCreated) return Enumerable.Empty<ARRaycastHit>();
+
+            using (hits)
             {
-                using (hits)
+                return hits.OrderBy(_ => _.distance).Select(hit =>
                 {
-                    return hits.OrderBy(_ => _.distance).Select(hit =>
-                    {
-                        float distanceInWorldSpace = (hit.pose.position - worldSpaceRay.origin).magnitude;
-                        return new ARRaycastHit(hit, distanceInWorldSpace, trackablesParent,
-                            planeManager.GetPlane(hit.trackableId));
-                    });
-                }
-            }
-            else
-            {
-                return Enumerable.Empty<ARRaycastHit>();
+                    float distanceInWorldSpace = (hit.pose.position - worldSpaceRay.origin).magnitude;
+                    return new ARRaycastHit(hit, distanceInWorldSpace, trackablesParent,
+                        planeManager.GetPlane(hit.trackableId));
+                });
             }
         }
     }

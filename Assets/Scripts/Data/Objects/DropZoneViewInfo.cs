@@ -7,7 +7,6 @@ namespace Data.Objects
     public class DropZoneViewInfo
     {
         public string Name;
-        public string ReadableDistance;
         public double OrderDistance;
         public float Radius;
         public Vector2 Coordinates;

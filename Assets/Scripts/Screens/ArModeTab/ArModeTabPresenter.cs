@@ -44,7 +44,7 @@ namespace Screens.ArModeTab
             _dataProxy.AvailableGifts.Subscribe(_view.SetAvailableRewards).AddTo(_compositeDisposable);
             _dataProxy.TimeToNextGift.Subscribe(_view.SetTimeToNextDrop).AddTo(_compositeDisposable);
 
-            _dataProxy.EnteredPortalZone.Subscribe(zone => { _view.SetDropZoneName(zone?.Name); })
+            _dataProxy.ActiveEventData.Subscribe(zone => { _view.SetDropZoneName(zone?.title); })
                 .AddTo(_compositeDisposable);
 
             _dataProxy.AvailableCollectables.ObserveCountChanged().Subscribe(size =>
@@ -64,11 +64,11 @@ namespace Screens.ArModeTab
 
             if (view is not MannaBoxView mannaBoxView) return;
 
-            BeamData data = mannaBoxView.GetBeamData();
+            int id = mannaBoxView.DropId;
 
             view.Interact();
-            _dataProxy.RemoveFromAvailableCollectables(view);
-            _dataProxy.TryToCollectBeam(data, prizeData => { OnRewardClaimed(prizeData, true); },
+            _dataProxy.RemoveFromAvailableToCollectDrops(view);
+            _dataProxy.TryToCollectBeam(id, prizeData => { OnRewardClaimed(prizeData, true); },
                 () =>
                 {
                     OnRewardClaimed(new PrizeData()
@@ -124,11 +124,11 @@ namespace Screens.ArModeTab
 
                         if (beam is not MannaBoxView mannaBoxView) continue;
 
-                        BeamData data = mannaBoxView.GetBeamData();
+                        int id = mannaBoxView.DropId;
 
                         mannaBoxView.Interact();
-                        _dataProxy.RemoveFromAvailableCollectables(mannaBoxView);
-                        _dataProxy.TryToCollectBeam(data,
+                        _dataProxy.RemoveFromAvailableToCollectDrops(mannaBoxView);
+                        _dataProxy.TryToCollectBeam(id,
                             prizeData => { OnRewardClaimed(prizeData, true); },
                             () =>
                             {

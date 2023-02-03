@@ -3,135 +3,57 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.ms.manna_drops",
-        "processId": 7566,
+        "processId": 21366,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "8B8X15GYE",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 2941,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "idler.rocket.building.manager",
-            "processId": 7933,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 16382,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 17017,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 23838,
-            "exited": true
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 25169,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 14262,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 19921,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 20425,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 1838,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 3138,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 4358,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 12207,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 14132,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 15501,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 18054,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 23062,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
-            "name": "com.ms.manna_drops",
-            "processId": 4334,
-            "exited": false
-        },
-        {
-            "deviceId": "8B8X15GYE",
             "name": "com.ms.manna_drops",
             "processId": 5376,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.manna_drops",
             "processId": 6251,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "8B8X15GYE",
             "name": "com.ms.manna_drops",
             "processId": 7566,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 8679,
+            "exited": true
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 2820,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 18343,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 19580,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 21366,
             "exited": false
         },
         {

@@ -90,22 +90,22 @@ namespace Geo
             if (Application.isEditor)
             {
                 _dataProxy.SetActivePortalZone(_dataProxy.GetAllActiveZones()
-                    .FirstOrDefault(it => it.Name == "MS Test"));
+                    .FirstOrDefault(it => it.Name == "MS"));
                 return;
             }
 
             Vector2 playerPosition = _dataProxy.GetPlayerPosition();
 
             Dictionary<DropZoneViewInfo, double> distances = new();
-
-            string zonesInfo = "";
-
-            foreach (DropZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones().ToList())
+            
+            foreach (DropZoneViewInfo portalZoneModel in _dataProxy.GetAllActiveZones().Where(it => it.IsOngoing())
+                         .ToList())
             {
                 double distance = CoordinatesUtils.Distance(playerPosition.x,
                     playerPosition.y,
                     portalZoneModel.Coordinates.x,
                     portalZoneModel.Coordinates.y);
+
                 distances.Add(portalZoneModel, distance);
             }
 
@@ -121,22 +121,6 @@ namespace Geo
             }
 
             _dataProxy.SetActivePortalZone(null);
-
-            List<KeyValuePair<DropZoneViewInfo, double>> nearZones =
-                distances.OrderBy(it => it.Value).ToList();
-
-            _dataProxy.SetNearestPortalZone(nearZones.FirstOrDefault().Key);
-
-            for (int i = 0; i < (nearZones.Count > 5 ? 5 : nearZones.Count); i++)
-            {
-                KeyValuePair<DropZoneViewInfo, double> zoneData = nearZones[i];
-
-                zonesInfo += (zonesInfo.Length == 0 ? "" : "\n") + zoneData.Key.Name + " " +
-                             zoneData.Key.Coordinates.ToHumanReadableDistanceFromPlayer(_dataProxy.GetPlayerPosition());
-            }
-
-            //TODO Restore
-            // locationInfoView.ShowAllZones($"Nearest zones:\n{zonesInfo}");
         }
     }
 }

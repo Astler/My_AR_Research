@@ -158,8 +158,9 @@ namespace Screens.MainScreen
 
         private void OnNearestPortalClicked()
         {
-            Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;
-            OnlineMaps.instance.position = new Vector2(target.y, target.x);
+            Debug.Log("removed for now..");
+            // Vector2 target = _dataProxy.NearestPortalZone.Value.Coordinates;
+            // OnlineMaps.instance.position = new Vector2(target.y, target.x);
         }
     }
 }

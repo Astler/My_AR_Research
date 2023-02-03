@@ -70,6 +70,18 @@ namespace Utils
                     duration += ", ";
                 }
                 duration += totalMinutes + " m";
+                value = value.Add(TimeSpan.FromMinutes(-1 * totalMinutes));
+            }
+
+            int totalSeconds = (int)value.TotalSeconds;
+            
+            if (totalSeconds >= 1)
+            {
+                if (totalMinutes >= 1)
+                {
+                    duration += ", ";
+                }
+                duration += totalSeconds + " s";
             }
 
             return duration;

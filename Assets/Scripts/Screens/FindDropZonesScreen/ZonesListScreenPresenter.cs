@@ -6,6 +6,7 @@ using Screens.Factories;
 using Screens.MainScreen;
 using UniRx;
 using UnityEngine;
+using Utils;
 using CameraType = GameCamera.CameraType;
 
 namespace Screens.FindDropZonesScreen
@@ -21,6 +22,7 @@ namespace Screens.FindDropZonesScreen
         private IDisposable _scanningProgress;
 
         private FindTabType _selectedTab = FindTabType.Map;
+        private IDisposable _cardsUpdateTimer;
 
         public ZonesListScreenPresenter(IZonesListScreenView view, IDataProxy dataProxy,
             DropZonesCardsFactory dropZonesCardsFactory,
@@ -45,7 +47,7 @@ namespace Screens.FindDropZonesScreen
             _view.LaunchArClicked += OnLaunchArClicked;
             _view.SelectedZoneAboutClicked += OnSelectedZoneAboutClicked;
 
-            _dataProxy.EnteredPortalZone.Subscribe(zone => { _view.SetDropZoneName(zone?.Name); });
+            _dataProxy.ActiveEventData.Subscribe(zone => { _view.SetDropZoneName(zone?.title); });
 
             _dataProxy.SelectedOnMapDropZoneId.Subscribe(id =>
             {
@@ -82,9 +84,10 @@ namespace Screens.FindDropZonesScreen
         }
 
         private void OnLostFocus() { }
-        
+
         private void OnClose()
         {
+            _cardsUpdateTimer?.Dispose();
             _dataProxy.SetIsMapOpened(false);
             _dataProxy.SetActiveCamera(CameraType.Disabled);
         }
@@ -108,9 +111,12 @@ namespace Screens.FindDropZonesScreen
                         new Vector2(selectedZoneInfo.Coordinates.y, selectedZoneInfo.Coordinates.x);
                 }
             }
-            
-            ConfigureBySelectedTab();
 
+            ConfigureBySelectedTab();
+        }
+
+        private void UpdateCards()
+        {
             foreach (DropZoneCardView portalCardView in _zonesList)
             {
                 portalCardView.Dispose();
@@ -121,6 +127,15 @@ namespace Screens.FindDropZonesScreen
             foreach (DropZoneViewInfo dropZoneViewInfo in _dataProxy.GetAllActiveZones())
             {
                 DropZoneCardView card = _dropZonesCardsFactory.Create(dropZoneViewInfo);
+
+                _dataProxy.PlayerLocationChanged.Subscribe(playerPosition =>
+                {
+                    card.SetDistance(CoordinatesUtils.Distance(playerPosition.x,
+                        playerPosition.y,
+                        dropZoneViewInfo.Coordinates.x,
+                        dropZoneViewInfo.Coordinates.y), dropZoneViewInfo.Radius);
+                }).AddTo(card);
+
                 card.transform.SetParent(_view.CardsParent);
                 card.transform.SetAsLastSibling();
                 card.ViewZoneInfoClicked += OnViewZoneInfoClicked;
@@ -134,6 +149,13 @@ namespace Screens.FindDropZonesScreen
             _view.TabBar.SetSelectedTab(_selectedTab);
             _dataProxy.SetIsMapOpened(_selectedTab == FindTabType.Map);
             _view.ShowContentByTab(_selectedTab);
+
+            _cardsUpdateTimer?.Dispose();
+
+            if (_selectedTab != FindTabType.List) return;
+
+            UpdateCards();
+            _cardsUpdateTimer = Observable.Interval(TimeSpan.FromSeconds(1f)).Subscribe(_ => { UpdateCards(); });
         }
 
         private void OnViewZoneInfoClicked(int zoneId)
