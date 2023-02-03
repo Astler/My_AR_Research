@@ -49,6 +49,11 @@ namespace Pointers
         public void RemoveTarget(IPointerTarget pointerTarget)
         {
             _targets.Remove(pointerTarget);
+            
+            if (_currentPointer.Value == pointerTarget)
+            {
+                _currentPointer.Value = null;
+            }
         }
 
         [CanBeNull]

@@ -227,6 +227,8 @@ namespace AR
 
             _beams.Clear();
 
+            _dataProxy.ClearAvailableDrops();
+
             foreach (BeamData data in _beamsData)
             {
                 MannaBoxView follower =

@@ -12,6 +12,7 @@ namespace Pointers
     {
         private Transform _transform;
         private Transform _cameraTransform;
+        private Transform CameraTransform => _cameraTransform ??= Camera.main?.transform;
         private IPointerTarget _target;
 
         #region IDropLocationDirectionPointer
@@ -32,9 +33,9 @@ namespace Pointers
         {
             Quaternion targetRotation = Quaternion.LookRotation(
                                             targetPosition - myPosition) *
-                                        Quaternion.Inverse(Quaternion.Euler(new Vector3(0f,
-                                            cameraTransformRotation.eulerAngles.y, 0f)));
-            _transform.rotation = Quaternion.Euler(new Vector3(0f, targetRotation.eulerAngles.y, 0f));
+                                        Quaternion.Inverse(Quaternion.Euler(new Vector3(cameraTransformRotation.eulerAngles.x,
+                                            cameraTransformRotation.eulerAngles.y, -cameraTransformRotation.eulerAngles.z)));
+            _transform.rotation = targetRotation;
         }
 
         #region Unity Events
@@ -42,18 +43,12 @@ namespace Pointers
         private void Awake()
         {
             _transform = transform;
-
-            Camera mainCamera = Camera.main;
-
-            if (!mainCamera) return;
-
-            _cameraTransform = mainCamera.transform;
         }
 
         private void Update()
         {
-            if (_target == null || !_cameraTransform) return;
-            SetRotation(_cameraTransform.position, _target.Transform.position, _cameraTransform.rotation);
+            if (_target == null || !CameraTransform || !_target.IsActive) return;
+            SetRotation(CameraTransform.position, _target.Transform.position, _cameraTransform.rotation);
         }
 
         #endregion

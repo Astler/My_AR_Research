@@ -7,6 +7,7 @@ namespace Pointers
     {
         TargetType TargetType { get; }
         Transform Transform { get; }
+        bool IsActive { get; }
 
         Vector3 GetPosition();
     }
@@ -19,6 +20,7 @@ namespace Pointers
         private Transform _transform;
 
         public Transform Transform => _transform;
+        public bool IsActive => gameObject.activeSelf;
 
         [Inject]
         public void Construct(IPointersController pointersController)

@@ -13,7 +13,7 @@ namespace AR.World.Collectable
         private bool _isInsidePlayerARCollider;
         private Action _action;
 
-        public Camera Camera => _camera;
+        public Camera Camera => _camera ??= Camera.main;
         public Transform Transform => _transform;
 
         public event Action<ICollectable> Interacted;
@@ -51,7 +51,7 @@ namespace AR.World.Collectable
             bool collectable =
                 Vector3.Distance(Camera.transform.position, _transform.position) <= interactionDistance ||
                 _isInsidePlayerARCollider;
-            
+
             outline.enabled = collectable;
 
             CollectableStatusChanged?.Invoke((this, collectable));
@@ -63,7 +63,6 @@ namespace AR.World.Collectable
 
         private void Awake()
         {
-            _camera = Camera.main;
             _transform = transform;
         }
     }

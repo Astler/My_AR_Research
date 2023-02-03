@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "8B8X15GYE",
         "name": "com.ms.manna_drops",
-        "processId": 15501,
+        "processId": 7566,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -96,6 +96,42 @@
             "deviceId": "8B8X15GYE",
             "name": "com.ms.manna_drops",
             "processId": 15501,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 18054,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 23062,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 4334,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 5376,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 6251,
+            "exited": false
+        },
+        {
+            "deviceId": "8B8X15GYE",
+            "name": "com.ms.manna_drops",
+            "processId": 7566,
             "exited": false
         },
         {

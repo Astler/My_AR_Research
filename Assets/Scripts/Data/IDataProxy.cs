@@ -69,5 +69,6 @@ namespace Data
         void SetScannedArea(float totalArea);
         void AddToAvailableCollectables(ICollectable collectable);
         void RemoveFromAvailableCollectables(ICollectable collectable);
+        void ClearAvailableDrops();
     }
 }

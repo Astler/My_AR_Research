@@ -142,6 +142,11 @@ namespace Data
             _collectables.Remove(collectable);
         }
 
+        public void ClearAvailableDrops()
+        {
+            _collectables.Clear();
+        }
+
         public bool IsRequestedAreaScanned() => _scannedArea.Value >= 1;
 
         public MainScreenViewInfo GetUserInfo() => new()

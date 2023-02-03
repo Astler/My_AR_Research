@@ -318,6 +318,8 @@ namespace ARLocation
 
         private void RemoveLocationProviderListeners()
         {
+            if (!locationProvider) return;
+            
             locationProvider.OnLocationUpdatedDelegate -= locationUpdatedHandler;
             locationProvider.OnRestartDelegate -= ProviderRestarted;
         }
