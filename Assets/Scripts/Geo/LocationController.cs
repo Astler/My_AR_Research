@@ -90,7 +90,7 @@ namespace Geo
             if (Application.isEditor)
             {
                 _dataProxy.SetActivePortalZone(_dataProxy.GetAllActiveZones()
-                    .FirstOrDefault(it => it.Name == "MS"));
+                    .FirstOrDefault(it => it.Name == "MS#"));
                 return;
             }
 

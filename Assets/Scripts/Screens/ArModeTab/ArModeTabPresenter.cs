@@ -66,16 +66,18 @@ namespace Screens.ArModeTab
 
             int id = mannaBoxView.DropId;
 
-            view.Interact();
-            _dataProxy.RemoveFromAvailableToCollectDrops(view);
-            _dataProxy.TryToCollectBeam(id, prizeData => { OnRewardClaimed(prizeData, true); },
-                () =>
-                {
-                    OnRewardClaimed(new PrizeData()
+            view.Interact(() =>
+            {
+                _dataProxy.RemoveFromAvailableToCollectDrops(view);
+                _dataProxy.TryToCollectBeam(id, prizeData => { OnRewardClaimed(prizeData, true); },
+                    () =>
                     {
-                        name = "Claimed!"
-                    }, false);
-                });
+                        OnRewardClaimed(new PrizeData()
+                        {
+                            name = "Claimed!"
+                        }, false);
+                    });
+            });
         }
 
         private void OnLostFocus()
@@ -118,7 +120,7 @@ namespace Screens.ArModeTab
                     {
                         Debug.Log($"hit ICollectable");
 
-                        bool collectable = beam.IsCanBeCollected(cameraView.GetPosition());
+                        bool collectable = beam.CheckCanBeCollected(cameraView.GetPosition());
 
                         if (!collectable) continue;
 
@@ -126,17 +128,18 @@ namespace Screens.ArModeTab
 
                         int id = mannaBoxView.DropId;
 
-                        mannaBoxView.Interact();
-                        _dataProxy.RemoveFromAvailableToCollectDrops(mannaBoxView);
-                        _dataProxy.TryToCollectBeam(id,
-                            prizeData => { OnRewardClaimed(prizeData, true); },
-                            () =>
-                            {
-                                OnRewardClaimed(new PrizeData()
+                        mannaBoxView.Interact(() =>
+                        {
+                            _dataProxy.RemoveFromAvailableToCollectDrops(mannaBoxView);
+                            _dataProxy.TryToCollectBeam(id, prizeData => { OnRewardClaimed(prizeData, true); },
+                                () =>
                                 {
-                                    name = "Claimed!"
-                                }, false);
-                            });
+                                    OnRewardClaimed(new PrizeData()
+                                    {
+                                        name = "Claimed!"
+                                    }, false);
+                                });
+                        });
                     }
                 }
             }
